@@ -94,8 +94,7 @@ class Feeder implements Runnable {
 
 		} catch (Exception e) {
 			log.error e
-			grailsApplication.mainContext.feedService.exitValue(feed.id, exitValue, "${e.getMessage()}\n ${e.stackTraceLines.join("\n")}")
-			output.delete()
+			grailsApplication.mainContext.feedService.exitValue(feed.id, exitValue, "${e.getMessage()}\n ${e.getCause()}")
 		} finally {
 			error.delete()
 		}

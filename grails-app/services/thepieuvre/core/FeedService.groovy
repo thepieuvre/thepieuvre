@@ -18,12 +18,12 @@ class FeedService {
 		if (feed.lastStatus != 304) {
 			log.info "Updating info of feed $feed"
 			feed.lastUpdated = new Date()
-			feed.standard = json.standard
-			feed.title = json.title
-			feed.description =  json.description
-			feed.language = json.language
-			feed.updated = json.updated
-			feed.modified = json.modified
+			feed.standard = (json.standard != 'null')?json.standard:feed.standard
+			feed.title = (json.title != 'null')?json.title:feed.title
+			feed.description =  (json.description != 'null')?json.description:feed.description
+			feed.language = (json.language != 'null')?json.language:feed.language
+			feed.updated = (json.updated != 'null')?json.updated:feed.updated
+			feed.modified = (json.modified != 'null')?json.modified:feed.modified
 
 			json.articles.each { entry ->
 				if (! Article.findByLink(entry.link)) {

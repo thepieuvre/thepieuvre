@@ -15,8 +15,8 @@ class Article {
 	static belongsTo = [ feed: Feed ]
 
 	static constraints = {
-		link url: true
-		uid maxSize: 1024
+		link url: true, maxSize: 1024
+		uid maxSize: 1024 
 	}
 
 	String toString() {

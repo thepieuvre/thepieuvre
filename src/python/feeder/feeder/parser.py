@@ -1,6 +1,8 @@
 import feedparser
-import json
 
+def escaping(str):
+	return str.replace('\\','\\\\').replace('"','\\"').replace('\n','')
+	
 def get(url, id, etag, modified):
 	data = feedparser.parse(url, etag=etag, modified=modified)
 	print '{'
@@ -22,16 +24,16 @@ def get(url, id, etag, modified):
 		print ('{ "title": "%s",' % (article.get('title', 'null').replace('"','\\"'))).encode('utf-8')
 		print ('"link": "%s",' % (article.get('link', 'null'))).encode('utf-8')
 		print '"contents": ['
-		if article.description:
-			print ('"%s"' % article.get('description', 'null').replace('"','\\"').replace('\n','')).encode('utf-8')
-		else:
+		if article.get('content'):
 			contentSize = len(article.content)
 			contentCounter = 0
 			for content in article.content:
 				contentCounter = contentCounter + 1
-				print ('"%s"' % content.get('value', 'null').replace('"','\\"').replace('\n','')).encode('utf-8')
+				print '"%s"' %escaping(content.get('value', 'null').encode('utf-8'))
 				if contentCounter != contentSize:
 					print ','
+		elif article.get('summary_detail'):
+			print '"%s"' %escaping(article.summary_detail.get('value', 'null').encode('utf-8'))
 		print '],'
 		print ('"published": "%s",' % (article.get('published', 'null'))).encode('utf-8')
 		print ('"id": "%s" }' % (article.get('id', 'null'))).encode('utf-8')

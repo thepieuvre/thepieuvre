@@ -1,4 +1,6 @@
+.DS_Store
 *.log
+*.pyc
 target/classes/
 thepieuvre.sublime-project
 thepieuvre.sublime-workspace
