@@ -7,6 +7,6 @@ class Content {
 	static belongsTo = [ article: Article ]
 
 	static constraints = {
-		raw maxSize: 16384
+		raw maxSize: 262144
 	}
 }

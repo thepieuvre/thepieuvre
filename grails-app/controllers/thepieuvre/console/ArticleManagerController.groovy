@@ -7,6 +7,8 @@ import grails.plugins.springsecurity.Secured
 @Secured(['ROLE_FEED_MANAGER'])
 class ArticleManagerController {
 
+	def markdownService
+
 	private def withArticle(id='id', Closure c) {
 		Article article = Article.get(params[id])
 		if (article) {
@@ -51,7 +53,7 @@ class ArticleManagerController {
 
 	def show(long id) {
 		withArticle { article ->
-			return ['article': article]
+			return ['article': article, 'markdownService':markdownService]
 		}
 	}
 

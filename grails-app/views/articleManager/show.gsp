@@ -20,8 +20,10 @@
 	
 <h3>Contents</h3>
 <g:each var="content" in="${article.contents}">
-	<h4>RAW</h4>
-	<span>${content.raw}</span>
+	<h4>Raw</h4>
+	<div class="well">
+	${content.raw}
+	</div>
 </g:each>
 
 <h3>Information</h3>
