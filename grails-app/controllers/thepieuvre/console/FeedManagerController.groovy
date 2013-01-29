@@ -46,6 +46,9 @@ class FeedManagerController {
 			if (params.link) {
 				and { ilike "link", "%${params.link}%" }
 			}
+			if (params.active) {
+				and { eq "active", (params.active == 'on')?true:false }
+			}
 			if (params.sort) {
 				and { order "$params.sort", "$params.order" }
 			}

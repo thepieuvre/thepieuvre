@@ -31,14 +31,18 @@
 		<g:textField name="max" value="${(params.max)?:50}" class="span12" />
 	</div>
 	<div class="span2">
+		<label for="active">Active Only</label>
+		<g:checkBox name="active" value="${(params.active == 'on')?true:false}" />
+	</div>
+	<div class="span2">
 		<div class="go pull-right">
 			<g:submitButton name="filter" value="Filter" class="btn btn-primary" />
 			<g:actionSubmit action="resetForm" name="resetForm" value="Reset" class="btn btn-small" />
 		</div>
 	</div>
 	</g:form>
-	<small>Number of feeds: ${results.size()} of ${countedFeeds}</small>
 </div>
+<small>Number of feeds: ${results.size()} of ${countedFeeds}</small>
 
 <div class="row-fluid">
 	<div class="label label-info">
@@ -55,6 +59,7 @@
 				<g:sortableColumn property="description" params="${filterParams}" title="Description" />
 				<g:sortableColumn property="updated" params="${filterParams}" title="Updated on" />
 				<g:sortableColumn property="lastStatus" params="${filterParams}" title="Status" />
+				<g:sortableColumn property="active" params="${filterParams}" title="Active" />
 			</tr>
 		</thead>
 		<tbody>
@@ -66,15 +71,10 @@
 					<td>
 						<g:link action="show" id="${feed.id}">${feed.link}</g:link>
 					</td>
-					<td>
-						${feed.description}
-					</td>
-					<td>
-						${feed.updated}
-					</td>
-					<td>
-						${feed.lastStatus}
-					</td>
+					<td>${feed.description}</td>
+					<td>${feed.updated}</td>
+					<td>${feed.lastStatus}</td>
+					<td>${feed.active}</td>
 				</tr>
 			</g:each>
 		</tbody>
