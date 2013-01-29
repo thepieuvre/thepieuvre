@@ -26,7 +26,8 @@ class FeedService {
 			feed.modified = (json.modified != 'null')?json.modified:feed.modified
 
 			json.articles.each { entry ->
-				if (! Article.findByLink(entry.link)) {
+				Article previous = Article.findByLink(entry.link)
+				if (! previous ||  previous.title != entry.title ) {
 					Article article = new Article()
 					article.feed = feed
 					article.uid = entry.id
