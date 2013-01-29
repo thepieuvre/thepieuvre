@@ -115,6 +115,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/api/**': ['IS_AUTHENTICATED_FULLY'],
     '/console/**': ['ROLE_ROOT'],
     '/monitoring/**': ['ROLE_ROOT'],
+    '/dbconsole/**': ['ROLE_ROOT'],
     '/': ['IS_AUTHENTICATED_FULLY'],
     '/**': ['denyAll']
 ]
