@@ -16,7 +16,8 @@ class FeedBootStrap {
 			'http://www.nytimes.com/services/xml/rss/nyt/Technology.xml',
 			'http://rss.slashdot.org/Slashdot/slashdot',
 			'http://feeds.feedburner.com/TechCrunch/',
-			'http://news.ycombinator.com/rss'
+			'http://news.ycombinator.com/rss',
+			'http://feeds.wired.com/wired/index'
 		]
 
 		links.each { link ->
