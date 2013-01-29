@@ -45,6 +45,9 @@ class ArticleManagerController {
 			if (params.link) {
 				and { ilike "link", "%${params.link}%" }
 			}
+			if (params.feed) {
+				and { feed { ilike "title", "%${params.feed}%"}}
+			}
 			if (params.sort) {
 				and { order "$params.sort", "$params.order" }
 			}
