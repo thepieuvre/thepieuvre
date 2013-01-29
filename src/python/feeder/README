@@ -6,5 +6,3 @@ Dependancies
  * feedparser python library
  * Java > 1.7
  * Grails 2.1.1
- * pandoc 1.9.4.2
- * pyandoc 0.0.1 as a lib... no external
