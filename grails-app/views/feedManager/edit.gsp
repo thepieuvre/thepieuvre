@@ -50,6 +50,12 @@
 				<g:checkBox name="active" value="${active}" checked="${(active)?'true':'false'}" />
 			</div>
 		</div>
+		<div class="control-group">
+			<label for="global" class="control-label">Is Global</label>
+			<div class="controls">
+				<g:select name="global" class="span2" from="${thepieuvre.core.FeedGlobalEnum}" value="${params.global}"/>
+			</div>
+		</div>
 		<div class="form-actions">
 			<input type="submit" name="update" class="btn btn-primary" value="Save" id="update" />
 		</div>

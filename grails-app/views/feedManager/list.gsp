@@ -35,6 +35,11 @@
 		<g:checkBox name="active" value="${(params.active == 'on')?true:false}" />
 	</div>
 	<div class="span2">
+		<label for="global">Global</label>
+		<g:select name="global" class="span12" from="${thepieuvre.core.FeedGlobalEnum}" value="${params.global}"
+          noSelection="['':'-All-']"/>
+    </div>
+	<div class="span2">
 		<div class="go pull-right">
 			<g:submitButton name="filter" value="Filter" class="btn btn-primary" />
 			<g:actionSubmit action="resetForm" name="resetForm" value="Reset" class="btn btn-small" />

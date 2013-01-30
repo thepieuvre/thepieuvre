@@ -17,7 +17,9 @@
 
 <h2>Feed: ${feed.title}</h2>
 	
-<p>Active: ${feed.active}</p>	
+<p>Active: ${feed.active}</p>
+
+<p>Global: ${feed.global}</p>		
 
 <h3>Information</h3>
 <table class="table table-striped">

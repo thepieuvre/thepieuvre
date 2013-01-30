@@ -22,6 +22,8 @@ class Feed {
 
 	String lastError
 
+	FeedGlobalEnum global = FeedGlobalEnum.NOT_CHECKED
+
 	static constraints = {
 		link url: true, nullable: false, blank: false, unique: true
 		comment nullable: true, blank: false, maxSize: 4096

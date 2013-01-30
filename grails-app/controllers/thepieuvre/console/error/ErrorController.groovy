@@ -25,7 +25,7 @@ class ErrorController {
 			message = (cause.errors)?cause.errors.allErrors[0]:cause.getMessage()
 		}
 
-		log.warn "Error: ${request['user']?.username} - $requestUri - $status - $message - $params - ${request.getAttribute("javax.servlet.error.status_code")}: ${cause}", request.exception
+		log.warn "Error: ${request['user']} - $requestUri - $status - $message - $params - ${request.getAttribute("javax.servlet.error.status_code")}: ${cause}", request.exception
 
 		rendering(status, message, params)
 		return true

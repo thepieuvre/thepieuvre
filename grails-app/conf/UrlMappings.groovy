@@ -9,7 +9,9 @@ class UrlMappings {
 
 		"/api/feed/$id?" (resource: "feed")
 
-		"/"(view:"/index")
+		"/"(controller:"welcome")
+
+		"/admin"(view:"/admin")
 
 		"500"(controller: 'error', action: 'internal')
 		"400"(controller: 'error', action: 'badRequest')
