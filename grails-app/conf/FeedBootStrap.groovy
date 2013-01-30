@@ -17,7 +17,8 @@ class FeedBootStrap {
 			'http://rss.slashdot.org/Slashdot/slashdot',
 			'http://feeds.feedburner.com/TechCrunch/',
 			'http://news.ycombinator.com/rss',
-			'http://feeds.wired.com/wired/index'
+			'http://feeds.wired.com/wired/index',
+			'http://feed.dilbert.com/dilbert/daily_strip'
 		]
 
 		links.each { link ->
