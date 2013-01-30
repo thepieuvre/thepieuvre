@@ -1,5 +1,6 @@
 
 import thepieuvre.core.Feed
+import thepieuvre.core.FeedGlobalEnum
 
 class FeedBootStrap {
 
@@ -22,7 +23,7 @@ class FeedBootStrap {
 		]
 
 		links.each { link ->
-			Feed feed = new Feed(link: link)
+			Feed feed = new Feed(link: link, global: FeedGlobalEnum.GLOBAL)
 			if (! feed.save(failOnError: true, flush: true)) {
 				println feed.errors
 			}

@@ -2,6 +2,7 @@ package thepieuvre.console
 
 import thepieuvre.core.Feed
 import thepieuvre.core.FeedCommand
+import thepieuvre.core.FeedGlobalEnum
 
 import grails.plugins.springsecurity.Secured
 
@@ -49,6 +50,9 @@ class FeedManagerController {
 			if (params.active) {
 				and { eq "active", (params.active == 'on')?true:false }
 			}
+			if (params.global) {
+				and { eq "global", FeedGlobalEnum.fromString(params.global) }
+			}
 			if (params.sort) {
 				and { order "$params.sort", "$params.order" }
 			}
@@ -78,12 +82,13 @@ class FeedManagerController {
 		// Just the view
 	}
 
-	def update(long id, FeedCommand cmd, String active) {
+	def update(long id, FeedCommand cmd, String active, String global) {
 		withFeed { feed ->
 			if (cmd.validate()) {
 				feed.link = cmd.link
 				feed.comment = cmd.comment
 				feed.active = (active == 'on')?true:false
+				feed.global = FeedGlobalEnum.fromString(global)
 			} else {
 				render view: 'edit', model: ['feed': cmd], params: params
 			}
@@ -98,6 +103,7 @@ class FeedManagerController {
 				'link': feed.link,
 				'comment': feed.comment,
 				'active': feed.active,
+				'global': feed.global,
 				'title': feed.title,
 				'id': feed.id
 			]
