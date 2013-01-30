@@ -23,6 +23,7 @@
          			<span class="icon-bar"></span>
        			</a>
        			<a class="brand" href="${resource(dir:'/')}">The Pieuvre</a>
+            <span class="label label-info">in Alpha</span>
                 <sec:ifLoggedIn>
 
                 <ul class="nav">
