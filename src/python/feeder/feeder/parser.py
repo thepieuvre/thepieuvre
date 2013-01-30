@@ -4,7 +4,7 @@ def escaping(str):
 	return str.replace('\\','\\\\').replace('"','\\"').replace('\n','')
 	
 def get(url, id, etag, modified):
-	data = feedparser.parse(url, etag=etag, modified=modified)
+	data = feedparser.parse(url, etag=etag, modified=modified, agent='The Pieuvre/1.0 +http://www.thepieuvre.com/', referrer='http://www.thepieuvre.com/')
 	print '{'
 	print ('"title": "%s",'% (data.feed.get('title', 'null'))).encode('utf-8')
 	print ('"description": "%s",'% (data.feed.get('description', 'null'))).encode('utf-8')
