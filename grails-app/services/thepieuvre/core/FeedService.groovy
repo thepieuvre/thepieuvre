@@ -67,6 +67,6 @@ class FeedService {
 		feed.lastChecked = new Date()
 		feed.lastStatus = exit
 		feed.lastError = error
-		feed.active = false
+		feed.active = (exit==0)?true:false
 	}
 }
