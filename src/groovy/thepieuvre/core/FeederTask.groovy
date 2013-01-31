@@ -12,7 +12,7 @@ class FeederTask extends TimerTask {
 	private static final Logger log = Logger.getLogger(FeederTask.class)
 
 	private static workers = new ThreadPoolExecutor(3, 
-		20, 31415, TimeUnit.MILLISECONDS,
+		20, 62830, TimeUnit.MILLISECONDS,
 		new ArrayBlockingQueue<Feeder>(11))
 
  	def grailsApplication
