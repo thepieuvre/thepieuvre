@@ -8,6 +8,28 @@ class FeedService {
 
 	static transactional = true
 
+	private static def counter = [:]
+
+	private def parseTitle(def taggedTokens, Article article) {
+		def l = []
+		// TODO ntlk chunk? tag is not enought
+		// TODO smart data structure for grouping...
+		taggedTokens.each { word, tag ->
+			if (tag in ['NNP']) {
+				l << word.toLowerCase()
+			}
+		}
+
+		l.each {
+			if(counter[it]) {
+				counter[it] = counter[it]+1
+			} else {
+				counter[it] = 1
+			}
+		}
+		println ">>>>> ${counter}"
+	}
+
 	def update(Feed feed, File out) {
 		log.info "Updating Feed $feed - $out"
 		feed = Feed.get(feed.id)
@@ -32,6 +54,7 @@ class FeedService {
 					article.feed = feed
 					article.uid = entry.id
 					article.title = entry.title
+					//parseTitle(entry.title_token, article)
 					entry.contents.each { content ->
 						article.addToContents(new Content(raw: content, article: article))
 					}
@@ -67,6 +90,10 @@ class FeedService {
 		feed.lastChecked = new Date()
 		feed.lastStatus = exit
 		feed.lastError = error
-		feed.active = (exit==0)?true:false
+		if (exit in [0,143]) {
+			feed.active = true
+		} else {
+			feed.active = false
+		}
 	}
 }
