@@ -27,6 +27,10 @@ class WelcomeController {
 		render view: '/index', model: ['articles': articles, 'tFeeds': Feed.count(), 'tArticles': Article.count()]
 	}
 
+	def totalArticles() {
+		render Article.count()
+	}
+
 	def executor = {
 		log.info "Executor: $params"
 		if (! params.command){

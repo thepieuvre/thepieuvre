@@ -20,7 +20,7 @@
       </g:each>
 
         <div class="well">
-          <a href="${article.link}" target="_blank"><span class="icon-globe"></span>Read</a>
+          <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Read</a>
         </div>
       </div>
     </div>
