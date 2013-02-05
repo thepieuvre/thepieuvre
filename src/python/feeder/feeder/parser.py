@@ -1,8 +1,17 @@
 import feedparser
+import nltk
+import json
 
 def escaping(str):
 	return str.replace('\\','\\\\').replace('"','\\"').replace('\n','')
 	
+def parsingTitle(title):
+	if title == 'null':
+		return
+	cleaned = nltk.clean_html(title)
+	tokens = nltk.word_tokenize(cleaned)
+	print '"title_token": %s,'% json.dumps(nltk.pos_tag(tokens))
+
 def get(url, id, etag, modified):
 	data = feedparser.parse(url, etag=etag, modified=modified, agent='The Pieuvre/1.0 +http://www.thepieuvre.com/', referrer='http://www.thepieuvre.com/')
 	print '{'
@@ -22,7 +31,8 @@ def get(url, id, etag, modified):
 	for article in data.entries:
 		counter = counter + 1
 		print ('{ "title": "%s",' % (article.get('title', 'null').replace('"','\\"'))).encode('utf-8')
-		print ('"link": "%s",' % (article.get('link', 'null'))).encode('utf-8')
+		#parsingTitle(article.get('title', 'null').encode('utf-8'))
+		print ('"link": "%s",' % (article.get('link', 'null')))
 		print '"contents": ['
 		if article.get('content'):
 			contentSize = len(article.content)

@@ -76,7 +76,7 @@ class Feeder implements Runnable {
 					cmdLine = cmdLine << "$feed.link"
 					def p = cmdLine.execute()
 					p.consumeProcessOutput(oWriter, eWriter)
-					p.waitForOrKill(31415)
+					p.waitForOrKill(62830)
 					log.info "Python for $feed.id / $feed exited with ${p.exitValue()}"
 					exitValue = p.exitValue()
 				}

@@ -4,5 +4,6 @@ Dependancies
 
  * Python > 2.4
  * feedparser python library
+ * ntlk (cf installation guide) + data
  * Java > 1.7
  * Grails 2.1.1

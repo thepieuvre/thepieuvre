@@ -15,7 +15,7 @@ class Article {
 	static belongsTo = [ feed: Feed ]
 
 	static constraints = {
-		link url: true, maxSize: 1024
+		link maxSize: 1024
 		uid maxSize: 1024 
 	}
 
