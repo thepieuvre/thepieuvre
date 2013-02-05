@@ -20,7 +20,8 @@ class FeedBootStrap {
 			'http://news.ycombinator.com/rss',
 			'http://feeds.wired.com/wired/index',
 			'http://feed.dilbert.com/dilbert/daily_strip',
-			'http://feeds.mashable.com/Mashable'
+			'http://feeds.mashable.com/Mashable',
+			'http://www.rottentomatoes.com/syndication/rss/top_news.xml'
 		]
 
 		links.each { link ->
