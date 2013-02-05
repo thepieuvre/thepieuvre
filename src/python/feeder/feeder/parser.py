@@ -20,7 +20,7 @@ def get(url, id, etag, modified):
 	print ('"language": "%s",'% (data.feed.get('language', 'en'))).encode('utf-8')
 	print ('"status": "%s",'% (data.status)).encode('utf-8')
 	print ('"standard": "%s",'% (data.version)).encode('utf-8')
-	print ('"etag": "%s",'% (data.get('etag', 'null'))).encode('utf-8')
+	print ('"etag": "%s",'% (data.get('etag', 'null').replace('"',''))).encode('utf-8')
 	print ('"modified": "%s",'% (data.get('modified', 'null'))).encode('utf-8')
 	if data.status == 301:
 		print ('"moved": "%s",' % (data.href)).encode('utf-8')

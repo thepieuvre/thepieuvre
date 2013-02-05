@@ -11,7 +11,6 @@
     	<!--[if lt IE 9]>
       	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     	<![endif]-->
-
 	</head>
 	<body>
 	<div class="navbar navbar-fixed-top">
@@ -23,6 +22,7 @@
          			<span class="icon-bar"></span>
        			</a>
        			<a class="brand" href="${resource(dir:'/')}">The Pieuvre</a>
+            <a id="fire" href="${resource(dir:'/')}" style="display: none;"><i class="icon-fire icon-white"></i></a>
             <span class="label label-info">in Alpha</span>
                 <sec:ifLoggedIn>
 

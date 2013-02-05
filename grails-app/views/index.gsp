@@ -43,5 +43,27 @@
   			<div class="well weel-small"><center><small>Continue...</small></center></div>
   		</div>
   	</div>
+    <!-- Checking for new articles -->
+      <script type="text/javascript">
+        $('.alert_articles').hide()
+        function checkNewArticleLoop(newTArticles) {
+          var tArticles = parseInt(${tArticles});
+            this.timer = setTimeout('checkNewArticle()', 31415);
+            if (tArticles < newTArticles) {
+              clearTimeout(this.timer)
+              delete this.timer
+              $('#fire').show('slow')
+            }
+          }
+
+        function checkNewArticle() {
+          $.ajax({
+              type: "GET",
+              url: "${createLink(controller: 'welcome', action:'totalArticles', absolute:'true')}",
+              success: function(result) {checkNewArticleLoop(parseInt(result))  }
+          });
+        }
+        $(window).load(checkNewArticleLoop(parseInt(${tArticles})));
+    </script>
 	</body>
 </html>
