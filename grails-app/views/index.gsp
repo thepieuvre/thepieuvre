@@ -39,7 +39,7 @@
   	</div>
 
 	<div class="row">
-    	<div class="span12">
+    	<div class="span10">
   			<div class="well weel-small"><center><small>Continue...</small></center></div>
   		</div>
   	</div>

@@ -24,7 +24,6 @@ class WelcomeController {
 			order('dateCreated', 'desc')
 			feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 		}
-		session.last = Article.last().id
 		render view: '/index', model: ['articles': articles, 'tFeeds': Feed.count(), 'tArticles': Article.count()]
 	}
 
