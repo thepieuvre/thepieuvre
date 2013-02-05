@@ -1,4 +1,4 @@
-package thepeiuvre.console
+package thepieuvre.console
 
 import grails.plugins.springsecurity.Secured
 
