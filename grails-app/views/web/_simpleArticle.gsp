@@ -1,4 +1,4 @@
-<div class="accordion" id="accordion${article.id}">
+<div class="accordion article" id="accordion${article.id}">
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${article.id}" href="#collapse${article.id}">

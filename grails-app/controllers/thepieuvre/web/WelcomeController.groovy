@@ -51,4 +51,17 @@ class WelcomeController {
 			'command': params.command]
 	}
 
+	def scroll = {
+		log.debug "Scrolling $params"
+		int offSet = params.offSet as int
+		def articles = Article.createCriteria().list {
+			maxResults(25)
+			firstResult(offSet)
+			order('dateCreated', 'desc')
+			feed { eq 'global', FeedGlobalEnum.GLOBAL } 
+		}
+
+		render template: '/web/simpleArticle', collection:articles, var: 'article'
+	}
+
 }
