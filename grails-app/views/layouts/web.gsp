@@ -23,7 +23,6 @@
        			</a>
        			<a class="brand" href="${resource(dir:'/')}">The Pieuvre</a>
             <a id="fire" href="${resource(dir:'/')}" style="display: none;"><i class="icon-fire icon-white"></i></a>
-            <span class="label label-info">in Alpha</span>
                 <sec:ifLoggedIn>
 
                 <ul class="nav">
@@ -45,9 +44,6 @@
  		
 		<g:layoutBody/>
 
-	 	<footer class="footer">
-	 		<p><small>Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}<span class="pull-right"><a href="#">Back to top</a></span></small></p>
-	    </footer>
  	</div>
 	<r:layoutResources />
   <script type="text/javascript">
