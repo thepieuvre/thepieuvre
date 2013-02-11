@@ -22,20 +22,21 @@
          			<span class="icon-bar"></span>
        			</a>
        			<a class="brand" href="${resource(dir:'/')}">The Pieuvre</a>
-            <a id="fire" href="${resource(dir:'/')}" style="display: none;"><i class="icon-fire icon-white"></i></a>
-                <sec:ifLoggedIn>
 
-                <ul class="nav">
-         					<li><a href="${createLink(controller: 'feedManager')}">Feeds</a></li>
-                  <li><a href="${createLink(controller: 'articleManager')}">Articles</a></li>
-         					<sec:ifAnyGranted roles="ROLE_ROOT">
-         						<li><g:link controller="tools">Tools</g:link></li>
-         					</sec:ifAnyGranted>
-                </ul>
+            <ul class="nav">
+              <li><a id="fire" href="${resource(dir:'/')}" style="display: none;"><i class="icon-fire icon-white"></i></a></li>
+             </ul> 
+                <sec:ifLoggedIn>
                   <ul class="nav pull-right">
+                  <li><a href="#"><sec:loggedInUserInfo field="username"/></a></li>
                   <li><g:link controller="logout">Logout</g:link></li>
                 </ul>
               </sec:ifLoggedIn>
+              <sec:ifNotLoggedIn>
+                <ul class="nav pull-right">
+                  <li><g:link controller="login">Log In</g:link></li>
+                </ul>
+              </sec:ifNotLoggedIn>
      		</div>
    		</div>
  	</div>

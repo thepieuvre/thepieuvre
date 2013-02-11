@@ -3,8 +3,12 @@ package thepieuvre.web
 import thepieuvre.core.Article
 import thepieuvre.core.Feed
 import thepieuvre.core.FeedGlobalEnum
+import thepieuvre.member.Member
+import thepieuvre.member.MemberCommand
 
 class WelcomeController {
+
+	def springSecurityService
 
 	def about() {
 		render view: '/about'
@@ -62,6 +66,24 @@ class WelcomeController {
 		}
 
 		render template: '/web/simpleArticle', collection:articles, var: 'article'
+	}
+
+	def signUp(){
+		render view: '/signUp'
+	}
+
+	def register(MemberCommand cmd) {
+		if (cmd.validate()) {
+			Member m = new Member(cmd.properties)
+			m.enabled = true
+			m.save()
+			log.info "New member signed up: $m"
+			redirect controller: 'login'
+		} else {
+			log.debug "Signing up invalid: ${cmd.errors}"
+			flash.message = "${cmd.errors}"
+			render view: '/signUp'
+		}
 	}
 
 }
