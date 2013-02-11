@@ -144,6 +144,7 @@ grails.plugins.springsecurity.providerNames = [
 
 grails.plugins.springsecurity.roleHierarchy = '''
   ROLE_ROOT > ROLE_FEED_MANAGER
+  ROLE_ROOT > ROLE_MEMBER_MANAGER
 '''
 
 
