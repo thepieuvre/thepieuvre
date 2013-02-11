@@ -72,7 +72,7 @@
       navSelector  : "#page-nav",            
       nextSelector : "#page-nav a",    
       itemSelector : ".article",
-      debug        : true,
+      debug        : false,
       animate: true ,
       path : function(page) {
           return "${createLink(controller: 'welcome', action: 'scroll' )}"+'?offSet='+(25*page)
