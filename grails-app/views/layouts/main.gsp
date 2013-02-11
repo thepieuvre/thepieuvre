@@ -38,6 +38,7 @@
          					</sec:ifAnyGranted>
                 </ul>
                   <ul class="nav pull-right">
+                  <li><a href="#"><sec:loggedInUserInfo field="username"/></a></li>
                   <li><g:link controller="logout">Logout</g:link></li>
                 </ul>
               </sec:ifLoggedIn>

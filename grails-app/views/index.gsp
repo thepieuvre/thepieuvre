@@ -13,6 +13,7 @@
             			<a class="btn btn-primary" href="#">More</a>
             			<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             			<ul class="dropdown-menu">
+                    <li><a href="${createLink(action: 'signUp')}">Sign Up</a></li>
 			              <li><a href="${createLink(action: 'about')}">About</a></li>
 			              <li><a href="${createLink(action: 'help')}">Help</a></li>
 			              <li class="divider"></li>
