@@ -43,6 +43,10 @@
 			<td><strong>Last Updated</strong></td>
 			<td>${member.lastUpdated}</td>
 		</tr>
+		<tr>
+			<td><strong>Email Verified</strong></td>
+			<td>${member.verified}</td>
+		</tr>
 	</tbody>
 </table>
 

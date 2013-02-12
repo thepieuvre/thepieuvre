@@ -10,6 +10,8 @@ class WelcomeController {
 
 	def springSecurityService
 
+	def memberService
+
 	def about() {
 		render view: '/about'
 	}
@@ -76,7 +78,8 @@ class WelcomeController {
 		if (cmd.validate()) {
 			Member m = new Member(cmd.properties)
 			m.enabled = true
-			m.save()
+			m.save(flush:true)
+			memberService.verificationNotification(m)
 			log.info "New member signed up: $m"
 			redirect controller: 'login'
 		} else {
