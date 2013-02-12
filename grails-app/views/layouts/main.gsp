@@ -22,7 +22,7 @@
          			<span class="icon-bar"></span>
          			<span class="icon-bar"></span>
        			</a>
-       			<a class="brand" href="${resource(dir:'/')}">The Pieuvre: System Console</a>
+       			<a class="brand" href="${resource(dir:'/')}">The Pieuvre</a>
                 <sec:ifLoggedIn>
 
                 <ul class="nav">

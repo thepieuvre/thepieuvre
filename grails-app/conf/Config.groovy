@@ -61,11 +61,32 @@ grails.hibernate.cache.queries = false
 
 environments {
     development {
-        grails.logging.jul.usebridge = true
 
-        thepieuvre.feeder.python = '/usr/local/bin/python'
-        thepieuvre.feeder.cmd = '/Users/adc/The Pieuvre/Code/thepieuvre/src/python/feeder/feeder.py'
-        thepieuvre.feeder.dir = '/Users/adc/The Pieuvre/feeds'
+      grails.serverURL = "http://localhost:8080/thepieuvre"
+
+      grails.logging.jul.usebridge = true
+
+      thepieuvre.feeder.python = '/usr/local/bin/python'
+      thepieuvre.feeder.cmd = '/Users/adc/The Pieuvre/Code/thepieuvre/src/python/feeder/feeder.py'
+      thepieuvre.feeder.dir = '/Users/adc/The Pieuvre/feeds'
+      thepieuvre.util.secret = "changeme"
+
+      grails.mail.default.from="noreply@thepieuvre.com"
+
+      grails {
+        mail {
+          overrideAddress="adicosta@me.com"
+
+          host = "smtp.gmail.com"
+          port = 465
+          username = "alex@thepieuvre.com"
+          password = "w=upc+6r"
+          props = ["mail.smtp.auth":"true",
+                  "mail.smtp.socketFactory.port":"465",
+                  "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                  "mail.smtp.socketFactory.fallback":"false"]
+        }
+      }
 
     }
     production {
@@ -73,6 +94,7 @@ environments {
         // TODO: grails.serverURL = "http://www.changeme.com"
 
         // TODO must be external
+
     }
 }
 
@@ -118,6 +140,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/dbconsole/**': ['ROLE_ROOT'],
     '/admin/**': ['IS_AUTHENTICATED_FULLY'],
     '/welcome/**': ['permitAll'],
+    '/member/**': ['permitAll'],
     '/': ['permitAll'],
     '/**': ['denyAll']
 ]

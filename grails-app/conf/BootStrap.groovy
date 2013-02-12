@@ -32,7 +32,14 @@ class BootStrap {
         def alexUser = User.findByUsername('alex')
         if (!alexUser) {
             def alexpass = (Environment.PRODUCTION == Environment.current ? 'w=upc+6r' : 'alex')
-            alexUser = new Member(email: 'alex@thepieuvre.com', username: 'alex', password: alexpass, enabled: 'true', canPasswordLogin: true)
+            alexUser = new Member(
+                email: 'alex@thepieuvre.com',
+                username: 'alex',
+                password: alexpass,
+                enabled: 'true',
+                canPasswordLogin: true,
+                verified: new Date()
+            )
             if (!alexUser.save()) {
                 println alexUser.errors
             }

@@ -11,6 +11,7 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	Date verified
 
 	Date dateCreated
 	Date lastUpdated 
@@ -18,6 +19,7 @@ class User {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		verified nullable: true
 	}
 
 	static mapping = {

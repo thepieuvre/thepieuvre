@@ -39,7 +39,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         runtime ":hibernate:$grailsVersion"
-        runtime ":jquery:1.8.0"
+        runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
@@ -49,9 +49,7 @@ grails.project.dependency.resolution = {
 
         build ":tomcat:$grailsVersion"
 
-        runtime ":database-migration:1.1"
-
-        compile ':cache:1.0.0'
+        compile ':cache:1.0.1'
 
         // Required by The Pieuvre
         compile (":less-resources:1.3.0.2") { excludes 'svn' }
@@ -59,7 +57,10 @@ grails.project.dependency.resolution = {
 
         runtime ":spring-security-core:1.2.7.3"
 
+        runtime ":mail:1.0.1"
+        runtime ":crypto:2.0"
+
         compile ":console:1.2"
-        compile ":grails-melody:1.11"
+        compile ":grails-melody:1.12"
     }
 }
