@@ -94,6 +94,10 @@ ${(!exit)?'':"Exit: ${exit}"}
       itemSelector : ".article",
       debug        : false,
       animate: true ,
+      loading: {
+        img: 'images/spinner.gif',
+        msgText: '<em>Loading more articles...</em>'
+      },
       path : function(page) {
           return "${createLink(controller: 'welcome', action: 'scroll' )}"+'?offSet='+(25*page)
       }              
