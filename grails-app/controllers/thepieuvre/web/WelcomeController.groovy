@@ -55,8 +55,7 @@ class WelcomeController {
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'command': params.command]
-			// TODO nicer scrolling infinite
-			// TODO document command writing
+				// TODO document command writing
 		} else {
 			def articles = Article.createCriteria().list {
 				maxResults(25)
