@@ -70,6 +70,7 @@ environments {
       thepieuvre.feeder.cmd = '/Users/adc/The Pieuvre/Code/thepieuvre/src/python/feeder/feeder.py'
       thepieuvre.feeder.dir = '/Users/adc/The Pieuvre/feeds'
       thepieuvre.util.secret = "changeme"
+      thepieuvre.mailalert = 'alex@thepieuvre.com'
 
       grails.mail.default.from="noreply@thepieuvre.com"
 

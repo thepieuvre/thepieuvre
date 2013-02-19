@@ -4,8 +4,13 @@ import thepieuvre.exception.ApiException
 
 import grails.converters.JSON
 
+import java.text.SimpleDateFormat
+
 class ErrorController {
 
+	def grailsApplication
+
+	def mailService
 	def springSecurityService
 
 	def internal = {
@@ -26,6 +31,25 @@ class ErrorController {
 		}
 
 		log.warn "Error: ${request['user']} - $requestUri - $status - $message - $params - ${request.getAttribute("javax.servlet.error.status_code")}: ${cause}", request.exception
+
+		try {
+			mailService.sendMail {
+                    to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }
+                    from "noreply@thepieuvre.com"
+                    subject "Error The Pieurve  ${request['user']?.username}"
+                    body """
+    Host: ${InetAddress.localHost.hostName}
+    date ${new SimpleDateFormat("dd/MM/yyyy 'at' HH:mm:ss z").format(new Date())}
+    error ${request.getAttribute("javax.servlet.error.status_code")}: ${cause}
+    URI:  ${requestUri}
+    USER: ${request['user']?.username}
+    Stack Trace :
+${request.exception.stackTraceLines.join("\n")}
+"""
+                }
+                } catch (Exception e) {
+                	log.warn "Cannot send error by email", e
+                }
 
 		rendering(status, message, params)
 		return true
