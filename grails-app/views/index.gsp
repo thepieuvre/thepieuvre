@@ -7,7 +7,7 @@
  		<div class="row">
     		<div class="span10">
     			<g:form class="form-search" action="executor" controller="welcome">
-	      			<input type="text" style="width:574px;" class="input-medium search-query" placeholder="Type some words or some commands..." name="command" value="${params.command}">
+	      			<input type="text" style="width:574px;" class="input-medium search-query" placeholder="Type some words or some commands (:help)..." name="command" value="${params.command}">
 	      			<button type="submit" class="btn btn-primary">Execute</button>
 	      			<div class="btn-group">
             			<a class="btn btn-primary" href="#">More</a>
@@ -26,13 +26,27 @@
     		</div>
   		</div>
 
+
+
   	<div class="row">
+            <g:if test="${cmd}">
+          <div id="container" class="span10">
+             <p class="${(!exit)?'text-success':'text-error'}"><i class="icon-hand-right"></i>${cmd}</p>
+<pre>
+${(!exit)?result:msg}
+
+${(!exit)?'':"Exit: ${exit}"}
+</pre>
+        </div>
+      </g:if>
+      <g:else>
   		<div id="container" class="span10">
         <g:if test='${flash.message}'>
           <div class='alert alert-success'>${flash.message}</div>
         </g:if>
   			<g:render template="/web/simpleArticle" var="article" collection="${articles}" />
   		</div>
+    </g:else>
 
   		<div class="span2">
   			<p><small>Feeds: ${tFeeds}</small></p>

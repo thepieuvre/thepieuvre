@@ -11,7 +11,6 @@ if sys.hexversion < 0x0240000:
 from feeder.parser import get
 from feeder.version import VERSION
 
-# TODO: add ETags and last Modified
 def parse_cmdline():
 	usage = '%s [OPTIONS] RSS Feeds...' % (sys.argv[0])
 	parser = optparse.OptionParser(usage, version='The Pieuvre Feeder ' + VERSION)
