@@ -6,6 +6,13 @@ class MemberService {
 	def mailService
 	def tokenService
 
+	def signUp(def details){
+		Member m = new Member(details)
+		m.enabled = true
+		m.save(flush:true)
+		UserRole.create(m, Role.findByAuthority('ROLE_MEMBER'), true)
+	}
+
 	def verificationNotification (Member member) {
     	log.info "Sending verification email to $member"
     	mailService.sendMail {

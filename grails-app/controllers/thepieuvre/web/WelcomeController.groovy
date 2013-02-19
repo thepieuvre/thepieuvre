@@ -5,11 +5,14 @@ import thepieuvre.core.Feed
 import thepieuvre.core.FeedGlobalEnum
 import thepieuvre.member.Member
 import thepieuvre.member.MemberCommand
+import thepieuvre.security.Role
+import thepieuvre.security.UserRole
 
 class WelcomeController {
 
 	def springSecurityService
 
+	def commandService
 	def memberService
 
 	def about() {
@@ -44,17 +47,30 @@ class WelcomeController {
 			return true
 		}
 
-		def articles = Article.createCriteria().list {
-			maxResults(25)
-			order('dateCreated', 'desc')
-			feed { eq 'global', FeedGlobalEnum.GLOBAL }
-			ilike 'title', "%${params.command}%" 
-		}
+		if (params.command.trim().startsWith(':')) {
+			log.info "Executing  $params.command"
+			 def res = commandService.execute(params.command.trim())
 
-		render view: '/index', model: ['articles': articles,
-			'tFeeds': Feed.count(),
-			'tArticles': Article.count(),
-			'command': params.command]
+			render view: '/index', model: res + ['articles': [],
+				'tFeeds': Feed.count(),
+				'tArticles': Article.count(),
+				'command': params.command]
+			// TODO nicer scrolling infinite
+			// TODO email error
+			// TODO document command writing
+		} else {
+			def articles = Article.createCriteria().list {
+				maxResults(25)
+				order('dateCreated', 'desc')
+				feed { eq 'global', FeedGlobalEnum.GLOBAL }
+				ilike 'title', "%${params.command}%" 
+			}
+
+			render view: '/index', model: ['articles': articles,
+				'tFeeds': Feed.count(),
+				'tArticles': Article.count(),
+				'command': params.command]
+		}
 	}
 
 	def scroll = {
@@ -76,9 +92,7 @@ class WelcomeController {
 
 	def register(MemberCommand cmd) {
 		if (cmd.validate()) {
-			Member m = new Member(cmd.properties)
-			m.enabled = true
-			m.save(flush:true)
+			memberService.signUp(cmd.properties)
 			memberService.verificationNotification(m)
 			log.info "New member signed up: $m"
 			redirect controller: 'login'

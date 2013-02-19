@@ -14,6 +14,9 @@
    				<sec:ifAnyGranted roles="ROLE_MEMBER_MANAGER">
 					<li><a href="${createLink(controller: 'memberManager')}">Member Manager</a></li>
 				</sec:ifAnyGranted>		
+				<sec:ifAnyGranted roles="ROLE_COMMAND_MANAGER">
+					<li><a href="${createLink(controller: 'commandManager')}">Command Manager</a></li>
+				</sec:ifAnyGranted>		
    				<sec:ifAnyGranted roles="ROLE_ROOT">
 					<li><g:link controller="tools">Tools</g:link></li>
 				</sec:ifAnyGranted>					

@@ -5,6 +5,7 @@ import thepieuvre.core.FeedGlobalEnum
 class FeedBootStrap {
 
 	def init = { servletContext ->
+		println "Bootstraping feeds..."
 
 		def links = [
 			'http://www.appleinsider.com/appleinsider.rss',
@@ -26,11 +27,17 @@ class FeedBootStrap {
 		]
 
 		links.each { link ->
-			Feed feed = new Feed(link: link, global: FeedGlobalEnum.GLOBAL)
-			if (! feed.save(failOnError: true, flush: true)) {
-				println feed.errors
+			Feed feed = Feed.findByLink(link)
+			if (! feed) {
+				feed = new Feed(link: link, global: FeedGlobalEnum.GLOBAL)
+				if (! feed.save(failOnError: true, flush: true)) {
+					println feed.errors
+				}
 			}
+
 		}
+
+		println "Feeds bootstraped."
 	}
 
 	def destroy = {
