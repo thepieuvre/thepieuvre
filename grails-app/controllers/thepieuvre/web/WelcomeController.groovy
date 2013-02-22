@@ -55,7 +55,6 @@ class WelcomeController {
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'command': params.command]
-				// TODO document command writing
 		} else {
 			def articles = Article.createCriteria().list {
 				maxResults(25)

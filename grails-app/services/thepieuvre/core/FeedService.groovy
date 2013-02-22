@@ -27,7 +27,6 @@ class FeedService {
 				counter[it] = 1
 			}
 		}
-		println ">>>>> ${counter}"
 	}
 
 	def update(Feed feed, File out) {

@@ -25,7 +25,7 @@ if (args) {
 			sudo: false
 		)
 
-		help.save()
+		help.save(failOnError: true)
 
 		Command echo = new Command(
 			name: 'echo',
@@ -34,7 +34,29 @@ if (args) {
 			sudo: false
 		)
 
-		echo.save()
+		echo.save(failOnError: true)
+
+		Command follow = new Command(
+			name: 'follow',
+			action: '''
+{ def args ->
+	args.each { link ->
+		if(! memberService.addFeed(user, link)) {
+			exit = 500
+			msg += "Cannot follow the feed $link (check the URL) \\n"
+		}
+	}
+	return (exit == 500)?"":"Your are now following $args"
+}
+			''',
+			help: 'following the feeds, http links, passed as arguments',
+			sudo: true
+		)
+		follow.save(failOnError: true)
+
+		// TODO feeds feed
+		// TODO unfollow feed
+
 		println "Commands boostraped."
 	}
 
