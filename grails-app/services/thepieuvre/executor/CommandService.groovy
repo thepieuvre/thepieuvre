@@ -4,6 +4,8 @@ class CommandService {
 
 	def transactional = true
 
+	def memberService
+
 	def springSecurityService
 
 	def delete (Command cmd) {
@@ -35,6 +37,10 @@ class CommandService {
 		Binding binding = new Binding()
 		binding.setVariable('exit', 0)
 		binding.setVariable('msg', '')
+		if (cmd.sudo) {
+			binding.setVariable('user', springSecurityService.currentUser)
+			binding.setVariable('memberService', memberService)
+		}
 		GroovyShell sh = new GroovyShell(binding)
 		def closure = sh.evaluate(cmd.action)
 		def res = closure(tokens.args.tokens)

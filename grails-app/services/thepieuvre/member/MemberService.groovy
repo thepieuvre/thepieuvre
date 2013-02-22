@@ -1,5 +1,7 @@
 package thepieuvre.member
 
+import thepieuvre.core.Feed
+
 class MemberService {
 
 	def grailsApplication
@@ -33,5 +35,20 @@ class MemberService {
     		birth: new Date(),
     		member: member.id
     	])
+    }
+
+    def addFeed(Member member, String link) {
+        Feed feed = Feed.findByLink(link)
+        if (! feed) {
+            feed = new Feed(link: link)
+            if (! feed.save()) {
+                log.warn "Cannot save a feed: $feed.errors"
+                return false
+            }
+        }
+        if (! member.feeds.contains(feed)) {
+            member.addToFeeds(feed)
+        }
+        return true
     }
 }

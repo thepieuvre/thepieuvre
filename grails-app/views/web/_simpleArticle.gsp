@@ -11,8 +11,6 @@
         
         <small>${article.published} @ ${article.feed.title}</small>
       </blockquote>
-       <h4>${article.title} </h4>
-
       <g:each var="content" in="${article.contents}">
       <div class="well">
       ${content.raw}
