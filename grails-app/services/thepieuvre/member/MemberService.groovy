@@ -41,7 +41,7 @@ class MemberService {
         Feed feed = Feed.findByLink(link)
         if (! feed) {
             feed = new Feed(link: link)
-            if (! feed.save()) {
+            if (! feed.save(flush: true)) {
                 log.warn "Cannot save a feed: $feed.errors"
                 return false
             }
@@ -50,5 +50,13 @@ class MemberService {
             member.addToFeeds(feed)
         }
         return true
+    }
+
+    def removeFeed(Member member, String id) {
+        member.removeFromFeeds(Feed.get(id as long))
+    }
+
+    def listFeeds(Member member) {
+        member.feeds
     }
 }

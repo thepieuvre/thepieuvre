@@ -13,7 +13,7 @@ class CommandBootStrap {
 if (args) {				
 	def r = ""
 	args.each {
-		r += "<em>${it.name}</em>\\t-- $it.help\\n"
+		r += "<em>${it.name}</em>\\t\\t-- ${(it.sudo)?"<strong>Member Only</strong>":""} $it.help\\n"
 	}
 	return r
 } else {
@@ -49,13 +49,44 @@ if (args) {
 	return (exit == 500)?"":"Your are now following $args"
 }
 			''',
-			help: 'following the feeds, http links, passed as arguments',
+			help: 'following the feeds, http links as arguments',
 			sudo: true
 		)
 		follow.save(failOnError: true)
 
-		// TODO feeds feed
-		// TODO unfollow feed
+		Command feeds = new Command(
+			name: 'feeds',
+			action: '''
+{ def args ->
+	def res = "<p> id title - description"
+	memberService.listFeeds(user).each { feed ->
+		res += "<p>$feed.id $feed.title - $feed.description</p>\\n"
+	}
+	return res
+}
+			''',
+			help: 'listing all followed feeds',
+			sudo: true
+		)
+		feeds.save(failOnError: true)
+
+		Command unfollow = new Command(
+			name: 'unfollow',
+			action: '''
+{def args ->
+	args.each {
+		if(! memberService.removeFeed(user, it)) {
+			exit = 500
+			msg += "Cannot unfollow the feed $it (check the id) \\n"
+		}
+	}
+	return (exit == 500)?"":"Your are now following $args"
+}
+			''',
+			help: 'unfollowing the feeds, http links as arguments',
+			sudo: true
+		)
+		unfollow.save(failOnError: true)
 
 		println "Commands boostraped."
 	}
