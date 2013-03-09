@@ -152,6 +152,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/console/**': ['ROLE_ROOT'],
     '/monitoring/**': ['ROLE_ROOT'],
     '/dbconsole/**': ['ROLE_ROOT'],
+    '/hermes/**': ['ROLE_ROOT'],
     '/admin/**': ['IS_AUTHENTICATED_FULLY'],
     '/welcome/**': ['permitAll'],
     '/member/**': ['permitAll'],
