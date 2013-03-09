@@ -57,7 +57,6 @@ class QueuesService {
 		redisService.withRedis { Jedis redis ->
 			redis.srem("queues", "queue:${queueName}")
 		}
-		queues.remove(queueName)
 		log.info "$queueName destroyed"
 		return true
 	}
