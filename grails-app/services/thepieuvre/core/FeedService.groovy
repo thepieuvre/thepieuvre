@@ -2,38 +2,14 @@ package thepieuvre.core
 
 import thepieuvre.exception.PieuvreException
 
-import grails.converters.JSON
-
 class FeedService {
 
 	static transactional = true
 
-	private static def counter = [:]
-
-	private def parseTitle(def taggedTokens, Article article) {
-		def l = []
-		// TODO ntlk chunk? tag is not enought
-		// TODO smart data structure for grouping...
-		taggedTokens.each { word, tag ->
-			if (tag in ['NNP']) {
-				l << word.toLowerCase()
-			}
-		}
-
-		l.each {
-			if(counter[it]) {
-				counter[it] = counter[it]+1
-			} else {
-				counter[it] = 1
-			}
-		}
-	}
-
-	def update(Feed feed, File out) {
-		log.info "Updating Feed $feed - $out"
+	def update(Feed feed, def json) {
+		log.info "Updating Feed $feed "
 		feed = Feed.get(feed.id)
 		feed.lastChecked = new Date()
-		def json = JSON.parse(out.getText())
 		feed.lastStatus = json.status as int
 
 		if (feed.lastStatus != 304) {
@@ -53,7 +29,6 @@ class FeedService {
 					article.feed = feed
 					article.uid = entry.id
 					article.title = entry.title
-					//parseTitle(entry.title_token, article)
 					entry.contents.each { content ->
 						article.addToContents(new Content(raw: content, article: article))
 					}
@@ -73,8 +48,6 @@ class FeedService {
 		}
 
 		feed.lastError = null
-
-		out.delete()
 	}
 
 	def desactive(Feed feed) {
@@ -83,16 +56,16 @@ class FeedService {
 		feed.active = false
 	}
 
-	def exitValue(long id, int exit, String error) {
-		Feed feed = Feed.get(id)
-		log.info "Updating exit value for feed $feed with $exit"
-		feed.lastChecked = new Date()
-		feed.lastStatus = exit
-		feed.lastError = error
-		if (exit in [0,143]) {
-			feed.active = true
-		} else {
+	def exitValue(long id, String error) {
+		if (id != -1) {
+			Feed feed = Feed.get(id)
+			log.info "Updating exit value for feed $feed with $exit"
+			feed.lastChecked = new Date()
+			feed.lastStatus = exit
+			feed.lastError = error
 			feed.active = false
+		} else {
+			throw new PieuvreException(error)
 		}
 	}
 }
