@@ -9,8 +9,9 @@ class QueuesService {
 
 	def redisService
 
-	private static final Map queues = [
-		'thepieuvre.core.Feed' : 'feeder'
+	static final Map queues = [
+		'thepieuvre.core.Feed' : 'feeder',
+		'Python: feeder' : 'feedparser'
 	]
 
 	def enqueue(def task) {
@@ -18,9 +19,6 @@ class QueuesService {
 		log.debug "Queue found is $queue"
 		if (queue) {
 			redisService.withRedis { Jedis redis ->
-				if(redis.sadd('queues', queue)) {
-					log.info "$queue added to queues"
-				}
 				log.info "Adding $task to queue $queue"
 				return redis.rpush("queue:${queue}", (task as JSON).toString())
 			}
@@ -29,6 +27,14 @@ class QueuesService {
 			return false
 		}
 		
+	}
+
+	def create(String queueName) {
+		redisService.withRedis { Jedis redis ->
+			if(redis.sadd('queues', queueName)) {
+				log.info "$queueName added to queues"
+			}
+		}
 	}
 
 	def clear(String queueName) {
@@ -46,10 +52,10 @@ class QueuesService {
 		return true
 	}
 
-	def destroy(queueName) {
+	def destroy(String queueName) {
 		clear(queueName)
 		redisService.withRedis { Jedis redis ->
-			redis.srem("queues", "queue:#{queueName}")
+			redis.srem("queues", "queue:${queueName}")
 		}
 		queues.remove(queueName)
 		log.info "$queueName destroyed"
@@ -58,7 +64,7 @@ class QueuesService {
 
 	def length(String queueName) {
 		redisService.withRedis { Jedis redis ->
-			return redis.llen("queues", "queue:#{queueName}")
+			return redis.llen("queue:${queueName}")
 		}
 	}
 

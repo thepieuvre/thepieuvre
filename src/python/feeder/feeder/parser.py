@@ -14,9 +14,12 @@ def processing_task(task):
 
 def redis_mode(redis):
 	while True:
-		task = redis.blpop('queue:feeder', 60)
-		if task != None:
-			redis.rpush('queue:feedparser',processing_task(task[1]))
+		try:
+			task = redis.blpop('queue:feeder', 60)
+			if task != None:
+				redis.rpush('queue:feedparser',processing_task(task[1]))
+		except Exception as e:
+			print "Error({0}): {1}".format(e.errno, e.strerror)
 
 def get(url, id, etag, modified, redis=None):
 	if redis != None:

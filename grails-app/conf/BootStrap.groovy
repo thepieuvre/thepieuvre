@@ -9,6 +9,7 @@ import thepieuvre.security.UserRole
 
 class BootStrap {
 
+    def queuesService
     def schedulerService
 
     def grailsApplication
@@ -53,6 +54,10 @@ class BootStrap {
         
         new File(grailsApplication.config.thepieuvre.feeder.dir).eachFile { file ->
             file.delete()
+        }
+
+        queuesService.queues.each {k,v->
+            queuesService.create(v)
         }
 
         schedulerService.schedule(new FeederTask(grailsApplication), 31415)
