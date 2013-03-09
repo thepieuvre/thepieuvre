@@ -1,5 +1,6 @@
 import locale
 import optparse
+import redis
 import sys
 
 if sys.hexversion < 0x0240000:
@@ -19,10 +20,12 @@ def parse_cmdline():
 	parser.add_option('--id', type='int', dest='id', help='id of the feed')
 	parser.add_option('--etag', type='string', dest='etag', help='eTag for cache optimisation')
 	parser.add_option('--modified', type='string', dest='modified', help='modified for cache optimisation')
+	parser.add_option('--redis-mode', action='store_true', dest='redis_mode',
+		help='consuming the feeder queue from the local Redis')
 
 	options, args = parser.parse_args()
 
-	if len(args) != 1:
+	if len(args) != 1 and not options.redis_mode:
 		parser.error('No RSS feeds given')
 
 	return options, args
@@ -31,5 +34,10 @@ def main():
 	"""Starting the Pieuvre feeder"""
 	locale.setlocale(locale.LC_ALL, '')
 	options, args = parse_cmdline()
-	for url in args:
-		get(url, options.id, options.etag, options.modified)
+	if options.redis_mode:
+		r = redis.StrictRedis(host='localhost', port=6379, db=0)
+		r.sadd('queues', 'feedparser')
+		get(None, options.id, options.etag, options.modified, redis=r)
+	else:
+		for url in args:
+			get(url, options.id, options.etag, options.modified)

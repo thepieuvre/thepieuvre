@@ -89,6 +89,19 @@ environments {
         }
       }
 
+      grails {
+        redis {
+          poolConfig {
+            // jedis pool specific tweaks here, see jedis docs & src
+            // ex: testWhileIdle = true
+          }
+          port = 6379
+          host = "localhost"
+          timeout = 2000 //default in milliseconds
+          //password = "somepassword" //defaults to no password
+      }
+}
+
     }
     production {
         grails.logging.jul.usebridge = false

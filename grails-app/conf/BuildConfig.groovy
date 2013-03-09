@@ -55,10 +55,12 @@ grails.project.dependency.resolution = {
         compile (":less-resources:1.3.0.2") { excludes 'svn' }
         compile ":twitter-bootstrap:2.1.1" 
 
-        runtime ":spring-security-core:1.2.7.3"
+        compile ":redis:1.3.3"
 
-        runtime ":mail:1.0.1"
-        runtime ":crypto:2.0"
+        compile ":spring-security-core:1.2.7.3"
+
+        compile ":mail:1.0.1"
+        compile ":crypto:2.0"
 
         compile ":console:1.2"
         compile ":grails-melody:1.12"

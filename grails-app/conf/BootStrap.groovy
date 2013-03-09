@@ -1,7 +1,7 @@
 import grails.util.Environment
 
-
 import thepieuvre.core.FeederTask
+import thepieuvre.core.FeedParser
 import thepieuvre.member.Member
 import thepieuvre.security.Role
 import thepieuvre.security.User
@@ -12,6 +12,8 @@ class BootStrap {
     def schedulerService
 
     def grailsApplication
+
+    private Thread feedParser = null
 
     def init = { servletContext ->
     	def roles = [
@@ -54,10 +56,12 @@ class BootStrap {
         }
 
         schedulerService.schedule(new FeederTask(grailsApplication), 31415)
+        feedParser = new Thread(new FeedParser(grailsApplication)).start()
 
     }
 
     def destroy = {
         schedulerService.cancel()
+        queuesService.clearAll()
     }
 }
