@@ -10,8 +10,9 @@ class QueuesService {
 	def redisService
 
 	static final Map queues = [
-		'thepieuvre.core.Feed' : 'feeder',
-		'Python: feeder' : 'feedparser'
+		'thepieuvre.core.Feed': 'feeder',
+		'Python: feeder': 'feedparser',
+		'thepieuvre.core.Article': 'chunker'
 	]
 
 	def enqueue(def task) {

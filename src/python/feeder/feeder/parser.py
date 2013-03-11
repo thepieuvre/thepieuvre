@@ -1,5 +1,6 @@
 import feedparser
 import json
+import traceback
 
 AGENT='The Pieuvre/1.0 +http://www.thepieuvre.com/'
 REFERRER='http://www.thepieuvre.com/'
@@ -18,8 +19,8 @@ def redis_mode(redis):
 			task = redis.blpop('queue:feeder', 60)
 			if task != None:
 				redis.rpush('queue:feedparser',processing_task(task[1]))
-		except Exception as e:
-			print "Error({0}): {1}".format(e.errno, e.strerror)
+		except:
+			traceback.print_exc()
 
 def get(url, id, etag, modified, redis=None):
 	if redis != None:
