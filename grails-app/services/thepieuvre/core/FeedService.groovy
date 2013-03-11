@@ -6,6 +6,8 @@ class FeedService {
 
 	static transactional = true
 
+	def queuesService
+
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
 		feed = Feed.get(feed.id)
@@ -34,9 +36,10 @@ class FeedService {
 					}
 					article.link = entry.link
 					article.published = entry.published
-					if(! article.save()) {
+					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
 					}
+					queuesService.enqueue(Article.findByLink(entry.link))
 				}
 			}
 		} else {
