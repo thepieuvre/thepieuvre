@@ -2,6 +2,7 @@ import json
 import nltk
 import traceback
 
+from nltk import FreqDist
 from nltk.chunk.util import conlltags2tree
 from nltk.corpus import conll2000
 
@@ -31,7 +32,7 @@ def pos_tagger(tokens):
 	sentences = [nltk.pos_tag(sent) for sent in tokens] 
 	return sentences
 
-def tokeninze(sentences):
+def tokenize(sentences):
 	# NLTK word tokenizer 
 	tokens = [nltk.word_tokenize(sent) for sent in sentences]
 	return tokens
@@ -41,9 +42,34 @@ def sentence_segmenter(rawtext):
 	sentences = nltk.sent_tokenize(rawtext) 
 	return sentences
 
+def unigramNP(sentence):
+	pattern = "NP: {<NN>+}"
+	unigramNPChunker = nltk.RegexpParser(pattern)
+	return unigramNPChunker.parse(sentence)
+
+def bigramNP(sentence):
+	pattern = "NP: {<JJ>*<NN>}"
+	bigramNPChunker = nltk.RegexpParser(pattern)
+	return bigramNPChunker.parse(sentence)
+
+def ngramNP(sentence):
+	pattern = "NP: {<NNP>+}"
+	bigramNPChunker = nltk.RegexpParser(pattern)
+	return bigramNPChunker.parse(sentence)
+
 def chunking(tags):
 	for sentence in tags:
-		print '>>> %s' % (NPChunker.parse(sentence))
+		# TODO regexp and trained chunker / 3 groups !!
+		print '-------------Sentence----------------'	
+		print sentence
+		print '-------------Unigram----------------'	
+		traverse(bigramNP(sentence))
+		print '-------------Bigram----------------'	
+		traverse(unigramNP(sentence))
+		print '-------------gram----------------'	
+		traverse(ngramNP(sentence))
+		print '-------------Trained----------------'
+		traverse(NPChunker.parse(sentence))
 
 def traverse(t):
 	# a tree traversal function for extracting NP chunks in the parsed tree
@@ -53,37 +79,43 @@ def traverse(t):
 		return
 	else:
 		if t.node == 'NP':
-			print t # TODO JSON
+			print json.dumps(t.leaves()) # TODO return 
 		else:
 			for child in t:
 				traverse(child)
 
 
 def keywords(chunks):
-	# extract the keywords based on frequency
-	traverse(chunks)
+	# TODO extract the keywords based on frequency
+	print 'todo'
 
 def extract_keywords(task):
 	rawtext = nltk.clean_html(task)
 	print 'Cleaned: %s' % (rawtext)
 	sentences = sentence_segmenter(rawtext)
-	print 'Sentences: %s' % (sentences)
-	tokens = tokeninze(sentences)
-	print 'Tokens: %s' % (tokens)
+	# print 'Sentences: %s' % (sentences)
+	tokens = tokenize(sentences)
+	print '------------Freq-----------'
+	fdist = FreqDist()
+	for word in rawtext.split():
+		fdist.inc(word.lower())
+	print fdist
+	# print 'Tokens: %s' % (tokens)
 	tags = pos_tagger(tokens)
-	print 'Tags: %s' % (tags)
+	# print 'Tags: %s' % (tags)
 	chunking(tags)
-	#keywords(chunks)
+	# TODO keywords(chunks)
 
 def redis_mode(redis):
 	while True:
 		try:
 			task = redis.blpop('queue:chunker', 60)
 			if task != None:
-				# TODO content to manage
 				raw = json.loads(task[1])
-				print 'JSON: %s' % (raw)
-				extract_keywords(raw['title'])
+				# print 'JSON: %s' % (raw)
+				extract_keywords(raw['contents'])
 				#redis.rpush('queue:',processing_task(task[1]))
+		except KeyboardInterrupt:
+			sys.exit(0)
 		except:
 			traceback.print_exc()
