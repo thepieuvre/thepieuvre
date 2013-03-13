@@ -1,5 +1,6 @@
 import feedparser
 import json
+import sys
 import traceback
 
 AGENT='The Pieuvre/1.0 +http://www.thepieuvre.com/'
@@ -19,6 +20,8 @@ def redis_mode(redis):
 			task = redis.blpop('queue:feeder', 60)
 			if task != None:
 				redis.rpush('queue:feedparser',processing_task(task[1]))
+		except KeyboardInterrupt:
+			sys.exit(0)
 		except:
 			traceback.print_exc()
 
