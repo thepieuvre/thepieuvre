@@ -48,7 +48,7 @@
 	</tbody>
 </table>
 
-<h3>Realted articles</h3>
+<h3>Related articles</h3>
 
 <ul>
 	<g:each in="${related}" var="art">

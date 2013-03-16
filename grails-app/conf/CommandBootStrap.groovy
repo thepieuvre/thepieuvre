@@ -13,7 +13,7 @@ class CommandBootStrap {
 if (args) {				
 	def r = ""
 	args.each {
-		r += "<em>${it.name}</em>\\t\\t-- ${(it.sudo)?"<strong>Member Only</strong>":""} $it.help\\n"
+		r += "<em>${it.name}</em>\\t\\t-- ${(it.sudo)?"<strong>Members Only</strong>":""} $it.help\\n"
 	}
 	return r
 } else {

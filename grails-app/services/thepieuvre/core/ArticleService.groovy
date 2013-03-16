@@ -93,8 +93,9 @@ class ArticleService {
 		merged.each { k, v ->
 			average += v
 		}
-		average /= merged.size()
-
+		if (merged.size() > 0) {
+			average /= merged.size()
+		}
 		merged = merged.findAll { it.value > average}
 		return merged.sort { a, b -> b.value <=> a.value}
 	}
