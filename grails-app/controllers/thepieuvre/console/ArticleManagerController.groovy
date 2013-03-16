@@ -7,7 +7,7 @@ import grails.plugins.springsecurity.Secured
 @Secured(['ROLE_FEED_MANAGER'])
 class ArticleManagerController {
 
-	def markdownService
+	def articleService
 
 	private def withArticle(id='id', Closure c) {
 		Article article = Article.get(params[id])
@@ -56,7 +56,14 @@ class ArticleManagerController {
 
 	def show(long id) {
 		withArticle { article ->
-			return ['article': article, 'markdownService':markdownService]
+			return [
+				'article': article,
+				'unigrams': articleService.getUniGram(article),
+				'bigrams': articleService.getBiGram(article),
+				'ngrams': articleService.getNGram(article),
+				'related' : articleService.relatedbyMaxArticles(article)
+				//'trainedgrams': articleService.getTrainedGram(article)
+			]
 		}
 	}
 

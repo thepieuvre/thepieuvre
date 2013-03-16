@@ -12,6 +12,7 @@ class WelcomeController {
 
 	def springSecurityService
 
+	def articleService
 	def commandService
 	def memberService
 
@@ -33,7 +34,7 @@ class WelcomeController {
 			order('dateCreated', 'desc')
 			feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 		}
-		render view: '/index', model: ['articles': articles, 'tFeeds': Feed.count(), 'tArticles': Article.count()]
+		render view: '/index', model: ['articles': articles, 'articleService': articleService, 'tFeeds': Feed.count(), 'tArticles': Article.count()]
 	}
 
 	def totalArticles() {
@@ -66,6 +67,7 @@ class WelcomeController {
 			render view: '/index', model: ['articles': articles,
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
+				'articleService': articleService,
 				'command': params.command]
 		}
 	}
@@ -98,6 +100,11 @@ class WelcomeController {
 			flash.message = "${cmd.errors}"
 			render view: '/signUp'
 		}
+	}
+
+	def related = {
+		Article article = Article.get(params.id)
+		render view:'/web/article', model: ['article': article, 'articleService': articleService, 'tFeeds': Feed.count(), 'tArticles': Article.count()] 
 	}
 
 }

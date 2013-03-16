@@ -34,7 +34,7 @@
               </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>
                 <ul class="nav pull-right">
-                  <li><g:link controller="login">Log In</g:link></li>
+                 <!-- <li><g:link controller="login">Log In</g:link></li>-->
                 </ul>
               </sec:ifNotLoggedIn>
      		</div>

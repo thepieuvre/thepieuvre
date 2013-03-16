@@ -5,7 +5,7 @@ import redis.clients.jedis.Jedis
 
 class QueuesService {
 
-	static transactional = true
+	static transactional = false
 
 	def redisService
 
