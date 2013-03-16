@@ -3,6 +3,7 @@ package thepieuvre.core
 class Content {
 
 	String raw
+	// TODO String author
 
 	static belongsTo = [ article: Article ]
 

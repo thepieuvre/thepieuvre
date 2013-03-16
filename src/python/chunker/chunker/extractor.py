@@ -1,5 +1,6 @@
 import json
 import nltk
+import sys
 import traceback
 
 from nltk import FreqDist
@@ -21,11 +22,13 @@ class ChunkParser(nltk.ChunkParserI):
 			in zip(sentence, chunktags)]
 		return conlltags2tree(conlltags)
 
-# Train and inti the chunker
+# Train and init the chunker
+print '-- init and training chunker --'
 train_sents = conll2000.chunked_sents('train.txt', chunk_types=['NP'])
 test_sents = conll2000.chunked_sents('test.txt', chunk_types=['NP']) 
 NPChunker = ChunkParser(train_sents)
 NPChunker.evaluate(test_sents)
+print '-- Done --'
 
 def pos_tagger(tokens):
 	# NLTK POS tagger
@@ -57,21 +60,47 @@ def ngramNP(sentence):
 	bigramNPChunker = nltk.RegexpParser(pattern)
 	return bigramNPChunker.parse(sentence)
 
-def chunking(tags):
-	for sentence in tags:
-		# TODO regexp and trained chunker / 3 groups !!
-		print '-------------Sentence----------------'	
-		print sentence
-		print '-------------Unigram----------------'	
-		traverse(bigramNP(sentence))
-		print '-------------Bigram----------------'	
-		traverse(unigramNP(sentence))
-		print '-------------gram----------------'	
-		traverse(ngramNP(sentence))
-		print '-------------Trained----------------'
-		traverse(NPChunker.parse(sentence))
+def populate(leaves, articleId, redis, gram):
+	article = 'article:%s'%(articleId)
+	redis.sadd(article, '%s:%s'%(article, gram))
+	redis.sadd('chunks', 'chunk:%s'%(gram))
+	for leave in leaves:
+		word = '%s'%(leave[0])
+		typed = '%s'%(leave[1])
+		#print 'Word %s - %s' %(word, typed)
+		res = redis.zincrby('%s:%s'%(article, gram), word, 1)
+		if res != 1.0:
+			redis.sadd('chunk:%s'%(gram), 'chunk:%s:%s'%(gram,word))
+			redis.lpush('chunk:%s:%s'%(gram, word), article)
+			redis.sadd('words', 'word:%s'%(word))
+			redis.hsetnx('word:%s'%(word), 'type', typed)
 
-def traverse(t):
+def populateUnigram(leaves, articleId, redis):
+	print 'Unigram / Leaves: %s - Article: %s' % (leaves, articleId)
+	populate(leaves, articleId, redis, 'unigram')
+
+def populateBigram(leaves, articleId, redis):
+	print 'Bigram / Leaves: %s - Article: %s' % (leaves, articleId)
+	populate(leaves, articleId, redis, 'bigram')
+
+def populateNgram(leaves, articleId, redis):
+	print 'Ngram / Leaves: %s - Article: %s' % (leaves, articleId)
+	populate(leaves, articleId, redis, 'ngram')
+
+def populateTrainedgram(leaves, articleId, redis):
+	print 'Trainedgram / Leaves: %s - Article: %s' % (leaves, articleId)
+	populate(leaves, articleId, redis, 'trainedgram')
+
+def chunking(tags, articleId, redis):
+	for sentence in tags:
+		# print '-------------Sentence----------------'	
+		# print sentence
+		traverse(unigramNP(sentence), articleId, redis, 'unigram')
+		traverse(bigramNP(sentence), articleId, redis, 'bigram')
+		traverse(ngramNP(sentence), articleId, redis, 'ngram')
+		# TODO traverse(NPChunker.parse(sentence), articleId, redis, 'trainedgram')
+
+def traverse(t, articleId, redis, chunk):
 	# a tree traversal function for extracting NP chunks in the parsed tree
 	try:
 		t.node
@@ -79,32 +108,36 @@ def traverse(t):
 		return
 	else:
 		if t.node == 'NP':
-			print json.dumps(t.leaves()) # TODO return 
+			cleaned = json.loads(json.dumps(t.leaves()))
+			if chunk == 'unigram':
+				populateUnigram(cleaned, articleId, redis)
+			elif chunk == 'bigram':
+				populateBigram(cleaned, articleId, redis)
+			elif chunk == 'ngram':
+				populateNgram(cleaned, articleId, redis)
+			elif chunk == 'trainedgram':
+				populateTrainedgram(cleaned, articleId, redis)
+
 		else:
 			for child in t:
-				traverse(child)
+				traverse(child, articleId, redis, chunk)
 
-
-def keywords(chunks):
-	# TODO extract the keywords based on frequency
-	print 'todo'
-
-def extract_keywords(task):
-	rawtext = nltk.clean_html(task)
-	print 'Cleaned: %s' % (rawtext)
+def extract_keywords(task, redis):
+	articleId = task['id']
+	rawtext = nltk.clean_html(task['contents'])
+	# print 'Cleaned: %s' % (rawtext)
 	sentences = sentence_segmenter(rawtext)
 	# print 'Sentences: %s' % (sentences)
 	tokens = tokenize(sentences)
-	print '------------Freq-----------'
-	fdist = FreqDist()
-	for word in rawtext.split():
-		fdist.inc(word.lower())
-	print fdist
+	#print '------------Freq-----------'
+	#fdist = FreqDist()
+	#for word in rawtext.split():
+	#	fdist.inc(word.lower())
+	#print fdist
 	# print 'Tokens: %s' % (tokens)
 	tags = pos_tagger(tokens)
 	# print 'Tags: %s' % (tags)
-	chunking(tags)
-	# TODO keywords(chunks)
+	chunking(tags, articleId, redis)
 
 def redis_mode(redis):
 	while True:
@@ -113,8 +146,8 @@ def redis_mode(redis):
 			if task != None:
 				raw = json.loads(task[1])
 				# print 'JSON: %s' % (raw)
-				extract_keywords(raw['contents'])
-				#redis.rpush('queue:',processing_task(task[1]))
+				redis.sadd('articles', "article:%s" %(raw['id']))
+				extract_keywords(raw, redis)
 		except KeyboardInterrupt:
 			sys.exit(0)
 		except:

@@ -44,7 +44,7 @@ ${(!exit)?'':"Exit: ${exit}"}
         <g:if test='${flash.message}'>
           <div class='alert alert-success'>${flash.message}</div>
         </g:if>
-  			<g:render template="/web/simpleArticle" var="article" collection="${articles}" />
+  			<g:render template="/web/simpleArticle" bean="${article}" />
   		</div>
     </g:else>
 
@@ -60,51 +60,5 @@ ${(!exit)?'':"Exit: ${exit}"}
         -->
   		</div>
 
-      <nav id="page-nav">
-       <a href="${createLink(controller: 'welcome', action: 'scroll', params: [offset:25] )}"></a>
-      </nav>
-
-    <!-- Checking for new articles -->
-      <script type="text/javascript">
-        $('.alert_articles').hide()
-        function checkNewArticleLoop(newTArticles) {
-          var tArticles = parseInt(${tArticles});
-            this.timer = setTimeout('checkNewArticle()', 31415);
-            if (tArticles < newTArticles) {
-              clearTimeout(this.timer)
-              delete this.timer
-              $('#fire').show('slow')
-            }
-          }
-
-        function checkNewArticle() {
-          $.ajax({
-              type: "GET",
-              url: "${createLink(controller: 'welcome', action:'totalArticles', absolute:'true')}",
-              success: function(result) {checkNewArticleLoop(parseInt(result))  }
-          });
-        }
-        $(window).load(checkNewArticleLoop(parseInt(${tArticles})));
-    </script>
-    <!-- Infinite Scroll -->
-    <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
-    <script type="text/javascript">
-    $(function(){
-    $('#container').infinitescroll({
-      navSelector  : "#page-nav",            
-      nextSelector : "#page-nav a",    
-      itemSelector : ".article",
-      debug        : false,
-      animate: true ,
-      loading: {
-        img: 'images/spinner.gif',
-        msgText: '<em>Loading more articles...</em>'
-      },
-      path : function(page) {
-          return "${createLink(controller: 'welcome', action: 'scroll' )}"+'?offSet='+(25*page)
-      }              
-    });
-  });
-    </script>
 	</body>
 </html>

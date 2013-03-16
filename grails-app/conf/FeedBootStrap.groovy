@@ -23,7 +23,8 @@ class FeedBootStrap {
 			'http://feed.dilbert.com/dilbert/daily_strip',
 			'http://feeds.mashable.com/Mashable',
 			'http://www.rottentomatoes.com/syndication/rss/top_news.xml',
-			'http://digg.com/rss/topstories.xml'
+			'http://digg.com/rss/topstories.xml',
+			'http://www.theverge.com/rss/index.xml'
 		]
 
 		links.each { link ->
