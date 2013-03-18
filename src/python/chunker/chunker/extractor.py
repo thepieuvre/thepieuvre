@@ -64,16 +64,18 @@ def populate(leaves, articleId, redis, gram):
 	article = 'article:%s'%(articleId)
 	redis.sadd(article, '%s:%s'%(article, gram))
 	redis.sadd('chunks', 'chunk:%s'%(gram))
+	words = []
 	for leave in leaves:
 		word = '%s'%(leave[0])
 		typed = '%s'%(leave[1])
-		#print 'Word %s - %s' %(word, typed)
-		res = redis.zincrby('%s:%s'%(article, gram), word, 1)
-		if res != 1.0:
-			redis.sadd('chunk:%s'%(gram), 'chunk:%s:%s'%(gram,word))
-			redis.lpush('chunk:%s:%s'%(gram, word), article)
-			redis.sadd('words', 'word:%s'%(word))
-			redis.hsetnx('word:%s'%(word), 'type', typed)
+		words.append(word)
+		redis.sadd('words', 'word:%s'%(word))
+		redis.hsetnx('word:%s'%(word), 'type', typed)
+	sentence = ' '.join(words)
+	res = redis.zincrby('%s:%s'%(article, gram), sentence, 1)
+	if res != 1.0:
+		redis.sadd('chunk:%s'%(gram), 'chunk:%s:%s'%(gram,sentence))
+		redis.lpush('chunk:%s:%s'%(gram, sentence), article)
 
 def populateUnigram(leaves, articleId, redis):
 	print 'Unigram / Leaves: %s - Article: %s' % (leaves, articleId)
@@ -98,7 +100,7 @@ def chunking(tags, articleId, redis):
 		traverse(unigramNP(sentence), articleId, redis, 'unigram')
 		traverse(bigramNP(sentence), articleId, redis, 'bigram')
 		traverse(ngramNP(sentence), articleId, redis, 'ngram')
-		# TODO traverse(NPChunker.parse(sentence), articleId, redis, 'trainedgram')
+		traverse(NPChunker.parse(sentence), articleId, redis, 'trainedgram')
 
 def traverse(t, articleId, redis, chunk):
 	# a tree traversal function for extracting NP chunks in the parsed tree
@@ -108,6 +110,7 @@ def traverse(t, articleId, redis, chunk):
 		return
 	else:
 		if t.node == 'NP':
+			#print t.leaves()
 			cleaned = json.loads(json.dumps(t.leaves()))
 			if chunk == 'unigram':
 				populateUnigram(cleaned, articleId, redis)
@@ -125,7 +128,7 @@ def traverse(t, articleId, redis, chunk):
 def extract_keywords(task, redis):
 	articleId = task['id']
 	rawtext = nltk.clean_html(task['contents'])
-	# print 'Cleaned: %s' % (rawtext)
+	#print 'Cleaned: %s' % (rawtext)
 	sentences = sentence_segmenter(rawtext)
 	# print 'Sentences: %s' % (sentences)
 	tokens = tokenize(sentences)

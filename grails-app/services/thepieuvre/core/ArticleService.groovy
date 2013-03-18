@@ -45,7 +45,6 @@ class ArticleService {
 	}
 
 	def getTrainedGram(Article article) {
-		// TODO shouldn't be word by word but with sentence
 		fetchingGram(article, 'trainedgram')
 	}
 
@@ -56,6 +55,7 @@ class ArticleService {
 		def unigram = getUniGram(article)
 		def bigram = getBiGram(article)
 		def ngram = getNGram(article)
+		def trainedgram = getTrainedGram(article)
 
 		def merged = [:]
 		unigram.each {
@@ -79,6 +79,16 @@ class ArticleService {
 			}
 		}
 		ngram.each {
+			int score = it.score as int
+			it.articles.each { art ->
+				if(merged[art]) {
+					merged[art] = merged[art] + score
+				} else {
+					merged[art] = score
+				}
+			}
+		}
+		trainedgram.each {
 			int score = it.score as int
 			it.articles.each { art ->
 				if(merged[art]) {

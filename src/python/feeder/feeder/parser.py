@@ -19,6 +19,7 @@ def redis_mode(redis):
 		try:
 			task = redis.blpop('queue:feeder', 60)
 			if task != None:
+				print 'Getting: %s'%(task[1])
 				redis.rpush('queue:feedparser',processing_task(task[1]))
 		except KeyboardInterrupt:
 			sys.exit(0)

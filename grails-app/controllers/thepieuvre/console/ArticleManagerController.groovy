@@ -61,8 +61,8 @@ class ArticleManagerController {
 				'unigrams': articleService.getUniGram(article),
 				'bigrams': articleService.getBiGram(article),
 				'ngrams': articleService.getNGram(article),
-				'related' : articleService.relatedbyMaxArticles(article)
-				//'trainedgrams': articleService.getTrainedGram(article)
+				'related' : articleService.relatedbyMaxArticles(article),
+				'trainedgrams': articleService.getTrainedGram(article)
 			]
 		}
 	}

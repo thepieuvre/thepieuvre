@@ -58,7 +58,6 @@
 
 <h3>Analysis</h3>
 
-<!--
 <h4>Trained gram</h4>
 <table class="table table-striped">
 	<thead>
@@ -84,7 +83,6 @@
 	</g:each>
 	</tbody>
 </table>
--->
 
 <h4>Ngram</h4>
 <table class="table table-striped">
