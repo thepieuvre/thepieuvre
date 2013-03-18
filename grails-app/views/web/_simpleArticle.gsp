@@ -1,6 +1,6 @@
 <div class="well">
 <div class="page-header">
-  <h1>${article.title} <small>@ ${article.feed.title}</small></h1>
+  <h2>${article.title} <small>@ ${article.feed.title}</small></h2>
 </div>
  <blockquote>        
   <small>${article.published}</small>
