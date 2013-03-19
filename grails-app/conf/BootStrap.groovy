@@ -51,10 +51,6 @@ class BootStrap {
             UserRole.create(alexUser, Role.findByAuthority('ROLE_ROOT'), true)
             UserRole.create(alexUser, Role.findByAuthority('ROLE_MEMBER'), true)
         }
-        
-        new File(grailsApplication.config.thepieuvre.feeder.dir).eachFile { file ->
-            file.delete()
-        }
 
         queuesService.queues.each {k,v->
             queuesService.create(v)

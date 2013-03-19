@@ -66,9 +66,6 @@ environments {
 
       grails.logging.jul.usebridge = true
 
-      thepieuvre.feeder.python = '/usr/local/bin/python'
-      thepieuvre.feeder.cmd = '/Users/adc/The Pieuvre/Code/thepieuvre/src/python/feeder/feeder.py'
-      thepieuvre.feeder.dir = '/Users/adc/The Pieuvre/feeds'
       thepieuvre.util.secret = "changeme"
       thepieuvre.mailalert = 'alex@thepieuvre.com'
 
