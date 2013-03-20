@@ -26,8 +26,8 @@ class FeedService {
 
 			json.articles.each { entry ->
 				Article previous = Article.findByLink(entry.link)
-				if (! previous ||  previous.title != entry.title ) {
-					Article article = (previous)?:new Article()
+				if (! previous) {
+					Article article = new Article()
 					article.feed = feed
 					article.uid = entry.id
 					article.title = entry.title
@@ -39,7 +39,7 @@ class FeedService {
 					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
 					}
-					queuesService.enqueue(Article.findByLink(entry.link))
+					queuesService.enqueue(article)
 				}
 			}
 		} else {
