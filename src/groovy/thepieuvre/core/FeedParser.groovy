@@ -33,6 +33,7 @@ class FeedParser implements Runnable {
 			} catch (Exception e) {
 				log.error e
 				grailsApplication.mainContext.feedService.exitValue((feed)?feed.id:-1, "${e.getMessage()}\n ${e.getCause()}")
+				continue
 			} 
 		}
 	}

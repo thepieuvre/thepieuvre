@@ -7,7 +7,6 @@ from nltk import FreqDist
 from nltk.chunk.util import conlltags2tree
 from nltk.corpus import conll2000
 
-
 class ChunkParser(nltk.ChunkParserI): 
 	def __init__(self, train_sents):
 		train_data = [[(t,c) for w,t,c in nltk.chunk.tree2conlltags(sent)]\
