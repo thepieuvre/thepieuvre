@@ -12,8 +12,8 @@
 </div>
 <div>
   <hr>
-  <p>Actions:</p>
-  <p><a href="${article.link}" target="_blank"><i class="icon-globe"></i>Read</a></p>
+  <strong>Actions:</strong>
+  <p><g:link action="related" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Read</a></p>
 </div>
 <div>
   <hr>
@@ -35,7 +35,7 @@
       <div class="well">
       ${cont.raw}
       </div>
-        <p><a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Read</a>  <g:link action="related" id="${related.key.id}" ><i class="icon-tasks"></i>Related</g:link></p>
+        <p> <g:link action="related" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Read</a> </p>
 
       </g:each>
 
