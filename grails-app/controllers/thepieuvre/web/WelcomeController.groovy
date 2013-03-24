@@ -104,7 +104,7 @@ class WelcomeController {
 
 	def related = {
 		Article article = Article.get(params.id)
-		render view:'/web/article', model: ['article': article, 'articleService': articleService, 'tFeeds': Feed.count(), 'tArticles': Article.count()] 
+		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
 	}
 
 }

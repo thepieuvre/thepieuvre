@@ -48,10 +48,39 @@ class ArticleService {
 		fetchingGram(article, 'trainedgram')
 	}
 
-	def relatedbyMaxArticles(Article article) {
-		// TODO adding the SCORE !!!!
-		// TODO only more than average
+	long getMaxScore(def articles) {
+		long max = 0
+		articles.each {
+			if (it.value > max)
+				max = it.value
+		}
+		return max
+	}
 
+	long getAvgScore(def articles) {
+		long average = 0
+		articles.each {
+			average += it.value
+		}
+		if (articles.size() > 0) {
+			average /= articles.size()
+		}
+		return average
+	}
+
+	long getStdDevScore(def articles) {
+		long sum = 0
+		long sumSq = 0
+		long counter = 0
+		articles.each {
+			sum += it.value
+			sumSq += it.value * it.value
+			counter++
+		}
+		return (sumSq/counter - (sum/counter)**2)**0.5
+	}
+
+	private def mergingAll(Article article) {
 		def unigram = getUniGram(article)
 		def bigram = getBiGram(article)
 		def ngram = getNGram(article)
@@ -99,14 +128,49 @@ class ArticleService {
 			}
 		}
 
-		long average = 0
-		merged.each { k, v ->
-			average += v
+		return merged
+	}
+
+	def similars(Article article) {
+		def all = mergingAll(article)
+		long upper = getMaxScore(all)
+		long stdDev = getStdDevScore(all)
+		long lower = upper - stdDev
+		def res = [:]
+		all.each { k, v ->
+			if (v <= upper && v >= lower)
+				res[k] = v
 		}
-		if (merged.size() > 0) {
-			average /= merged.size()
+		return res.sort { a, b -> b.value <=> a.value}
+	}
+
+	def related(Article article) {
+		def all = mergingAll(article)
+		long dev = getStdDevScore(all)
+		long upper = getMaxScore(all) - dev 
+		long lower = getAvgScore(all) + dev
+		def res = [:]
+		all.each { k, v ->
+			if (v <= upper && v >= lower)
+				res[k] = v
 		}
-		merged = merged.findAll { it.value > average}
+		return res.sort { a, b -> b.value <=> a.value}
+	}
+
+	def relatedbyMaxArticles(Article article) {
+		// TODO adding the SCORE !!!!
+		// TODO only more than average
+
+		def merged = mergingAll(article)
+
+		//long average = 0
+		//merged.each { k, v ->
+		//	average += v
+		//}
+		//if (merged.size() > 0) {
+		//	average /= merged.size()
+		//}
+		//merged = merged.findAll { it.value > average}
 		return merged.sort { a, b -> b.value <=> a.value}
 	}
 }

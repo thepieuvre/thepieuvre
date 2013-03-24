@@ -24,7 +24,11 @@ class FeedBootStrap {
 			'http://feeds.mashable.com/Mashable',
 			'http://www.rottentomatoes.com/syndication/rss/top_news.xml',
 			'http://digg.com/rss/topstories.xml',
-			'http://www.theverge.com/rss/index.xml'
+			'http://www.theverge.com/rss/index.xml',
+			'http://rss.cnn.com/rss/edition.rss',
+			'http://online.wsj.com/xml/rss/3_7085.xml',
+			'http://cacm.acm.org/news.rss',
+			'http://www.ibtimes.com/rss/tech-sci'
 		]
 
 		links.each { link ->
