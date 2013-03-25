@@ -160,7 +160,7 @@ ${(!exit)?'':"Exit: ${exit}"}
       <li><a href="#related">Related Articles</a></li>
       <li class="divider"></li>
       <li class="nav-header">Key Words</li>
-      <g:each in="${articleService.getNGram(article)[0..15]}" var="gram">
+      <g:each in="${articleService.getNGram(article)[0..((articleService.getNGram(article).size() < 16)?articleService.getNGram(article).size()-1:15)]}" var="gram">
         <li><a href="#">${gram.name}</a></li>
       </g:each>
     </ul>

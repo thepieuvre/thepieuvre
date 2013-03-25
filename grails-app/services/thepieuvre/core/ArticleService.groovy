@@ -77,7 +77,11 @@ class ArticleService {
 			sumSq += it.value * it.value
 			counter++
 		}
-		return (sumSq/counter - (sum/counter)**2)**0.5
+		if (counter > 0) {
+			return (sumSq/counter - (sum/counter)**2)**0.5
+		} else {
+				return 0
+		}
 	}
 
 	private def mergingAll(Article article) {
