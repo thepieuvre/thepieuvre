@@ -28,7 +28,8 @@ class FeedBootStrap {
 			'http://rss.cnn.com/rss/edition.rss',
 			'http://online.wsj.com/xml/rss/3_7085.xml',
 			'http://cacm.acm.org/news.rss',
-			'http://www.ibtimes.com/rss/tech-sci'
+			'http://www.ibtimes.com/rss/tech-sci',
+			'http://allthingsd.com/feed/'
 		]
 
 		links.each { link ->

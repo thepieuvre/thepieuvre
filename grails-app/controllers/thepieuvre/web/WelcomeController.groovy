@@ -41,6 +41,38 @@ class WelcomeController {
 		render Article.count()
 	}
 
+	def searchByAuthor = {
+		def articles = Article.createCriteria().list {
+			maxResults(25)
+			order('dateCreated', 'desc')
+			feed { eq 'global', FeedGlobalEnum.GLOBAL }
+			ilike 'author', "%${params.author}%" 
+		}
+
+		render view: '/index', model: ['articles': articles,
+			'tFeeds': Feed.count(),
+			'tArticles': Article.count(),
+			'articleService': articleService,
+			params: ['command': "by ${params.author}"]]
+	}
+
+	def searchByFeed = {
+		def articles = Article.createCriteria().list {
+			maxResults(25)
+			order('dateCreated', 'desc')
+			feed { 
+				eq 'id', params.feed as long
+				eq 'global', FeedGlobalEnum.GLOBAL 
+			}
+		}
+
+		render view: '/index', model: ['articles': articles,
+			'tFeeds': Feed.count(),
+			'tArticles': Article.count(),
+			'articleService': articleService,
+			params: ['command': "from ${Feed.get(params.feed)?.title}"]]
+	}
+
 	def executor = {
 		log.info "Executor: $params"
 		if (! params.command){
@@ -102,7 +134,7 @@ class WelcomeController {
 		}
 	}
 
-	def related = {
+	def article = {
 		Article article = Article.get(params.id)
 		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
 	}

@@ -29,8 +29,9 @@ class FeedService {
 				if (! previous) {
 					Article article = new Article()
 					article.feed = feed
-					article.uid = entry.id
-					article.title = entry.title
+					article.uid = (entry.id != 'null')?entry.id:'-1'
+					article.title = (entry.title != 'null')?entry.title:null
+					article.author = (entry.author != 'null')?entry.author:null
 					entry.contents.each { content ->
 						article.addToContents(new Content(raw: content, article: article))
 					}

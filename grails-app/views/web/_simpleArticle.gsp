@@ -1,7 +1,33 @@
-<div class="well">
-<div class="page-header">
-  <h2>${article.title} <small>@ ${article.feed.title}</small></h2>
-</div>
+<div style="
+border-bottom-color: rgb(221, 221, 221);
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: rgb(221, 221, 221);
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: rgb(221, 221, 221);
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: rgb(221, 221, 221);
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-top-style: solid;
+border-top-width: 1px;
+margin-bottom: 15px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 10px;
+padding-bottom: 14px;
+padding-left: 19px;
+padding-right: 19px;
+padding-top: 0px;
+">
+<section id="article-${article.id}">
+  <div class="page-header">
+  <h2>${article.title} <br><small>@ ${article.feed.title} ${(article.author)?"by ${article.author}":''}</small></h2>
+  </div>
  <blockquote>        
   <small>${article.published}</small>
 </blockquote>
@@ -10,15 +36,13 @@
     <div>${content.raw}</div>
   </g:each>
 </div>
-<div>
-  <hr>
+<div class="well">
   <strong>Actions:</strong>
-  <p><g:link action="related" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Read</a></p>
+  <p><g:link action="article" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Read</a></p>
 </div>
 <div>
-  <hr>
-  <h4>Related articles:</h4>
- <g:each in="${articleService.relatedbyMaxArticles(article)}" var="related">
+  <h4>Similar articles:</h4>
+ <g:each in="${articleService.similars(article)}" var="related">
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key.id}" href="#collapse${related.key.id}">
@@ -35,7 +59,7 @@
       <div class="well">
       ${cont.raw}
       </div>
-        <p> <g:link action="related" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Read</a> </p>
+        <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Read</a> </p>
 
       </g:each>
 
@@ -44,4 +68,5 @@
     </div>
     </g:each>
   </div>
+</section>
 </div>

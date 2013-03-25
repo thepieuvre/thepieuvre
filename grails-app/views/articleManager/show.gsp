@@ -38,6 +38,10 @@
 			<td><a href="${article.link}">${article.link}</a></td>
 		</tr>
 		<tr>
+			<td><strong>Author</strong></td>
+			<td>${article.author}</td>
+		</tr>
+		<tr>
 			<td><strong>Published</strong></td>
 			<td>${article.published}</td>
 		</tr>
