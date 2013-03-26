@@ -91,26 +91,26 @@ class ArticleService {
 		def trainedgram = getTrainedGram(article)
 
 		def merged = [:]
-		unigram.each {
-			int score = it.score as int
-			it.articles.each { art ->
-				if(merged[art]) {
-					merged[art] = merged[art] + score
-				} else {
-					merged[art] = score
-				}
-			}
-		}
-		bigram.each {
-			int score = it.score as int
-			it.articles.each { art ->
-				if(merged[art]) {
-					merged[art] = merged[art] + score
-				} else {
-					merged[art] = score
-				}
-			}
-		}
+		// unigram.each {
+		// 	int score = it.score as int
+		// 	it.articles.each { art ->
+		// 		if(merged[art]) {
+		// 			merged[art] = merged[art] + score
+		// 		} else {
+		// 			merged[art] = score
+		// 		}
+		// 	}
+		// }
+		// bigram.each {
+		// 	int score = it.score as int
+		// 	it.articles.each { art ->
+		// 		if(merged[art]) {
+		// 			merged[art] = merged[art] + score
+		// 		} else {
+		// 			merged[art] = score
+		// 		}
+		// 	}
+		// }
 		ngram.each {
 			int score = it.score as int
 			it.articles.each { art ->
@@ -121,16 +121,16 @@ class ArticleService {
 				}
 			}
 		}
-		trainedgram.each {
-			int score = it.score as int
-			it.articles.each { art ->
-				if(merged[art]) {
-					merged[art] = merged[art] + score
-				} else {
-					merged[art] = score
-				}
-			}
-		}
+		// trainedgram.each {
+		// 	int score = it.score as int
+		// 	it.articles.each { art ->
+		// 		if(merged[art]) {
+		// 			merged[art] = merged[art] + score
+		// 		} else {
+		// 			merged[art] = score
+		// 		}
+		// 	}
+		// }
 
 		return merged
 	}
@@ -176,5 +176,17 @@ class ArticleService {
 		//}
 		//merged = merged.findAll { it.value > average}
 		return merged.sort { a, b -> b.value <=> a.value}
+	}
+
+	def getArticleFromNGram(String ngram) {
+		def res = []
+		redisService.withRedis { Jedis redis ->
+			String key = "chunk:ngram:$ngram"
+			long last = redis.llen(key)
+			redis.lrange(key, 0, last) .each { art ->
+				res.add(Article.get(art.split(':')[1] as long))
+			}
+		}
+		return res.unique()
 	}
 }

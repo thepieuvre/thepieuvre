@@ -41,6 +41,16 @@ class WelcomeController {
 		render Article.count()
 	}
 
+	def searchByKeyWords = {
+		def articles = articleService.getArticleFromNGram(params.keyWords)
+
+		render view: '/index', model: ['articles': articles,
+			'tFeeds': Feed.count(),
+			'tArticles': Article.count(),
+			'articleService': articleService,
+			params: ['command': "'${params.keyWords}'"]]
+	}
+
 	def searchByAuthor = {
 		def articles = Article.createCriteria().list {
 			maxResults(25)
@@ -71,6 +81,26 @@ class WelcomeController {
 			'tArticles': Article.count(),
 			'articleService': articleService,
 			params: ['command': "from ${Feed.get(params.feed)?.title}"]]
+	}
+
+	def similar = {
+		def art = Article.get(params.id as long)
+		def articles = articleService.similars(art).keySet()
+		render view: '/index', model: ['articles': articles,
+			'tFeeds': Feed.count(),
+			'tArticles': Article.count(),
+			'articleService': articleService,
+			params: ['command': "similar ${art.id}"]]
+	}
+
+	def related = {
+		def art = Article.get(params.id as long)
+		def articles = articleService.related(art).keySet()
+		render view: '/index', model: ['articles': articles,
+			'tFeeds': Feed.count(),
+			'tArticles': Article.count(),
+			'articleService': articleService,
+			params: ['command': "related ${art.id}"]]
 	}
 
 	def executor = {
