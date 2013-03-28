@@ -135,6 +135,22 @@ class ArticleService {
 		return merged
 	}
 
+	def synopsis(Article article) {
+		def synopsis = []
+		def parts = getTrainedGram(article)
+		def keyWords = getNGram(article)
+		parts*.name.each { part ->
+			keyWords*.name.each { keyWord ->
+				def cleaned = part.replaceAll('\\p{Punct}', '')
+				if (cleaned.matches("${keyWord.replaceAll('\\p{Punct}', '').split('\\s').join('.*')}")) {
+					synopsis.add(cleaned)
+				}
+			}
+		}
+		return synopsis.join('<em>[...]</em>')
+		//*.name.collect { if (it in articleService.getNGram(article)*.name){"<strong>${it}</strong>"} else {it}}.join('[...]')
+	}
+
 	def similars(Article article) {
 		def all = mergingAll(article)
 		long upper = getMaxScore(all)

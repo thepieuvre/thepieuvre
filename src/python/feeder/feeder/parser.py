@@ -55,7 +55,7 @@ def process_data(data, id=None):
 		counter = counter + 1
 		str_list.append(('{ "title": "%s",' % (article.get('title', 'null').replace('"','\\"'))).encode('utf-8'))
 		str_list.append(('"link": "%s",' % (article.get('link', 'null').encode('utf-8'))))
-		str_list.append(('"author": "%s",' % (article.get('author', 'null').encode('utf-8'))))
+		str_list.append(('"author": "%s",' % escaping((article.get('author', 'null').encode('utf-8')))))
 		str_list.append('"contents": [')
 		if article.get('content'):
 			contentSize = len(article.content)

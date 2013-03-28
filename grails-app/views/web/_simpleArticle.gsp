@@ -7,7 +7,7 @@
   </div>
 
   <g:each var="content" in="${article.contents}">
-  <hc:cleanHtml unsafe="${content.raw}" whitelist="basic"/>
+  <hc:cleanHtml unsafe="${content.raw}" whitelist="relaxed"/>
   </g:each>
 <div class="well">
   <strong>Actions:</strong>
