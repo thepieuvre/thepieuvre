@@ -29,7 +29,11 @@ class FeedBootStrap {
 			'http://online.wsj.com/xml/rss/3_7085.xml',
 			'http://cacm.acm.org/news.rss',
 			'http://www.ibtimes.com/rss/tech-sci',
-			'http://allthingsd.com/feed/'
+			'http://allthingsd.com/feed/',
+			'http://feeds.nationalgeographic.com/ng/News/News_Main',
+			'http://feeds.feedburner.com/design-milk',
+			'http://feeds.feedburner.com/monday-note',
+			'http://feeds.slate.com/slate'
 		]
 
 		links.each { link ->

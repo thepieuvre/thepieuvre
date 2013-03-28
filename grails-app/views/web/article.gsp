@@ -16,7 +16,8 @@
       <div class="row">
         <div class="span10">
           <h2>Synopsis <small>by the Pieuvre</small></h2>
-          <p>${articleService.getTrainedGram(article)*.name.collect { if (it in articleService.getNGram(article)*.name){"<strong>${it}</strong>"} else {it}}.join(' ')}</P>
+          <p><strong>In Short</strong> ${articleService.synopsis(article)}</p>
+          <p>${articleService.getTrainedGram(article)*.name.collect { if (it in articleService.getNGram(article)*.name){"<strong>${it}</strong>"} else {it}}.join('[...]')}</P>
         </div>
       </div>
       <hr>
@@ -24,7 +25,7 @@
         <div class="span10">
           <h2>Content <small>${(article.author)?"by ${article.author}":''}</small></h2>
           <g:each var="content" in="${article.contents}">
-          <hc:cleanHtml unsafe="${content.raw}" whitelist="basic"/>
+          <hc:cleanHtml unsafe="${content.raw}" whitelist="relaxed"/>
           </g:each>
         </div>
       </div>
