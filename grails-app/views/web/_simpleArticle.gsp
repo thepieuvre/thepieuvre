@@ -9,12 +9,14 @@
   <g:each var="content" in="${article.contents}">
   <hc:cleanHtml unsafe="${content.raw}" whitelist="relaxed"/>
   </g:each>
+  <hr>
 <div class="well">
   <strong>Actions:</strong>
   <p><g:link action="article" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a></p>
 </div>
   <h4>Similar articles:</h4>
- <g:each in="${articleService.similars(article)}" var="related">
+ <g:each status="i" in="${articleService.similars(article)}" var="related">
+  <g:if test="${i < 5}">
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key.id}" href="#collapse${related.key.id}">
@@ -38,5 +40,6 @@
         </div>
       </div>
     </div>
+  </g:if>
     </g:each>
 </section>

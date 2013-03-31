@@ -171,7 +171,7 @@ class ArticleService {
 		long lower = getAvgScore(all) + dev
 		def res = [:]
 		all.each { k, v ->
-			if (v <= upper && v >= lower)
+			if (v < upper && v >= lower)
 				res[k] = v
 		}
 		return res.sort { a, b -> b.value <=> a.value}
