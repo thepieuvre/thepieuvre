@@ -6,6 +6,7 @@ class FeedService {
 
 	static transactional = true
 
+	def htmlCleaner
 	def queuesService
 
 	def update(Feed feed, def json) {
@@ -31,7 +32,7 @@ class FeedService {
 					article.feed = feed
 					article.uid = (entry.id != 'null')?entry.id:'-1'
 					article.title = (entry.title != 'null')?entry.title:null
-					article.author = (entry.author != 'null')?entry.author:null
+					article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
 					entry.contents.each { content ->
 						article.addToContents(new Content(raw: content, article: article))
 					}

@@ -33,7 +33,8 @@ class FeedBootStrap {
 			'http://feeds.nationalgeographic.com/ng/News/News_Main',
 			'http://feeds.feedburner.com/design-milk',
 			'http://feeds.feedburner.com/monday-note',
-			'http://feeds.slate.com/slate'
+			'http://feeds.slate.com/slate',
+			'http://www.forbes.com/real-time/feed2/'
 		]
 
 		links.each { link ->

@@ -106,7 +106,9 @@
       <li class="nav-header">More Reading</li>
       <li><g:link controller="welcome" action="similar" params="[id: article.id]">Similar Articles</g:link></li>
       <li><g:link controller="welcome" action="related" params="[id: article.id]">Related Articles</g:link></li>
+      <g:if test="${article.author}">
       <li><g:link controller="welcome" action="searchByAuthor" params="[author: article.author]">By <small>${article.author}</small></g:link></li>
+      </g:if>
       <li><g:link controller="welcome" action="searchByFeed" params="[feed: article.feed.id]">From <small>${article.feed.title}</small></g:link></li>
       <li class="divider"></li>
       <li class="nav-header">Key Words</li>
