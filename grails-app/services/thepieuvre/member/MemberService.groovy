@@ -1,6 +1,8 @@
 package thepieuvre.member
 
 import thepieuvre.core.Feed
+import thepieuvre.security.Role
+import thepieuvre.security.UserRole
 
 class MemberService {
 
@@ -9,10 +11,12 @@ class MemberService {
 	def tokenService
 
 	def signUp(def details){
+        Role rMember = Role.findByAuthority('ROLE_MEMBER')
 		Member m = new Member(details)
 		m.enabled = true
 		m.save(flush:true)
-		UserRole.create(m, Role.findByAuthority('ROLE_MEMBER'), true)
+		UserRole.create(m, rMember, true)
+        return m
 	}
 
 	def verificationNotification (Member member) {
