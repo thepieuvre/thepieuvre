@@ -153,7 +153,7 @@ class WelcomeController {
 
 	def register(MemberCommand cmd) {
 		if (cmd.validate()) {
-			memberService.signUp(cmd.properties)
+			Member m = memberService.signUp(cmd.properties)
 			memberService.verificationNotification(m)
 			log.info "New member signed up: $m"
 			redirect controller: 'login'
