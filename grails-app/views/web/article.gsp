@@ -17,7 +17,6 @@
         <div class="span10">
           <h2>Synopsis <small>by the Pieuvre</small></h2>
           <p><strong>In Short</strong> ${articleService.synopsis(article)}</p>
-          <p>${articleService.getTrainedGram(article)*.name.collect { if (it in articleService.getNGram(article)*.name){"<strong>${it}</strong>"} else {it}}.join('[...]')}</P>
         </div>
       </div>
       <hr>

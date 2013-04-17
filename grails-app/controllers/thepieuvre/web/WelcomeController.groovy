@@ -3,10 +3,13 @@ package thepieuvre.web
 import thepieuvre.core.Article
 import thepieuvre.core.Feed
 import thepieuvre.core.FeedGlobalEnum
+import thepieuvre.member.Board
 import thepieuvre.member.Member
 import thepieuvre.member.MemberCommand
 import thepieuvre.security.Role
 import thepieuvre.security.UserRole
+
+import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils 
 
 class WelcomeController {
 
@@ -29,12 +32,52 @@ class WelcomeController {
 	}
 
 	def index = {
-		def articles = Article.createCriteria().list {
-			maxResults(25)
-			order('dateCreated', 'desc')
-			feed { eq 'global', FeedGlobalEnum.GLOBAL } 
+		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
+			def articles
+			def member = springSecurityService.currentUser
+			def board = 'The Pieuvre'
+			if (! params.board) {
+				articles = Article.createCriteria().list {
+					maxResults(25)
+					order('dateCreated', 'desc')
+					feed { eq 'global', FeedGlobalEnum.GLOBAL } 
+				}
+			} else if (params.board == '-1' || ! Board.get(params.board)) {
+				board = 'Your Feeds'
+				articles = Article.createCriteria().list {
+					maxResults(25)
+					order('dateCreated', 'desc')
+					feed { 'in' ('id',  member.feeds.collect {it.id}) } 
+				}
+			} else {
+				board = Board.get(params.board).name
+				articles = Article.createCriteria().list {
+					maxResults(25)
+					order('dateCreated', 'desc')
+					feed { 'in' ('id',  Board.get(params.board).feeds.collect {it.id}) } 
+				}
+			}
+
+			render view: '/home', model: [
+				'articles': articles, 
+				'boardName': board,
+				'board': Board.get(params.board),
+				'boards': member?.boards,
+				'articleService': articleService, 
+			]
+		} else {
+			def articles = Article.createCriteria().list {
+				maxResults(25)
+				order('dateCreated', 'desc')
+				feed { eq 'global', FeedGlobalEnum.GLOBAL } 
+			}
+			render view: '/index', model: [
+				'articles': articles,
+				'articleService': articleService,
+				'tFeeds': Feed.count(), 
+				'tArticles': Article.count()
+			]
 		}
-		render view: '/index', model: ['articles': articles, 'articleService': articleService, 'tFeeds': Feed.count(), 'tArticles': Article.count()]
 	}
 
 	def totalArticles() {
@@ -167,6 +210,25 @@ class WelcomeController {
 	def article = {
 		Article article = Article.get(params.id)
 		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
+	}
+
+	def newBoard (String name) {
+		def member = springSecurityService.currentUser
+		Board board = new Board('name': name, 'member': member)
+		board.save()
+		member.addToBoards(board)
+		forward action: "index", params: [board: board.id]
+	}
+
+	def follow (String feed, String board) {
+		def boardInstance = Board.get(board)
+		if (boardInstance) {
+			memberService.addFeed(springSecurityService.currentUser, feed, boardInstance)
+		} else {
+			memberService.addFeed(springSecurityService.currentUser, feed)
+		}
+
+		forward action: "index", params: [board: board]
 	}
 
 }
