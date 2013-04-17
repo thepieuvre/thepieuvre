@@ -1,6 +1,7 @@
 package thepieuvre.member
 
 import thepieuvre.core.Feed
+import thepieuvre.member.Board
 import thepieuvre.security.Role
 import thepieuvre.security.UserRole
 
@@ -53,6 +54,22 @@ class MemberService {
         if (! member.feeds.contains(feed)) {
             member.addToFeeds(feed)
         }
+        return true
+    }
+
+    def addFeed(Member member, String link, Board board) {
+        Feed feed = Feed.findByLink(link)
+        if (! feed) {
+            feed = new Feed(link: link)
+            if (! feed.save(flush: true)) {
+                log.warn "Cannot save a feed: $feed.errors"
+                return false
+            }
+        }
+        if (! member.feeds.contains(feed)) {
+            member.addToFeeds(feed)
+        }
+        board.addToFeeds(feed)
         return true
     }
 

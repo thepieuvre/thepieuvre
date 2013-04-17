@@ -3,7 +3,7 @@ package thepieuvre.member
 import thepieuvre.core.Feed
 import thepieuvre.security.User
 
-class Member  extends User {
+class Member extends User {
 
 	String email
 
@@ -11,7 +11,7 @@ class Member  extends User {
 		discriminator 'MEMBER'
 	}
 
-	static hasMany = [feeds: Feed]
+	static hasMany = [feeds: Feed, boards: Board]
 
 	static constraints = {
 		email email: true, unique: true, blank: false
