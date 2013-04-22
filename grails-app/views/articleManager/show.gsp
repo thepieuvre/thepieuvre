@@ -26,6 +26,11 @@
 	</div>
 </g:each>
 
+<h3>Boilerplate</h3>
+<div class="well">
+${article.boilerplate}	
+</div>
+
 <h3>Information</h3>
 <table class="table table-striped">
 	<tbody>
