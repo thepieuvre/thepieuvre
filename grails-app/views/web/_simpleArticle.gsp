@@ -5,10 +5,7 @@
   <small>${article.published}</small>
 </blockquote>
   </div>
-
-  <g:each var="content" in="${article.contents}">
-  <hc:cleanHtml unsafe="${content.raw}" whitelist="relaxed"/>
-  </g:each>
+  <hc:cleanHtml unsafe="${article.contents.raw}" whitelist="relaxed"/>
   <hr>
 <div class="well">
   <strong>Actions:</strong>
@@ -29,14 +26,10 @@
         
         <small>${related.key.published}</small>
       </blockquote>
-      <g:each var="cont" in="${related.key.contents}">
       <div class="well">
-      <hc:cleanHtml unsafe="${cont.raw}" whitelist="basic"/>
+      <hc:cleanHtml unsafe="${related.key.contents.raw}" whitelist="basic"/>
       </div>
         <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a></p>
-
-      </g:each>
-
         </div>
       </div>
     </div>

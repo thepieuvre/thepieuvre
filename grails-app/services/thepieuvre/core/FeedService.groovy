@@ -2,12 +2,20 @@ package thepieuvre.core
 
 import thepieuvre.exception.PieuvreException
 
-class FeedService {
+import org.springframework.beans.factory.InitializingBean
+
+import com.gravity.goose.Configuration
+import com.gravity.goose.Goose
+
+class FeedService implements InitializingBean {
 
 	static transactional = true
 
 	def htmlCleaner
 	def queuesService
+
+	private Configuration conf = new Configuration()
+	private Goose goose
 
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
@@ -34,9 +42,15 @@ class FeedService {
 					article.title = (entry.title != 'null')?entry.title:null
 					article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
 					entry.contents.each { content ->
-						article.addToContents(new Content(raw: content, article: article))
+						if (article.contents && article.contents.raw.size() < content.size()) {
+							article.contents = new Content(raw: content, article: article)
+						} else {
+							article.contents = new Content(raw: content, article: article)
+						} 
 					}
 					article.link = entry.link
+					
+					article.contents.fullText = goose.extractContent(article.link).cleanedArticleText()
 					article.published = entry.published
 					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
@@ -73,4 +87,10 @@ class FeedService {
 			throw new PieuvreException(error)
 		}
 	}
+
+	void afterPropertiesSet() {
+		conf.enableImageFetching = false
+		goose = new Goose(conf)
+
+    }
 }

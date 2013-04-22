@@ -35,6 +35,9 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
+
+        runtime 'com.gravity:goose:2.1.22'
+        runtime 'net.sourceforge.nekohtml:nekohtml:1.9.13'
     }
 
     plugins {

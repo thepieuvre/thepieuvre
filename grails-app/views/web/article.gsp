@@ -23,9 +23,7 @@
       <div class="row">
         <div class="span10">
           <h2>Content <small>${(article.author)?"by ${article.author}":''}</small></h2>
-          <g:each var="content" in="${article.contents}">
-          <hc:cleanHtml unsafe="${content.raw}" whitelist="relaxed"/>
-          </g:each>
+          <hc:cleanHtml unsafe="${article.contents.raw}" whitelist="relaxed"/>
         </div>
       </div>
     </section>  
@@ -47,12 +45,10 @@
                   <blockquote>
                     <small>${similars.key.published}</small>
                   </blockquote>
-                  <g:each var="cont" in="${similars.key.contents}">
                   <div class="well">
-                  <hc:cleanHtml unsafe="${cont.raw}" whitelist="basic"/>
+                  <hc:cleanHtml unsafe="${similars.key.contents.raw}" whitelist="basic"/>
                   </div>
                   <p> <g:link action="article" id="${similars.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${similars.key.link}" target="_blank"><i class="icon-globe"></i>Read</a> </p>
-                  </g:each>
                 </div>
               </div>
             </div>
@@ -80,12 +76,10 @@
                   <blockquote>
                     <small>${related.key.published}</small>
                   </blockquote>
-                  <g:each var="cont" in="${related.key.contents}">
                   <div class="well">
-                  <hc:cleanHtml unsafe="${cont.raw}" whitelist="basic"/>
+                  <hc:cleanHtml unsafe="${related.key.contents.raw}" whitelist="basic"/>
                   </div>
                   <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a> </p>
-                  </g:each>
                 </div>
               </div>
             </div>
@@ -100,6 +94,9 @@
     <ul class="nav nav-list affix">
       <li class="nav-header">Reading</li>
       <li><a href="#article">Article</a></li>
+      <sec:ifLoggedIn>
+      <li><a href="#reader" data-toggle="modal">The Pieuvre Reader</a></li>
+      </sec:ifLoggedIn>
       <li><a href="${article.link}" target="_blank">Go to the Article</a></li>
       <li class="divider"></li>
       <li class="nav-header">More Reading</li>
@@ -119,6 +116,17 @@
     </ul>
   </div>  
 </div>   
+
+<!-- Modal Reader -->
+<div id="reader" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="readerLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 id="readerLabel">The Pieuvre Reader</h4>
+  </div>
+  <div class="modal-body">
+${article.contents.fullText.replaceAll('\n','<br>')}   
+  </div>
+</div>
 
 	</body>
 </html>

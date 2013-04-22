@@ -11,7 +11,7 @@ class Article {
 
 	Date dateCreated
 
-	static hasMany = [ contents: Content ]
+	Content contents
 
 	static belongsTo = [ feed: Feed ]
 

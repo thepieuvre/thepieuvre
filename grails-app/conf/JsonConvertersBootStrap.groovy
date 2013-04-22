@@ -14,12 +14,11 @@ class JsonConvertersBootStrap {
 			json.link = a.link
 			json.published = a.published
 			json.title = a.title
-
+			json.contents = a.contents.fullText
 			json.contents = {
 				def c = "<h1>${it.title}</h1>"
-				it.contents.each { ct ->
-					c += ct.raw
-				}
+				c += it.contents.raw
+				c += it.contents.fullText
 				return c
 			}.call(a)
 			return json
