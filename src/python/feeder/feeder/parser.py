@@ -42,8 +42,8 @@ def process_data(data, id=None):
 	str_list.append(('"description": "%s",'% (data.feed.get('description', 'null'))).encode('utf-8'))
 	str_list.append(('"language": "%s",'% (data.feed.get('language', 'en'))).encode('utf-8'))
 	str_list.append(('"status": "%s",'% (data.get('status', '-1'))).encode('utf-8'))
-	str_list.append(('"standard": "%s",'% (data.version)).encode('utf-8'))
-	str_list.append(('"etag": "%s",'% (data.get('etag', 'null').replace('"',''))).encode('utf-8'))
+	str_list.append(('"standard": "%s",'% (data.get('version','null'))).encode('utf-8'))
+	str_list.append(('"etag": "%s",'% (data.get('etag', 'null')).replace('"','')).encode('utf-8'))
 	str_list.append(('"modified": "%s",'% (data.get('modified', 'null'))).encode('utf-8'))
 	if data.status == 301:
 		str_list.append(('"moved": "%s",' % (data.href)).encode('utf-8'))
