@@ -124,7 +124,7 @@
     <h4 id="readerLabel">The Pieuvre Reader</h4>
   </div>
   <div class="modal-body">
-${article.contents.fullText.replaceAll('\n','<br>')}   
+${article.contents.fullText?.replaceAll('\n','<br>')}   
   </div>
 </div>
 

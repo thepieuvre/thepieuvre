@@ -49,8 +49,11 @@ class FeedService implements InitializingBean {
 						} 
 					}
 					article.link = entry.link
-					
-					article.contents.fullText = goose.extractContent(article.link).cleanedArticleText()
+					try {
+						article.contents.fullText = goose.extractContent(article.link).cleanedArticleText()
+					} catch (Exception e) {
+						log.warn "No content extraced from $entry.link"
+					}
 					article.published = entry.published
 					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
