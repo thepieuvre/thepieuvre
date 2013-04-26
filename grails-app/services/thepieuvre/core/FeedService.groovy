@@ -8,6 +8,8 @@ import com.gravity.goose.Configuration
 import com.gravity.goose.Goose
 import de.l3s.boilerpipe.extractors.ArticleExtractor
 
+import java.net.URL
+
 class FeedService implements InitializingBean {
 
 	static transactional = true
@@ -53,21 +55,23 @@ class FeedService implements InitializingBean {
 						} 
 					}
 					article.link = entry.link
+					def extracted = ''
 					try {
-						def extracted = goose.extractContent(article.link)
+						extracted = goose.extractContent(article.link).cleanedArticleText()
 						article.contents.extractor = 'Goose'
-						article.contents.fullText = extracted.cleanedArticleText()
 						article.contents.mainImage = extracted.topImage.getImageSrc()
 					} catch (Exception e) {
 						log.warn "No content extraced from $entry.link", e
 					}
 					
-					def extractedBak = boilerpipe.getText(article.link)
-					if (!article.contents.fullText || extractedBak.size() > article.contents.fullText.size()) {
+					def extractedBak = boilerpipe.getText(new URL(article.link))
+					if (!extracted || extractedBak.size() > extracted.size()) {
 						article.contents.extractor = 'Boilerpipe'
-						article.contents.fullText = extractedBak
+						extracted = extractedBak
 						log.info "Boilerpipe better than goose"
 					}
+
+					article.contents.fullText = extracted
 
 					article.published = entry.published
 					if(! article.save(flush: true)) {
