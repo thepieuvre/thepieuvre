@@ -19,16 +19,19 @@
 <p>Feed: <g:link action="show" id="${article.feed.id}" controller="feedManager">${article.feed.title}</g:link></p>
 	
 <h3>Contents</h3>
-<g:each var="content" in="${article.contents}">
 	<h4>Raw</h4>
 	<div class="well">
-	${content.raw}
+	${article.contents.raw}
 	</div>
-</g:each>
 
-<h3>Boilerplate</h3>
+<h3>Main Content (from original article)</h3>
 <div class="well">
-${article.boilerplate}	
+${article.contents.fullText}	
+</div>
+
+<h3>Main Image (from original article)</h3>
+<div class="well">
+<img src="${article.contents.mainImage}" />
 </div>
 
 <h3>Information</h3>

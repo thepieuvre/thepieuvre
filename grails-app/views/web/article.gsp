@@ -124,7 +124,10 @@
     <h4 id="readerLabel">The Pieuvre Reader</h4>
   </div>
   <div class="modal-body">
+    <img src="${article.contents.mainImage}" />
+    <p>
 ${article.contents.fullText?.replaceAll('\n','<br>')}   
+</p>
   </div>
 </div>
 
