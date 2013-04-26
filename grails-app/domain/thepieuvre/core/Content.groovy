@@ -5,6 +5,7 @@ class Content {
 	String raw
 
 	String fullText
+	String extractor = 'None'
 
 	String mainImage
 

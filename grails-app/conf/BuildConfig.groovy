@@ -25,6 +25,8 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
 
+        mavenRepo 'http://boilerpipe.googlecode.com/svn/repo/'
+
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
@@ -38,6 +40,7 @@ grails.project.dependency.resolution = {
 
         runtime 'com.gravity:goose:2.1.22'
         runtime 'net.sourceforge.nekohtml:nekohtml:1.9.13'
+        runtime 'de.l3s.boilerpipe:boilerpipe:1.2.0'
     }
 
     plugins {
