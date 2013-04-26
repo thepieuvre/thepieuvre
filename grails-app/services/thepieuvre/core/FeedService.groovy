@@ -14,6 +14,8 @@ class FeedService implements InitializingBean {
 	def htmlCleaner
 	def queuesService
 
+	def grailsApplication
+
 	private Configuration conf = new Configuration()
 	private Goose goose
 
@@ -50,9 +52,11 @@ class FeedService implements InitializingBean {
 					}
 					article.link = entry.link
 					try {
-						article.contents.fullText = goose.extractContent(article.link).cleanedArticleText()
+						def extracted = goose.extractContent(article.link)
+						article.contents.fullText = extracted.cleanedArticleText()
+						article.contents.mainImage = extracted.topImage.getImageSrc()
 					} catch (Exception e) {
-						log.warn "No content extraced from $entry.link"
+						log.warn "No content extraced from $entry.link", e
 					}
 					article.published = entry.published
 					if(! article.save(flush: true)) {
@@ -92,7 +96,9 @@ class FeedService implements InitializingBean {
 	}
 
 	void afterPropertiesSet() {
-		conf.enableImageFetching = false
+		conf.enableImageFetching = true
+		conf.imagemagickIdentifyPath= grailsApplication.config.thepieuvre.imagemagick.identify
+		conf.imagemagickConvertPath = grailsApplication.config.thepieuvre.imagemagick.convert
 		goose = new Goose(conf)
 
     }
