@@ -9,7 +9,7 @@
   <hr>
 <div class="well">
   <strong>Actions:</strong>
-  <p><g:link action="article" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a></p>
+  <p><g:link action="article" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a></p>
 </div>
   <h4>Similar articles:</h4>
  <g:each status="i" in="${articleService.similars(article)}" var="related">
@@ -29,7 +29,7 @@
       <div class="well">
       <hc:cleanHtml unsafe="${related.key.contents.raw}" whitelist="basic"/>
       </div>
-        <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a></p>
+        <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a></p>
         </div>
       </div>
     </div>
