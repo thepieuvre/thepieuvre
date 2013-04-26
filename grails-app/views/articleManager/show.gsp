@@ -25,6 +25,7 @@
 	</div>
 
 <h3>Main Content (from original article)</h3>
+<p>${article.contents.extractor}</p>
 <div class="well">
 ${article.contents.fullText}	
 </div>
@@ -113,7 +114,7 @@ ${article.contents.fullText}
 			<td>
 				<ul>
 				<g:each in="${gram.articles}" var="art">
-					<li><g:link action="show" id="${art.id}">${art.title}</g:link></li>
+					<li><g:link action="show" id="${art?.id}">${art?.title}</g:link></li>
 				</g:each>
 				</ul>
 			</td>
@@ -139,7 +140,7 @@ ${article.contents.fullText}
 			<td>
 				<ul>
 				<g:each in="${gram.articles}" var="art">
-					<li><g:link action="show" id="${art.id}">${art.title}</g:link></li>
+					<li><g:link action="show" id="${art?.id}">${art?.title}</g:link></li>
 				</g:each>
 				</ul>
 			</td>
@@ -165,7 +166,7 @@ ${article.contents.fullText}
 			<td>
 				<ul>
 				<g:each in="${gram.articles}" var="art">
-					<li><g:link action="show" id="${art.id}">${art.title}</g:link></li>
+					<li><g:link action="show" id="${art?.id}">${art?.title}</g:link></li>
 				</g:each>
 				</ul>
 			</td>
