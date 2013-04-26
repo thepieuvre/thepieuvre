@@ -13,7 +13,7 @@
 </div>
   <h4>Similar articles:</h4>
  <g:each status="i" in="${articleService.similars(article)}" var="related">
-  <g:if test="${i < 5}">
+  <g:if test="${i < 5 && related.key}">
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key.id}" href="#collapse${related.key.id}">
