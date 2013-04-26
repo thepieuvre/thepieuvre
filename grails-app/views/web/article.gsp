@@ -48,7 +48,7 @@
                   <div class="well">
                   <hc:cleanHtml unsafe="${similars.key.contents.raw}" whitelist="basic"/>
                   </div>
-                  <p> <g:link action="article" id="${similars.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${similars.key.link}" target="_blank"><i class="icon-globe"></i>Read</a> </p>
+                  <p> <g:link action="article" id="${similars.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${similars.key.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@
                   <div class="well">
                   <hc:cleanHtml unsafe="${related.key.contents.raw}" whitelist="basic"/>
                   </div>
-                  <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Complete Article</a> </p>
+                  <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
       <sec:ifLoggedIn>
       <li><a href="#reader" data-toggle="modal">The Pieuvre Reader</a></li>
       </sec:ifLoggedIn>
-      <li><a href="${article.link}" target="_blank">Go to the Article</a></li>
+      <li><a href="${article.link}" target="_blank">Go to the Original</a></li>
       <li class="divider"></li>
       <li class="nav-header">More Reading</li>
       <li><g:link controller="welcome" action="similar" params="[id: article.id]">Similar Articles</g:link></li>
