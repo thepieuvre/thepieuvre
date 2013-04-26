@@ -64,7 +64,7 @@ ${article.contents.fullText}
 
 <ul>
 	<g:each in="${related}" var="art">
-		<li><g:link action="show" id="${art.key.id}">${art.key.title}</g:link>: ${art.value}</li>
+		<li><g:link action="show" id="${art.key?.id}">${art.key?.title}</g:link>: ${art.value}</li>
 	</g:each>
 </ul>
 
@@ -87,7 +87,7 @@ ${article.contents.fullText}
 			<td>
 				<ul>
 				<g:each in="${gram.articles}" var="art">
-					<li><g:link action="show" id="${art.id}">${art.title}</g:link></li>
+					<li><g:link action="show" id="${art?.id}">${art?.title}</g:link></li>
 				</g:each>
 				</ul>
 			</td>
