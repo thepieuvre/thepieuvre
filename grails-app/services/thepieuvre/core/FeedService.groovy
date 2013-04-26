@@ -6,6 +6,7 @@ import org.springframework.beans.factory.InitializingBean
 
 import com.gravity.goose.Configuration
 import com.gravity.goose.Goose
+import de.l3s.boilerpipe.extractors.ArticleExtractor
 
 class FeedService implements InitializingBean {
 
@@ -18,6 +19,7 @@ class FeedService implements InitializingBean {
 
 	private Configuration conf = new Configuration()
 	private Goose goose
+	private ArticleExtractor boilerpipe = ArticleExtractor.INSTANCE
 
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
@@ -53,11 +55,20 @@ class FeedService implements InitializingBean {
 					article.link = entry.link
 					try {
 						def extracted = goose.extractContent(article.link)
+						article.contents.extractor = 'Goose'
 						article.contents.fullText = extracted.cleanedArticleText()
 						article.contents.mainImage = extracted.topImage.getImageSrc()
 					} catch (Exception e) {
 						log.warn "No content extraced from $entry.link", e
 					}
+					
+					def extractedBak = boilerpipe.getText(article.link)
+					if (!article.contents.fullText || extractedBak.size() > article.contents.fullText.size()) {
+						article.contents.extractor = 'Boilerpipe'
+						article.contents.fullText = extractedBak
+						log.info "Boilerpipe better than goose"
+					}
+
 					article.published = entry.published
 					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
