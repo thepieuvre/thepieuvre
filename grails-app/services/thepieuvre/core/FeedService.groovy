@@ -57,9 +57,10 @@ class FeedService implements InitializingBean {
 					article.link = entry.link
 					def extracted = ''
 					try {
-						extracted = goose.extractContent(article.link).cleanedArticleText()
+						def gExt = goose.extractContent(article.link)
+						extracted = gExt.cleanedArticleText()
 						article.contents.extractor = 'Goose'
-						article.contents.mainImage = extracted.topImage.getImageSrc()
+						article.contents.mainImage = gExt.topImage.getImageSrc()
 					} catch (Exception e) {
 						log.warn "No content extraced from $entry.link", e
 					}
