@@ -38,17 +38,17 @@
             <g:each in="${articleService.similars(article)}" var="similars">
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${similars.key.id}" href="#collapse${similars.key.id}">${similars.key.title}  <small>@ ${similars.key.feed.title}</small></a>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${similars.key?.id}" href="#collapse${similars.key?.id}">${similars.key?.title}  <small>@ ${similars.key?.feed?.title}</small></a>
               </div>
-              <div id="collapse${similars.key.id}" class="accordion-body collapse">
+              <div id="collapse${similars.key?.id}" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <blockquote>
-                    <small>${similars.key.published}</small>
+                    <small>${similars.key?.published}</small>
                   </blockquote>
                   <div class="well">
-                  <hc:cleanHtml unsafe="${similars.key.contents.raw}" whitelist="basic"/>
+                  <hc:cleanHtml unsafe="${similars.key?.contents?.raw}" whitelist="basic"/>
                   </div>
-                  <p> <g:link action="article" id="${similars.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${similars.key.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
+                  <p> <g:link action="article" id="${similars.key?.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${similars.key?.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
                 </div>
               </div>
             </div>
@@ -69,17 +69,17 @@
             <g:each in="${articleService.related(article)}" var="related">
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key.id}" href="#collapse${related.key.id}">${related.key.title}  <small>@ ${related.key.feed.title}</small></a>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key?.id}" href="#collapse${related.key?.id}">${related.key?.title}  <small>@ ${related.key?.feed?.title}</small></a>
               </div>
-              <div id="collapse${related.key.id}" class="accordion-body collapse">
+              <div id="collapse${related.key?.id}" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <blockquote>
-                    <small>${related.key.published}</small>
+                    <small>${related.key?.published}</small>
                   </blockquote>
                   <div class="well">
-                  <hc:cleanHtml unsafe="${related.key.contents.raw}" whitelist="basic"/>
+                  <hc:cleanHtml unsafe="${related.key?.contents?.raw}" whitelist="basic"/>
                   </div>
-                  <p> <g:link action="article" id="${related.key.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
+                  <p> <g:link action="article" id="${related.key?.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key?.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
                 </div>
               </div>
             </div>
@@ -116,20 +116,24 @@
     </ul>
   </div>  
 </div>   
-
+<sec:ifLoggedIn>
 <!-- Modal Reader -->
-<div id="reader" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="readerLabel" aria-hidden="true">
-  <div class="modal-header">
+<div id="reader" class="modal-reader hide fade" tabindex="-1" role="dialog" aria-labelledby="readerLabel" aria-hidden="true">
+  <div class="modal-reader-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 id="readerLabel">The Pieuvre Reader</h4>
+    <h4 id="readerLabel"><i class="icon-book"></i> The Pieuvre Reader</h4>
+    <h2>${article.title} <br><small>@ ${article.feed.title} ${(article.author)?"by ${article.author}":''}</small></h2>
   </div>
-  <div class="modal-body">
-    <img src="${article.contents.mainImage}" />
-    <p>
-${article.contents.fullText?.replaceAll('\n','<br>')}   
-</p>
+  <div class="modal-reader-body">
+    <center><img src="${article.contents.mainImage}" /></center>
+    <div>
+      <g:each in="${article.contents.fullText?.tokenize('\n')}" var="sentence">
+      <p>${sentence}</p>
+      </g:each>
+    </div>
   </div>
 </div>
+</sec:ifLoggedIn>
 
 	</body>
 </html>

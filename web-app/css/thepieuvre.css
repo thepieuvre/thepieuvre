@@ -24,3 +24,31 @@
 	padding-right: 19px;
 	padding-top: 0px;
 }
+
+.modal-reader{
+	position:fixed;
+	top:0%;
+	left:10%;
+	z-index:1050;
+	overflow:auto;
+	width:80%;
+	height:90%;
+	margin:25px 0px 0px 0px;
+	background-color:#ffffff;
+	border:1px solid #999;
+	border:1px solid rgba(0, 0, 0, 0.3);
+}
+
+.modal-reader-body{
+	overflow-y:auto;
+	/**max-height:400px;**/
+	padding:15px;
+}
+
+.modal-reader-header{
+	padding:9px 15px;
+	border-bottom:1px solid #eee;
+}
+.modal-readerheader .close{margin-top:2px;}
+
+
