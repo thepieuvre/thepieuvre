@@ -12,7 +12,9 @@ class QueuesService {
 	static final Map queues = [
 		'thepieuvre.core.Feed': 'feeder',
 		'Python: feeder': 'feedparser',
-		'thepieuvre.core.Article': 'chunker'
+		'thepieuvre.core.Content': 'extractor',
+		'thepieuvre.core.Article': 'chunker',
+		'Groovy: extractor': 'article'
 	]
 
 	def enqueue(def task) {
