@@ -2,15 +2,7 @@ package thepieuvre.core
 
 import thepieuvre.exception.PieuvreException
 
-import org.springframework.beans.factory.InitializingBean
-
-import com.gravity.goose.Configuration
-import com.gravity.goose.Goose
-import de.l3s.boilerpipe.extractors.ArticleExtractor
-
-import java.net.URL
-
-class FeedService implements InitializingBean {
+class FeedService {
 
 	static transactional = true
 
@@ -19,9 +11,14 @@ class FeedService implements InitializingBean {
 
 	def grailsApplication
 
-	private Configuration conf = new Configuration()
-	private Goose goose
-	private ArticleExtractor boilerpipe = ArticleExtractor.INSTANCE
+	def update(Content content, def json) {
+		log.info "Updating content $content"
+		content.refresh()
+		content.fullText = json.fullText
+		content.extractor = json.extractor
+		content.mainImage = json.mainImage
+		queuesService.enqueue(content.article)
+	}
 
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
@@ -55,30 +52,12 @@ class FeedService implements InitializingBean {
 						} 
 					}
 					article.link = entry.link
-					def extracted = ''
-					try {
-						def gExt = goose.extractContent(article.link)
-						extracted = gExt.cleanedArticleText()
-						article.contents.extractor = 'Goose'
-						article.contents.mainImage = gExt.topImage.getImageSrc()
-					} catch (Exception e) {
-						log.warn "No content extraced from $entry.link", e
-					}
-					
-					def extractedBak = boilerpipe.getText(new URL(article.link))
-					if (!extracted || extractedBak.size() > extracted.size()) {
-						article.contents.extractor = 'Boilerpipe'
-						extracted = extractedBak
-						log.info "Boilerpipe better than goose"
-					}
-
-					article.contents.fullText = extracted
 
 					article.published = entry.published
 					if(! article.save(flush: true)) {
 						throw new PieuvreException(article.errors)
 					}
-					queuesService.enqueue(article)
+					queuesService.enqueue(article.contents)
 				}
 			}
 		} else {
@@ -111,11 +90,4 @@ class FeedService implements InitializingBean {
 		}
 	}
 
-	void afterPropertiesSet() {
-		conf.enableImageFetching = true
-		conf.imagemagickIdentifyPath= grailsApplication.config.thepieuvre.imagemagick.identify
-		conf.imagemagickConvertPath = grailsApplication.config.thepieuvre.imagemagick.convert
-		goose = new Goose(conf)
-
-    }
 }

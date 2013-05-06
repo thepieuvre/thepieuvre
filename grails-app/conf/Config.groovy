@@ -69,9 +69,6 @@ environments {
       thepieuvre.util.secret = "changeme"
       thepieuvre.mailalert = 'alex@thepieuvre.com'
 
-      thepieuvre.imagemagick.identify = '/usr/local/bin/identify'
-      thepieuvre.imagemagick.convert = '/usr/local/bin/convert'
-
       grails.mail.default.from="noreply@thepieuvre.com"
 
       grails {

@@ -1,4 +1,5 @@
 import thepieuvre.core.Article
+import thepieuvre.core.Content
 
 import grails.converters.JSON
 
@@ -14,13 +15,20 @@ class JsonConvertersBootStrap {
 			json.link = a.link
 			json.published = a.published
 			json.title = a.title
-			json.contents = a.contents.fullText
+			//json.contents = a.contents.fullText
 			json.contents = {
 				def c = "<h1>${it.title}</h1>"
 				c += it.contents.raw
 				c += it.contents.fullText
 				return c
 			}.call(a)
+			return json
+		}
+
+		JSON.registerObjectMarshaller(Content) { c ->
+			def json = [:]
+			json.id = c.id
+			json.link = c.article.link
 			return json
 		}
 

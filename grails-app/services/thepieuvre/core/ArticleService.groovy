@@ -9,6 +9,7 @@ class ArticleService {
 	def redisService 
 
 	private def fetchingGram(Article article, String type) {
+		log.info "Redis - Fetching articles"
 		def res = []
 		redisService.withRedis { Jedis redis ->
 			String key = "article:$article.id:$type"
@@ -29,6 +30,7 @@ class ArticleService {
 				res << elem
 			}
 		}
+		log.info "Redis - Fetched articles"
 		return res
 	}
 
@@ -152,6 +154,7 @@ class ArticleService {
 	}
 
 	def similars(Article article) {
+		log.info "Article Service - Finding similars"
 		def all = mergingAll(article)
 		long upper = getMaxScore(all)
 		long stdDev = getStdDevScore(all)
@@ -161,7 +164,9 @@ class ArticleService {
 			if (v <= upper && v >= lower)
 				res[k] = v
 		}
-		return res.sort { a, b -> b.value <=> a.value}
+		res = res.sort { a, b -> b.value <=> a.value}
+		log.info "Article Service - Found similars"
+		return res
 	}
 
 	def related(Article article) {

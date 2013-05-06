@@ -32,6 +32,7 @@ class WelcomeController {
 	}
 
 	def index = {
+		log.info "Welcome - Loading"
 		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
 			def articles
 			def member = springSecurityService.currentUser
@@ -58,6 +59,7 @@ class WelcomeController {
 				}
 			}
 
+			log.info "Welcome - Rendering Home"
 			render view: '/home', model: [
 				'articles': articles, 
 				'boardName': board,
@@ -65,19 +67,23 @@ class WelcomeController {
 				'boards': member?.boards,
 				'articleService': articleService, 
 			]
+			log.info "Welcome - Rendered Home"
 		} else {
 			def articles = Article.createCriteria().list {
 				maxResults(25)
 				order('dateCreated', 'desc')
 				feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 			}
+			log.info "Welcome - Rendering Index"
 			render view: '/index', model: [
 				'articles': articles,
 				'articleService': articleService,
 				'tFeeds': Feed.count(), 
 				'tArticles': Article.count()
 			]
+			log.info "Welcome - Rendered Index"
 		}
+		log.info "Welcome - Loaded"
 	}
 
 	def totalArticles() {

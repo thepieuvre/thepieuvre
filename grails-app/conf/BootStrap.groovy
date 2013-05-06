@@ -1,5 +1,6 @@
 import grails.util.Environment
 
+import thepieuvre.core.ArticleTask
 import thepieuvre.core.FeederTask
 import thepieuvre.core.FeedParser
 import thepieuvre.member.Member
@@ -58,6 +59,7 @@ class BootStrap {
 
         schedulerService.schedule(new FeederTask(grailsApplication), 31415)
         feedParser = new Thread(new FeedParser(grailsApplication)).start()
+        def articleTask = new Thread(new ArticleTask(grailsApplication)).start()
 
     }
 
