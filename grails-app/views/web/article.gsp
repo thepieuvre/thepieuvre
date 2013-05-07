@@ -123,13 +123,19 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 id="readerLabel"><i class="icon-book"></i> The Pieuvre Reader</h4>
     <h2>${article.title} <br><small>@ ${article.feed.title} ${(article.author)?"by ${article.author}":''}</small></h2>
+    <small>Content extracted from ${article.link}</small>
   </div>
   <div class="modal-reader-body">
     <center><img src="${article.contents.mainImage}" /></center>
     <div>
-      <g:each in="${article.contents.fullText?.tokenize('\n')}" var="sentence">
-      <p>${sentence}</p>
-      </g:each>
+      <g:if test="${article.contents.fullText}">
+        <g:each in="${article.contents.fullText?.tokenize('\n')}" var="sentence">
+        <p>${sentence}</p>
+        </g:each>
+      </g:if>
+      <g:else>
+      <p> The Pieuvre is busy. Please come back later for the reading the content.</p>
+      </g:else>
     </div>
   </div>
 </div>
