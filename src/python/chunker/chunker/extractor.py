@@ -144,7 +144,7 @@ def extract_keywords(task, redis):
 def redis_mode(redis):
 	while True:
 		try:
-			task = redis.blpop('queue:chunker', 60)
+			task = redis.blpop('queue:chunker', 10)
 			if task != None:
 				raw = json.loads(task[1])
 				# print 'JSON: %s' % (raw)
