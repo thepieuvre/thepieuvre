@@ -2,6 +2,8 @@ package thepieuvre.core
 
 import thepieuvre.exception.PieuvreException
 
+import groovy.time.TimeCategory
+
 class FeedService {
 
 	static transactional = true
@@ -10,6 +12,44 @@ class FeedService {
 	def queuesService
 
 	def grailsApplication
+
+	def updateFeeds() {
+		def feeds
+		Date now = new Date()
+		try {
+			feeds = Feed.createCriteria().scroll {
+				eq 'active', true
+				or {
+					// First check
+					and {
+						isNull 'lastChecked'
+						isNull 'checkOn'
+					}
+					le 'checkOn', now 
+				}
+			}
+			while(feeds.next()) {
+				def feed = feeds.get(0)
+				log.debug "Adding $feed to the queue"
+				if (!feed.lastChecked) {
+					use(TimeCategory) {
+						feed.checkOn = now + 3.minutes
+					}
+				}
+				queuesService.enqueue(feed)
+			}
+		} catch (Exception e) {
+			log.error "Something wrong happened while updating feeds", e
+		} finally {
+			if (feeds) {
+				try {
+					feeds.close()
+				} catch (Exception) {
+					log.warn "Cannot close the scroll", e
+				}
+			}
+		}
+	}
 
 	def update(Content content, def json) {
 		log.info "Updating content $content"
@@ -25,7 +65,7 @@ class FeedService {
 		feed = Feed.get(feed.id)
 		feed.lastChecked = new Date()
 		feed.lastStatus = json.status as int
-
+		Date now = new Date()
 		if (feed.lastStatus != 304) {
 			log.info "Updating info of feed $feed"
 			feed.lastUpdated = new Date()
@@ -35,7 +75,9 @@ class FeedService {
 			feed.language = (json.language != 'null')?json.language:feed.language
 			feed.updated = (json.updated != 'null')?json.updated:feed.updated
 			feed.modified = (json.modified != 'null')?json.modified:feed.modified
-
+			use(TimeCategory) {
+				feed.checkOn = now + 3.minutes
+			}
 			json.articles.each { entry ->
 				Article previous = Article.findByUid(entry.id)
 				previous = (previous)?:Article.findByLink(entry.link)
@@ -63,7 +105,12 @@ class FeedService {
 			}
 		} else {
 			log.info "Nothing to update for feed $feed"
+			def step = (feed.lastChecked.time - feed.lastUpdated.time) * 2
+			def checkOn = now.time + ((step < (1000 * 60 * 60))?step:(1000 * 60 * 60))
+			feed.checkOn = new Date(checkOn)
 		}
+
+		log.info "$feed will be checked on $feed.checkOn"
 
 		if (feed.lastStatus == 301) {
 			feed.link = json.moved

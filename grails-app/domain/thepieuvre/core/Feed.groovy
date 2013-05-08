@@ -16,6 +16,7 @@ class Feed {
 	Date lastChecked
 	int lastStatus
 	Date lastUpdated
+	Date checkOn
 
 	String comment
 	boolean active = true
@@ -36,6 +37,7 @@ class Feed {
 		lastChecked nullable: true
 		standard nullable: true
 		lastError nullable: true, maxSize: 4096
+		checkOn nullable: true
 	}
 
 	String toString() {
