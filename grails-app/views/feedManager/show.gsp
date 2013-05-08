@@ -71,6 +71,10 @@
 			<td>${feed.lastUpdated}</td>
 		</tr>
 		<tr>
+			<td><strong>Next Check</strong></td>
+			<td>${feed.checkOn}</td>
+		</tr>
+		<tr>
 			<td><strong>Last HTTP Status</strong></td>
 			<td>${feed.lastStatus}</td>
 		</tr>
