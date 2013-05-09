@@ -50,6 +50,28 @@ class ArticleService {
 		fetchingGram(article, 'trainedgram')
 	}
 
+	def metrics(def articles) {
+		def metrics = [:]
+		long max = 0
+		long average = 0
+		long sumSq = 0
+		long counter = 0
+		articles.each {
+			// max
+			if (it.value > max)
+				max = it.value
+			// average
+			average += it.value
+			// Std Dev
+			sumSq += it.value * it.value
+			counter++
+		}
+		metrics.max = max
+		metrics.average = (counter > 0)?(average/counter):0
+		metrics.stdDev = (counter > 0)?((sumSq/counter - (average/counter)**2)**0.5):0
+		return metrics
+	}
+
 	long getMaxScore(def articles) {
 		long max = 0
 		articles.each {
@@ -87,10 +109,10 @@ class ArticleService {
 	}
 
 	private def mergingAll(Article article) {
-		def unigram = getUniGram(article)
-		def bigram = getBiGram(article)
+		//def unigram = getUniGram(article)
+		//def bigram = getBiGram(article)
 		def ngram = getNGram(article)
-		def trainedgram = getTrainedGram(article)
+		//def trainedgram = getTrainedGram(article)
 
 		def merged = [:]
 		// unigram.each {
@@ -156,8 +178,9 @@ class ArticleService {
 	def similars(Article article) {
 		log.info "Article Service - Finding similars"
 		def all = mergingAll(article)
-		long upper = getMaxScore(all)
-		long stdDev = getStdDevScore(all)
+		def metrics = metrics(all)
+		long upper = metrics.max //getMaxScore(all)
+		long stdDev = metrics.stdDev//getStdDevScore(all)
 		long lower = upper - stdDev
 		def res = [:]
 		all.each { k, v ->
@@ -171,9 +194,10 @@ class ArticleService {
 
 	def related(Article article) {
 		def all = mergingAll(article)
-		long dev = getStdDevScore(all)
-		long upper = getMaxScore(all) - dev 
-		long lower = getAvgScore(all) + dev
+		def metrics = metrics(all)
+		long dev = metrics.stdDev
+		long upper = metrics.max - dev 
+		long lower = metrics.average + dev
 		def res = [:]
 		all.each { k, v ->
 			if (v < upper && v >= lower)
