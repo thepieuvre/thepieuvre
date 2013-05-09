@@ -22,7 +22,7 @@ ${(!exit)?'':"Exit: ${exit}"}
       </g:if>
       <g:else>
         <g:if test='${flash.message}'>
-          <div class='alert alert-success'>${flash.message}</div>
+          <div style= "margin-top: 20px;" class='alert alert-success'>${flash.message}</div>
         </g:if>
 
         <g:render template="/web/simpleArticle" var="article" collection="${articles}" />
