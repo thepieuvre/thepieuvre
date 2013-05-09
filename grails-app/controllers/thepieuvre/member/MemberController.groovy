@@ -12,8 +12,9 @@ class MemberController {
 		if (m){
 			log.info "Member $m just validated her/his email"
 			m.verified = new Date()
-			flash.message = 'Thank you for having validated your email.'
-			redirect view: '/index'
+			flash.message = 'Thank you for having validated your email. Please "Log In".'
+
+			forward controller: 'welcome', action: 'index'
 		} else {
 			forward controller:'error', action: 'notFound'
 		}
