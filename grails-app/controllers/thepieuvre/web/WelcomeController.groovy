@@ -13,6 +13,8 @@ import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 class WelcomeController {
 
+	def mailService
+	def grailsApplication
 	def springSecurityService
 
 	def articleService
@@ -29,6 +31,26 @@ class WelcomeController {
 
 	def contact() {
 		render view: '/contact'
+	}
+
+	def message(String name, String email, String message) {
+		mailService.sendMail {
+			to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }
+			from "noreply@thepieuvre.com"
+			subject "Contact Us Request"
+			body """
+A new contact request :
+	Name: $name
+	Email: $email
+	Member: $springSecurityService.currentUser
+
+The message:
+$message
+			"""
+		}
+		println ">>>>>>>>>>>>>> $message"
+		flash.message = 'Thank you for your message.'
+		redirect action:'index'
 	}
 
 	def index = {
