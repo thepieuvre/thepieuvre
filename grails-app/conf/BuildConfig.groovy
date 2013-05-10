@@ -34,8 +34,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        provided 'postgresql:postgresql:8.4-703.jdbc4'
-    }
+s    }
 
     plugins {
         runtime ":hibernate:$grailsVersion"
@@ -52,6 +51,8 @@ grails.project.dependency.resolution = {
         compile ':cache:1.0.1'
 
         // Required by The Pieuvre
+        compile ":remote-pagination:0.4.4"
+        
         compile (":less-resources:1.3.0.2") { excludes 'svn' }
         compile ":twitter-bootstrap:2.1.1" 
 

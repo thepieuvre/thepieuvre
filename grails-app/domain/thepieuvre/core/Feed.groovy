@@ -43,4 +43,20 @@ class Feed {
 	String toString() {
 		"$title @ $id"
 	}
+
+	String getTitle() {
+		if (! title || title == 'null') {
+			return 'The Pieuvre is going to update this feed, soonly...'
+		} else {
+			return title
+		}
+	}
+
+	String getDescription() {
+		if (! description || description == 'null') {
+			return '--'
+		} else {
+			return description
+		}
+	}
 }
