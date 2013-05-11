@@ -236,6 +236,9 @@ $message
 
 	def article = {
 		Article article = Article.get(params.id)
+		if (! article.language.startsWith('en')) {
+			flash.message = 'Sorry, the Pieuvre just started learning english. Other languages are not yet supported.'
+		}
 		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
 	}
 
