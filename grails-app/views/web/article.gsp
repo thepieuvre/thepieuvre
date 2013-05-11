@@ -5,6 +5,9 @@
 	</head>
 	<body>
     <g:render template="/web/searchBox" />
+     <g:if test='${flash.message}'>
+          <div style= "margin-top: 20px;" class='alert alert-success'>${flash.message}</div>
+        </g:if>
 
 <div class="row">
   <div class="span10"> 
@@ -35,7 +38,9 @@
       <div class="row">
         <div class="span10">
           <div class="accordion" id="accordionSimilars">
+            <g:set var="similars" value="${false}"/>
             <g:each in="${articleService.similars(article)}" var="similars">
+            <g:set var="similars" value="${true}"/>
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${similars.key?.id}" href="#collapse${similars.key?.id}">${similars.key?.title}  <small>@ ${similars.key?.feed?.title}</small></a>
@@ -53,6 +58,9 @@
               </div>
             </div>
             </g:each>
+                <g:if test="${! similars}">
+    <p>The Pieuvre is still processing data, please be patient.
+  </g:if>
           </div>
         </div>
       </div>

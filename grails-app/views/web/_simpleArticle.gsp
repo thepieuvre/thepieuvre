@@ -12,7 +12,10 @@
   <p><g:link action="article" id="${article.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${article.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a></p>
 </div>
   <h4>Similar articles:</h4>
+  <g:set var="similars" value="${false}"/>
  <g:each status="i" in="${articleService.similars(article)}" var="related">
+ 
+  <g:set var="similars" value="${true}"/>
   <g:if test="${i < 5 && related.key}">
     <div class="accordion-group">
       <div class="accordion-heading">
@@ -35,4 +38,7 @@
     </div>
   </g:if>
     </g:each>
+    <g:if test="${! similars}">
+    <p>The Pieuvre is still processing data, please be patient.
+  </g:if>
 </section>
