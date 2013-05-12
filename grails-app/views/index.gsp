@@ -11,24 +11,24 @@
   <div class="span10"> 
 
             <g:if test="${cmd}">
-          <div id="container">
              <p class="${(!exit)?'text-success':'text-error'}"><i class="icon-hand-right"></i>${cmd}</p>
 <pre>
 ${(!exit)?result:msg}
 
 ${(!exit)?'':"Exit: ${exit}"}
 </pre>
-        </div>
       </g:if>
       <g:else>
         <g:if test='${flash.message}'>
           <div style= "margin-top: 20px;" class='alert alert-success'>${flash.message}</div>
         </g:if>
 
+          <section id="container">
         <g:render template="/web/simpleArticle" var="article" collection="${articles}" />
+      </section>
     </g:else>
     <nav id="page-nav">
-      <a href="${createLink(controller: 'welcome', action: 'scroll', params: [offset:25] )}"></a>
+      <a href="${createLink(controller: 'welcome', action: 'index', params: [offset:25] )}"></a>
     </nav>
   </div>
   <div class="span2">
@@ -48,11 +48,6 @@ ${(!exit)?'':"Exit: ${exit}"}
         -->
   </div>
 </div>
-
-
-
-
-
 
     <!-- Checking for new articles -->
       <script type="text/javascript">
@@ -83,7 +78,7 @@ ${(!exit)?'':"Exit: ${exit}"}
     $('#container').infinitescroll({
       navSelector  : "#page-nav",            
       nextSelector : "#page-nav a",    
-      itemSelector : ".article",
+      itemSelector : ".article-box",
       debug        : false,
       animate: true ,
       loading: {
@@ -91,7 +86,7 @@ ${(!exit)?'':"Exit: ${exit}"}
         msgText: '<em>Loading more articles...</em>'
       },
       path : function(page) {
-          return "${createLink(controller: 'welcome', action: 'scroll' )}"+'?offSet='+(25*page)
+          return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"
       }              
     });
   });

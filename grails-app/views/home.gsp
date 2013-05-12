@@ -59,13 +59,15 @@ ${(!exit)?'':"Exit: ${exit}"}
   </li>
 </g:else>
 </ul>
+  <div id="container">
     <g:if test="${! articles}">
     <h2>This board is empty. Please, add feeds by clicking on the caret.</h2>
     </g:if>
       <g:render template="/web/simpleArticle" var="article" collection="${articles}" />
     </g:else>
+  </div>
     <nav id="page-nav">
-      <a href="${createLink(controller: 'welcome', action: 'scroll', params: [offset:25] )}"></a>
+      <a href="${createLink(controller: 'welcome', action: 'index', params: [offset:25] )}"></a>
     </nav>
   </div>
   <div class="span2">
@@ -132,6 +134,26 @@ ${(!exit)?'':"Exit: ${exit}"}
     </g:form>
   </div>
 </div>
+ <!-- Infinite Scroll -->
+    <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
+    <script type="text/javascript">
+    $(function(){
+    $('#container').infinitescroll({
+      navSelector  : "#page-nav",            
+      nextSelector : "#page-nav a",    
+      itemSelector : ".article-box",
+      debug        : false,
+      animate: true ,
+      loading: {
+        img: 'images/spinner.gif',
+        msgText: '<em>Loading more articles...</em>'
+      },
+      path : function(page) {
+          return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"
+      }              
+    });
+  });
+    </script>
 
 	</body>
 </html>
