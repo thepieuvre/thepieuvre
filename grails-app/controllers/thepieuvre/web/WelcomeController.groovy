@@ -54,6 +54,7 @@ $message
 
 	def index = {
 		log.info "Welcome - Loading"
+		int offSet = (params.offSet)? (params.offSet as int) : 0
 		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
 			def articles
 			def member = springSecurityService.currentUser
@@ -61,13 +62,15 @@ $message
 			if (! params.board) {
 				articles = Article.createCriteria().list {
 					maxResults(25)
+					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 				}
-			} else if (params.board == '-1' || ! Board.get(params.board)) {
+			} else if (params.board == '-1' || ! Board.get(params.board as long)) {
 				board = 'Your Feeds'
 				articles = Article.createCriteria().list {
 					maxResults(25)
+					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { 'in' ('id',  member.feeds.collect {it.id}) } 
 				}
@@ -75,33 +78,43 @@ $message
 				board = Board.get(params.board).name
 				articles = Article.createCriteria().list {
 					maxResults(25)
+					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { 'in' ('id',  Board.get(params.board).feeds.collect {it.id}) } 
 				}
 			}
 
 			log.info "Welcome - Rendering Home"
-			render view: '/home', model: [
-				'articles': articles, 
-				'boardName': board,
-				'board': Board.get(params.board),
-				'boards': member?.boards,
-				'articleService': articleService, 
-			]
+			if (offSet == 0) {
+				render view: '/home', model: [
+					'articles': articles, 
+					'boardName': board,
+					'board': Board.get(params.board),
+					'boards': member?.boards,
+					'articleService': articleService, 
+				]
+			} else {
+				render template: '/web/simpleArticle', collection:articles, var: 'article', model: ['articleService': articleService]
+			}
 			log.info "Welcome - Rendered Home"
 		} else {
 			def articles = Article.createCriteria().list {
 				maxResults(25)
+				firstResult(offSet)
 				order('dateCreated', 'desc')
 				feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 			}
 			log.info "Welcome - Rendering Index"
-			render view: '/index', model: [
-				'articles': articles,
-				'articleService': articleService,
-				'tFeeds': Feed.count(), 
-				'tArticles': Article.count()
-			]
+			if (offSet == 0) {
+				render view: '/index', model: [
+					'articles': articles,
+					'articleService': articleService,
+					'tFeeds': Feed.count(), 
+					'tArticles': Article.count()
+				]
+			} else {
+				render template: '/web/simpleArticle', collection:articles, var: 'article', model: ['articleService': articleService]
+			}
 			log.info "Welcome - Rendered Index"
 		}
 		log.info "Welcome - Loaded"
@@ -202,19 +215,6 @@ $message
 				'articleService': articleService,
 				'command': params.command]
 		}
-	}
-
-	def scroll = {
-		log.debug "Scrolling $params"
-		int offSet = params.offSet as int
-		def articles = Article.createCriteria().list {
-			maxResults(25)
-			firstResult(offSet)
-			order('dateCreated', 'desc')
-			feed { eq 'global', FeedGlobalEnum.GLOBAL } 
-		}
-
-		render template: '/web/simpleArticle', collection:articles, var: 'article'
 	}
 
 	def signUp(){
