@@ -20,7 +20,7 @@ class FeedParser implements Runnable {
 			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
-						def msg = redis.blpop(60000, 'queue:feedparser')
+						def msg = redis.blpop(1000, 'queue:feedparser')
 						if (msg) {
 							log.info "Getting message from queue:feedparser"
 							def decoded = JSON.parse(msg[1])
