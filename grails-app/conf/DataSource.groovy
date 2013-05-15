@@ -25,10 +25,12 @@ environments {
     }
     production {
         dataSource {
-          pooled = false
-          dbCreate = "create"
-          jndiName = "java:comp/env/jdbc/thepieuvre"
-          dialect = 'org.hibernate.dialect.PostgreSQLDialect'
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = url = "jdbc:h2:file:~/.h2" 
+         // pooled = false
+          //dbCreate = "create"
+          //jndiName = "java:comp/env/jdbc/thepieuvre"
+          //dialect = 'org.hibernate.dialect.PostgreSQLDialect'
         }
     }
 }
