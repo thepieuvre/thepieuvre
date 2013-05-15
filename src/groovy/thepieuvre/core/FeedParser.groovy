@@ -17,30 +17,35 @@ class FeedParser implements Runnable {
 	void run() {
 		while(true) {
 			Feed feed= null
-			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
-				while(true) {
-					try {
-						def msg = redis.blpop(1000, 'queue:feedparser')
-						if (msg) {
-							log.info "Getting message from queue:feedparser"
-							def decoded = JSON.parse(msg[1])
-							feed= Feed.get(decoded.id as Long)
-							log.debug "Updating feed $feed"
-							if (feed) {
-								grailsApplication.mainContext.feedService.update(feed, decoded)
+			try {
+				grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
+					while(true) {
+						log.info "Checking message from queue:feedparser"
+						try {
+							def msg = redis.blpop(1000, 'queue:feedparser')
+							if (msg) {
+								log.info "Getting message from queue:feedparser"
+								def decoded = JSON.parse(msg[1])
+								feed= Feed.get(decoded.id as Long)
+								log.debug "Updating feed $feed"
+								if (feed) {
+									grailsApplication.mainContext.feedService.update(feed, decoded)
+								} else {
+									log.warn "Cannot update $feed with $decoded"
+								}
 							} else {
-								log.warn "Cannot update $feed with $decoded"
+								continue
 							}
-						} else {
+						} catch (Exception e) {
+							log.error "A problem occured with a feed to update", e
 							continue
-						}
-					} catch (Exception e) {
-						log.error "A problem occured with a feed to update", e
-						continue
-					} 
+						} 
+					}
 				}
+			} catch (Exception e) {
+				log.warn e
+				continue
 			}
-			continue
 		}
 	}
 }
