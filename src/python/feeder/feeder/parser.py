@@ -38,24 +38,24 @@ def process_data(data, id=None):
 	str_list.append('{')
 	if id != None:
 		str_list.append(('"id": "%s",'% id))
-	str_list.append(('"title": "%s",'% (data.feed.get('title', 'null'))).encode('utf-8'))
-	str_list.append(('"description": "%s",'% (data.feed.get('description', 'null'))).encode('utf-8'))
-	str_list.append(('"language": "%s",'% (data.feed.get('language', 'en'))).encode('utf-8'))
+	str_list.append(('"title": "%s",'% escaping((data.feed.get('title', 'null'))).encode('utf-8')))
+	str_list.append(('"description": "%s",'% escaping((data.feed.get('description', 'null'))).encode('utf-8')))
+	str_list.append(('"language": "%s",'% escaping((data.feed.get('language', 'en'))).encode('utf-8')))
 	str_list.append(('"status": "%s",'% (data.get('status', '-1'))).encode('utf-8'))
-	str_list.append(('"standard": "%s",'% (data.get('version','null'))).encode('utf-8'))
-	str_list.append(('"etag": "%s",'% (data.get('etag', 'null')).replace('"','')).encode('utf-8'))
-	str_list.append(('"modified": "%s",'% (data.get('modified', 'null'))).encode('utf-8'))
+	str_list.append(('"standard": "%s",'% escaping((data.get('version','null'))).encode('utf-8')))
+	str_list.append(('"etag": "%s",'% escaping((data.get('etag', 'null')).replace('"','')).encode('utf-8')))
+	str_list.append(('"modified": "%s",'% escaping((data.get('modified', 'null'))).encode('utf-8')))
 	status = data.get('status', -1)
 	if status == 301:
-		str_list.append(('"moved": "%s",' % (data.href)).encode('utf-8'))
-	str_list.append(('"updated": "%s",'% (data.feed.get('published', 'null'))).encode('utf-8'))
+		str_list.append(('"moved": "%s",' % escaping((data.href)).encode('utf-8')))
+	str_list.append(('"updated": "%s",'% escaping((data.feed.get('published', 'null'))).encode('utf-8')))
 	str_list.append('"articles": ['.encode('utf-8'))
 	size = len(data.entries)
 	counter = 0
 	for article in data.entries:
 		counter = counter + 1
-		str_list.append(('{ "title": "%s",' % (article.get('title', 'null').replace('"','\\"'))).encode('utf-8'))
-		str_list.append(('"link": "%s",' % (article.get('link', 'null').encode('utf-8'))))
+		str_list.append(('{ "title": "%s",' % escaping((article.get('title', 'null').replace('"','\\"'))).encode('utf-8')))
+		str_list.append(('"link": "%s",' % escaping((article.get('link', 'null').encode('utf-8')))))
 		str_list.append(('"author": "%s",' % escaping((article.get('author', 'null').encode('utf-8')))))
 		str_list.append('"contents": [')
 		if article.get('content'):
@@ -69,11 +69,11 @@ def process_data(data, id=None):
 		elif article.get('summary_detail'):
 			str_list.append('"%s"' %escaping(article.summary_detail.get('value', 'null').encode('utf-8')))
 		str_list.append('],')
-		str_list.append(('"published": "%s",' % (article.get('published', 'null'))).encode('utf-8'))
-		str_list.append(('"id": "%s" }' % (article.get('id', 'null'))).encode('utf-8'))
+		str_list.append(('"published": "%s",' % escaping((article.get('published', 'null'))).encode('utf-8')))
+		str_list.append(('"id": "%s" }' % escaping((article.get('id', 'null'))).encode('utf-8')))
 		if counter != size:
 			str_list.append(",")
 	str_list.append(']')
 	str_list.append('}')
-	return ''.join(str_list).replace('\n',' ') 
+	return ''.join(str_list).replace('\n',' ')
 	
