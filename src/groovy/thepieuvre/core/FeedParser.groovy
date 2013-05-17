@@ -16,11 +16,11 @@ class FeedParser implements Runnable {
 	@Override
 	void run() {
 		while(true) {
-			Feed feed= null
 			try {
-				grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
-					while(true) {
-						log.info "Checking message from queue:feedparser"
+				while(true) {
+					log.info "Checking message from queue:feedparser"
+					Feed feed= null
+					grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 						try {
 							def msg = redis.blpop(1000, 'queue:feedparser')
 							if (msg) {
@@ -33,12 +33,9 @@ class FeedParser implements Runnable {
 								} else {
 									log.warn "Cannot update $feed with $decoded"
 								}
-							} else {
-								continue
-							}
+							} 
 						} catch (Exception e) {
 							log.error "A problem occured with a feed to update", e
-							continue
 						} 
 					}
 				}
