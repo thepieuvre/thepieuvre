@@ -17,10 +17,11 @@ def processing_task(task):
 def redis_mode(redis):
 	while True:
 		try:
-			task = redis.blpop('queue:feeder', 60)
+			task = redis.blpop('queue:feeder', 10)
 			if task != None:
 				print 'Getting: %s'%(task[1])
 				redis.rpush('queue:feedparser',processing_task(task[1]))
+				print 'Pushed to queue:feedparser'
 		except KeyboardInterrupt:
 			sys.exit(0)
 		except:
@@ -54,7 +55,7 @@ def process_data(data, id=None):
 	counter = 0
 	for article in data.entries:
 		counter = counter + 1
-		str_list.append(('{ "title": "%s",' % escaping((article.get('title', 'null').replace('"','\\"'))).encode('utf-8')))
+		str_list.append(('{ "title": "%s",' % escaping(article.get('title', 'null')).encode('utf-8')))
 		str_list.append(('"link": "%s",' % escaping((article.get('link', 'null').encode('utf-8')))))
 		str_list.append(('"author": "%s",' % escaping((article.get('author', 'null').encode('utf-8')))))
 		str_list.append('"contents": [')
