@@ -22,7 +22,7 @@ class FeedService {
 				eq 'active', true
 				or {
 					// First check
-					or {
+					and {
 						isNull 'lastChecked'
 						isNull 'checkOn'
 					}
