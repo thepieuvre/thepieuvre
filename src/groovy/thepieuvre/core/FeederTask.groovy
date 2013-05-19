@@ -33,6 +33,7 @@ class FeederTask extends TimerTask {
 		if (takingLock) {
 			log.debug "Updating feeds"
 			grailsApplication.mainContext.feedService.updateFeeds()
+			lock = null
 		}
 		log.info "Ending run feeder task"
 	}
