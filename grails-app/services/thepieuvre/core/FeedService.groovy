@@ -39,6 +39,7 @@ class FeedService {
 				}
 				queuesService.enqueue(feed)
 			}
+			log.debug "All feed pushed to queue:feedparser"
 		} catch (Exception e) {
 			log.error "Something wrong happened while updating feeds", e
 		} finally {
