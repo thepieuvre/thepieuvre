@@ -226,7 +226,7 @@ $message
 			Member m = memberService.signUp(cmd.properties)
 			memberService.verificationNotification(m)
 			log.info "New member signed up: $m"
-			redirect controller: 'login'
+			redirect action: 'index'
 		} else {
 			log.debug "Signing up invalid: ${cmd.errors}"
 			flash.message = "${cmd.errors}"

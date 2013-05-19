@@ -30,6 +30,7 @@ class FeedParser implements Runnable {
 								log.debug "Updating feed $feed"
 								if (feed) {
 									grailsApplication.mainContext.feedService.update(feed, decoded)
+									log.debug "Updated feed $feed"
 								} else {
 									log.warn "Cannot update $feed with $decoded"
 								}

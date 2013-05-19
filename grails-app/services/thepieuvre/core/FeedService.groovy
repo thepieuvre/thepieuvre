@@ -14,6 +14,7 @@ class FeedService {
 	def grailsApplication
 
 	def updateFeeds() {
+		log.debug "Looking for feeds to update"
 		def feeds
 		Date now = new Date()
 		try {
@@ -21,7 +22,7 @@ class FeedService {
 				eq 'active', true
 				or {
 					// First check
-					and {
+					or {
 						isNull 'lastChecked'
 						isNull 'checkOn'
 					}
@@ -33,7 +34,7 @@ class FeedService {
 				log.debug "Adding $feed to the queue"
 				if (!feed.lastChecked) {
 					use(TimeCategory) {
-						feed.checkOn = now + 3.minutes
+						feed.checkOn = now + 30.minutes
 					}
 				}
 				queuesService.enqueue(feed)
@@ -62,61 +63,67 @@ class FeedService {
 
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
-		feed = Feed.get(feed.id)
-		feed.lastChecked = new Date()
-		feed.lastStatus = json.status as int
-		Date now = new Date()
-		if (feed.lastStatus != 304) {
-			log.info "Updating info of feed $feed"
-			feed.lastUpdated = new Date()
-			feed.standard = (json.standard != 'null')?json.standard:feed.standard
-			feed.title = (json.title != 'null')?json.title:feed.title
-			feed.description =  (json.description != 'null')?json.description:feed.description
-			feed.language = (json.language != 'null')?json.language:feed.language
-			feed.updated = (json.updated != 'null')?json.updated:feed.updated
-			feed.modified = (json.modified != 'null')?json.modified:feed.modified
-			use(TimeCategory) {
-				feed.checkOn = now + 3.minutes
-			}
-			json.articles.each { entry ->
-				Article previous = Article.findByUid(entry.id)
-				previous = (previous)?:Article.findByLink(entry.link)
-				if (! previous) {
-					Article article = new Article()
-					article.feed = feed
-					article.uid = (entry.id != 'null')?entry.id:'-1'
-					article.title = (entry.title != 'null')?entry.title:null
-					article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
-					entry.contents.each { content ->
-						if (article.contents && article.contents.raw.size() < content.size()) {
-							article.contents = new Content(raw: content, article: article)
-						} else {
-							article.contents = new Content(raw: content, article: article)
-						} 
-					}
-					article.link = entry.link
-
-					article.published = entry.published
-					if(! article.save(flush: true)) {
-						throw new PieuvreException(article.errors)
-					}
-					queuesService.enqueue(article.contents)
+		try {
+			feed = Feed.get(feed.id)
+			feed.lastChecked = new Date()
+			feed.lastStatus = json.status as int
+			Date now = new Date()
+			if (feed.lastStatus != 304) {
+				log.info "Updating info of feed $feed"
+				feed.lastUpdated = new Date()
+				feed.standard = (json.standard != 'null')?json.standard:feed.standard
+				feed.title = (json.title != 'null')?json.title:feed.title
+				feed.description =  (json.description != 'null')?json.description:feed.description
+				feed.language = (json.language != 'null')?json.language:feed.language
+				feed.updated = (json.updated != 'null')?json.updated:feed.updated
+				feed.modified = (json.modified != 'null')?json.modified:feed.modified
+				use(TimeCategory) {
+					feed.checkOn = now + 15.minutes
 				}
+				json.articles.each { entry ->
+					Article previous = Article.findByUid(entry.id)
+					previous = (previous)?:Article.findByLink(entry.link)
+					if (! previous) {
+						Article article = new Article()
+						article.feed = feed
+						article.uid = (entry.id != 'null')?entry.id:'-1'
+						article.title = (entry.title != 'null')?entry.title:null
+						article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
+						entry.contents.each { content ->
+							if (article.contents && article.contents.raw.size() < content.size()) {
+								article.contents = new Content(raw: content, article: article)
+							} else {
+								article.contents = new Content(raw: content, article: article)
+							} 
+						}
+						article.link = entry.link
+
+						article.published = entry.published
+						if(! article.save(flush: true)) {
+							log.warn "Cannot save article for feed $feed", article.errors
+							feed.lastError = article.errors as String
+						}
+						queuesService.enqueue(article.contents)
+						log.info "Updated feed $feed"
+					}
+				}
+			} else {
+				log.info "Nothing to update for feed $feed"
+				def step = (feed.lastChecked.time - feed.lastUpdated.time) * 2
+				def checkOn = now.time + ((step < (1000 * 60 * 60))?step:(1000 * 60 * 60))
+				feed.checkOn = new Date(checkOn)
 			}
-		} else {
-			log.info "Nothing to update for feed $feed"
-			def step = (feed.lastChecked.time - feed.lastUpdated.time) * 2
-			def checkOn = now.time + ((step < (1000 * 60 * 60))?step:(1000 * 60 * 60))
-			feed.checkOn = new Date(checkOn)
+
+			log.info "$feed will be checked on $feed.checkOn"
+
+			if (feed.lastStatus == 301) {
+				feed.link = json.moved
+			}
+
+			feed.lastError = null
+		} catch (Exception e) {
+			log.error "Cannot update feed", e
 		}
-
-		log.info "$feed will be checked on $feed.checkOn"
-
-		if (feed.lastStatus == 301) {
-			feed.link = json.moved
-		}
-
-		feed.lastError = null
 	}
 
 	def desactive(Feed feed) {
