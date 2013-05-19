@@ -64,40 +64,9 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
     <!-- ############## End Similars ############## -->
-    <!-- ############## Begin Related ############## -->
-    <section id="related">
-      <div class="page-header">
-        <h2>Related Articles</h2>
-      </div>
-      <div class="row">
-        <div class="span10">
-          <div class="accordion" id="accordionSimilars">
-            <g:each in="${articleService.related(article)}" var="related">
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion${related.key?.id}" href="#collapse${related.key?.id}">${related.key?.title}  <small>@ ${related.key?.feed?.title}</small></a>
-              </div>
-              <div id="collapse${related.key?.id}" class="accordion-body collapse">
-                <div class="accordion-inner">
-                  <blockquote>
-                    <small>${related.key?.published}</small>
-                  </blockquote>
-                  <div class="well">
-                  <hc:cleanHtml unsafe="${related.key?.contents?.raw}" whitelist="basic"/>
-                  </div>
-                  <p> <g:link action="article" id="${related.key?.id}" ><i class="icon-eye-open"></i>Explore</g:link> <a href="${related.key?.link}" target="_blank"><i class="icon-globe"></i>Go to the Original</a> </p>
-                </div>
-              </div>
-            </div>
-            </g:each>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-    <!-- ############## End Related ############## -->
   <div class="span2">
     <ul class="nav nav-list affix">
       <li class="nav-header">Reading</li>
