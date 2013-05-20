@@ -22,20 +22,20 @@ class FeedService {
 				eq 'active', true
 				or {
 					// First check
-					and {
-						isNull 'lastChecked'
-						isNull 'checkOn'
-					}
+					isNull 'checkOn'
 					le 'checkOn', now 
 				}
+				order 'checkOn', 'asc'
+				maxResults 100
 			}
 			while(feeds.next()) {
 				def feed = feeds.get(0)
 				log.debug "Adding $feed to the queue"
-				if (!feed.lastChecked) {
+				if (! feed.checkOn) {
 					use(TimeCategory) {
-						feed.checkOn = now + 30.minutes
+						feed.checkOn = now + 60.minutes
 					}
+					feed.save(flush:true)
 				}
 				queuesService.enqueue(feed)
 			}
@@ -79,7 +79,7 @@ class FeedService {
 				feed.updated = (json.updated != 'null')?json.updated:feed.updated
 				feed.modified = (json.modified != 'null')?json.modified:feed.modified
 				use(TimeCategory) {
-					feed.checkOn = now + 15.minutes
+					feed.checkOn = now + 30.minutes
 				}
 				json.articles.each { entry ->
 					Article previous = Article.findByUid(entry.id)
@@ -110,9 +110,9 @@ class FeedService {
 				}
 			} else {
 				log.info "Nothing to update for feed $feed"
-				def step = (feed.lastChecked.time - feed.lastUpdated.time) * 2
-				def checkOn = now.time + ((step < (1000 * 60 * 60))?step:(1000 * 60 * 60))
-				feed.checkOn = new Date(checkOn)
+				use(TimeCategory) {
+					feed.checkOn = now + 30.minutes
+				}
 			}
 
 			log.info "$feed will be checked on $feed.checkOn"

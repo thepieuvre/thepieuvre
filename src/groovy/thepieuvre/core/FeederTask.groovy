@@ -23,7 +23,7 @@ class FeederTask extends TimerTask {
 				log.debug "Taking the lock"
 				lock = now
 				takingLock = true
-			} else if ((lock + 600000) < now) {
+			} else if ((lock + 360000) < now) {
 				log.debug "Expired lock: taking the lock"
 				lock = now
 				takingLock = true
