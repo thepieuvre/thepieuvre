@@ -15,8 +15,6 @@ class BootStrap {
 
     def grailsApplication
 
-    static int cores = Runtime.getRuntime().availableProcessors()
-
     def init = { servletContext ->
     	def roles = [
     		['ROLE_ROOT', 'The super administrator of the system'],
@@ -57,13 +55,10 @@ class BootStrap {
             queuesService.create(v)
         }
 
-        schedulerService.schedule(new FeederTask(grailsApplication), 31415)
+        schedulerService.schedule(new FeederTask(grailsApplication), 62830)
 
-        cores.times {
-            def feedParser = new Thread(new FeedParser(grailsApplication)).start()
-            def articleTask = new Thread(new ArticleTask(grailsApplication)).start()
-            println "Starting FeedParser and ArticleTask on Core $it"
-        } 
+        def feedParser = new Thread(new FeedParser(grailsApplication)).start()
+        def articleTask = new Thread(new ArticleTask(grailsApplication)).start()
 
     }
 
