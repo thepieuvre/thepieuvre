@@ -31,11 +31,8 @@ class FeedService {
 			while(feeds.next()) {
 				def feed = feeds.get(0)
 				log.debug "Adding $feed to the queue"
-				if (! feed.checkOn) {
-					use(TimeCategory) {
-						feed.checkOn = now + 60.minutes
-					}
-					feed.save(flush:true)
+				use(TimeCategory) {
+					feed.checkOn = now + 60.minutes
 				}
 				queuesService.enqueue(feed)
 			}
@@ -111,7 +108,7 @@ class FeedService {
 			} else {
 				log.info "Nothing to update for feed $feed"
 				use(TimeCategory) {
-					feed.checkOn = now + 30.minutes
+					feed.checkOn = now + 15.minutes
 				}
 			}
 
