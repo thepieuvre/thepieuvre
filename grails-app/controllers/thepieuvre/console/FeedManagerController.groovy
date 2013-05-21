@@ -59,7 +59,7 @@ class FeedManagerController {
 		}
 	}
 
-	def show(long id) {
+	def show() {
 		withFeed { feed ->
 			return ['feed': feed]
 		}
