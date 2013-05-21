@@ -61,7 +61,7 @@ $message
 			def board = 'The Pieuvre'
 			if (! params.board) {
 				articles = Article.createCriteria().list {
-					maxResults(25)
+					maxResults(10)
 					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { eq 'global', FeedGlobalEnum.GLOBAL } 
@@ -69,7 +69,7 @@ $message
 			} else if (params.board == '-1' || ! Board.get(params.board as long)) {
 				board = 'Your Feeds'
 				articles = Article.createCriteria().list {
-					maxResults(25)
+					maxResults(10)
 					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { 'in' ('id',  member.feeds.collect {it.id}) } 
@@ -77,7 +77,7 @@ $message
 			} else {
 				board = Board.get(params.board).name
 				articles = Article.createCriteria().list {
-					maxResults(25)
+					maxResults(10)
 					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { 'in' ('id',  Board.get(params.board).feeds.collect {it.id}) } 
@@ -99,7 +99,7 @@ $message
 			log.info "Welcome - Rendered Home"
 		} else {
 			def articles = Article.createCriteria().list {
-				maxResults(25)
+				maxResults(10)
 				firstResult(offSet)
 				order('dateCreated', 'desc')
 				feed { eq 'global', FeedGlobalEnum.GLOBAL } 
@@ -136,7 +136,7 @@ $message
 
 	def searchByAuthor = {
 		def articles = Article.createCriteria().list {
-			maxResults(25)
+			maxResults(10)
 			order('dateCreated', 'desc')
 			feed { eq 'global', FeedGlobalEnum.GLOBAL }
 			ilike 'author', "%${params.author}%" 
@@ -151,7 +151,7 @@ $message
 
 	def searchByFeed = {
 		def articles = Article.createCriteria().list {
-			maxResults(25)
+			maxResults(10)
 			order('dateCreated', 'desc')
 			feed { 
 				eq 'id', params.feed as long
@@ -203,7 +203,7 @@ $message
 				'command': params.command]
 		} else {
 			def articles = Article.createCriteria().list {
-				maxResults(25)
+				maxResults(10)
 				order('dateCreated', 'desc')
 				feed { eq 'global', FeedGlobalEnum.GLOBAL }
 				ilike 'title', "%${params.command}%" 
