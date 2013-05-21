@@ -23,7 +23,10 @@ class ArticleService {
 				long last = redis.llen("chunk:$type:$elem.name")
 				redis.lrange("chunk:$type:$elem.name", 0, last) .each { art ->
 					if (art != "article:$article.id") {
-						elem.articles << Article.get(art.split(':')[1] as long)
+						def artId = art.split(':')[1] 
+						if (artId) {
+							elem.articles << Article.get(artId as long)
+						}
 					}
 				}
 				elem.articles.unique()
