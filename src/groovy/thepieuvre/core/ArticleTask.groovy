@@ -19,7 +19,7 @@ class ArticleTask implements Runnable {
 			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
-						def task = redis.blpop(10000, 'queue:article')
+						def task = redis.blpop(60000, 'queue:article')
 						if (task) {
 							log.info "Getting original content from queue:article"
 							def decoded = JSON.parse(task[1])
