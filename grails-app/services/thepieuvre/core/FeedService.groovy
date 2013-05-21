@@ -27,6 +27,7 @@ class FeedService {
 				}
 				order 'checkOn', 'asc'
 				maxResults 100
+				lock true
 			}
 			while(feeds.next()) {
 				def feed = feeds.get(0)
@@ -62,7 +63,7 @@ class FeedService {
 	def update(Feed feed, def json) {
 		log.info "Updating Feed $feed "
 		try {
-			feed = Feed.get(feed.id)
+			feed = Feed.lock(feed.id)
 			feed.lastChecked = new Date()
 			feed.lastStatus = json.status as int
 			Date now = new Date()
