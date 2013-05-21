@@ -15,7 +15,7 @@ class MemberService {
         Role rMember = Role.findByAuthority('ROLE_MEMBER')
 		Member m = new Member(details)
 		m.enabled = true
-		m.save(flush:true)
+		m.save(flush:true, failOnError: true)
 		UserRole.create(m, rMember, true)
         return m
 	}

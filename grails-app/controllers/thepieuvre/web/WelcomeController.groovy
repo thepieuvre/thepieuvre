@@ -223,10 +223,16 @@ $message
 
 	def register(MemberCommand cmd) {
 		if (cmd.validate()) {
-			Member m = memberService.signUp(cmd.properties)
-			memberService.verificationNotification(m)
-			log.info "New member signed up: $m"
-			redirect action: 'index'
+			try {
+				Member m = memberService.signUp(cmd.properties)
+				memberService.verificationNotification(m)
+				log.info "New member signed up: $m"
+				redirect action: 'index'
+			} catch (grails.validation.ValidationException e) {
+				log.debug "Signing up failed", e
+				flash.message = "${e.errors}"
+				render view: '/signUp'
+			}
 		} else {
 			log.debug "Signing up invalid: ${cmd.errors}"
 			flash.message = "${cmd.errors}"
