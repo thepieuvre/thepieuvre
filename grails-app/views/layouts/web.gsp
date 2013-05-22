@@ -5,6 +5,7 @@
 		<title><g:layoutTitle default="The Pieuvre" /></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<r:require modules="custom-bootstrap"/>
+    <meta name="robots" content="noindex">
 		<g:layoutHead/>
 		<r:layoutResources />
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
