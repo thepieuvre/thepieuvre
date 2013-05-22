@@ -27,7 +27,6 @@ class FeedService {
 				}
 				order 'checkOn', 'asc'
 				maxResults 100
-				lock true
 			}
 			while(feeds.next()) {
 				def feed = feeds.get(0)
