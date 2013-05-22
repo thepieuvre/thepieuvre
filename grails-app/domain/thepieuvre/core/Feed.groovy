@@ -25,6 +25,10 @@ class Feed {
 
 	FeedGlobalEnum global = FeedGlobalEnum.NOT_CHECKED
 
+	static mapping = {
+    	version false
+  	}
+
 	static constraints = {
 		link url: true, nullable: false, blank: false, unique: true, maxSize: 1024
 		comment nullable: true, blank: false, maxSize: 4096
