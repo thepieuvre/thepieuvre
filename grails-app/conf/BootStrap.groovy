@@ -57,8 +57,8 @@ class BootStrap {
 
         schedulerService.schedule(new FeederTask(grailsApplication), 62830)
 
-        def feedParser = new Thread(new FeedParser(grailsApplication), 'FeedParser').start()
-        def articleTask = new Thread(new ArticleTask(grailsApplication), 'ArticleTask').start()
+        schedulerService.startFeedParser()
+        schedulerService.startArticleTask()
 
     }
 
