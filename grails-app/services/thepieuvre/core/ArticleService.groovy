@@ -2,12 +2,53 @@ package thepieuvre.core
 
 import redis.clients.jedis.Jedis
 
+import grails.converters.JSON
+
 class ArticleService {
 
-	static transactional = false
+	static transactional = true
+
+	def updateNlp(def nlp) {
+		Article article = Article.get(nlp.id as long)
+		article.keyWordsShort = nlp.keyWordsShort
+		article.keyWords = nlp.keyWords
+		article.synopsis = nlp.synopsis
+		article.similars = nlp.similars
+	}
+
+
+	def getKeyWords(Article article) {
+		if (article.keyWords) {
+			article.keyWords.replaceAll('\\[|\\]|\\"','').tokenize(',')
+		}
+		else {
+			null
+		}
+	}
+
+	def getKeyWordsShort(Article article) {
+		if (article.keyWordsShort) {
+			article.keyWordsShort.replaceAll('\\[|\\]|\\"','').tokenize(',')
+		} else {
+			null
+		}
+	}
+
+	def getSimilars(def article) {
+		def res = [:]
+		if (article.similars) {
+			def json = JSON.parse(article.similars)
+
+			json.each {k,v ->
+				res[Article.get(k)] = v
+			}
+		}
+		return res
+	}
 
 	def redisService 
 
+	@Deprecated
 	private def fetchingGram(Article article, String type) {
 		log.info "Redis - Fetching articles"
 		def res = []
@@ -37,22 +78,27 @@ class ArticleService {
 		return res
 	}
 
+	@Deprecated
 	def getUniGram(Article article) {
 		fetchingGram(article, 'unigram')
 	}
 
+	@Deprecated
 	def getBiGram(Article article) {
 		fetchingGram(article, 'bigram')
 	}
 
+	@Deprecated
 	def getNGram(Article article) {
 		fetchingGram(article, 'ngram')
 	}
 
+	@Deprecated
 	def getTrainedGram(Article article) {
 		fetchingGram(article, 'trainedgram')
 	}
 
+	@Deprecated
 	def metrics(def articles) {
 		def metrics = [:]
 		long max = 0
@@ -75,6 +121,7 @@ class ArticleService {
 		return metrics
 	}
 
+	@Deprecated
 	long getMaxScore(def articles) {
 		long max = 0
 		articles.each {
@@ -84,6 +131,7 @@ class ArticleService {
 		return max
 	}
 
+	@Deprecated
 	long getAvgScore(def articles) {
 		long average = 0
 		articles.each {
@@ -95,6 +143,7 @@ class ArticleService {
 		return average
 	}
 
+	@Deprecated
 	long getStdDevScore(def articles) {
 		long sum = 0
 		long sumSq = 0
@@ -111,6 +160,9 @@ class ArticleService {
 		}
 	}
 
+
+
+	@Deprecated
 	private def mergingAll(Article article) {
 		//def unigram = getUniGram(article)
 		//def bigram = getBiGram(article)
@@ -161,7 +213,8 @@ class ArticleService {
 
 		return merged
 	}
-
+	
+	@Deprecated
 	def synopsis(Article article) {
 		def synopsis = []
 		def parts = getTrainedGram(article)
@@ -178,6 +231,7 @@ class ArticleService {
 		//*.name.collect { if (it in articleService.getNGram(article)*.name){"<strong>${it}</strong>"} else {it}}.join('[...]')
 	}
 
+	@Deprecated
 	def similars(Article article) {
 		log.info "Article Service - Finding similars"
 		def all = mergingAll(article)
@@ -195,6 +249,7 @@ class ArticleService {
 		return res
 	}
 
+	@Deprecated
 	def related(Article article) {
 		def all = mergingAll(article)
 		def metrics = metrics(all)
@@ -209,6 +264,7 @@ class ArticleService {
 		return res.sort { a, b -> b.value <=> a.value}
 	}
 
+	@Deprecated
 	def relatedbyMaxArticles(Article article) {
 		// TODO adding the SCORE !!!!
 		// TODO only more than average
@@ -226,6 +282,7 @@ class ArticleService {
 		return merged.sort { a, b -> b.value <=> a.value}
 	}
 
+	@Deprecated
 	def getArticleFromNGram(String ngram) {
 		def res = []
 		redisService.withRedis { Jedis redis ->

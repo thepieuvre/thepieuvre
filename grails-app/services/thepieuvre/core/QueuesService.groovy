@@ -14,7 +14,8 @@ class QueuesService {
 		'Python: feeder': 'feedparser',
 		'thepieuvre.core.Content': 'extractor',
 		'thepieuvre.core.Article': 'chunker',
-		'Groovy: extractor': 'article'
+		'Groovy: extractor': 'article',
+		'Groovy: nlp': 'nlp'
 	]
 
 	def enqueue(def task) {

@@ -19,7 +19,7 @@
       <div class="row">
         <div class="span10">
           <h2>Synopsis <small>by the Pieuvre</small></h2>
-          <p><strong>In Short</strong> ${articleService.synopsis(article)}</p>
+          <p><strong>In Short</strong> ${article.synopsis}</p>
         </div>
       </div>
       <hr>
@@ -39,7 +39,7 @@
         <div class="span10">
           <div class="accordion" id="accordionSimilars">
             <g:set var="similars" value="${false}"/>
-            <g:each in="${articleService.similars(article)}" var="similars">
+            <g:each in="${articleService.getSimilars(article)}" var="similars">
             <g:set var="similars" value="${true}"/>
             <div class="accordion-group">
               <div class="accordion-heading">
@@ -85,11 +85,9 @@
       <li><g:link controller="welcome" action="searchByFeed" params="[feed: article.feed.id]">From <small>${article.feed.title}</small></g:link></li>
       <li class="divider"></li>
       <li class="nav-header">Key Words</li>
-      <g:if test="${articleService.getNGram(article)}">
-      <g:each in="${articleService.getNGram(article)[0..((articleService.getNGram(article).size() < 15)?articleService.getNGram(article).size()-1:14)]}" var="gram">
-        <li><g:link controller="welcome" action="searchByKeyWords" params="[keyWords: gram.name]">${gram.name}</g:link></li>
+      <g:each in="${articleService.getKeyWordsShort(article)}" var="gram">
+        <li><g:link controller="welcome" action="searchByKeyWords" params="[keyWords: gram]">${gram}</g:link></li>
       </g:each>
-      </g:if>
     </ul>
   </div>  
 </div>   

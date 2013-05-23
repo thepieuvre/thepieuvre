@@ -152,6 +152,8 @@ def redis_mode(redis):
 					continue
 				redis.sadd('articles', "article:%s" %(raw['id']))
 				extract_keywords(raw, redis)
+				redis.rpush('queue:nlp',"%s"%(raw['id']))
+				print 'Pushed to queue:nlp'
 		except KeyboardInterrupt:
 			sys.exit(0)
 		except:

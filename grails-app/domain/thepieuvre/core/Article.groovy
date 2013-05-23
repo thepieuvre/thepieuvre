@@ -13,6 +13,11 @@ class Article {
 
 	Content contents
 
+	String synopsis
+	String keyWords
+	String keyWordsShort
+	String similars
+
 	static belongsTo = [ feed: Feed ]
 
 	static transients = [ 'language' ]
@@ -22,6 +27,10 @@ class Article {
 		uid maxSize: 1024 
 		author nullable: true
 		language nullable: true
+		synopsis nullable: true, maxSize: 2048
+		keyWords nullable: true, maxSize: 2048
+		keyWordsShort nullable: true, maxSize: 2048
+		similars nullable: true, maxSize: 2048
 	}
 
 	String toString() {
@@ -31,4 +40,5 @@ class Article {
 	String getLanguage() {
 		feed.language
 	}
+
 }
