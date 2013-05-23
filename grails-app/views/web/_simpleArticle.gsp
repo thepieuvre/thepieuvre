@@ -13,7 +13,7 @@
 </div>
   <h4>Similar articles:</h4>
   <g:set var="similars" value="${false}"/>
- <g:each status="i" in="${articleService.similars(article)}" var="related">
+ <g:each status="i" in="${articleService.getSimilars(article)}" var="related">
  
   <g:set var="similars" value="${true}"/>
   <g:if test="${i < 5 && related.key}">
