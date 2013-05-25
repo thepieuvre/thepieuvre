@@ -53,7 +53,6 @@ class ArticleService {
 	**/
 	def forceNlp(){
 		Article.getAll().each { article ->
-  			counter++
   			if (! article.synopsis) {
 				log.info "Pushing $article.id to queue:nlp"
     			redisService.withRedis { Jedis redis ->
