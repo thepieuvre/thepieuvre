@@ -64,6 +64,5 @@ class BootStrap {
 
     def destroy = {
         schedulerService.cancel()
-        queuesService.clearAll()
     }
 }
