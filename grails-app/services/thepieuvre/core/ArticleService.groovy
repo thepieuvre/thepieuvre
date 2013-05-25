@@ -8,6 +8,8 @@ class ArticleService {
 
 	static transactional = true
 
+	def redisService 
+
 	def updateNlp(def nlp) {
 		Article article = Article.get(nlp.id as long)
 		article.keyWordsShort = nlp.keyWordsShort
@@ -46,7 +48,20 @@ class ArticleService {
 		return res
 	}
 
-	def redisService 
+	/**
+	 * Check all articles for NLP, if articles are not NLPed yet they are pushed to the queue:nlp.
+	**/
+	def forceNlp(){
+		Article.getAll().each { article ->
+  			counter++
+  			if (! article.synopsis) {
+				log.info "Pushing $article.id to queue:nlp"
+    			redisService.withRedis { Jedis redis ->
+					redis.rpush("queue:nlp", "$article.id")
+				}
+  			}
+    	}
+	}
 
 	@Deprecated
 	private def fetchingGram(Article article, String type) {
