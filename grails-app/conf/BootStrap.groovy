@@ -10,6 +10,7 @@ import thepieuvre.security.UserRole
 
 class BootStrap {
 
+    def articleService
     def queuesService
     def schedulerService
 
@@ -51,6 +52,8 @@ class BootStrap {
             UserRole.create(alexUser, Role.findByAuthority('ROLE_MEMBER'), true)
         }
 
+        articleService.forceNlp()
+        
         queuesService.queues.each {k,v->
             queuesService.create(v)
         }
