@@ -53,13 +53,12 @@ class BootStrap {
         }
 
         articleService.forceNlp()
-        
+
         queuesService.queues.each {k,v->
             queuesService.create(v)
         }
 
-        schedulerService.schedule(new FeederTask(grailsApplication), 62830)
-
+        schedulerService.startFeederTask()
         schedulerService.startFeedParser()
         schedulerService.startArticleTask()
 

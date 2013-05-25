@@ -7,8 +7,6 @@ class FeederTask extends TimerTask {
 
  	def grailsApplication
 
- 	static long lock 
-
  	FeederTask(def grailsApplication) {
  		this.grailsApplication = grailsApplication
  	}
@@ -16,26 +14,9 @@ class FeederTask extends TimerTask {
 	@Override
 	void run() {
 		log.info "Running feeder task"
-		long now = new Date().time
-		boolean takingLock = false
-		synchronized(lock) {
-			if (lock == 0) {
-				log.debug "Taking the lock"
-				lock = now
-				takingLock = true
-			} else if ((lock + 360000) < now) {
-				log.debug "Expired lock: taking the lock"
-				lock = now
-				takingLock = true
-			} else {
-				log.debug "Lock already took: nothing to do"
-				takingLock = false
-			}
-			if (takingLock) {
-				log.debug "Updating feeds"
-				grailsApplication.mainContext.feedService.updateFeeds()
-				lock = 0
-			}
+		while(true) {
+			grailsApplication.mainContext.feedService.updateFeeds()
+			Thread.sleep(60000)
 		}
 		log.info "Ending run feeder task"
 	}
