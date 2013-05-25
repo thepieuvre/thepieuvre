@@ -23,4 +23,8 @@ class SchedulerService {
 	def startArticleTask() {
 		new Thread(new ArticleTask(grailsApplication), 'ArticleTask').start()
 	}
+
+	def startFeederTask() {
+		new Thread(new FeederTask(grailsApplication), 'FeederTask').start()
+	}
 }
