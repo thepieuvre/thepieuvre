@@ -15,7 +15,8 @@ class QueuesService {
 		'thepieuvre.core.Content': 'extractor',
 		'thepieuvre.core.Article': 'chunker',
 		'Groovy: extractor': 'article',
-		'Groovy: nlp': 'nlp'
+		'Groovy: nlp': 'nlp',
+		'Groovy: nlp low priority': 'nlp-low'
 	]
 
 	def enqueue(def task) {
