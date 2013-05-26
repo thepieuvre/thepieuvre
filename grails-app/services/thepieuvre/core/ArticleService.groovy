@@ -53,7 +53,7 @@ class ArticleService {
 	**/
 	def forceNlp(){
 		Article.getAll().each { article ->
-  			if (! article.synopsis) {
+  			if (! article.synopsis && article.language.startsWith('en')) {
 				log.info "Pushing $article.id to queue:nlp"
     			redisService.withRedis { Jedis redis ->
 					redis.rpush("queue:nlp", "$article.id")
