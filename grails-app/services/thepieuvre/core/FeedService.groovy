@@ -102,7 +102,7 @@ class FeedService {
 							feed.lastError = article.errors as String
 						}
 						queuesService.enqueue(article.contents)
-						log.info "Updated feed $feed"
+						log.info "Updated feed $feed with $article and content $article.contents.id"
 					}
 				}
 			} else {
