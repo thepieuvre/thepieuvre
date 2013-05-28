@@ -27,19 +27,19 @@ class ArticleTask implements Runnable {
 								log.info "updating nl processing"
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
 							} else {
-								log.info "updating content"
+								log.info "updating content: $decoded.content.id"
 								Content content = Content.get(decoded.content.id)
 								if (content) {
 									grailsApplication.mainContext.feedService.update(content, decoded.content)
 								} else {
-									log.warn "Cannot find content for $decoded"
+									log.warn "Cannot find content for $decoded.content.id -> $decoded"
 								}
 							}
 						} else {
 							continue
 						}
 					} catch (Exception e) {
-						log.error "A problem occured while poping queue:article", e
+						log.error "A problem occured while poping queue:article / $decoded", e
 						continue
 					}
 				}
