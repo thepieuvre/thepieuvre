@@ -37,10 +37,6 @@ class ArticleTask implements Runnable {
 										grailsApplication.mainContext.feedService.update(content, decoded.content)
 									} else {
 										log.warn "Cannot find content for $decoded.content.id -> $decoded"
-										// TODO push it to the next queue??
-										// log.info "Pushing $article.id to queue:queue:extractor"
-	  									// queuesService.enqueue(article.contents)
-	  									// TODO force re-extractor of empty fullcontent articles...
 									}
 								}
 							}
