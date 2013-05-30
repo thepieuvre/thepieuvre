@@ -8,6 +8,8 @@ class ArticleService {
 
 	static transactional = true
 
+	def queueService
+
 	def redisService 
 
 	def updateNlp(def nlp) {
@@ -18,6 +20,14 @@ class ArticleService {
 		article.similars = nlp.similars
 	}
 
+	def updateSynopsis() {
+		def query = Article.where {
+			synopsis == null
+		}
+		query.list().each {
+			queuesService.enqueue(it.contents)
+		}
+	}
 
 	def getKeyWords(Article article) {
 		if (article.keyWords) {
