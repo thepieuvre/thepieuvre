@@ -52,8 +52,6 @@ class BootStrap {
             UserRole.create(alexUser, Role.findByAuthority('ROLE_MEMBER'), true)
         }
 
-        articleService.forceNlp()
-
         queuesService.queues.each {k,v->
             queuesService.create(v)
         }
@@ -61,6 +59,9 @@ class BootStrap {
         schedulerService.startFeederTask()
         schedulerService.startFeedParser()
         schedulerService.startArticleTask()
+
+
+        articleService.updateSynopsis()
 
     }
 
