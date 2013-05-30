@@ -8,7 +8,7 @@ class ArticleService {
 
 	static transactional = true
 
-	def queueService
+	def queuesService
 
 	def redisService 
 
