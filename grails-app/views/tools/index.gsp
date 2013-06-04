@@ -10,7 +10,6 @@
 <ul>
 	<li><g:link controller="console">Grails Console</g:link></li>
 	<li><g:link controller="monitoring">Monitoring</g:link></li>
-	<li><g:link controller="dbconsole">DB Console</g:link></li>
 	<li><g:link controller="hermes">Hermes (Queues Manager)</g:link></li>
 </ul>
 
