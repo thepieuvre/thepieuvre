@@ -9,11 +9,14 @@ class Content {
 
 	String mainImage
 
+    String language
+
 	static belongsTo = [ article: Article ]
 
 	static constraints = {
 		raw maxSize: 262144
 		fullText nullable: true, maxSize: 1048576
 		mainImage nullable: true, url: true
+        language nullable: true
 	}
 }

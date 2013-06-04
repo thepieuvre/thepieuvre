@@ -56,6 +56,7 @@ class FeedService {
 		content.fullText = json.fullText
 		content.extractor = json.extractor
 		content.mainImage = json.mainImage
+        content.language = json.lang
 		queuesService.enqueue(content.article)
 	}
 

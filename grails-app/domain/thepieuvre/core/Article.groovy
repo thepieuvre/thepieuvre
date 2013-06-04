@@ -38,7 +38,11 @@ class Article {
 	}
 
 	String getLanguage() {
-		feed.language
+        if (contents?.language) {
+            contents.language
+        } else {
+		    feed.language
+        }
 	}
 
 }

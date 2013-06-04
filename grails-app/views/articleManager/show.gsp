@@ -17,7 +17,9 @@
 <h2>Article: ${article.title}</h2>
 
 <p>Feed: <g:link action="show" id="${article.feed.id}" controller="feedManager">${article.feed.title}</g:link></p>
-	
+
+<p>Language: ${article.language}</p>
+
 <h3>Contents</h3>
 	<h4>Raw</h4>
 	<div class="well">
