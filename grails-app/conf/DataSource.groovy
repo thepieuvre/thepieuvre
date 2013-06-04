@@ -25,7 +25,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = url = "jdbc:h2:file:~/.h2;MVCC=TRUE;LOCK_TIMEOUT=10000" 
             pooled = false
             jndiName = "java:comp/env/jdbc/thepieuvre"
