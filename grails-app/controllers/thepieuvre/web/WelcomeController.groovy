@@ -168,6 +168,10 @@ $message
 
 	def similar = {
 		def art = Article.get(params.id as long)
+        if (! article) {
+            forward controller: 'error', action: 'notFound'
+            return false
+        }
 		def articles = articleService.similars(art).keySet()
 		render view: '/index', model: ['articles': articles,
 			'tFeeds': Feed.count(),
@@ -178,6 +182,10 @@ $message
 
 	def related = {
 		def art = Article.get(params.id as long)
+        if (! article) {
+            forward controller: 'error', action: 'notFound'
+            return false
+        }
 		def articles = articleService.related(art).keySet()
 		render view: '/index', model: ['articles': articles,
 			'tFeeds': Feed.count(),
