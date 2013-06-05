@@ -242,6 +242,10 @@ $message
 
 	def article = {
 		Article article = Article.get(params.id)
+        if (! article) {
+              forward controller: 'error', action: 'notFound'
+            return false
+        }
 		if (! article?.language?.startsWith('en')) {
 			flash.message = 'Sorry, the Pieuvre just started learning english. Other languages are not yet supported.'
 		} else if (! article) {
