@@ -168,7 +168,7 @@ $message
 
 	def similar = {
 		def art = Article.get(params.id as long)
-        if (! article) {
+        if (! art) {
             forward controller: 'error', action: 'notFound'
             return false
         }
@@ -182,7 +182,7 @@ $message
 
 	def related = {
 		def art = Article.get(params.id as long)
-        if (! article) {
+        if (! art) {
             forward controller: 'error', action: 'notFound'
             return false
         }
