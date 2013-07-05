@@ -7,7 +7,7 @@ AGENT='The Pieuvre/1.0 +http://www.thepieuvre.com/'
 REFERRER='http://www.thepieuvre.com/'
 
 def escaping(str):
-	return str.replace('\\','\\\\').replace('"','\\"').replace('\n',' ')
+	return str.replace('\\','\\\\').replace('"','\\"').replace('\n',' ').replace("'","\\'")
 
 def processing_task(task):
 	feed = json.loads(task)
