@@ -99,7 +99,7 @@ class FeedService {
 
 						article.published = entry.published
 						if(! article.save(flush: true)) {
-							log.warn "Cannot save article for feed $feed", article.errors
+							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
 						}
 						queuesService.enqueue(article.contents)
