@@ -13,6 +13,12 @@ class FeedParser implements Runnable {
 		this.grailsApplication = grailsApplication
 	}
 
+	private def sanitize(def s){
+		return s.replaceAll(/\s/) { match ->
+			' '
+		}
+	}
+
 	@Override
 	void run() {
 		while(true) {
@@ -25,7 +31,8 @@ class FeedParser implements Runnable {
 							def msg = redis.blpop(60000, 'queue:feedparser')
 							if (msg) {
 								log.info "Getting message from queue:feedparser"
-								def decoded = JSON.parse(msg[1])
+								def sanitized = sanitize(msg[1])
+								def decoded = JSON.parse(sanitized)
 								feed= Feed.get(decoded.id as Long)
 								log.debug "Updating feed $feed"
 								if (feed) {
