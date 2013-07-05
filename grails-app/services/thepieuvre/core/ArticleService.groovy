@@ -13,11 +13,16 @@ class ArticleService {
 	def redisService 
 
 	def updateNlp(def nlp) {
+		log.info "Updating NLP for article ${nlp?.id}"
 		Article article = Article.get(nlp.id as long)
-		article.keyWordsShort = nlp.keyWordsShort
-		article.keyWords = nlp.keyWords
-		article.synopsis = nlp.synopsis
-		article.similars = nlp.similars
+		if (article) {
+			article.keyWordsShort = nlp.keyWordsShort
+			article.keyWords = nlp.keyWords
+			article.synopsis = nlp.synopsis
+			article.similars = nlp.similars
+		} else {
+			log.warn "Cannot updating NLP because article is null: $nlp"
+		}
 	}
 
 	def updateSynopsis() {
