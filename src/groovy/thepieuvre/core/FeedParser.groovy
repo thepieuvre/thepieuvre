@@ -33,13 +33,15 @@ class FeedParser implements Runnable {
 								log.info "Getting message from queue:feedparser"
 								def sanitized = sanitize(msg[1])
 								def decoded = JSON.parse(sanitized)
-								feed= Feed.get(decoded.id as Long)
-								log.debug "Updating feed $feed"
-								if (feed) {
-									grailsApplication.mainContext.feedService.update(feed, decoded)
-									log.debug "Updated feed $feed"
-								} else {
-									log.warn "Cannot update $feed with $decoded"
+								Feed.withTransaction {
+									feed= Feed.get(decoded.id as Long)
+									log.debug "Updating feed $feed"
+									if (feed) {
+										grailsApplication.mainContext.feedService.update(feed, decoded)
+										log.debug "Updated feed $feed"
+									} else {
+										log.warn "Cannot update $feed with $decoded"
+									}
 								}
 							} 
 						} catch (Exception e) {
