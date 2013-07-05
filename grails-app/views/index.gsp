@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="web"/>
+		<meta name="layout" content="thepieuvre"/>
 	</head>
 	<body>
 
@@ -83,7 +83,7 @@ ${(!exit)?'':"Exit: ${exit}"}
       animate: true ,
       loading: {
         img: 'images/spinner.gif',
-        msgText: '<em>Loading more articles...</em>'
+        msgText: '<em>To infinity... and beyond!</em>'
       },
       path : function(page) {
           return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"

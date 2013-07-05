@@ -49,7 +49,7 @@ $message
 			"""
 		}
 		flash.message = 'Thank you for your message.'
-		redirect action:'index'
+		redirect action:'index2'
 	}
 
 	def index = {
@@ -94,7 +94,7 @@ $message
 					'articleService': articleService, 
 				]
 			} else {
-				render template: '/web/simpleArticle', collection:articles, var: 'article', model: ['articleService': articleService]
+				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
 			}
 			log.info "Welcome - Rendered Home"
 		} else {
@@ -106,14 +106,14 @@ $message
 			}
 			log.info "Welcome - Rendering Index"
 			if (offSet == 0) {
-				render view: '/index', model: [
+				render view: '/index2', model: [
 					'articles': articles,
 					'articleService': articleService,
 					'tFeeds': Feed.count(), 
 					'tArticles': Article.count()
 				]
 			} else {
-				render template: '/web/simpleArticle', collection:articles, var: 'article', model: ['articleService': articleService]
+				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
 			}
 			log.info "Welcome - Rendered Index"
 		}
@@ -127,7 +127,7 @@ $message
 	def searchByKeyWords = {
 		def articles = articleService.getArticleFromNGram(params.keyWords)
 
-		render view: '/index', model: ['articles': articles,
+		render view: '/index2', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -142,7 +142,7 @@ $message
 			ilike 'author', "%${params.author}%" 
 		}
 
-		render view: '/index', model: ['articles': articles,
+		render view: '/index2', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -159,7 +159,7 @@ $message
 			}
 		}
 
-		render view: '/index', model: ['articles': articles,
+		render view: '/index2', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -173,7 +173,7 @@ $message
             return false
         }
 		def articles = articleService.similars(art).keySet()
-		render view: '/index', model: ['articles': articles,
+		render view: '/index2', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -187,7 +187,7 @@ $message
             return false
         }
 		def articles = articleService.related(art).keySet()
-		render view: '/index', model: ['articles': articles,
+		render view: '/index2', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -205,7 +205,7 @@ $message
 			log.info "Executing  $params.command"
 			 def res = commandService.execute(params.command.trim())
 
-			render view: '/index', model: res + ['articles': [],
+			render view: '/index2', model: res + ['articles': [],
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'command': params.command]
@@ -217,7 +217,7 @@ $message
 				ilike 'title', "%${params.command}%" 
 			}
 
-			render view: '/index', model: ['articles': articles,
+			render view: '/index2', model: ['articles': articles,
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'articleService': articleService,
