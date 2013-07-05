@@ -20,7 +20,7 @@ class BootStrap {
     	def roles = [
     		['ROLE_ROOT', 'The super administrator of the system'],
             ['ROLE_FEED_MANAGER', 'Manager of Feeds'],
-            ['ROLE_FEED_API', 'API user for feed managing'],
+            ['ROLE_API', 'API user for feed managing'],
             ['ROLE_MEMBER_MANAGER', 'Manager of Members'],
             ['ROLE_MEMBER', 'Member'],
             ['ROLE_COMMAND_MANAGER', 'Manager of Commands']

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="web"/>
+		<meta name="layout" content="thepieuvre"/>
 	</head>
 	<body>
 
