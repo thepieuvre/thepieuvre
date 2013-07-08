@@ -68,19 +68,23 @@ $message
 				}
 			} else if (params.board == '-1' || ! Board.get(params.board as long)) {
 				board = 'Your Feeds'
-				articles = Article.createCriteria().list {
-					maxResults(10)
-					firstResult(offSet)
-					order('dateCreated', 'desc')
-					feed { 'in' ('id',  member.feeds.collect {it.id}) } 
+				if (member.feeds?.size() > 0) {
+					articles = Article.createCriteria().list {
+						maxResults(10)
+						firstResult(offSet)
+						order('dateCreated', 'desc')
+						feed { 'in' ('id',  member.feeds.collect {it.id}) } 
+					}
 				}
 			} else {
 				board = Board.get(params.board).name
-				articles = Article.createCriteria().list {
-					maxResults(10)
-					firstResult(offSet)
-					order('dateCreated', 'desc')
-					feed { 'in' ('id',  Board.get(params.board).feeds.collect {it.id}) } 
+				if (Board.get(params.board).feeds?.size() > 0) {
+					articles = Article.createCriteria().list {
+						maxResults(10)
+						firstResult(offSet)
+						order('dateCreated', 'desc')
+						feed { 'in' ('id',  Board.get(params.board).feeds.collect {it.id}) } 
+					}
 				}
 			}
 
