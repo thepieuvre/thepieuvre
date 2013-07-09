@@ -29,10 +29,7 @@ class ArticleTask implements Runnable {
 							} else if (decoded.content) {
 								log.info "updating content: $decoded.content.id"
 								Content.withTransaction {
-									def query = Content.where {
-											id == decoded.content.id
-										}
-										Content content = query.find()
+										Content content = Content.get(decoded.content.id)
 										if (content) {
 											grailsApplication.mainContext.feedService.update(content, decoded.content)
 										} else {

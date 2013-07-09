@@ -11,6 +11,8 @@ class Content {
 
     String language
 
+    Date dateCreated
+
 	static belongsTo = [ article: Article ]
 
 	static constraints = {
