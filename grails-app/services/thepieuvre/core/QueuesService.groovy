@@ -20,18 +20,21 @@ class QueuesService {
 	]
 
 	def enqueue(def task) {
-		def queue = queues[task.class.getName()]
-		log.debug "Queue found is $queue"
-		if (queue) {
-			redisService.withRedis { Jedis redis ->
-				log.info "Adding $task to queue $queue"
-				return redis.rpush("queue:${queue}", (task as JSON).toString())
+		if (task) {
+			def queue = queues[task.class.getName()]
+			log.debug "Queue found is $queue"
+			if (queue) {
+				redisService.withRedis { Jedis redis ->
+					log.info "Adding $task to queue $queue"
+					return redis.rpush("queue:${queue}", (task as JSON).toString())
+				}
+			} else {
+				log.error "No queue binded for class ${task.class.getName()}"
+				return false
 			}
 		} else {
-			log.error "No queue binded for class ${task.class.getName()}"
-			return false
+			log.warn "Cannot find queue because the task is null"
 		}
-		
 	}
 
 	def create(String queueName) {
