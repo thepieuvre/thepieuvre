@@ -30,6 +30,7 @@ class JsonConvertersBootStrap {
 			def json = [:]
 			json.id = c.id
 			json.link = c.article.link
+			json.raw = "$c.article.title $c.raw"
 			return json
 		}
 
