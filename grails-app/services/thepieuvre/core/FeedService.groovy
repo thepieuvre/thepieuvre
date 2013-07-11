@@ -98,12 +98,13 @@ class FeedService {
 						article.link = entry.link
 
 						article.published = entry.published
-						if(! article.save(flush: true)) {
+						if(! article.save(flush: true, deepValidate: true)) {
 							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
+						} else {
+							queuesService.enqueue(article.contents)
+							log.info "Updated feed $feed with $article and content $article.contents.id"
 						}
-						queuesService.enqueue(article.contents)
-						log.info "Updated feed $feed with $article and content $article.contents.id"
 					}
 				}
 			} else {

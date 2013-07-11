@@ -152,6 +152,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/admin/**': ['IS_AUTHENTICATED_FULLY'],
     '/welcome/**': ['permitAll'],
     '/member/**': ['permitAll'],
+    '/favicon.ico': ['permitAll'], // TODO temporary fixe, remove it in next-ui
     '/': ['permitAll'],
     '/**': ['denyAll']
 ]
