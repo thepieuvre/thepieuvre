@@ -33,23 +33,25 @@ class BootStrap {
     	}
 
         // Alex is the super-administrator
-        def alexUser = User.findByUsername('alex')
-        if (!alexUser) {
-            def alexpass = (Environment.PRODUCTION == Environment.current ? 'w=upc+6r' : 'alex')
-            alexUser = new Member(
-                email: 'alex@thepieuvre.com',
-                username: 'alex',
-                password: alexpass,
-                enabled: 'true',
-                canPasswordLogin: true,
-                verified: new Date()
-            )
-            if (!alexUser.save()) {
-                println alexUser.errors
+        if (Environment.PRODUCTION != Environment.current) {
+            def alexUser = User.findByUsername('alex')
+            if (!alexUser) {
+                def alexpass = 'alex'
+                alexUser = new Member(
+                    email: 'alex@thepieuvre.com',
+                    username: 'alex',
+                    password: alexpass,
+                    enabled: 'true',
+                    canPasswordLogin: true,
+                    verified: new Date()
+                )
+                if (!alexUser.save()) {
+                    println alexUser.errors
+                }
+                
+                UserRole.create(alexUser, Role.findByAuthority('ROLE_ROOT'), true)
+                UserRole.create(alexUser, Role.findByAuthority('ROLE_MEMBER'), true)
             }
-            
-            UserRole.create(alexUser, Role.findByAuthority('ROLE_ROOT'), true)
-            UserRole.create(alexUser, Role.findByAuthority('ROLE_MEMBER'), true)
         }
 
         queuesService.queues.each {k,v->
