@@ -61,10 +61,6 @@ class BootStrap {
         schedulerService.startFeederTask()
         schedulerService.startFeedParser()
         schedulerService.startArticleTask()
-
-
-        articleService.updateSynopsis()
-
     }
 
     def destroy = {
