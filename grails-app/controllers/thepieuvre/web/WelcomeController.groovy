@@ -176,7 +176,7 @@ $message
             forward controller: 'error', action: 'notFound'
             return false
         }
-		def articles = articleService.similars(art).keySet()
+		def articles = articleService.getSimilars(art).keySet()
 		render view: '/index', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
