@@ -1,4 +1,3 @@
-
 import thepieuvre.executor.Command
 
 class CommandBootStrap {
@@ -19,7 +18,7 @@ class CommandBootStrap {
 		return r
 	} else {
 		exit = 1
-		msg = "The command your are looking for help does not exist"
+		msg = "Help for the command your are looking does not exist"
 	}
 				}''',
 				help: 'display help for all commands',
