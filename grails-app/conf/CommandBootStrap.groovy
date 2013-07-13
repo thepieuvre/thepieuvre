@@ -18,7 +18,7 @@ class CommandBootStrap {
 		return r
 	} else {
 		exit = 1
-		msg = "Help for the command your are looking does not exist"
+		msg = "Help for the command you are looking for does not exist"
 	}
 				}''',
 				help: 'display help for all commands',
