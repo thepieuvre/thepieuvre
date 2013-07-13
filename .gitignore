@@ -1,14 +1,3 @@
 .DS_Store
-*.log
-*.pyc
-target/classes/
-thepieuvre.sublime-project
-thepieuvre.sublime-workspace
-.idea/
-*.iml
+.DS_Store?
 
-Todo.txt
-
-*.war
-
-.gitignore
