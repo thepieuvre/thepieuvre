@@ -15,7 +15,6 @@ class ArticleTask implements Runnable {
 
  	@Override
  	void run() {
- 		while(true) {
 			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
@@ -47,8 +46,6 @@ class ArticleTask implements Runnable {
 						continue
 					}
 				}
-			}
-
  		}
  	}
 }
