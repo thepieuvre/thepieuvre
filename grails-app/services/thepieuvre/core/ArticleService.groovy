@@ -13,6 +13,10 @@ class ArticleService {
 	def redisService 
 
 	def updateNlp(def nlp) {
+		if (! nlp) {
+			log.warn "Trying to update NLP with null"
+			return false
+		}
 		log.info "Updating NLP for article ${nlp?.id}"
 		Article article = Article.get(nlp.id as long)
 		if (article) {
