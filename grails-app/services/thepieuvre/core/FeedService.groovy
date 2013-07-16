@@ -95,6 +95,11 @@ class FeedService {
 								article.contents = new Content(raw: content, article: article)
 							} 
 						}
+
+						if (!article.contents) {
+							article.contents = new Content(raw: 'null', article: article)
+						}
+
 						article.link = entry.link
 
 						article.published = entry.published
