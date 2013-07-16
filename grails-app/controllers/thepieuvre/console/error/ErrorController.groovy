@@ -38,16 +38,16 @@ class ErrorController {
 				
 				mailService.sendMail {
 	                    to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }
-	                    from "noreply@thepieuvre.com"
-	                    subject "Error The Pieurve  ${request['user']}"
+	                    from 'noreply@thepieuvre.com'
+	                    subject "Error The Pieuvre  ${request['user']}"
 	                    body """
-	    Host: ${InetAddress.localHost.hostName}
-	    date ${new SimpleDateFormat("dd/MM/yyyy 'at' HH:mm:ss z").format(new Date())}
-	    error ${request.getAttribute("javax.servlet.error.status_code")}: ${cause}
-	    URI:  ${requestUri}
-	    USER: ${request['user']}
-	    Stack Trace :
-	${request.exception.stackTraceLines.join("\n")}
+Host: ${InetAddress.localHost.hostName}
+Date: ${new SimpleDateFormat("dd/MM/yyyy 'at' HH:mm:ss z").format(new Date())}
+Error ${request.getAttribute('javax.servlet.error.status_code')}: ${cause}
+URI: ${requestUri}
+User: ${request['user']}
+Stacktrace :
+   ${request.exception.stackTraceLines.join('\n   ')}
 	"""
 	                }
             } catch (Exception e) {
