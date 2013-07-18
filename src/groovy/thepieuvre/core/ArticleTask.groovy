@@ -15,6 +15,7 @@ class ArticleTask implements Runnable {
 
  	@Override
  	void run() {
+ 		while(true) {
 			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
@@ -27,14 +28,7 @@ class ArticleTask implements Runnable {
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
 							} else if (decoded.content) {
 								log.info "updating content: $decoded.content.id"
-								Content.withTransaction {
-										Content content = Content.get(decoded.content.id)
-										if (content) {
-											grailsApplication.mainContext.feedService.update(content, decoded.content)
-										} else {
-											log.warn "Cannot find content for $decoded.content.id -> $decoded"
-										}
-								}
+								grailsApplication.mainContext.feedService.update(decoded)
 							} else {
 								log.warn "Unknow type of message: $decoded"
 							}
@@ -46,6 +40,8 @@ class ArticleTask implements Runnable {
 						continue
 					}
 				}
+			}
+
  		}
  	}
 }
