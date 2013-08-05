@@ -4,92 +4,35 @@
 		<meta name="layout" content="thepieuvre"/>
 	</head>
 	<body>
+		<div class="jumbotron" style="color: white; text-shadow:3px 3px #0D0D0D;">
+        <h1>The Pieuvre <small style="color: white;">&nbsp;[pj&oelig;v&#640;]</small></h1>
+        <p class="lead">Pieuvre is the french word for octopus.</p>
+        <p class="lead">Join the Pieuvre now and the Pieuvre will start reading the Internet for you!</p>
+        <p><a class="btn btn-large btn-success" href="#">Sign Up Now</a></p>
+      </div>
 
-<g:render template="/web/searchBox" />
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Following News</h4>
+		  <p>Internet is full of feeds and sites to follow. The Pieuvre follows the Internet for you.</p>
 
-<div class="row">
-  <div class="span10"> 
+          <h4>Sorting News</h4>
+          <p>Internet generates so much news that it is impossible for a human to follow all the desired information. The Pieuvre uses natural language processing for sorting news and saving times to humans.</p>
 
-            <g:if test="${cmd}">
-             <p class="${(!exit)?'text-success':'text-error'}"><i class="icon-hand-right"></i>${cmd}</p>
-<pre>
-${(!exit)?result:msg}
-
-${(!exit)?'':"Exit: ${exit}"}
-</pre>
-      </g:if>
-      <g:else>
-        <g:if test='${flash.message}'>
-          <div style= "margin-top: 20px;" class='alert alert-success'>${flash.message}</div>
-        </g:if>
-
-          <section id="container">
-        <g:render template="/web/simpleArticle" var="article" collection="${articles}" />
-      </section>
-    </g:else>
-    <nav id="page-nav">
-      <a href="${createLink(controller: 'welcome', action: 'index', params: [offset:25] )}"></a>
-    </nav>
-  </div>
-  <div class="span2">
-     <ul class="nav nav-list affix">
-      <li class="nav-header">The Pieuvre</li>
-      <li>Feeds: ${tFeeds}</li>
-      <li>Articles: ${tArticles}</li>
-      <li class="divider"></li>
-      <li><small>Sophia Antipolis - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}</small></li>
-    </ul>
-        <!--
-        <div class="well">
-            <p><strong>Last Hour</strong></p>
-            <p><strong>Last Day</strong></p>
-              <p><strong>Last 7 Days</strong></p>
+          <h4>Finding News</h4>
+          <p>On Internet, humans need to know what they look for to find it. The Pieuvre finds what you are looking for before you think of it.</p>
         </div>
-        -->
-  </div>
-</div>
 
-    <!-- Checking for new articles -->
-      <script type="text/javascript">
-        $('.alert_articles').hide()
-        function checkNewArticleLoop(newTArticles) {
-          var tArticles = parseInt(${tArticles});
-            this.timer = setTimeout('checkNewArticle()', 31415);
-            if (tArticles < newTArticles) {
-              clearTimeout(this.timer)
-              delete this.timer
-              $('#fire').show('slow')
-            }
-          }
+        <div class="col-lg-6">
+          <h4>Reading News</h4>
+          <p>Well, the Pieuvre loves reading news on Internet. As she does it all the time, she  helps you for faster and better reading.</p>
 
-        function checkNewArticle() {
-          $.ajax({
-              type: "GET",
-              url: "${createLink(controller: 'welcome', action:'totalArticles', absolute:'true')}",
-              success: function(result) {checkNewArticleLoop(parseInt(result))  }
-          });
-        }
-        $(window).load(checkNewArticleLoop(parseInt(${tArticles})));
-    </script>
-    <!-- Infinite Scroll -->
-    <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
-    <script type="text/javascript">
-    $(function(){
-    $('#container').infinitescroll({
-      navSelector  : "#page-nav",            
-      nextSelector : "#page-nav a",    
-      itemSelector : ".article-box",
-      debug        : false,
-      animate: true ,
-      loading: {
-        img: 'images/spinner.gif',
-        msgText: '<em>To infinity... and beyond!</em>'
-      },
-      path : function(page) {
-          return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"
-      }              
-    });
-  });
-    </script>
+          <h4>Exploring News</h4>
+          <p>Curious, the Pieuvre is. She is always eager to share her knowledge with you.</p>
+
+          <h4>Sharing News</h4>
+          <p>Obviously, Internet is all about sharing!</p>
+        </div>
+      </div>
 	</body>
 </html>
