@@ -29,10 +29,6 @@ class WelcomeController {
 		render view: '/help'
 	}
 
-	def contact() {
-		render view: '/contact'
-	}
-
 	def message(String name, String email, String message) {
 		mailService.sendMail {
 			to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }

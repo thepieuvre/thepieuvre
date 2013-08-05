@@ -29,7 +29,7 @@
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Login</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
         </ul>
         <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
@@ -41,6 +41,49 @@
     </div>
 
     </div> <!-- /container -->
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Contact the Pieuvre</h4>
+                </div>
+            <div class="modal-body">
+                <p>We would love to hear about what you think: comments, feedback, reviews, ...</p>
+                <g:form class="form-horizontal well" controller="welcome" action="message">
+                    <legend>Please fill out the following form:</legend>
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="name">Your name</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" name="name" maxlength="255" />
+                                <p class="help-block">Please tell us your name.</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="email">Your email</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" name="email" maxlength="255" />
+                                <p class="help-block">We will use it for replying.</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="message">Your message</label>
+                            <div class="controls">
+                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" ></textarea>
+                                <p class="help-block">Your message to the Pieuvre.</p>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+                    </fieldset>
+                </g:form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
     <script type="text/javascript">
