@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="thepieuvre"/>
+		<g:set var="section" scope="request" value="help"/>
 	</head>
 	<body>
 		<h1>Help</h1>
