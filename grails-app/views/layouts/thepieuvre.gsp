@@ -27,9 +27,10 @@
     <div class="container-narrow">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Login</a></li>
-          <li><a href="#">About</a></li>
+          <li class="${section == 'home' ? 'active' : ''}"><a href="${resource(dir:'/')}">Home</a></li>
+          <li class="${section == 'about' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'about')}">About</a></li>
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
+          <li><a href="#">Login</a></li>
         </ul>
         <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
       </div>

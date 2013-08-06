@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="thepieuvre"/>
+		<g:set var="section" scope="request" value="home"/>
 	</head>
 	<body>
 		<div class="jumbotron" style="color: white; text-shadow:3px 3px #0D0D0D;">
