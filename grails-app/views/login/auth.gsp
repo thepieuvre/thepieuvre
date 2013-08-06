@@ -1,6 +1,6 @@
 <html>
 <head>
-	<meta name='layout' content='web'/>
+	<meta name='layout' content='thepieuvre'/>
 	<title><g:message code="springSecurity.login.title"/></title>
 </head>
 
@@ -19,6 +19,7 @@
 			<div class="control-group">
 				<label for='password' class="control-label"><g:message code="springSecurity.login.password.label"/>:</label>
 				<div class="controls"><input type='password' class='text_' name='j_password' id='password'/></div>
+				<p></p>
 			</div>
 			<div class="form-actions">
 				<input class="btn btn-primary" type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
