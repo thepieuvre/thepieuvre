@@ -234,13 +234,12 @@ $message
 				redirect action: 'index'
 			} catch (grails.validation.ValidationException e) {
 				log.debug "Signing up failed", e
-				flash.message = "${e.errors}"
-				render view: '/signUp'
+				render view: '/signUp', model: ['form': e]
 			}
 		} else {
 			log.debug "Signing up invalid: ${cmd.errors}"
 			flash.message = "${cmd.errors}"
-			render view: '/signUp'
+			render view: '/signUp', model: ['form': cmd]
 		}
 	}
 
