@@ -30,7 +30,12 @@
           <li class="${section == 'home' ? 'active' : ''}"><a href="${resource(dir:'/')}">Home</a></li>
           <li class="${section == 'about' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'about')}">About</a></li>
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
-          <li><a href="#">Login</a></li>
+          <sec:ifLoggedIn>
+            <li><g:link controller="logout">Logout</g:link></li>
+          </sec:ifLoggedIn>
+          <sec:ifNotLoggedIn>
+            <li><a data-toggle="modal" href="#loginModal">Login</a></li>
+          </sec:ifNotLoggedIn>
         </ul>
         <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
@@ -38,7 +43,8 @@
     <g:layoutBody/>
 
     <div class="footer">
-        <p>Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}<span class="pull-right"><a href="#">Back to top</a></span></p>
+        <p><span class="label label-danger">Beta</span>
+Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}<span class="pull-right"><a href="#">Back to top</a></span></p>
     </div>
 
     </div> <!-- /container -->
@@ -82,8 +88,39 @@
                         </div>
                     </fieldset>
                 </g:form>
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Login on the Pieuvre</h4>
+                </div>
+                <div class="modal-body">
+                    <form action='${request.contextPath}/j_spring_security_check' class="form-horizontal well" method='POST' id='loginForm' autocomplete='off'>
+                        <fieldset>
+                            <div class="control-group">
+                                <label for='username' class="control-label"><g:message code="springSecurity.login.username.label" />:</label>
+                                <input type='text' class='text_' name='j_username' id='username'/>
+                            </div>
+                            <div class="control-group">
+                                <label for='password' class="control-label"><g:message code="springSecurity.login.password.label"/>:</label>
+                                <input type='password' class='text_' name='j_password' id='password'/>
+                                <p></p>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-success" type='submit' id="submit">${message(code: "springSecurity.login.button")}</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
     <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
