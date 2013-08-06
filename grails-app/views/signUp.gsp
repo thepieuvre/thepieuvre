@@ -4,14 +4,14 @@
 		<meta name="layout" content="thepieuvre"/>
 	</head>
 	<body>
-		<h1>Being a member at the Pieuvre</h1>
+		<h1>Sign Up</h1>
 
-		<p class="lead">By signing up you are granted the right to subscribe to any feeds of your choice, to publish (privately or publicly) your own articles, to create your own feeds, and more...
+		<p class="lead">By signing up you are granted the right to use the Pieuvre service for your own personnal usage.
 		</p>
 
-		<g:if test='${flash.message}'>
-			<div class='alert alert-danger'>${flash.message}</div>
-		</g:if>
+    <g:eachError bean="${form}">
+    <div class='alert alert-danger'><g:message error="${it}"/></div>
+    </g:eachError>
 
 		<g:form action="register" class="form-horizontal well">
         <fieldset>
