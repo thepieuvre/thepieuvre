@@ -39,10 +39,34 @@
         </ul>
         <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
-    
+
     <g:layoutBody/>
 
+
+
     <div class="footer">
+
+         <sec:ifAnyGranted roles="ROLE_ROOT, ROLE_FEED_MANAGER, ROLE_MEMBER_MANGER, ROLE_COMMAND_MANAGER">  
+        <div class="navbar">
+          <a class="navbar-brand" href="#">Admin</a>
+          <ul class="nav navbar-nav">
+            <sec:ifAnyGranted roles="ROLE_FEED_MANAGER">
+                <li><a href="${createLink(controller: 'feedManager')}">Feeds</a></li>
+                <li><a href="${createLink(controller: 'articleManager')}">Articles</a></li>
+            </sec:ifAnyGranted>     
+            <sec:ifAnyGranted roles="ROLE_MEMBER_MANAGER">
+                <li><a href="${createLink(controller: 'memberManager')}">Members</a></li>
+            </sec:ifAnyGranted>     
+            <sec:ifAnyGranted roles="ROLE_COMMAND_MANAGER">
+                <li><a href="${createLink(controller: 'commandManager')}">Commands</a></li>
+            </sec:ifAnyGranted>     
+            <sec:ifAnyGranted roles="ROLE_ROOT">
+                <li><g:link controller="tools">Tools</g:link></li>
+            </sec:ifAnyGranted>
+          </ul>
+        </div>
+    </sec:ifAnyGranted> 
+    
         <p><span class="label label-danger">Beta</span>
 Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}<span class="pull-right"><a href="#">Back to top</a></span></p>
     </div>
