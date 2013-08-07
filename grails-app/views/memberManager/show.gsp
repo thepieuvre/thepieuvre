@@ -5,7 +5,7 @@
 	</head>
 	<body>
 
-<div class="row-fluid">
+<div class="row">
 	<div>
 		<ul class="nav nav-tabs">
 			<li ><g:link action="list">Members</g:link></li>
