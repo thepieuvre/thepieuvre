@@ -5,41 +5,39 @@
 	</head>
 	<body>
 	
-<div class="row-fluid">
 	<div>
 		<ul class="nav nav-tabs">
 			<li class="active"><g:link action="list">Feeds</g:link></li>
 			<li><g:link action="create">Add Feed</g:link></li>
 		</ul>
 	</div>
-</div>
 
 <h2>Feed List</h2>
 
-<div class="row-fluid search" style="text-align: center;">
-	<g:form name="feedFilter" action="list" method="get">
-	<div class="span2">
+<div class="row" style="text-align: center;">
+	<g:form name="feedFilter" class="form-inline" action="list" method="get">
+	<div class="col-lg-2">
 		<label for="title">Title</label>
 		<g:textField name="title" value="${filterParams.title}" class="span12" />
 	</div>
-	<div class="span2">
+	<div class="col-lg-2">
 		<label for="title">Link</label>
 		<g:textField name="link" value="${filterParams.link}" class="span12" />
 	</div>
-	<div class="span2">
+	<div class="col-lg-2">
 		<label for="title">Max Results</label>
 		<g:textField name="max" value="${(params.max)?:50}" class="span12" />
 	</div>
-	<div class="span2">
+	<div class="col-lg-2">
 		<label for="active">Active Only</label>
 		<g:checkBox name="active" value="${(params.active == 'on')?true:false}" />
 	</div>
-	<div class="span2">
+	<div class="col-lg-2">
 		<label for="global">Global</label>
 		<g:select name="global" class="span12" from="${thepieuvre.core.FeedGlobalEnum}" value="${params.global}"
           noSelection="['':'-All-']"/>
     </div>
-	<div class="span2">
+	<div class="col-lg-2">
 		<div class="go pull-right">
 			<g:submitButton name="filter" value="Filter" class="btn btn-primary" />
 			<g:actionSubmit action="resetForm" name="resetForm" value="Reset" class="btn btn-small" />
@@ -49,12 +47,12 @@
 </div>
 <small>Number of feeds: ${results.size()} of ${countedFeeds}</small>
 
-<div class="row-fluid">
-	<div class="label label-info">
 		<g:if test="${flash.message}">
+	<div class="alert alert-info">
 			<p>${flash.message}</p>
-		</g:if>
 	</div>
+
+		</g:if>
 
 	<table class="table table-bordered table-striped">
 		<thead>
@@ -85,7 +83,6 @@
 		</tbody>
 	</table>
 
-</div>
 
 	</body>
 </html>
