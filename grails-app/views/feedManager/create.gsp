@@ -5,7 +5,7 @@
 	</head>
 	<body>
 
-<div class="row-fluid">
+<div class="row">
 	<div>
 		<ul class="nav nav-tabs">
 			<li ><g:link action="list">Feeds</g:link></li>
@@ -16,7 +16,7 @@
 
 <h2>New Feed</h2>
 
-<div class="row-fluid">
+<div class="row">
 	<g:if test="${flash.message}">
 		<div class="alert alert-error">
 			${flash.message}
@@ -29,32 +29,41 @@
 			</div>
 		</g:hasErrors>
 	</g:else>
+</div>
+<div class="row">
 
 	<form class="form-horizontal" action="save" method="post">
-		<div class="control-group">
-			<label for="link" class="control-label">Link</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="link" class="col-lg-2 control-label">Link</label>
+			<div class="col-lg-10">
 				<input type="text" id="link" name="link" value="${fieldValue(bean:feed,field:'link')}" />
+
+			<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="comment" class="control-label">Comment</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="comment" class="col-lg-2 control-label">Comment</label>
+			<div class="col-lg-10">
 				<g:textArea name="comment" value="${fieldValue(bean:feed,field:'comment')}" rows="5" cols="40"/>
+
+			<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="active" class="control-label">Is Active</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="active" class="col-lg-2 control-label">Is Active</label>
+			<div class="col-lg-offset-2 col-lg-10">
 				<g:checkBox name="active" value="${true}" checked="${(fieldValue(bean:feed,field:'active'))?:'true'}" />
+				<p></p>
 			</div>
 		</div>
-		<div class="form-actions">
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
 			<input type="submit" name="create" class="btn btn-primary" value="Add" id="create" />
+			<p></p>
+		</div>
 		</div>
 	</form>
 
 </div>
-
 	</body>
 </html>

@@ -84,9 +84,10 @@
 <h3>Error</h3>
 <p>${feed.lastError}</p>
 
-<div class="form-horizontal">
-	<div class="form-actions">
+<div class="row">
+		<div class="col-lg-offset-2 col-lg-10">
 		<g:link action="edit" id="${feed.id}" class="btn btn-primary">Edit</g:link>
+		<p></p>
 	</div>
 </div>
 
