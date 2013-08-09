@@ -6,19 +6,6 @@
       </div>
       <div class="span3">
   			<button type="submit" class="btn btn-primary">Execute</button>
-  			<div class="btn-group">
-      			<a class="btn btn-primary" href="#">More</a>
-      			<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-      			<ul class="dropdown-menu">
-              <sec:ifNotLoggedIn>
-              <li><a href="${createLink(action: 'signUp')}">Sign Up</a></li>
-              </sec:ifNotLoggedIn>
-              <li><a href="${createLink(action: 'about')}">About</a></li>
-              <li><a href="${createLink(action: 'help')}">Help</a></li>
-              <li class="divider"></li>
-              <li><a href="${createLink(action: 'contact')}">Contact Us</a></li>
-      			</ul>
-    		</div>
-	</div>
+	    </div>
 </g:form>
 </div>

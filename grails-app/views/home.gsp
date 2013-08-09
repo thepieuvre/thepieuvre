@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="thepieuvre"/>
+    <g:set var="section" scope="request" value="home"/>
 	</head>
 	<body>
 
@@ -63,7 +64,7 @@ ${(!exit)?'':"Exit: ${exit}"}
     <g:if test="${! articles}">
     <h2>This board is empty. Please, add feeds by clicking on the caret.</h2>
     </g:if>
-      <g:render template="/web/simpleArticle" var="article" collection="${articles}" />
+      <g:render template="/article/article" var="article" collection="${articles}" />
     </g:else>
   </div>
     <nav id="page-nav">
