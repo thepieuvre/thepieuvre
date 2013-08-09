@@ -14,7 +14,7 @@
                     <g:each status="i" in="${articleService.getSimilars(article)}" var="related">
                         <g:if test="${i < 5 && related.key}">
                             <li>
-                            <g:link class="pull-left" controller="article" action="modal" id="${realted.key.id}" data-toggle="modal" data-target="#modal">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
+                            <g:link class="pull-left" controller="article" action="modal" id="${related.key.id}" data-toggle="modal" data-target="#modal">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
                             </li>
                         </g:if>
                     </g:each>

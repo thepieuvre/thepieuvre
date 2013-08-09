@@ -49,6 +49,14 @@ $message
 	}
 
 	def index = {
+		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
+			forward action: 'home', params: params
+		} else {
+			render view: '/index'
+		}
+	}
+
+	def home = {
 		log.info "Welcome - Loading"
 		int offSet = (params.offSet)? (params.offSet as int) : 0
 		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
@@ -94,24 +102,7 @@ $message
 			}
 			log.info "Welcome - Rendered Home"
 		} else {
-			def articles = Article.createCriteria().list {
-				maxResults(10)
-				firstResult(offSet)
-				order('dateCreated', 'desc')
-				feed { eq 'global', FeedGlobalEnum.GLOBAL } 
-			}
-			log.info "Welcome - Rendering Index"
-			if (offSet == 0) {
-				render view: '/index2', model: [
-					'articles': articles,
-					'articleService': articleService,
-					'tFeeds': Feed.count(), 
-					'tArticles': Article.count()
-				]
-			} else {
-				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
-			}
-			log.info "Welcome - Rendered Index"
+			forward action: 'index'
 		}
 		log.info "Welcome - Loaded"
 	}

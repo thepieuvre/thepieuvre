@@ -9,7 +9,7 @@ class UrlMappings {
 
 		"/api/feed/$id?" (resource: "feed")
 
-		"/"(view:"/index")
+		"/"(controller: 'welcome', action:"index")
 
 		"/admin"(view:"/admin")
 
