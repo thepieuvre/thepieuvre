@@ -7,7 +7,7 @@ AGENT='The Pieuvre/1.0 +http://www.thepieuvre.com/'
 REFERRER='http://www.thepieuvre.com/'
 
 def escaping(str):
-	return str.replace('\\','\\\\').replace('"','\\"').replace('\n',' ').replace("'","\\'")
+	return str.replace('\\','\\\\').replace('"','\\"').replace('\n',' ')
 
 def processing_task(task):
 	feed = json.loads(task)
@@ -49,7 +49,7 @@ def process_data(data, id=None):
 	status = data.get('status', -1)
 	if status == 301:
 		str_list.append(('"moved": "%s",' % escaping((data.href)).encode('utf-8')))
-	str_list.append(('"updated": "%s",'% escaping((data.feed.get('published', 'null'))).encode('utf-8')))
+	str_list.append(('"updated": "%s",'% escaping(data.feed.get('updated', 'null')).encode('utf-8')))
 	str_list.append('"articles": ['.encode('utf-8'))
 	size = len(data.entries)
 	counter = 0
@@ -70,7 +70,7 @@ def process_data(data, id=None):
 		elif article.get('summary_detail'):
 			str_list.append('"%s"' %escaping(article.summary_detail.get('value', 'null').encode('utf-8')))
 		str_list.append('],')
-		str_list.append(('"published": "%s",' % escaping((article.get('published', 'null'))).encode('utf-8')))
+		str_list.append(('"published": "%s",' % escaping((article.get('modified', 'null'))).encode('utf-8')))
 		str_list.append(('"id": "%s" }' % escaping((article.get('id', 'null'))).encode('utf-8')))
 		if counter != size:
 			str_list.append(",")
