@@ -9,6 +9,8 @@ import thepieuvre.member.MemberCommand
 import thepieuvre.security.Role
 import thepieuvre.security.UserRole
 
+import grails.plugins.springsecurity.Secured
+
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils 
 
 class WelcomeController {
@@ -25,6 +27,7 @@ class WelcomeController {
 		render view: '/about'
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def help() {
 		render view: '/help'
 	}
@@ -56,6 +59,7 @@ $message
 		}
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def home = {
 		log.info "Welcome - Loading"
 		int offSet = (params.offSet)? (params.offSet as int) : 0
@@ -111,6 +115,7 @@ $message
 		render Article.count()
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def searchByKeyWords = {
 		def articles = articleService.getArticleFromNGram(params.keyWords)
 
@@ -121,6 +126,7 @@ $message
 			params: ['command': "'${params.keyWords}'"]]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def searchByAuthor = {
 		def articles = Article.createCriteria().list {
 			maxResults(10)
@@ -136,6 +142,7 @@ $message
 			params: ['command': "by ${params.author}"]]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def searchByFeed = {
 		def articles = Article.createCriteria().list {
 			maxResults(10)
@@ -153,6 +160,7 @@ $message
 			params: ['command': "from ${Feed.get(params.feed)?.title}"]]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def similar = {
 		def art = Article.get(params.id as long)
         if (! art) {
@@ -167,6 +175,7 @@ $message
 			params: ['command': "similar ${art.id}"]]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def related = {
 		def art = Article.get(params.id as long)
         if (! art) {
@@ -181,6 +190,7 @@ $message
 			params: ['command': "related ${art.id}"]]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def executor = {
 		log.info "Executor: $params"
 		if (! params.command){
@@ -192,7 +202,7 @@ $message
 			log.info "Executing  $params.command"
 			 def res = commandService.execute(params.command.trim())
 
-			render view: '/index2', model: res + ['articles': [],
+			render view: '/home', model: res + ['articles': [],
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'command': params.command]
@@ -204,7 +214,7 @@ $message
 				ilike 'title', "%${params.command}%" 
 			}
 
-			render view: '/index2', model: ['articles': articles,
+			render view: '/home', model: ['articles': articles,
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
 				'articleService': articleService,
@@ -234,6 +244,7 @@ $message
 		}
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def article = {
 		Article article = Article.get(params.id)
         if (! article) {
@@ -250,6 +261,7 @@ $message
 		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def newBoard (String name) {
 		def member = springSecurityService.currentUser
 		Board board = new Board('name': name, 'member': member)
@@ -258,6 +270,7 @@ $message
 		forward action: "index", params: [board: board.id]
 	}
 
+	@Secured(['ROLE_MEMBER'])
 	def follow (String feed, String board) {
 		def boardInstance = Board.get(board)
 		if (boardInstance) {
