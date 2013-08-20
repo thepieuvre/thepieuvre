@@ -31,7 +31,7 @@
           <li class="${section == 'about' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'about')}">About</a></li>
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
         <sec:ifLoggedIn>
-            <li class="${section == 'help' ? 'active' : ''}"><a href="${createLink(action: 'help')}">Help</a></li>
+            <li class="${section == 'help' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'help')}">Help</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:loggedInUserInfo field="username"/><b class="caret"></b></a>
                     <ul class="dropdown-menu pull-right">
@@ -41,6 +41,28 @@
                       <li><g:link controller="logout">Logout</g:link></li>
                     </ul>
             </li>
+            <!-- Admin menu -->
+            <sec:ifAnyGranted roles="ROLE_ROOT, ROLE_FEED_MANAGER, ROLE_MEMBER_MANGER, ROLE_COMMAND_MANAGER">
+                 <li class="${section == 'admin' ? 'active' : ''} dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu pull-right">
+                            <sec:ifAnyGranted roles="ROLE_FEED_MANAGER">
+                                <li><a href="${createLink(controller: 'feedManager')}">Feed Manager</a></li>
+                                <li><a href="${createLink(controller: 'articleManager')}">Article Manager</a></li>
+                            </sec:ifAnyGranted>     
+                            <sec:ifAnyGranted roles="ROLE_MEMBER_MANAGER">
+                                <li><a href="${createLink(controller: 'memberManager')}">Member Manager</a></li>
+                            </sec:ifAnyGranted>     
+                            <sec:ifAnyGranted roles="ROLE_COMMAND_MANAGER">
+                                <li><a href="${createLink(controller: 'commandManager')}">Command Manager</a></li>
+                            </sec:ifAnyGranted>     
+                            <sec:ifAnyGranted roles="ROLE_ROOT">
+                                <li><g:link controller="tools">Tools</g:link></li>
+                            </sec:ifAnyGranted>         
+                        </ul>
+                </li>
+            </sec:ifAnyGranted> 
+            <!-- End Admin menu -->
           </sec:ifLoggedIn>
           <sec:ifNotLoggedIn>
             <li><a data-toggle="modal" href="#loginModal">Login</a></li>
