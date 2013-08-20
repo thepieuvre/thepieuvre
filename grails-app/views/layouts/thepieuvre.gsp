@@ -30,8 +30,17 @@
           <li class="${(section in ['index', 'home'] )? 'active' : ''}"><a href="${resource(dir:'/')}">Home</a></li>
           <li class="${section == 'about' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'about')}">About</a></li>
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
-          <sec:ifLoggedIn>
-            <li><g:link controller="logout">Logout</g:link></li>
+        <sec:ifLoggedIn>
+            <li class="${section == 'help' ? 'active' : ''}"><a href="${createLink(action: 'help')}">Help</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:loggedInUserInfo field="username"/><b class="caret"></b></a>
+                    <ul class="dropdown-menu pull-right">
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="#">Settings</a></li>
+                      <li class="divider"></li>
+                      <li><g:link controller="logout">Logout</g:link></li>
+                    </ul>
+            </li>
           </sec:ifLoggedIn>
           <sec:ifNotLoggedIn>
             <li><a data-toggle="modal" href="#loginModal">Login</a></li>
