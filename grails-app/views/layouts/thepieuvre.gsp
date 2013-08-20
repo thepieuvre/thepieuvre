@@ -27,7 +27,7 @@
     <div class="container-narrow">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="${section == 'home' ? 'active' : ''}"><a href="${resource(dir:'/')}">Home</a></li>
+          <li class="${(section in ['index', 'home'] )? 'active' : ''}"><a href="${resource(dir:'/')}">Home</a></li>
           <li class="${section == 'about' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'about')}">About</a></li>
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
           <sec:ifLoggedIn>
@@ -42,34 +42,12 @@
 
     <g:layoutBody/>
 
-
-
+<g:if test="${section != 'home'}">
     <div class="footer">
-
-         <sec:ifAnyGranted roles="ROLE_ROOT, ROLE_FEED_MANAGER, ROLE_MEMBER_MANGER, ROLE_COMMAND_MANAGER">  
-        <div class="navbar">
-          <a class="navbar-brand" href="#">Admin</a>
-          <ul class="nav navbar-nav">
-            <sec:ifAnyGranted roles="ROLE_FEED_MANAGER">
-                <li><a href="${createLink(controller: 'feedManager')}">Feeds</a></li>
-                <li><a href="${createLink(controller: 'articleManager')}">Articles</a></li>
-            </sec:ifAnyGranted>     
-            <sec:ifAnyGranted roles="ROLE_MEMBER_MANAGER">
-                <li><a href="${createLink(controller: 'memberManager')}">Members</a></li>
-            </sec:ifAnyGranted>     
-            <sec:ifAnyGranted roles="ROLE_COMMAND_MANAGER">
-                <li><a href="${createLink(controller: 'commandManager')}">Commands</a></li>
-            </sec:ifAnyGranted>     
-            <sec:ifAnyGranted roles="ROLE_ROOT">
-                <li><g:link controller="tools">Tools</g:link></li>
-            </sec:ifAnyGranted>
-          </ul>
-        </div>
-    </sec:ifAnyGranted> 
-    
         <p><span class="label label-danger">Beta</span>
 Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM yyyy').format(new Date())}<span class="pull-right"><a href="#">Back to top</a></span></p>
     </div>
+</g:if>
 
     </div> <!-- /container -->
 
