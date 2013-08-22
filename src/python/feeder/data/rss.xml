@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>www.aikido-rennes.fr</title>
+	<atom:link href="http://www.aikido-rennes.fr/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.aikido-rennes.fr</link>
+	<description>A.S.C.R Section Aïkido</description>
+	<lastBuildDate>Mon, 19 Aug 2013 17:58:48 +0000</lastBuildDate>
+	<language>fr-FR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.6</generator>
+		<item>
+		<title>Focus : EN TERRE MARTIALE</title>
+		<link>http://www.aikido-rennes.fr/le-site-du-mois-aout-2013-en-terre-martiale/</link>
+		<comments>http://www.aikido-rennes.fr/le-site-du-mois-aout-2013-en-terre-martiale/#comments</comments>
+		<pubDate>Mon, 19 Aug 2013 17:56:08 +0000</pubDate>
+		<dc:creator>Fabrice</dc:creator>
+				<category><![CDATA[à la une]]></category>
+		<category><![CDATA[Aïkido]]></category>
+		<category><![CDATA[Budo]]></category>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[aikido]]></category>
+		<category><![CDATA[budo]]></category>
+		<category><![CDATA[dojo]]></category>
+		<category><![CDATA[En Terre martiale]]></category>
+		<category><![CDATA[Lionel Froidure]]></category>
+
+		<guid isPermaLink="false">http://www.aikido-rennes.fr/?p=18039</guid>
+		<description><![CDATA[Tous les mois je sélectionnerai un site, un livre, une vidéo ou une personnalité à découvrir, qui pour moi sont incontournables, pour la vision du Budo, et pour le développement de notre, de votre pratique martiale. &#160; Ce mois ci le focus est le site de Lionel FFROIDURE :  www.imaginarts.tv/enterremartiale &#160; &#160; &#160; &#160; Imagin’ Arts et [&#8230;]]]></description>
+		<wfw:commentRss>http://www.aikido-rennes.fr/le-site-du-mois-aout-2013-en-terre-martiale/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>LA RENTREE</title>
+		<link>http://www.aikido-rennes.fr/la-rentree/</link>
+		<comments>http://www.aikido-rennes.fr/la-rentree/#comments</comments>
+		<pubDate>Mon, 19 Aug 2013 10:51:44 +0000</pubDate>
+		<dc:creator>Fabrice</dc:creator>
+				<category><![CDATA[à la une]]></category>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[aïki]]></category>
+		<category><![CDATA[aikido]]></category>
+		<category><![CDATA[ascr]]></category>
+		<category><![CDATA[Brevet fédéral]]></category>
+		<category><![CDATA[budo]]></category>
+		<category><![CDATA[Diplome aikido]]></category>
+		<category><![CDATA[dojo]]></category>
+		<category><![CDATA[fabrice geffroy]]></category>
+		<category><![CDATA[FFAB]]></category>
+		<category><![CDATA[rennes]]></category>
+
+		<guid isPermaLink="false">http://www.aikido-rennes.fr/?p=18023</guid>
+		<description><![CDATA[&#160; La rentrée de cette nouvelle saison 2013-2014 aura lieu le lundi 02 septembre à 20h00. Les horaires des cours ont légèrement changé par rapport à l&#8217;année dernière : - Lundi 20h00 &#8211; 21h30 - Mardi 20h00 &#8211; 21h30 (entraînement libre) - Mercredi 20h00 &#8211; 21h30 Pensez à votre certificat médical de non contre-indication à la pratique de l&#8217;aïkido, [&#8230;]]]></description>
+		<wfw:commentRss>http://www.aikido-rennes.fr/la-rentree/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>E-magazine Gratuit sur les arts martiaux</title>
+		<link>http://www.aikido-rennes.fr/e-magazine-gratuit-sur-les-arts-martiaux/</link>
+		<comments>http://www.aikido-rennes.fr/e-magazine-gratuit-sur-les-arts-martiaux/#comments</comments>
+		<pubDate>Thu, 08 Aug 2013 12:21:39 +0000</pubDate>
+		<dc:creator>Fabrice</dc:creator>
+				<category><![CDATA[à la une]]></category>
+		<category><![CDATA[Aïkido]]></category>
+		<category><![CDATA[Budo]]></category>
+		<category><![CDATA[Textes]]></category>
+		<category><![CDATA[aikido]]></category>
+		<category><![CDATA[budo]]></category>
+		<category><![CDATA[dojo]]></category>
+		<category><![CDATA[e-magazine]]></category>
+		<category><![CDATA[fabrice geffroy]]></category>
+		<category><![CDATA[grades Dan]]></category>
+		<category><![CDATA[Japon]]></category>
+
+		<guid isPermaLink="false">http://www.aikido-rennes.fr/?p=17995</guid>
+		<description><![CDATA[Cela fait quelques temps déjà que je dois partager avec vous l&#8217;existence de e-magazine consacré aux arts martiaux. En voilà deux très bien &#160; &#160; L’art de la voie est un e-magazine sur les arts martiaux&#160;créé par un passionné et disponible gratuitement sur leur site internet. Ce magazine a pour but de permettre à chacun [&#8230;]]]></description>
+		<wfw:commentRss>http://www.aikido-rennes.fr/e-magazine-gratuit-sur-les-arts-martiaux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Jean-Paul AVY nous a quittés</title>
+		<link>http://www.aikido-rennes.fr/jean-paul-avy-nous-a-quittes/</link>
+		<comments>http://www.aikido-rennes.fr/jean-paul-avy-nous-a-quittes/#comments</comments>
+		<pubDate>Fri, 02 Aug 2013 12:40:46 +0000</pubDate>
+		<dc:creator>Fabrice</dc:creator>
+				<category><![CDATA[à la une]]></category>
+		<category><![CDATA[Aïkido]]></category>
+		<category><![CDATA[Photos]]></category>
+		<category><![CDATA[Spécial FFAB]]></category>
+		<category><![CDATA[Textes]]></category>
+		<category><![CDATA[aikido]]></category>
+		<category><![CDATA[FFAB]]></category>
+
+		<guid isPermaLink="false">http://www.aikido-rennes.fr/?p=17973</guid>
+		<description><![CDATA[C&#8217;est avec une très grande et profonde tristesse que nous vous informons du décès brutal de Jean-Paul AVY survenu le 1er août 2013. Ancien Président fédéral, Haut gradé, Chargé d&#8217;Enseignement National, Président du Département Technique mais surtout compagnon de la toute première heure, il a donné sans compter à la fédération et à notre discipline. [&#8230;]]]></description>
+		<wfw:commentRss>http://www.aikido-rennes.fr/jean-paul-avy-nous-a-quittes/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Vos souhaits&#8230;.</title>
+		<link>http://www.aikido-rennes.fr/vos-souhaits/</link>
+		<comments>http://www.aikido-rennes.fr/vos-souhaits/#comments</comments>
+		<pubDate>Tue, 30 Jul 2013 08:34:05 +0000</pubDate>
+		<dc:creator>Fabrice</dc:creator>
+				<category><![CDATA[à la une]]></category>
+		<category><![CDATA[Aïkido]]></category>
+		<category><![CDATA[Budo]]></category>
+		<category><![CDATA[Textes]]></category>
+		<category><![CDATA[aïki]]></category>
+		<category><![CDATA[aikido]]></category>
+		<category><![CDATA[budo]]></category>
+		<category><![CDATA[Diplome aikido]]></category>
+		<category><![CDATA[dojo]]></category>
+		<category><![CDATA[fabrice geffroy]]></category>
+		<category><![CDATA[grades Dan]]></category>
+		<category><![CDATA[Japon]]></category>
+
+		<guid isPermaLink="false">http://www.aikido-rennes.fr/?p=17895</guid>
+		<description><![CDATA[J&#8217;espère que les vacances se sont bien passées, ou celles à venir seront reposantes. Une nouvelle saison de Budo, d&#8217;Aïkido approche, il est aussi temps  de penser au site, je souhaiterai connaître vos souhaits sur l&#8217;évolution du site, quels types d&#8217;articles souhaiteriez-vous y voir, des interviews&#8230;, afin que vous fassiez de ce site le vôtre. &#160; [&#8230;]]]></description>
+		<wfw:commentRss>http://www.aikido-rennes.fr/vos-souhaits/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

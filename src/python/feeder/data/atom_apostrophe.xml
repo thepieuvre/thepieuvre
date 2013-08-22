@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:wfw="http://wellformedweb.org/CommentAPI/">
+  <id>tag:linuxfr.org,2005:/news</id>
+  <link rel="alternate" type="text/html" href="http://linuxfr.org/news"/>
+  <link rel="self" type="application/atom+xml" href="http://linuxfr.org/news.atom"/>
+  <title>LinuxFr.org : les dépêches</title>
+  <updated>2013-08-19T18:03:53+02:00</updated>
+  <icon>/favicon.png</icon>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34508</id>
+    <published>2013-08-19T18:03:53+02:00</published>
+    <updated>2013-08-19T18:03:53+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/les-journaux-linuxfr-org-les-mieux-notes-de-l-ete-2013"/>
+    <title>Les journaux LinuxFr.org les mieux notés de l'été 2013</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;LinuxFr.org propose des dépêches et articles, soumis par tout un chacun, puis revus et corrigés par l'équipe de modération avant publication. C'est la partie la plus visible de LinuxFr.org, ce sont les dépêches qui sont le plus lues et suivies, sur le site, via Atom/RSS, ou bien via partage par messagerie instantanée, par courriel, ou encore via médias sociaux.&lt;/p&gt;
+
+&lt;p&gt;Ce que l’on sait moins, c’est que LinuxFr.org vous propose également à tous de tenir vos propres articles directement publiables, sans validation &lt;em&gt;a priori&lt;/em&gt; des modérateurs. Ceux-ci s'appellent des journaux. Voici un florilège d'un dizaine de ces journaux parmi les mieux notés par les utilisateurs… qui notent. Lumière sur ceux du 1&lt;sup&gt;er&lt;/sup&gt; juillet au 15 août, abusivement appelé été ici.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/octane/journaux/hs-48h-chez-un-editeur-logiciel-en-2013"&gt;[HS] 48h chez un éditeur logiciel en 2013&lt;/a&gt; par octane ; &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/mupuf/journaux/retro-ingenierie-de-la-gestion-d-energie-sur-les-cartes-graphiques-nvidia"&gt;Rétro-ingénierie de la gestion d'énergie sur les cartes graphiques NVIDIA&lt;/a&gt; par Martin Peres ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/Gof/journaux/comment-fonctionne-bitcoin"&gt;Comment fonctionne Bitcoin&lt;/a&gt; par Gof ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/GuieA_7/journaux/sortie-de-rust-0-7"&gt;Sortie de Rust 0.7&lt;/a&gt; par GuieA_7 ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/palkeo/journaux/un-firefox-qui-respecte-votre-vie-privee"&gt;Un Firefox qui respecte votre vie privée&lt;/a&gt; par palkeo ; &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/palkeo/journaux/mon-projet-feedspot"&gt;Mon projet : Feedspot&lt;/a&gt; par palkeo ; &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/erdnaxeli/journaux/google-veut-reduire-la-latence-sur-internet-avec-quic"&gt;Google veut réduire la latence sur Internet avec QUIC&lt;/a&gt; par erdnaxeli ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/dtschump/journaux/quelques-nouveaux-filtres-images-dans-g-mic"&gt;Quelques nouveaux filtres images dans G'MIC.&lt;/a&gt; par David Tschumperlé ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/Kekun/journaux/lxde-razor-qt-et-qt-et-gtk"&gt;LXDE, Razor-qt et Qt (et GTK+)&lt;/a&gt; par Kekun ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/fredx/journaux/ce-qu-on-demande-a-un-developpeur-aujourd-hui"&gt;Ce qu'on demande à un développeur aujourd'hui&lt;/a&gt; par Pierre Tramonson ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/Taurre/journaux/oui-mais-si-on-oublie-la-reponse-a-sa-question-secrete"&gt;Oui, mais si on oublie la réponse à sa question secrète ?&lt;/a&gt; par Taurre ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/fork_bomb--2/journaux/mozilla-org-ne-respecte-pas-l-option-do-not-track-de-firefox"&gt;mozilla.org ne respecte pas l'option "Do Not Track" de Firefox.&lt;/a&gt; par fork_bomb ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/yeKcim/journaux/reseau-domestique-interactions-entre-differents-pc-et-telephones"&gt;Réseau domestique : Interactions entre différents PC et téléphones&lt;/a&gt; par yeKcim ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/MrSpackMan/journaux/slackware-a-vingt-ans"&gt;Slackware a vingt ans&lt;/a&gt; par MrSpackMan ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="//linuxfr.org/users/patrick_g/journaux/le-tourbillon-mysterieux-des-mondiaux-de-natation"&gt;Le tourbillon mystérieux des mondiaux de natation&lt;/a&gt; par patrick_g.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87385" hreflang="fr" title="http://linuxfr.org/redaction"&gt;Participez à l&amp;#x27;écriture d&amp;#x27;un article&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87386" hreflang="fr" title="http://linuxfr.org/journaux/nouveau"&gt;Écrivez votre journal&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87387" hreflang="fr" title="http://linuxfr.org/news/nouveau"&gt;Proposez une dépêche&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/les-journaux-linuxfr-org-les-mieux-notes-de-l-ete-2013.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/les-journaux-linuxfr-org-les-mieux-notes-de-l-ete-2013#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <category term="LinuxFr.org"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99395/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34507</id>
+    <published>2013-08-19T10:56:47+02:00</published>
+    <updated>2013-08-19T10:56:47+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/livre-developpement-systeme-sous-linux"/>
+    <title>Livre : Développement système sous Linux </title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Eyrolles publie depuis quelques années un livre de Christophe Blaess intitulé « Développement système sous Linux, Ordonnancement multitâches, gestion mémoire, communications, programmation réseau », qui en est déjà à sa troisième édition. Ce livre s'adresse aussi bien aux administrateurs système qui souhaitent mieux connaître leur système d'exploitation préféré qu'aux développeurs qui veulent faire de la programmation proche du système.&lt;/p&gt;
+
+&lt;p&gt;Faut-il acheter ce livre les yeux fermés ? Faut-il passer quelques heures dans le mois à contribuer à Linuxfr.org pour avoir la possibilité de le gagner ? Ou faut-il passer son chemin et se contenter des bonnes vieilles pages de manuel ? La réponse dans la suite de la dépêche…&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87382" hreflang="fr" title="http://www.editions-eyrolles.com/Livre/9782212128819/developpement-systeme-sous-linux"&gt;Développement système sous Linux &lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87383" hreflang="fr" title="http://www.editions-eyrolles.com/"&gt;Édition Eyrolles&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87384" hreflang="fr" title="http://linuxfr.org/news/meilleurs-contributeurs-linuxfr-org-les-gagnants-de-juin-2013"&gt;Idée pour obtenir ce livre gratuitement&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;h2 id="forme--1620"&gt;Forme : 16/20&lt;/h2&gt;
+
+&lt;p&gt;La mise en page est lisible, voire trop puisque le livre fait plus de 1000 pages alors qu'il aurait été possible de sauver quelques arbres avec une police de caractères plus ramassée. Cependant l'éditeur vend aussi le livre en format e-book, vous avez donc le choix de votre empreinte carbone à la commande ! Concernant le style, celui-ci est clair et efficace, même si une relecture par un littéraire manque par endroits (on trouve des "à" ou des "de" remplacés par des "sur", ce qui en plus d'être peu agréable à lire peut poser des problèmes à ceux qui lisent difficilement le français). Par ailleurs l'organisation du livre vous semblera peut-être étrange, par exemple les fichiers ne sont détaillés que dans un des derniers chapitres, alors que les différents types de fichiers ont été étudiés précédemment…&lt;/p&gt;
+&lt;h2 id="respect-du-sujet-1020-ou-3020-on-va-dire-2020"&gt;Respect du sujet 10/20 ou 30/20… on va dire 20/20&lt;/h2&gt;
+
+&lt;p&gt;Les amateurs des bibliothèques C légères seront peut-être déçus, ce livre est dédié à GNU/Linux et étudie de façon quasi-complète la glibc en occultant totalement les autres bibliothèques C, l'oubli du « GNU » devant « Linux » étant impardonnable dans ce contexte, on serait tenté de mettre une mauvaise note à ce sujet, mais cela est bien rattrapé par deux choix de l'auteur : d'une part le sujet de la glibc est traité dans presque toutes ses fonctionnalités, y compris celles qu'on pourrait ne pas attendre dans un livre ne s'intéressant qu'aux appels système, d'autre part l'auteur fait systématiquement référence aux normes du monde Unix lorsqu'il s'agit d'expliquer une fonctionnalité.&lt;/p&gt;
+&lt;h2 id="intérêt-pour-les-développeurs--1720"&gt;Intérêt pour les développeurs : 17/20&lt;/h2&gt;
+
+&lt;p&gt;Le livre a pour sujet la programmation et devrait donc intéresser directement les développeurs. Le code est presque systématiquement écrit en C (on peut le télécharger sur le site de l'éditeur, cf. premier lien de la dépêche), ce qui risque de rebuter les développeurs d'autres langages de plus haut niveau. Cependant le livre s'avère totalement intéressant pour les développeurs C, même s'ils passeront probablement certains chapitres qu'ils maîtrisent sur le bout des doigts (un développeur C qui ne connaît pas malloc() et free() ne devrait pas avoir accès à un compilateur). Pour ceux qui développent dans d'autres langages, cela devrait leur apporter autant qu'aux administrateurs système.&lt;/p&gt;
+&lt;h2 id="intérêt-pour-les-administrateurs-système-et-les-curieux--1920"&gt;Intérêt pour les administrateurs système et les curieux : 19/20&lt;/h2&gt;
+
+&lt;p&gt;Le livre ne se contente pas de donner des lignes de code prêtes à être copiées/collées : il explique précisément chaque concept associé, comment il a été implémenté historiquement dans Unix et comment les normes les conçoivent. On regrettera cependant l'impasse faite sur les sockets Unix, pourtant très utilisés par des programmes sous Linux.&lt;/p&gt;
+&lt;h2 id="un-livre-à-avoir"&gt;Un livre à avoir&lt;/h2&gt;
+
+&lt;p&gt;Même si vous pensez bien connaître GNU/Linux, il est très probable que vous apprendrez quelque chose en lisant ce livre. Ce livre peut même servir d'outil de travail pour les administrateurs système : on fait un &lt;code&gt;strace&lt;/code&gt; sur un processus dont on ne comprend pas le fonctionnement, et pour chaque appel que l'on ne comprend pas on peut aller dans l'index du livre qui nous emmènera vers la page expliquant le concept sous-jacent.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/livre-developpement-systeme-sous-linux.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/livre-developpement-systeme-sous-linux#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Denis Dordoigne</name>
+    </author>
+    <author>
+      <name>Nils Ratusznik</name>
+    </author>
+    <author>
+      <name>patrick_g</name>
+    </author>
+    <author>
+      <name>Xavier Teyssier</name>
+    </author>
+    <category term="Doc"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99392/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34506</id>
+    <published>2013-08-19T09:20:33+02:00</published>
+    <updated>2013-08-19T10:23:14+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/le-bottin-des-jeux-linux-bientot-3000-references-et-un-nouveau-look"/>
+    <title>«Le Bottin des Jeux Linux» : bientôt 3000 références et un nouveau look.</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Depuis le 16 août 2013, le site &lt;a href="http://www.lebottindesjeuxlinux.tuxfamily.org/"&gt;Le Bottin des Jeux Linux&lt;/a&gt; adopte un nouvel habillage. Le site évolue vers un rendu plus clair : pour les écrans classiques mais aussi consultable sur de petits écrans, de type tablettes et téléphones. &lt;/p&gt;
+
+&lt;p&gt;« Le Bottin des Jeux Linux » est aussi un annuaire à télécharger, il vous présente près de 3000 jeux Linux, libres, non-libres et commerciaux ou non (sauf ceux qui n'ont pas de lien pérenne). Des émulateurs, des moteurs de jeux, ainsi que des jeux Windows jouables via &lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt;, sont également référencés. &lt;/p&gt;
+
+&lt;p&gt;Cet annuaire – dont la mise à jour est bimensuelle – vous est livré sous la forme d’une archive initiale de 340 Mo où vous trouverez « Le Bottin des Jeux Linux » au format Tellico. L'accueil est constitué d'une base de liens contenant les noms de jeux, la date de leur parution initiale, la note attribuée, la catégorie de jeux, et sa sous-catégorie éventuelle, ainsi que la date de dernière modification de la fiche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87380" hreflang="fr" title="http://www.lebottindesjeuxlinux.tuxfamily.org/"&gt;Le Bottin des Jeux Linux&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;Les fiches comportent : &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;une capture d'écran ;&lt;/li&gt;
+&lt;li&gt;les informations détaillées relatives au jeu (date, éditeur, ..) ;&lt;/li&gt;
+&lt;li&gt;sa classification dans le bottin (genre, catégorie &amp;amp; sous catégorie) ;&lt;/li&gt;
+&lt;li&gt;sa disponibilité via les dépôts Debian ;&lt;/li&gt;
+&lt;li&gt;une description parfois exhaustive ;&lt;/li&gt;
+&lt;li&gt;les éventuels ports réseaux nécessaires ;&lt;/li&gt;
+&lt;li&gt;d'éventuelles astuces &amp;amp; explications pour l'installation ;&lt;/li&gt;
+&lt;li&gt;des notes concernant les technologies utilisées (graphisme,  gameplay, …) &lt;/li&gt;
+&lt;li&gt;des astuces de jeu ; &lt;/li&gt;
+&lt;li&gt;les liens vers le site officiel, de téléchargement, et vers des revues par des sites tiers ;&lt;/li&gt;
+&lt;li&gt;des rapports de tests, incluant des notes sur chaque version du jeu et ses améliorations.&lt;br&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;em&gt;&lt;a href="http://tellico-project.org/"&gt;Tellico&lt;/a&gt; est véloce, agréable et dispose de fonctionnalités avancées de tris et de recherches. De plus, ce format a prouvé son efficacité pour la rapidité de création des fiches et son ergonomie. Enfin, il existe des passerelles pour la création de pages HTML. C'est pourquoi « Le Bottin des Jeux Linux » l'a choisi pour sa distribution. Tellico facilite ainsi recherche et consultation de la base de donnée du Bottin.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7069782e746f696c652d6c696272652e6f72672f75706c6f61642f696d672f313337363832353532302e706e67/1376825520.png" alt="Fiche de 0ad" title="Source : http://pix.toile-libre.org/upload/img/1376825520.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;« Le Bottin des Jeux Linux » constitue une importante ressource d’informations relatives aux jeux sous Linux en s’appuyant non seulement sur l'expérience acquise au fil de l’eau mais aussi sur l’expertise de sites reconnus (plus de 44 000 liens vers les points clefs des jeux et des ressources externes telles que des trailers, des revues &amp;amp; interviews d’autres sites, des pages Wikipédia, …). Tenu depuis 2007 par Serge Le Tyrant et son fils Louis, il représente actuellement 6 ans de travail. Il est sous licence GFDL, et est donc libre et ouvert aux améliorations. Tellico n'est pas en reste du fait de sa licence (GPL). &lt;/p&gt;
+
+&lt;p&gt;Comme de nombreux autres projets, ce site manque de contributeurs, alors n'hésitez pas à participer : en réalisant une fiche de jeu, en envoyant un petit mot ou des encouragements par quelques dons. Toujours pour s'améliorer, le site entreprend actuellement de s'internationaliser en traduisant certaines pages en anglais.&lt;/p&gt;
+
+&lt;p&gt;Alors, il n'y a pas de jeux sous Linux ?&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/le-bottin-des-jeux-linux-bientot-3000-references-et-un-nouveau-look.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/le-bottin-des-jeux-linux-bientot-3000-references-et-un-nouveau-look#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>tankey</name>
+    </author>
+    <author>
+      <name>Nils Ratusznik</name>
+    </author>
+    <author>
+      <name>papap</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <category term="Jeu"/>
+    <category term="jeux"/>
+    <category term="linux"/>
+    <category term="bottin"/>
+    <category term="game"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99390/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34504</id>
+    <published>2013-08-18T08:20:58+02:00</published>
+    <updated>2013-08-18T13:39:00+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/amarok-2-8"/>
+    <title>Amarok 2.8</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;La version 2.8.0 d'Amarok (nom de code « Return To The Origin ») est sortie le 16 août dernier, sept mois après la sortie de la &lt;a href="//linuxfr.org/news/amarok-2-7"&gt;version 2.7.0&lt;/a&gt;. Pour rappel, Amarok est un célèbre lecteur audio qui s’appuie sur les bibliothèques de l’environnement de bureau KDE SC.&lt;/p&gt;
+
+&lt;p&gt;Le nom de code (« Return To The Origin » (Retour aux sources)) a été choisi pour signifier aux utilisateurs qui aimaient la version 1.x d’Amarok, qu’ils devraient se retrouver dans cette version. Les développeurs précisent simplement que cette nouvelle version est plus marrante, plus solide et dispose de nouvelles fonctionnalités, qui pour une bonne partie proviennent des contributions d’étudiants participant au Google Summer of Code. Au total, plusieurs dizaines de bogues ont été fermés suite à l’inclusion d’un patch. Les nouveautés sont présentées dans la suite de la dépêche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87376" hreflang="en" title="http://amarok.kde.org/"&gt;Site officiel&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87377" hreflang="en" title="http://download.kde.org/stable/amarok/2.8.0/src/amarok-2.8.0.tar.bz2.mirrorlist"&gt;Télécharger les sources&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f616d61726f6b2e6b64652e6f72672f66696c65732f616d61726f6b5f322e385f66696e616c5f73637265656e69652e706e67/amarok_2.8_final_screenie.png" alt="Amarok 2.8" title="Source : http://amarok.kde.org/files/amarok_2.8_final_screenie.png"&gt;&lt;/p&gt;
+&lt;h3 id="retour-de-mark-kretschmann"&gt;Retour de Mark Kretschmann&lt;/h3&gt;
+
+&lt;p&gt;Le nom de code de cette version se justifie également par le retour de Mark Kretschmann, le fondateur d’Amarok, &lt;a href="http://mark-kretschmann.blogspot.fr/2013/08/important-note-about-amarok-and-kde-411.html"&gt;après une pause&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="liste-des-changements"&gt;Liste des changements&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ajout d'une applet de visualisation d’un analyseur audio ;&lt;/li&gt;
+&lt;li&gt;Prise en charge du codec Opus via l’intermédiaire de ffmpeg et taglib ;&lt;/li&gt;
+&lt;li&gt;Prise en charge des listes de lectures .asx ;&lt;/li&gt;
+&lt;li&gt;Ajout de différents raccourcis clavier
+
+&lt;ul&gt;
+&lt;li&gt;Ctrl + H : lecture aléatoire de la liste de lecture&lt;/li&gt;
+&lt;li&gt;Ctrl + →/← : avancer/reculer la lecture de 2 s (la durée est configurable dans le fichier &lt;em&gt;amarokrc&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Maj + →/← : avancer/reculer la lecture de 1 min (la durée est configurable dans le fichier &lt;em&gt;amarokrc&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Amélioration du navigateur de fichiers ;&lt;/li&gt;
+&lt;li&gt;Amélioration et correction du plugin last.fm ;&lt;/li&gt;
+&lt;li&gt;Davantage de contrôle dans le transcodage des pistes lors de leur déplacement vers une collection.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Une liste plus exhaustive des améliorations est présente dans l’&lt;a href="http://amarok.kde.org/fr/releases/2.8"&gt;annonce officielle&lt;/a&gt; de la version 2.8.&lt;/p&gt;
+&lt;h3 id="et-la-documentation"&gt;Et la documentation&lt;/h3&gt;
+
+&lt;p&gt;La &lt;a href="http://userbase.kde.org/Amarok/Manual"&gt;documentation en ligne&lt;/a&gt; a été largement revue pour cette version grâce au travail de Nick Adams. Elle n’est pas encore disponible en français donc si vous avez le temps, n’hésitez surtout pas à participer à sa traduction.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/amarok-2-8.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/amarok-2-8#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>pamputt</name>
+    </author>
+    <author>
+      <name>Xavier Teyssier</name>
+    </author>
+    <author>
+      <name>patrick_g</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <category term="Audiovisuel"/>
+    <category term="amarok"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99379/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34502</id>
+    <published>2013-08-16T14:26:34+02:00</published>
+    <updated>2013-08-16T14:26:33+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/sortie-de-la-gnu-c-library-2-18"/>
+    <title>Sortie de la Gnu C Library 2.18</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Tout &lt;a href="http://fr.wikipedia.org/wiki/syst%C3%A8me%20d%5C'exploitation" title="Définition Wikipédia"&gt;système d'exploitation&lt;/a&gt; de type &lt;a href="http://fr.wikipedia.org/wiki/Unix" title="Définition Wikipédia"&gt;Unix&lt;/a&gt; a besoin d'une &lt;a href="http://fr.wikipedia.org/wiki/biblioth%C3%A8que%20logicielle" title="Définition Wikipédia"&gt;bibliothèque logicielle&lt;/a&gt; C : cette bibliothèque implémente les appels système (c'est-à-dire l'accès aux éléments gérés par le système d'exploitation) et offre d'autres fonctionnalités de base comme l'ouverture de fichiers (&lt;em&gt;open&lt;/em&gt;), l'impression à l'écran (&lt;em&gt;printf&lt;/em&gt;), l'allocation de mémoire (&lt;em&gt;malloc&lt;/em&gt;), la sortie propre d'un programme (&lt;em&gt;exit&lt;/em&gt;). Il existe de multiples bibliothèques C, certaines implémentant un minimum de fonctions afin d'avoir une empreinte mémoire minimale (par exemple Bionic ou uClibC utilisées sur les téléphones mobiles), d'autres cherchent à être les plus complètes possibles comme la bibliothèque C de GNU, aussi appelée &lt;em&gt;glibc&lt;/em&gt; voire simplement &lt;em&gt;libc&lt;/em&gt; par les connaisseurs.&lt;/p&gt;
+
+&lt;p&gt;La glibc a pour but d'être portable sur l'ensemble des systèmes Unix, y compris BSD, mais est surtout utilisée par le système GNU et par tous les systèmes dits GNU/Linux, ce qui regroupe l'essentiel des distributions Linux pour le grand public et les entreprises pour PC. Ce lundi 12 août est sortie la version 2.18 de la glibc, apportant un nombre important de correction de bugs et de failles de sécurité (&lt;a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2207"&gt;CVE-2013-2207&lt;/a&gt;, &lt;a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0242"&gt;CVE-2013-0242&lt;/a&gt;, &lt;a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1914"&gt;CVE-2013-1914&lt;/a&gt;) et quelques améliorations détaillées dans le second lien.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87372" hreflang="en" title="http://www.gnu.org/software/libc/"&gt;Site web du projet&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87373" hreflang="en" title="http://sourceware.org/ml/libc-alpha/2013-08/msg00160.html"&gt;Annonce de la sortie&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/sortie-de-la-gnu-c-library-2-18.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/sortie-de-la-gnu-c-library-2-18#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Denis Dordoigne</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <category term="GNU"/>
+    <category term="glibc"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99375/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34500</id>
+    <published>2013-08-16T00:06:38+02:00</published>
+    <updated>2013-08-16T00:06:38+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/pas-sage-en-seine-2013-les-videos-et-les-supports"/>
+    <title>Pas Sage en Seine 2013, les vidéos et les supports</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Du 20 au 23 juin s'est déroulé la 5&lt;sup&gt;e&lt;/sup&gt; édition de l'événement Pas Sage en Seine à la &lt;a href="http://www.openstreetmap.org/?mlat=48.87056&amp;amp;mlon=2.34223#map=19/48.87056/2.34223"&gt;Cantine&lt;/a&gt; à Paris (dans le Passage des Panoramas). PSES propose « &lt;em&gt;un cycle de conférences, de talks, de rencontres, avec des bidouilleurs, des "gens du réseau", des artistes, des hacktivistes, des entrepreneurs, des journalistes, des curieux…&lt;/em&gt; ». Ouvert et gratuit, l'événement a été initié et est maintenu par les Ours de &lt;a href="http://bearstech.com"&gt;Bearstech&lt;/a&gt; et la Cantine.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7777772e70617373616765656e7365696e652e6f72672f506173736167652f6c6f676f2e6a7067/logo.jpg" alt="PSES 2013" title="Source : http://www.passageenseine.org/Passage/logo.jpg"&gt;&lt;/p&gt;
+
+&lt;p&gt;Les vidéos et supports sont disponibles et peuvent constituer une bonne occupation durant l'été. Pour mémoire, le programme est redonné en seconde partie de dépêche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87364" hreflang="fr" title="http://www.passageenseine.org/"&gt;Pas Sage en Seine&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87365" hreflang="fr" title="http://www.passageenseine.org/Passage/pses-2013"&gt;Édition 2013 de PSES&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87366" hreflang="fr" title="http://linuxfr.org/news/pas-sage-en-seine-2010"&gt;DLFP : PSES 2010&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87367" hreflang="fr" title="http://lacantine.ubicast.eu/channels/#pas-sage-en-seine-2013"&gt;Les vidéos PSES de 2013 (et des éditions depuis 2010) via Ubicast&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°5 : &lt;a href="http://linuxfr.org/redirect/87368" hreflang="fr" title="http://kickass.to/passageenseine2013-t7550291.html"&gt;Le torrent pour télécharger l&amp;#x27;ensemble des vidéos et supports de PSES 2013&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7777772e70617373616765656e7365696e652e6f72672f506173736167652f696d616765732f636f70795f6f665f70736573312e6a7067/copy_of_pses1.jpg" alt="PSES" title="Source : http://www.passageenseine.org/Passage/images/copy_of_pses1.jpg"&gt;&lt;/p&gt;
+
+&lt;p&gt;Le programme :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rayna : Hack Sciences, les enfants sont des chercheurs nés&lt;/li&gt;
+&lt;li&gt;Bruno Paul : anticiper #PRISM et la suite de l'histoire&lt;/li&gt;
+&lt;li&gt;Spyou (turblog) : les bitcoins, ; la domotique via @maisonquitweet&lt;/li&gt;
+&lt;li&gt;Oriane (quota_atypique) : présentation de mémoire : Informatique et présentation de soi : la ligne de commande, une esthétique de l'efficacité ?&lt;/li&gt;
+&lt;li&gt;Charles Simon : &lt;code&gt;# mv internet* /CSA&lt;/code&gt;
+&lt;/li&gt;
+&lt;li&gt;Adrienne Charmet-Alix (Wikimedia) : &lt;a href="http://fr.wikipedia.org/wiki/Projet:Projet_Afrip%C3%A9dia"&gt;projet Afripédia&lt;/a&gt; - mise en place de Wikipédia en hors-ligne dans les pays francophones&lt;/li&gt;
+&lt;li&gt;Team Videolan : bittorent sur VLC et Hadopi&lt;/li&gt;
+&lt;li&gt;Lancement de la 11&lt;sup&gt;e&lt;/sup&gt; édition des &lt;a href="http://bigbrotherawards.eu.org/"&gt;Big Brother Awards France&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Lunar : &lt;a href="https://coquelicot.potager.org/"&gt;Coquelicot&lt;/a&gt; : application web de partage de fichiers avec un peu d'intimité&lt;/li&gt;
+&lt;li&gt;Michèle Turbin : bidouiller la ville en hackant le code du système immobilier&lt;/li&gt;
+&lt;li&gt;Numendil - « Si, vous avez quelque chose à cacher. »&lt;/li&gt;
+&lt;li&gt;Présentation du projet &lt;a href="http://sous-surveillance.net"&gt;sous-surveillance.net&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Maurice Audin : une baie aux petits oignons&lt;/li&gt;
+&lt;li&gt;Laurent Chemla : avec ou sans macarons ?&lt;/li&gt;
+&lt;li&gt;Bui et Imil - &lt;a href="https://code.google.com/p/naxsi/"&gt;Naxsi&lt;/a&gt; (Nginx Anti Xss &amp;amp; Sql Injection), ainsi qu'une configuration propre de NetBSD&lt;/li&gt;
+&lt;li&gt;Benjamin Sonntag (vincib) : Spamker, donner la fessée aux spammeurs francophones.&lt;/li&gt;
+&lt;li&gt;Domi &amp;amp; Jujusete : les modems 56K&lt;/li&gt;
+&lt;li&gt;Benjamin Bayart (ex-président / porte-parole de FDN) : FTTH - Fiber To The Home&lt;/li&gt;
+&lt;li&gt;Jérémie Zimmermann : nos machines sont-elles encore réellement nos amies ?&lt;/li&gt;
+&lt;li&gt;Fabien Lorch - Et si le ministère de l'intérieur était responsable d'internet ?&lt;/li&gt;
+&lt;li&gt;Lionel Maurel (Calimaq) et Thomas Fourmeux (fourmeux) : copyright madness et les moyens d'y résister.&lt;/li&gt;
+&lt;li&gt;Loïc Peden (patrikryann) et Antoine Girard (xeros78) : présentation du projet &lt;a href="http://projet-gast.eu/"&gt;GAST&lt;/a&gt; (Gestion Automatisée des Secours et des Transmissions) pour le challenge Humanitech&lt;/li&gt;
+&lt;li&gt;Baptiste Jonglez : atelier réseau mesh et routage&lt;/li&gt;
+&lt;li&gt;Ollivier Robert (Keltounet) - les (presque) 20 ans de Usenet.&lt;/li&gt;
+&lt;li&gt;JP. Encausse (jpencausse) - Projet &lt;a href="https://encausse.wordpress.com/s-a-r-a-h/"&gt;S.A.R.A.H&lt;/a&gt; - domotique&lt;/li&gt;
+&lt;li&gt;Frédéric Jouvin (aka Stman) : « Free, Secure &amp;amp; Open Microprocessor Project »&lt;/li&gt;
+&lt;li&gt;Cabusar : Hack et éducation&lt;/li&gt;
+&lt;li&gt;Présentation du réseau social libre &lt;a href="http://movim.eu/"&gt;Movim&lt;/a&gt; - annonce de la première release publique.&lt;/li&gt;
+&lt;li&gt;Benoît Sibaud (votre serviteur) : Vote électronique : révolution participative ou illusion démocratique ? (&lt;a href="http://oumph.free.fr/textes/voteelec_pses2013.pdf"&gt;support PDF&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;La tension entre le décentralisation et sur-centralisation et les mouvements sociaux&lt;/li&gt;
+&lt;li&gt;Daisy’s underware (Kitetoa) : Une vision américaine des réseaux et du monde&lt;/li&gt;
+&lt;li&gt;Présentation du projet Nos Oignons (Tor)&lt;/li&gt;
+&lt;li&gt;BaN / seamymsg / ACIPA_NLD : Notre Dame des Landes et la ZAD : Propagandes et Internet&lt;/li&gt;
+&lt;li&gt;Sabine Blanc / Fo0 : atelier Ma mère et les hackers&lt;/li&gt;
+&lt;li&gt;Stéphane Bortzmeyer (bortzmeyer) : « Si vous voulez sauver le monde, faites-le sérieusement »&lt;/li&gt;
+&lt;li&gt;Projections et débats autour des films « Traqués » de Paul Moreira, « la contre-histoire de l'internet » avec J-M Manach (manhack) et de Julien Goetz&lt;/li&gt;
+&lt;li&gt;Concert Emilie Chick&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/pas-sage-en-seine-2013-les-videos-et-les-supports.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/pas-sage-en-seine-2013-les-videos-et-les-supports#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>tankey</name>
+    </author>
+    <category term="Internet"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99371/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34501</id>
+    <published>2013-08-16T00:04:50+02:00</published>
+    <updated>2013-08-16T10:57:42+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/flux-rss-atom-et-logiciels-libres"/>
+    <title>Flux RSS / Atom et logiciels libres</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;En avril dernier, W. Trevor King annonçait &lt;a href="http://blog.tremily.us/posts/rss2email/"&gt;avoir repris&lt;/a&gt; le projet rss2email depuis quelques mois. Ce petit logiciel en Python avait été écrit par feu  Aaron Swartz.&lt;/p&gt;
+
+&lt;p&gt;L'arrêt de Google Reader au 1&lt;sup&gt;er&lt;/sup&gt; juillet et la disparition des flux RSS dans Twitter sont des occasions de revenir sur les solutions existantes en logiciel libre pour suivre des flux Atom/RSS, et probablement pour débattre sur leur avenir un peu mis à mal par certains sites web qui ne les aiment pas (ça peut détourner les visiteurs du site et de la pub). Si je résume &lt;a href="//linuxfr.org/users/neven/journaux/comment-suivez-vous-les-sites-web"&gt;deux&lt;/a&gt; &lt;a href="//linuxfr.org/users/coin--2/journaux/google-reader-se-moque"&gt;journaux&lt;/a&gt; et une &lt;a href="//linuxfr.org/news/methode-et-outils-pour-la-veille-technologique"&gt;dépêche&lt;/a&gt; récentes :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;par courriel
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/wking/rss2email"&gt;rss2email&lt;/a&gt; (GPLv2+)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://gna.org/projects/feed2imap/"&gt;feed2imap&lt;/a&gt; (GPL)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/sloonz/maildir-feed"&gt;maildir-feed&lt;/a&gt; (BSD)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via un terminal
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://www.newsbeuter.org/"&gt;Newsbeuter&lt;/a&gt; (MIT/X)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://kiza.eu/software/snownews/"&gt;Snownews&lt;/a&gt; (GPL)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://offog.org/code/rawdog/"&gt;rawdog&lt;/a&gt; (BSD)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;web
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://tt-rss.org/"&gt;tt-rss&lt;/a&gt; côté web et &lt;a href="https://play.google.com/store/apps/details?id=org.ttrssreader"&gt;ttrss-reader&lt;/a&gt; côté Android (GPLv2). Voir aussi &lt;a href="http://www.framablog.org/index.php/post/2013/06/27/framanews-rss-google-reader"&gt;FramaNews&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.sebsauvage.net/wiki/doku.php?id=php:shaarli"&gt;Shaarli&lt;/a&gt; (licence zlib/libpng)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.zone-project.org/"&gt;Zone Project&lt;/a&gt; (AGPLv3)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://code.google.com/p/rsslounge/"&gt;rsslounge&lt;/a&gt; (GPLv3)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/xaccrocheur/nws"&gt;nws&lt;/a&gt; (GPL v3)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;greffon
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://addons.mozilla.org/en-us/thunderbird/addon/bamboo-feed-reader/"&gt;Bamboo&lt;/a&gt; pour Thunderbird (MPL 1.1)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://addons.mozilla.org/fr/firefox/addon/rss-icon-in-awesombar/"&gt;RSS Icon In Awesombar&lt;/a&gt; pour Firefox(MPL 1.1)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;client lourd
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://lzone.de/liferea/"&gt;Liferea&lt;/a&gt; (GPLv2+)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://userbase.kde.org/Akregator"&gt;Akregator&lt;/a&gt; (GPL)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.rssowl.org/"&gt;RssOwl&lt;/a&gt; (Eclipse)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Ai-je besoin de rappeler qu'il y a plein de flux Atom sur LinuxFr.org pour suivre les dépêches publiées, en rédaction, en modération, les journaux, les entrées de forums, les sondages, le suivi, les commentaires du suivi, le des pages et modification dans le wiki ?&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87369" hreflang="fr" title="http://sciunto.wordpress.com/2013/08/07/rss2email-nouveaux-contributeurs-nouvelles-versions/"&gt;Blog à l&amp;#x27;origine de la dépêche&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87370" hreflang="fr" title="http://linuxfr.org/news/hommage-a-aaron-swartz"&gt;DLFP : Hommage à Aaron Swartz&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/flux-rss-atom-et-logiciels-libres.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/flux-rss-atom-et-logiciels-libres#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>Bruno Michel</name>
+    </author>
+    <author>
+      <name>patrick_g</name>
+    </author>
+    <category term="Internet"/>
+    <category term="rss"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99372/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34499</id>
+    <published>2013-08-15T23:23:10+02:00</published>
+    <updated>2013-08-15T23:23:10+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/reunion-impromptue-perl-a-paris-le-21-aout-avec-l-auteur-de-moose"/>
+    <title>Réunion impromptue Perl à Paris le 21 août, avec l'auteur de Moose </title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Pour la fin du mois d'août, pour se remettre des activités estivales éreintantes, rien de tel qu'une bonne vieille réunion entre geeks dans un bar anarchiste à Paris.&lt;/p&gt;
+
+&lt;p&gt;Les Mongueurs de Perl vous convient donc à une soirée "impromptue" le 21 août à 20:00 au Maldoror à Paris avec la participation exceptionnelle de &lt;strong&gt;Stevan Little&lt;/strong&gt;, l'auteur de Moose (une extension du système d'objets de Perl).&lt;/p&gt;
+
+&lt;p&gt;Vous pourrez y boire un coup et dîner à partir de 21:00 à peu près. Mais surtout, discuter Perl ou autre…&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87360" hreflang="fr" title="http://www.maldoror.fr/"&gt;Maldoror&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87361" hreflang="fr" title="http://www.mongueurs.net/"&gt;Mongueurs de Perl&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87362" hreflang="fr" title="http://moose.iinteractive.com"&gt;Moose&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87363" hreflang="fr" title="http://www.openstreetmap.org/?mlat=48.86517&amp;amp;mlon=2.36908#map=19/48.86517/2.36908"&gt;Maldoror sur OpenStreetMap&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/reunion-impromptue-perl-a-paris-le-21-aout-avec-l-auteur-de-moose.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/reunion-impromptue-perl-a-paris-le-21-aout-avec-l-auteur-de-moose#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>dams</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>ZeroHeure</name>
+    </author>
+    <category term="Perl"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99369/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34498</id>
+    <published>2013-08-15T23:02:33+02:00</published>
+    <updated>2013-08-16T11:31:55+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/resultats-et-videos-des-onziemes-big-brother-awards-france"/>
+    <title>Résultats et vidéos des onzièmes Big Brother Awards France</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Le 26 juin dernier, et après deux ans d'absence, les lauréats français du « meilleur du pire » en matière de respect de la vie privée ont été distingués.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://bigbrotherawards.eu.org/IMG/jpg/bba2013-w.jpg" title="Affiche BBA Fr 2013"&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f62696762726f746865726177617264732e65752e6f72672f6c6f63616c2f63616368652d7669676e65747465732f4c31343278483230302f626261323031332d772d30313938612e6a7067/bba2013-w-0198a.jpg" alt="Affiche BBA Fr 2013" title="Source : http://bigbrotherawards.eu.org/local/cache-vignettes/L142xH200/bba2013-w-0198a.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Les Big Brother Awards France (BBA Fr) ont nommé cette année dans six catégories une trentaine de personnalités, entreprises ou institutions qui « &lt;em&gt;se sont illustrés par leur mépris de la vie privée et des libertés&lt;/em&gt; ». Palmarès et nombreux liens dans la suite de la dépêche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87355" hreflang="fr" title="http://bigbrotherawards.eu.org/"&gt;Big Brother Awards France&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87356" hreflang="fr" title="http://bigbrotherawards.eu.org/Big-Brother-Awards-2013"&gt;Big Brother Awards France 2013&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87357" hreflang="fr" title="https://commons.wikimedia.org/wiki/Category:Big_Brother_Awards"&gt;Des photos de la soirée de remise des BBA France&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87358" hreflang="fr" title="https://www.dailymotion.com/video/x11cl46_big-brother-awards-france-2013-01-introduction_news"&gt;Les vidéos de la soirée de remise des BBA France&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°5 : &lt;a href="http://linuxfr.org/redirect/87359" hreflang="fr" title="http://listes.samizdat.net/sympa/subscribe/infobbafr_l"&gt;Liste d&amp;#x27;information des BBA FR&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;h2 class="sommaire"&gt;Sommaire&lt;/h2&gt;
+&lt;ul class="toc"&gt;
+&lt;li&gt;&lt;a href="#les-nomm%C3%A9s-et-le-palmar%C3%A8s"&gt;Les nommés et le palmarès&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#revue-de-presse"&gt;Revue de presse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contexte"&gt;Contexte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#message-de-service"&gt;Message de service&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;h2 id="les-nommés-et-le-palmarès"&gt;Les nommés et le palmarès&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Orwell Localités : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Le-Conseil-general-de-Seine-Saint"&gt;le Conseil général de Seine-Saint-Denis&lt;/a&gt; pour « &lt;em&gt;le recueil décomplexé de données personnelles des "usagers" qui se présentent au service social&lt;/em&gt; »&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient &lt;a href="http://bigbrotherawards.eu.org/Beatrice-Tanguy-maire-de-Boqueho"&gt;Béatrice Tanguy, maire de Boqueho&lt;/a&gt; pour « &lt;em&gt;l’installation illégale de caméras de vidéosurveillance&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Jean-Marc-Ayrault-Maire-de-la"&gt;Jean Marc Ayrault, Maire de la ville de Nantes de 1989 à 2012&lt;/a&gt; pour « &lt;em&gt;le fichage des SDF de Nantes&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/L-hopital-de-Suresnes"&gt;l’hôpital de Suresnes&lt;/a&gt; pour « &lt;em&gt;la porte ouverte à toutes les données des patients&lt;/em&gt; » et &lt;a href="http://bigbrotherawards.eu.org/Les-petites-communes-de-Saint"&gt;les petites communes de Saint-Sébastien de Morsent / Meung-sur-Loire / Clermont et Agnetz&lt;/a&gt; pour « &lt;em&gt;avoir mis en place un service de "supervision citoyenne"&lt;/em&gt; ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Orwell Novlang : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Orange-Preferences"&gt;Orange Préférences&lt;/a&gt; pour « &lt;em&gt;avoir voulu mettre en place des outils de DPI (Deep Packet Inspection) de surveillance des activités internet privées de ses abonnés, sous couvert de leur proposer de meilleures publicités ou services&lt;/em&gt; »&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient &lt;a href="http://bigbrotherawards.eu.org/EADS-Innovation-Works"&gt;EADS Innovation Works&lt;/a&gt; pour « encourager des étudiants à la création d’outils de flicage_ », la &lt;a href="http://bigbrotherawards.eu.org/La-videoverbalisation"&gt;« vidéoverbalisation »&lt;/a&gt;, les &lt;a href="http://bigbrotherawards.eu.org/Les-services-municipaux-de"&gt;services municipaux de Tranquillité Publique&lt;/a&gt; et &lt;a href="http://bigbrotherawards.eu.org/Les-gerontechnologies"&gt;les « gérontechnologies »&lt;/a&gt; pour mettre « une caméra derrière chaque aïeul ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Orwell Entreprise : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Le-GIE-cartes-bancaires"&gt;le GIE cartes bancaires&lt;/a&gt; pour « &lt;em&gt;avoir sciemment laissé un système non sécurisé NFC sur nos cartes bancaires&lt;/em&gt; » et mention spéciale à &lt;a href="http://bigbrotherawards.eu.org/Conforama-Ikea-Castorama-et-Elior"&gt;Conforama, Ikea, Castorama et Elior&lt;/a&gt; pour « &lt;em&gt;le flicage, plus ou moins inventif, de leurs salariés&lt;/em&gt; »&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient &lt;a href="http://bigbrotherawards.eu.org/Celtipharm"&gt;Celtipharm&lt;/a&gt; pour « &lt;em&gt;avoir exercé une opération de lobbying dans le but de récolter et déchiffrer les ordonnances médicales&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Facebook"&gt;Facebook&lt;/a&gt; pour « &lt;em&gt;la mise en place d’un moteur de recherche permettant des requêtes bien trop fines&lt;/em&gt; », la &lt;a href="http://bigbrotherawards.eu.org/La-RATP"&gt;RATP&lt;/a&gt; pour « &lt;em&gt;sa tentative de mettre en place un service de reconnaissance faciale&lt;/em&gt; » et les &lt;a href="http://bigbrotherawards.eu.org/Les-Google-Glass"&gt;Google Glass&lt;/a&gt; pour « &lt;em&gt;permettre de filmer/photographier/enregistrer tout partout tout le temps&lt;/em&gt; ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Exécuteurs des basses oeuvres : &lt;strong&gt;ex-aequo &lt;a href="http://bigbrotherawards.eu.org/Jean-Francois-Cordet-ex-directeur"&gt;Jean-François Cordet, ex-directeur général de l’Office Français de Protection des Réfugiés et Apatrides (OFPRA)&lt;/a&gt; pour « &lt;em&gt;un tri sélectif qui ne laisse pas d’empreintes&lt;/em&gt; » et la &lt;a href="http://bigbrotherawards.eu.org/Direction-centrale-de-la-police"&gt;Direction centrale de la police aux frontières&lt;/a&gt; pour « &lt;em&gt;l’expulsion des jeunes étrangers sur la base de tests osseux humiliants, discriminatoires et invalidés par le corps médical&lt;/em&gt; », plus une mention spéciale à &lt;a href="http://bigbrotherawards.eu.org/Paul-Landauer-urbaniste-et"&gt;Paul Landauer, urbaniste et architecte&lt;/a&gt; « &lt;em&gt;un artisan zélé de l’urbanisme et de l’architecture sécuritaires&lt;/em&gt; »&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient la &lt;a href="http://bigbrotherawards.eu.org/la-CNAF"&gt;CNAF&lt;/a&gt; pour le « &lt;em&gt;data-mining aux allocations familiales&lt;/em&gt; », l'&lt;a href="http://bigbrotherawards.eu.org/L-INSEE"&gt;INSEE&lt;/a&gt; pour  « &lt;em&gt;avoir publié des données permettant de déterminer, pour certains foyers français, un certain nombre d’informations fiscales&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Paris-Habitat-OPH"&gt;Paris Habitat OPH&lt;/a&gt; pour « &lt;em&gt;l’utilisation d’un logiciel violant en plusieurs points la vie privée de leur locataires et de demandeurs de logement&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Christophe-Cornevin-journaliste-au"&gt;Christophe Cornevin, journaliste au Figaro&lt;/a&gt; « &lt;em&gt;plume au service des idéologies sécuritaires&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Amaury-Mestre-de-Laroque"&gt;Amaury Mestre de Laroque, journaliste à Marianne.fr&lt;/a&gt; pour « &lt;em&gt;avoir, à plusieurs reprises, mis en danger la Neutralité du Net en écrivant tout et n’importe quoi sur l’Internet, refuge d’amateurs de nécroporn et autres utilisateurs de TOR trafiquants de cachets et de numéros de carte bleue&lt;/em&gt; » et la &lt;a href="http://bigbrotherawards.eu.org/La-Delegation-des-Interception"&gt;Délégation des Interception Judiciaires (DIJ)&lt;/a&gt; pour « &lt;em&gt;sa gigantesque plateforme nationale d’interception des communications téléphoniques et numériques concédée à Thalès&lt;/em&gt; ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Orwell État &amp;amp; Élus : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Marielle-Gallo-deputee-UE"&gt;Marielle Gallo, députée UE&lt;/a&gt; pour « &lt;em&gt;son acharnement à faire passer les entreprises avant nos données personnelles&lt;/em&gt; ».&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient le &lt;a href="http://bigbrotherawards.eu.org/Le-ministere-des-affaires"&gt;ministère des affaires étrangères&lt;/a&gt; pour « &lt;em&gt;la privatisation du système d’attribution des visas&lt;/em&gt; », le &lt;a href="http://bigbrotherawards.eu.org/Le-fichier-du-Ministere-de-la"&gt;fichier du Ministère de la Justice, Gestion des Activités et des Mesures Éducatives 2010 (GAME 2010)&lt;/a&gt; pour le « &lt;em&gt;fichage systématique des mineurs concernés par des mesures judiciaires&lt;/em&gt; », le &lt;a href="http://bigbrotherawards.eu.org/Le-Ministere-de-la-Justice-et-son"&gt;Ministère de la Justice et son Fichier Redex&lt;/a&gt; pour le « &lt;em&gt;fichage opaque des récidivistes&lt;/em&gt; », &lt;a href="http://bigbrotherawards.eu.org/Sebastien-HUYGHE-commissaire-de-la"&gt;Sébastien Huyghe, commissaire de la CNIL responsable du dossier "identité"&lt;/a&gt; et le &lt;a href="http://bigbrotherawards.eu.org/Le-Ministere-de-l-Interieur"&gt;Ministère de l’Intérieur&lt;/a&gt; pour « &lt;em&gt;les fichiers des immigrés non-admis au séjour&lt;/em&gt; ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Orwell Ensemble de son Œuvre : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Philipe-Vannier-PDG-de-Bull-et-son"&gt;Philippe Vannier, PDG de Bull, et son associé Stéphane Saliès&lt;/a&gt; pour avoir « &lt;em&gt;disséminé des technologies de surveillance de masse dans des pays qui peuvent ainsi réprimer leurs populations&lt;/em&gt; ».&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;Prix positif Voltaire : &lt;strong&gt;&lt;a href="http://bigbrotherawards.eu.org/Isabelle-de-Leon-agent-au-Pole"&gt;Isabelle de Léon, agent au Pôle Emploi&lt;/a&gt; pour « &lt;em&gt;refus de participer à une formation au contrôle des papiers d’identité des demandeurs d’emplois&lt;/em&gt; »&lt;/strong&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;Les autres nommés étaient &lt;a href="http://bigbrotherawards.eu.org/Les-organisateurs-de-cryptoparty"&gt;les organisateurs de cryptoparty&lt;/a&gt; pour « &lt;em&gt;transmettre leur savoir et permettre ainsi, à chacun, d’utiliser des outils de chiffrement et d’anonymisation pour se protéger&lt;/em&gt; », le &lt;a href="http://bigbrotherawards.eu.org/Le-club-DJS-droit-justice-et"&gt;club DJS (« droit, justice et sécurité »)&lt;/a&gt; pour « &lt;em&gt;l’annulation de plusieurs articles d’un décret instaurant un passeport biométrique illégal&lt;/em&gt; » et &lt;a href="http://bigbrotherawards.eu.org/Simon-Tattevin"&gt;Simon Tattevin&lt;/a&gt; pour « &lt;em&gt;dénonciation des pratiques policières et refus de fichage d’ADN&lt;/em&gt; ».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;h2 id="revue-de-presse"&gt;Revue de presse&lt;/h2&gt;
+
+&lt;p&gt;Voir quelques articles annonçant l'événement (&lt;a href="http://www.linformaticien.com/actualites/id/29466/big-brother-awards-de-jean-marc-ayrault-aux-google-glass-en-passant-par-facebook.aspx"&gt;L'informaticien&lt;/a&gt;, &lt;a href="http://www.numerama.com/magazine/26318-big-brother-awards-2013-sont-nomines-facebook-orange-google-glass.html"&gt;Numerama&lt;/a&gt;, &lt;a href="http://www.pcinpact.com/news/80732-orange-facebook-et-google-glass-nomines-aux-big-brother-awards-2013.htm"&gt;PC INpact&lt;/a&gt;, &lt;a href="http://reflets.info/a-vos-agendas-les-big-brother-awards-france-sont-de-retour-le-26-juin-2/"&gt;Reflets.info&lt;/a&gt;, &lt;a href="http://www.zdnet.fr/actualites/vie-privee-flicage-retour-des-big-brother-awards-france-39790247.htm"&gt;ZDnet&lt;/a&gt;, etc.) ou consacrés au palmarès (&lt;a href="http://www.politis.fr/Big-Brother-Awards-le-retour,22956.html"&gt;Politis&lt;/a&gt;, &lt;a href="http://www.franceculture.fr/emission-journal-de-18h-journal-de-18h-2013-06-27"&gt;France Culture&lt;/a&gt;, &lt;a href="http://www.zdnet.fr/actualites/big-brother-awards-2013-et-les-gagnants-sont-ikea-orange-marielle-gallo-carte-bancaire-39791950.htm"&gt;ZDnet&lt;/a&gt;, etc.).&lt;/p&gt;
+
+&lt;p&gt;Quelques liens récents en rapport avec la vie privée et les libertés :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;toute l'affaire PRISM, Snowden, etc. évidemment ;&lt;/li&gt;
+&lt;li&gt;le vrai/faux PRISM à la française (&lt;a href="http://www.lemonde.fr/societe/article/2013/07/04/revelations-sur-le-big-brother-francais_3441631_3224.html"&gt;sujet lancé par le quotidien Le Monde&lt;/a&gt; et &lt;a href="http://bugbrother.blog.lemonde.fr/2013/07/11/la-dgse-a-le-droit-despionner-ton-wi-fi-ton-gsm-et-ton-gps-aussi/"&gt;fortement relativisé par Jean-Marc Manach&lt;/a&gt;) ;&lt;/li&gt;
+&lt;li&gt;la RFC 6973 de &lt;a href="//linuxfr.org/users/bortzmeyer/journaux/prise-en-compte-de-la-vie-privee-dans-les-protocoles-reseaux"&gt;prise en compte de la vie privée dans les protocoles réseaux&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;la conférence de Werner Koch traduite en français &lt;a href="//linuxfr.org/news/vie-privee-en-2013-pourquoi-quand-comment-une-conference-de-werner-koch-traduite-en-francais"&gt;Vie Privée en 2013 : Pourquoi. Quand. Comment.&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;un grand nombre des &lt;a href="http://www.passageenseine.org/Passage/pses-2013"&gt;présentations de Passage en Seine 2013&lt;/a&gt;, dont celle de l'équipe des BBA Fr ;&lt;/li&gt;
+&lt;li&gt;Pierre Gattaz, qui a pris la tête du syndicat patronal français MEDEF en juillet et qui &lt;a href="http://reflets.info/gattaz-guide-supreme-medef-petit-livre-bleu/"&gt;était le « principal auteur » du Petit livre bleu du GIXEL&lt;/a&gt; qui avait été distingué aux BBA Fr. ;&lt;/li&gt;
+&lt;li&gt;Et encore dans la presse :
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://www.actualitte.com/scolarite/le-fichier-base-eleves-bientot-devant-le-tribunal-administratif-de-paris-43343.htm"&gt;Le fichier Base-élèves bientôt devant le Tribunal administratif de Paris&lt;/a&gt; (voir aussi le site du &lt;a href="http://retraitbaseeleves.wordpress.com/"&gt;Collectif national de résistance à Base élèves&lt;/a&gt;) ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.liberation.fr/societe/2013/06/27/euro-disney-condamne-pour-l-espionnage-d-employes_914185"&gt;Le Groupe Euro Disney condamné pour l'espionnage d'employés&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.pcinpact.com/news/80992-la-cnil-sanctionne-entreprise-pour-videosurveillance-abusive.htm"&gt;La CNIL sanctionne une entreprise pour vidéosurveillance abusive&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.leparisien.fr/espace-premium/seine-saint-denis-93/le-chef-de-la-securite-sera-convoque-devant-le-juge-22-06-2013-2918559.php"&gt;Le chef de la sécurité (Montreuil) sera convoqué devant le juge&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;l'IP-tracking en &lt;a href="http://www.cio-online.com/actualites/lire-ip-tracking%a0-saisie-du-nouveau-commissaire-europeen-croate-5177.html"&gt;Europe&lt;/a&gt; et en &lt;a href="http://www.pcinpact.com/news/81742-une-deputee-reclame-mesures-rapides-et-efficaces-contre-l-ip-tracking.htm"&gt;France&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.leparisien.fr/societe/christian-estrosi-a-un-mode-d-emploi-pour-expulser-les-gens-du-voyage-07-07-2013-2962079.php"&gt;«un mode d'emploi» pour expulser les gens du voyage&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://www.cio-online.com/actualites/lire-surveillance-des-salaries-et-manquements-a-la-securite%a0-10-000-euros-d-amende-pour-ps-consulting-5179.html"&gt;Surveillance des salariés et manquements à la sécurité : 10 000 euros d'amende pour PS Consulting&lt;/a&gt; ;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2 id="contexte"&gt;Contexte&lt;/h2&gt;
+
+&lt;p&gt;Ces prix dans divers pays sont évoqués depuis plusieurs années sur  &lt;em&gt;LinuxFr.org&lt;/em&gt; (&lt;a href="//linuxfr.org/news/big-brother-awards-2000"&gt;2000&lt;/a&gt;, &lt;a href="//linuxfr.org/news/big-brothers-award"&gt;2001&lt;/a&gt; et &lt;a href="//linuxfr.org/news/r%C3%A9sultats-des-big-brother-awards-france-2001"&gt;2001&lt;/a&gt;, &lt;a href="//linuxfr.org/news/r%C3%A9sultats-des-big-brother-awards-2002--2"&gt;2002&lt;/a&gt;, &lt;a href="//linuxfr.org/news/big-brother-awards-2003"&gt;2003&lt;/a&gt;, &lt;a href="//linuxfr.org/news/big-brother-awards-2005"&gt;2005&lt;/a&gt;, &lt;a href="//linuxfr.org/news/7%C3%A8mes-big-brother-awards"&gt;2007&lt;/a&gt;, &lt;a href="//linuxfr.org/news/r%C3%A9sultats-des-neuvi%C3%A8mes-big-brother-awards-france"&gt;2009&lt;/a&gt;, &lt;a href="//linuxfr.org/news/big-brother-awards-2010"&gt;2010&lt;/a&gt;, &lt;a href="//linuxfr.org/news/big-brother-awards-belgique-2012"&gt;2012 en Belgique&lt;/a&gt;, etc. sous le &lt;a href="//linuxfr.org/tags/bba/public"&gt;tag bba&lt;/a&gt;.  Et puis, ça change des &lt;a href="http://en.wikipedia.org/wiki/Award_for_the_Advancement_of_Free_Software"&gt;&lt;em&gt;Prix FSF du logiciel libre&lt;/em&gt; (&lt;em&gt;Awards for the Advancement of Free Software&lt;/em&gt;)&lt;/a&gt; (&lt;a href="//linuxfr.org/news/le-prix-de-la-fsf-pour-lavancement-du-logiciel-libre-compte-r"&gt;2001&lt;/a&gt; et &lt;a href="//linuxfr.org/news/les-r%C3%A9sultats-de-la-troisi%C3%A8me-%C3%A9dition-des-fsf-awards"&gt;2001&lt;/a&gt;, &lt;a href="//linuxfr.org/news/prix-du-logiciel-libre-2005-d%C3%A9cern%C3%A9-%C3%A0-andrew-tridgell"&gt;2005&lt;/a&gt;, &lt;a href="//linuxfr.org/news/remise-des-prix-de-la-fondation-pour-le-logiciel-libre"&gt;2008&lt;/a&gt;, John Gilmore et &lt;em&gt;Internet Archive&lt;/em&gt; en 2009, &lt;a href="//linuxfr.org/news/un-free-software-award-pour-ipython-et-openmrs"&gt;2013&lt;/a&gt;, etc. sous le &lt;a href="//linuxfr.org/tags/fsfawards/public"&gt;tag fsfawards&lt;/a&gt;), ou même des plus comiques prix IgNobel (&lt;a href="//linuxfr.org/news/prix-ignobel-2001"&gt;2001&lt;/a&gt;, &lt;a href="//linuxfr.org/news/prix-ignobels-2002"&gt;2002&lt;/a&gt;, &lt;a href="//linuxfr.org/news/attribution-des-prix-ignobel-2004"&gt;2004&lt;/a&gt;, &lt;a href="//linuxfr.org/news/attribution-des-prix-ignobel-2005"&gt;2005&lt;/a&gt;, &lt;a href="//linuxfr.org/users/nicoggd/journaux/attribution-des-prix-ignobel-2006"&gt;2006&lt;/a&gt;, &lt;a href="//linuxfr.org/news/prix-ignobel-2008"&gt;2008&lt;/a&gt;, &lt;a href="//linuxfr.org/news/prix-ignobel-2010"&gt;2010&lt;/a&gt;, &lt;a href="//linuxfr.org/news/prix-ignobel%C2%A02011"&gt;2011&lt;/a&gt;), etc. sous le &lt;a href="//linuxfr.org/tags/ignobel/public"&gt;tag ignobel&lt;/a&gt; ou &lt;a href="http://fr.wikipedia.org/wiki/Darwin_Awards"&gt;&lt;em&gt;Darwin Awards&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="message-de-service"&gt;Message de service&lt;/h2&gt;
+
+&lt;p&gt;J'en profite pour remercier l'équipe des &lt;a href="http://www.tabliersvolants.org/"&gt;Tabliers Volants&lt;/a&gt; et les bénévoles présents qui &lt;a href="http://www.tabliersvolants.org/evenement/big-brother-awards"&gt;ont cuisiné sur l'événement&lt;/a&gt; pour 150 couverts. J'ai passé un chouette après-midi avec eux et je n'avais jamais autant épluché, pelé, râpé, trié, émincé et autres jusque là.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/resultats-et-videos-des-onziemes-big-brother-awards-france.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/resultats-et-videos-des-onziemes-big-brother-awards-france#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <category term="Justice"/>
+    <category term="bba"/>
+    <category term="vie_privée"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99368/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34484</id>
+    <published>2013-08-14T22:17:29+02:00</published>
+    <updated>2013-08-14T22:17:29+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/spacewalk-2-0"/>
+    <title>Spacewalk 2.0</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Spacewalk est un logiciel de gestion des systèmes et de leurs mises à jour pour les distributions basées sur les paquets RPM. Ce nom ne vous dit peut-être rien, mais ce projet est en fait celui qui sert de base à Red Hat Network Satellite, ainsi qu'à SUSE Manager.&lt;/p&gt;
+
+&lt;p&gt;Le 19 juillet dernier est sortie la version 2.0 de ce logiciel, dont les changements principaux sont détaillés en deuxième partie de dépêche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87298" hreflang="en" title="http://spacewalk.redhat.com/"&gt;Spacewalk&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87299" hreflang="en" title="https://fedorahosted.org/spacewalk/"&gt;Spacewalk sur Fedora Hosted&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87300" hreflang="en" title="https://www.redhat.com/archives/spacewalk-announce-list/2013-July/msg00000.html"&gt;L&amp;#x27;annonce de la version 2.0&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87301" hreflang="en" title="http://www.redhat.com/products/enterprise-linux/rhn-satellite/"&gt;Red Hat Network Satellite&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°5 : &lt;a href="http://linuxfr.org/redirect/87302" hreflang="en" title="https://fedorahosted.org/spacewalk/wiki/ReleaseNotes20"&gt;Notes de version&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°6 : &lt;a href="http://linuxfr.org/redirect/87303" hreflang="en" title="https://www.suse.com/products/suse-manager/"&gt;SUSE Manager&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°7 : &lt;a href="http://linuxfr.org/redirect/87353" hreflang="fr" title="http://linuxfr.org/news/spacewalk-red-hat-network-satellite-devenu-libre"&gt;DLFP : Spacewalk : Red Hat Network Satellite devenu libre&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;Commençons la liste des changements par ce qui disparaît : Fedora 17 n'est plus pris en charge. Pour installer Spacewalk 2.0 sur Fedora, il vous faudra la version 18 ou 19. C'est l'occasion de signaler le premier ajout qu'est la prise en charge de Fedora 19.&lt;/p&gt;
+
+&lt;p&gt;Une fonctionnalité d'&lt;a href="https://fedorahosted.org/spacewalk/wiki/AuditReporting"&gt;audit&lt;/a&gt; fait son apparition. Le but est de pouvoir tracer « qui fait quoi » dans Spacewalk.&lt;/p&gt;
+
+&lt;p&gt;Spacewalk nécessite une base de données pour fonctionner, et permet depuis plusieurs versions de choisir le SGBD (PostgreSQL ou Oracle), ainsi que la manière de l'utiliser : en &lt;a href="https://fedorahosted.org/spacewalk/wiki/HowToInstall#PostgreSQLserversetupbySpacewalkembedded"&gt;embarqué&lt;/a&gt; (le serveur de base de données fonctionne sur la même machine que Spacewalk, et ce dernier en assure la gestion et la maintenance, de façon transparente pour l'administrateur) ou en mode &lt;a href="https://fedorahosted.org/spacewalk/wiki/HowToInstall#PostgreSQLserversetupmanually"&gt;manuel&lt;/a&gt; (le serveur de base de données peut être installé sur une autre machine, et l'administrateur le gère lui-même). Comme ce deuxième mode peut s'avérer fastidieux, il est maintenant possible d'installer sur le serveur de base de données le paquet "spacewalk-setup-postgresql", qui s'occupe du paramétrage pour Spacewalk.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://fedorahosted.org/abrt/"&gt;ABRT&lt;/a&gt; (pour Automatic Bug Reporting Tool) est un outil permettant d'effectuer des rapports de plantage machine. Il est possible de l'associer avec Spacewalk depuis la version 1.8, mais les versions 1.9 et 2.0 ont apporté quelques améliorations. En particulier dans la dernière version, il est possible de voir si plusieurs machines ont rencontré un plantage similaire (même logiciel, même cause).&lt;/p&gt;
+
+&lt;p&gt;Spacewalk est maintenant capable d'agréger des résultats de vérification de conformité au protocole &lt;a href="http://scap.nist.gov/"&gt;SCAP&lt;/a&gt;, ceci incluant les fichiers de résultats aux formats XCCDF, OVAL, ou même les rapports HTML d'&lt;a href="http://www.open-scap.org/page/Main_Page"&gt;OpenSCAP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Une fonctionnalité intéressante est la synchronisation entre plusieurs serveurs Spacewalk, nommée ISS (Inter-Spacewalk-Sync). Il est possible, avec Spacewalk 2.0, de synchroniser les permissions d'un canal personnalisé et les relations entre organisations. De plus, une nouvelle interface d'administration des ISS fait son apparition.&lt;/p&gt;
+
+&lt;p&gt;D'autres changements ont également été apportés, comme une amélioration de l'interface web via l'utilisation de CSS3, ainsi que des modifications côté API. Pour finir, il est à noter que cette version semble marquer le cinquième anniversaire de Spacewalk : &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/68747470733a2f2f7777772e7265646861742e636f6d2f61726368697665732f737061636577616c6b2d616e6e6f756e63652d6c6973742f323031332d4a756c792f706e674c34446d6e41326b39492e706e67/pngL4DmnA2k9I.png" alt="HappyBirthdaySpacewalk" title="Source : https://www.redhat.com/archives/spacewalk-announce-list/2013-July/pngL4DmnA2k9I.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Joyeux anniversaire !&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/spacewalk-2-0.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/spacewalk-2-0#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Nils Ratusznik</name>
+    </author>
+    <author>
+      <name>Xavier Teyssier</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <category term="RedHat"/>
+    <category term="redhat"/>
+    <category term="spacewalk"/>
+    <category term="satellite"/>
+    <category term="rhn"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99314/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34496</id>
+    <published>2013-08-14T11:28:12+02:00</published>
+    <updated>2013-08-14T11:28:12+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/l-education-nationale-et-la-circulaire-5608-du-19-septembre-2012"/>
+    <title>L'Éducation Nationale et la circulaire 5608 du 19 septembre 2012</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Vous vous souvenez très certainement de la circulaire 5608  du Premier ministre du 19 septembre 2012. Elle concerne l'usage des logiciels libres dans l'administration.&lt;br&gt;
+Un député, Mme Isabelle Attard (Écologiste) a demandé où en était l'application de cette circulaire. Elle a reçu une réponse du ministère de l'Éducation nationale.&lt;/p&gt;
+
+&lt;p&gt;On peut remarquer que les choses évoluent dans le bon sens, mais lentement. Le &lt;em&gt;mammouth&lt;/em&gt; de Claude Allègre bouge enfin ! Mais la tâche est immense car en plus des problèmes financiers se cache un problème de fond : l'Éducation nationale ne doit pas se contenter d'utiliser des logiciels libres et enseigner leur usage, elle doit aussi enseigner les sciences et techniques qui permettent de comprendre le monde numérique dans lequel nous vivons. C'est essentiel pour envisager l'avenir.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87351" hreflang="fr" title="http://questions.assemblee-nationale.fr/q14/14-27629QE.htm"&gt;Question de Mme Attard et réponse du ministère de l&amp;#x27;EN&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87352" hreflang="fr" title="https://linuxfr.org/news/circulaire-du-premier-ministre-sur-l-usage-des-logiciels-libres-dans-l-administration"&gt;Circulaire du Premier ministre sur l’usage des logiciels libres dans l’Administration&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/l-education-nationale-et-la-circulaire-5608-du-19-septembre-2012.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/l-education-nationale-et-la-circulaire-5608-du-19-septembre-2012#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Pierre Jarillon</name>
+    </author>
+    <category term="Éducation"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99349/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34494</id>
+    <published>2013-08-13T11:54:11+02:00</published>
+    <updated>2013-08-13T16:04:29+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/tails-en-version-0-20"/>
+    <title>Tails en version 0.20</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;La distribution Tails (The Amnesic Incognito Live System) est un live-CD/live-USB visant à protéger votre anonymat et votre vie privée quand vous vous connectez à Internet.&lt;br&gt;
+La sortie de la version 0.20 a été annoncée le 9 août dernier par l'équipe de développement.&lt;/p&gt;
+
+&lt;p&gt;Plus de détails dans la suite de la dépêche.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87343" hreflang="fr" title="https://tails.boum.org/index.fr.html"&gt;Le projet Tails&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87344" hreflang="fr" title="https://tails.boum.org/news/version_0.20/index.fr.html"&gt;Annonce de la sortie de Tails 0.20&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87345" hreflang="fr" title="https://tails.boum.org/download/index.fr.html"&gt;Télécharger Tails&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87346" hreflang="fr" title="https://tails.boum.org/doc/index.fr.html"&gt;Documentation en français&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;Depuis &lt;a href="//linuxfr.org/news/tails-en-version-010"&gt;la dernière dépêche LinuxFR&lt;/a&gt; il y a un an et demi, la distribution Tails a largement progressé pour devenir une sorte de référence en matière de protection de l'anonymat et de la vie privée. Inutile de rappeler à quel point cette problématique a pris de l'importance depuis quelques semaines…&lt;br&gt;
+Parmi &lt;a href="https://git-tails.immerda.ch/tails/plain/debian/changelog?id=0.20"&gt;les nouveautés notables ayant été intégrées depuis la dernière revue&lt;/a&gt;, on peut citer une phase de démarrage moins spartiate puisque l'utilisateur est maintenant accueilli par une fenêtre (Tails Greeter) permettant de configurer un mot de passe root optionnel ou bien d'activer le camouflage Windows XP :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73312e6a7067/tails1.jpg" alt="boot" title="Source : http://patrickguignot.free.fr/linuxfr/tails1.jpg"&gt;&lt;/p&gt;
+
+&lt;p&gt;Photographie de l'écran avec mon téléphone portable. Désolé pour la qualité.&lt;/p&gt;
+
+&lt;p&gt;Le navigateur présent dans cette version Tails 0.20 est Iceweasel 17.0.8 ESR avec les patches additionels de Torbrowser. Plusieurs extensions améliorant la sécurité sont également préinstallées et préconfigurées :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73322e706e67/tails2.png" alt="extensions" title="Source : http://patrickguignot.free.fr/linuxfr/tails2.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Un autre progrès notable par rapport à la version 0.10 est la gestion de la persistance sur la clé USB. Bien entendu la sécurité maximum n'est possible que lors de l'utilisation d'un live-DVD puisque dans ce cas l'écriture sur le volume, et donc la compromission définitive, n'est plus possible. Néanmoins une clé live-USB est souvent plus pratique à transporter et elle peut être réutilisée lors des mises à jour. Pour améliorer encore la facilité d'utilisation, une partie de l'espace sur la clé peut être réservé au stockage des données afin de conserver les réglages entre deux démarrages successifs. C'est cette notion de « persistance » sur la clé qui est offerte par Tails (avec &lt;a href="https://tails.boum.org/doc/first_steps/persistence/warnings/index.fr.html"&gt;une page de mise en garde&lt;/a&gt; qui explique les inconvénients).&lt;/p&gt;
+
+&lt;p&gt;La procédure est simple puisqu'il suffit d'installer Tails une première fois sur un volume et de démarrer dessus. On utilise ensuite l'application dédiée pour cloner le volume sur une autre clé avec création simultanée d'un volume chiffré sur l'espace restant. Tout ça se fait en un simple clic :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73332e706e67/tails3.png" alt="clone" title="Source : http://patrickguignot.free.fr/linuxfr/tails3.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;On saisit le mot de passe permettant de chiffrer le volume :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73342e706e67/tails4.png" alt="pass" title="Source : http://patrickguignot.free.fr/linuxfr/tails4.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Et hop c'est parti pour la création :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73352e706e67/tails5.png" alt="creation" title="Source : http://patrickguignot.free.fr/linuxfr/tails5.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce volume persistant permet de stocker des fichiers personnels et de sauvegarder les clés SSH ou OpenPGP. Tout se paramètre très facilement et la configuration des différents logiciels peut également être sauvegardée grâce à ce volume chiffré (connexions réseaux, marque-pages du navigateur, comptes mails, etc):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73362e706e67/tails6.png" alt="config" title="Source : http://patrickguignot.free.fr/linuxfr/tails6.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;L'interface de Tails est un bureau Gnome2 ultra classique :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73372e706e67/tails7.png" alt="interface" title="Source : http://patrickguignot.free.fr/linuxfr/tails7.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Mais bien entendu le mode Windows XP est disponible pour les paranoïaques voulant passer inaperçu :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="//img.linuxfr.org/img/687474703a2f2f7061747269636b677569676e6f742e667265652e66722f6c696e757866722f7461696c73382e706e67/tails8.png" alt="winxp" title="Source : http://patrickguignot.free.fr/linuxfr/tails8.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Tout est fait pour faciliter la vie de l'utilisateur et pour sécuriser l'utilisation de façon transparente et automatique. Qu'il s'agisse du gestionnaire de mots de passe KeePassX ou encore du nettoyage automatique de la RAM à l'extinction pour éviter &lt;a href="https://fr.wikipedia.org/wiki/Attaque_par_d%C3%A9marrage_%C3%A0_froid"&gt;les attaques cold-boot&lt;/a&gt;.&lt;br&gt;
+Tous les logiciels &lt;a href="https://tails.boum.org/contribute/design/Tor_enforcement/"&gt;sont configurés&lt;/a&gt; afin de se connecter à Internet par l'intermédiaire de Tor (avec isolation mutuelle via SocksPorts).&lt;/p&gt;
+
+&lt;p&gt;La &lt;a href="https://tails.boum.org/doc/index.fr.html"&gt;documentation&lt;/a&gt; est également de très grande qualité avec de nombreux &lt;a href="https://tails.boum.org/doc/about/warning/index.fr.html"&gt;avertissements&lt;/a&gt; sur les limites de la protection qui est offerte. Les rapports de bugs sont effectués via &lt;a href="https://tails.boum.org/doc/first_steps/bug_reporting/#index3h1"&gt;WhisperBack&lt;/a&gt;, une application écrite spécialement pour pouvoir envoyer des informations de manière anonyme.&lt;/p&gt;
+
+&lt;p&gt;Tails est vraiment LA référence pour les utilisateurs voulant protéger leur anonymat sur le net et la plus grande publicité devrait être faite autour de cette distribution Linux pour en encourager l'utilisation.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/tails-en-version-0-20.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/tails-en-version-0-20#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>patrick_g</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <author>
+      <name>ZeroHeure</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>Pierre Jarillon</name>
+    </author>
+    <author>
+      <name>Xavier Teyssier</name>
+    </author>
+    <category term="Distribution"/>
+    <category term="anonymat"/>
+    <category term="distribution"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99342/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34495</id>
+    <published>2013-08-13T11:40:49+02:00</published>
+    <updated>2013-08-13T11:52:26+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/sortie-de-paperwork-0-1"/>
+    <title>Sortie de Paperwork 0.1</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Après des années de R&amp;amp;D acharnée, trois arrêts cardiaques suite à des abus de caféine, et deux divorces, elle est finalement arrivée : la solution du parfait flemmard pour organiser ses documents papiers (ou pas) sous GNU/Linux. Paperwork est une interface graphique conçue avec une idée en tête : "scan&amp;amp;forget" (« numériser et puis voilà fini »). Lire, trier et indexer les papiers est un travail de machine, pas d'humain.&lt;/p&gt;
+
+&lt;p&gt;La version 0.1 a (enfin) été publiée.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87347" hreflang="en" title="https://github.com/jflesch/paperwork#readme"&gt;Le site de Paperwork&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87348" hreflang="en" title="https://github.com/jflesch/paperwork/issues"&gt;Bug tracker&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87349" hreflang="en" title="https://groups.google.com/forum/#!forum/paperwork-gui"&gt;Mailing-list&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87350" hreflang="en" title="https://groups.google.com/forum/#!topic/paperwork-gui/Z8BUgyBaMms"&gt;Le mail d&amp;#x27;annonce&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;&lt;img src="//img.linuxfr.org/img/68747470733a2f2f7261772e6769746875622e636f6d2f6a666c657363682f7061706572776f726b2d73637265656e73686f74732f6d61737465722f302e312f6d61696e5f77696e646f772e706e67/main_window.png" alt="Un screenshout qui montre comment c'est beau." title="Source : https://raw.github.com/jflesch/paperwork-screenshots/master/0.1/main_window.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;Au menu :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;reconnaissance de caractères &amp;amp; indexation automatique ;&lt;/li&gt;
+&lt;li&gt;détection automatique de l'orientation des pages ;&lt;/li&gt;
+&lt;li&gt;support des scanners à bac ;&lt;/li&gt;
+&lt;li&gt;import de PDF et d'images ;&lt;/li&gt;
+&lt;li&gt;possibilité de mettre des labels sur les documents ;&lt;/li&gt;
+&lt;li&gt;retouche rapide des scans (orientation/découpe).&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;À noter que la branche Git par défaut ('stable') correspond toujours à la dernière version sortie de Paperwork. Il s'agit donc de la version 0.1 actuellement.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/sortie-de-paperwork-0-1.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/sortie-de-paperwork-0-1#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Jérôme Flesch</name>
+    </author>
+    <author>
+      <name>Xavier Teyssier</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <category term="Bureautique"/>
+    <category term="scanner"/>
+    <category term="ocr"/>
+    <category term="paperasse"/>
+    <category term="scan"/>
+    <category term="papier"/>
+    <category term="paperwork"/>
+    <category term="numeriser"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99345/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34493</id>
+    <published>2013-08-13T01:53:26+02:00</published>
+    <updated>2013-08-13T01:53:25+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/revue-de-presse-de-l-april-pour-la-semaine-32-de-l-annee-2013"/>
+    <title>Revue de presse de l'April pour la semaine 32 de l'année 2013</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;La revue de presse de l'April est régulièrement éditée par les membres de l'association. Elle couvre l'actualité de la presse en ligne, liée au logiciel libre. Il s'agit donc d'une sélection d'articles de presse et non de prises de position de l'association de promotion et de défense du logiciel libre.&lt;/p&gt;
+&lt;h2 id="sommaire"&gt;Sommaire&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.vousnousils.fr/2013/08/08/logiciels-libres-dans-leducation-nationale-le-ministere-detaille-ses-actions-549751"&gt;[vousnousils] Logiciels libres dans l’Education nationale: le ministère détaille ses actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lecercle.lesechos.fr/economie-societe/social/emploi/221178122/lopen-source-vivier-demplois-manque-visibilite"&gt;[Le Cercle Les Echos] L'Open Source: un vivier d'emplois en manque de visibilité&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.lepoint.fr/chroniqueurs-du-point/guerric-poncet/le-fbi-pirate-un-internet-parallele-07-08-2013-1712193_506.php"&gt;[Le Point] Les hackers du FBI s'attaquent à Tor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://journalmetro.com/actualites/montreal/354545/les-logiciels-libres-a-nouveau-ecartes"&gt;[Métro] Les logiciels libres à nouveau écartés&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.developpez.com/ducodeetdulibre/p12163/non-classe/remercions-le-logiciel-libre-ou-en-serions-nous-si-il-nexistait-pas"&gt;[Developpez.com] Remercions le logiciel libre, où en serions-nous, si il n'existait pas?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.zdnet.fr/actualites/guerre-des-brevets-washington-donne-un-coup-de-pouce-a-apple-contre-samsung-qui-contre-attaque-39792972.htm"&gt;[ZDNet] Guerre des brevets: Washington donne un coup de pouce à Apple contre Samsung qui contre-attaque&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87337" hreflang="fr" title="http://april.org"&gt;April&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87338" hreflang="fr" title="http://www.april.org/revue-de-presse"&gt;Revue de presse de l&amp;#x27;April&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87339" hreflang="fr" title="https://linuxfr.org/news/revue-de-presse-de-l-april-pour-la-semaine-31-de-l-année-2013"&gt;Revue de presse de la semaine précédente&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87340" hreflang="fr" title="http://audio.april.org"&gt;Podcast&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°5 : &lt;a href="http://linuxfr.org/redirect/87341" hreflang="fr" title="http://www.divergence-fm.org/-Divergence-numerique-.html"&gt;Divergence Numérique&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;p&gt;&lt;strong&gt;[vousnousils] Logiciels libres dans l’Education nationale: le ministère détaille ses actions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;la rédaction&lt;/em&gt;, le jeudi 8 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Interrogé fin mai par la dépu­tée écolo­giste Isabelle Attard sur son usage des logi­ciels libres, le minis­tère de l'Education natio­nale a publié sa réponse ce mardi. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://www.vousnousils.fr/2013/08/08/logiciels-libres-dans-leducation-nationale-le-ministere-detaille-ses-actions-549751"&gt;http://www.vousnousils.fr/2013/08/08/logiciels-libres-dans-leducation-nationale-le-ministere-detaille-ses-actions-549751&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Et aussi:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.pcinpact.com/news/81634-427-millions-depenses-logicielles-en-2012-pour-l-education-nationale.htm"&gt;[PC INpact] 4,27 millions € de dépenses logicielles en 2012 pour l’Éducation nationale&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.pcinpact.com/news/81625-le-ministere-culture-bien-conscient-interet-logiciels-libres.htm"&gt;[PC INpact] Le ministère de la Culture «bien conscient de l'intérêt des logiciels libres»&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.zdnet.fr/actualites/logiciels-libres-la-culture-et-l-education-nationale-enumerent-leurs-actions-39793057.htm"&gt;[ZDNet] Logiciels libres: la Culture et l’Education nationale énumèrent leurs actions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;[Le Cercle Les Echos] L'Open Source: un vivier d'emplois en manque de visibilité&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;Pierre Queinnec&lt;/em&gt;, le jeudi 8 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;300 PME et ETI spécialisées dans le Logiciel libre, plus de 30 000 salariés, 30 % de croissance annuelle, tel est le panorama français de l’économie de l’Open Source en 2012. Pierre Queinnec, Président de l’édition 2013 de l’Open Word Forum, décrypte ces chiffres et analyse les opportunités de carrière à venir. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://lecercle.lesechos.fr/economie-societe/social/emploi/221178122/lopen-source-vivier-demplois-manque-visibilite"&gt;http://lecercle.lesechos.fr/economie-societe/social/emploi/221178122/lopen-source-vivier-demplois-manque-visibilite&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[Le Point] Les hackers du FBI s'attaquent à Tor&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;Guerric Poncet&lt;/em&gt;, le mercredi 7 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Les "fédéraux" ont infecté certains utilisateurs du réseau ultra-sécurisé pour stopper des sites pédophiles. Du moins officiellement… &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://www.lepoint.fr/chroniqueurs-du-point/guerric-poncet/le-fbi-pirate-un-internet-parallele-07-08-2013-1712193_506.php"&gt;http://www.lepoint.fr/chroniqueurs-du-point/guerric-poncet/le-fbi-pirate-un-internet-parallele-07-08-2013-1712193_506.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[Métro] Les logiciels libres à nouveau écartés&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;Mathias Marchal&lt;/em&gt;, le mardi 6 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;La Ville de Montréal a publié le 24 juillet un appel d’offres dirigé vers Microsoft, écartant de nouveau les avenues offertes par le logiciel libre. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://journalmetro.com/actualites/montreal/354545/les-logiciels-libres-a-nouveau-ecartes"&gt;http://journalmetro.com/actualites/montreal/354545/les-logiciels-libres-a-nouveau-ecartes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[Developpez.com] Remercions le logiciel libre, où en serions-nous, si il n'existait pas?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;imikado&lt;/em&gt;, le mardi 6 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Depuis des années où deux hommes : Richard Stallman avec GNU et Linus Torvald avec Linux ont investi leur temps libre pour le bien de la communauté, on a pu assister à un cercle vertueux dont on ne réalise pas l’importance. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://blog.developpez.com/ducodeetdulibre/p12163/non-classe/remercions-le-logiciel-libre-ou-en-serions-nous-si-il-nexistait-pas"&gt;http://blog.developpez.com/ducodeetdulibre/p12163/non-classe/remercions-le-logiciel-libre-ou-en-serions-nous-si-il-nexistait-pas&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[ZDNet] Guerre des brevets: Washington donne un coup de pouce à Apple contre Samsung qui contre-attaque&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Par &lt;em&gt;la rédaction&lt;/em&gt;, le lundi 5 août 2013. Extrait:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Le gouvernement américain a fait jouer son droit de veto pour bloquer l’application de l’interdiction de vente de plusieurs modèles d’iPhone et d’iPad obtenue par Samsung auprès de l’International Trade Commission. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lien vers l'article original: &lt;a href="http://www.zdnet.fr/actualites/guerre-des-brevets-washington-donne-un-coup-de-pouce-a-apple-contre-samsung-qui-contre-attaque-39792972.htm"&gt;http://www.zdnet.fr/actualites/guerre-des-brevets-washington-donne-un-coup-de-pouce-a-apple-contre-samsung-qui-contre-attaque-39792972.htm&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/revue-de-presse-de-l-april-pour-la-semaine-32-de-l-annee-2013.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/revue-de-presse-de-l-april-pour-la-semaine-32-de-l-annee-2013#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>echarp</name>
+    </author>
+    <author>
+      <name>palm123</name>
+    </author>
+    <category term="Internet"/>
+    <category term="revue"/>
+    <category term="presse"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99341/comments.atom</wfw:commentRss>
+  </entry>
+  <entry>
+    <id>tag:linuxfr.org,2005:News/34492</id>
+    <published>2013-08-12T22:01:37+02:00</published>
+    <updated>2013-08-12T22:37:54+02:00</updated>
+    <link rel="alternate" type="text/html" href="http://linuxfr.org/news/sortie-d-emmabuntus-2-version-1-05"/>
+    <title>Sortie d'Emmabuntüs 2 (version 1.05)</title>
+    <rights>Licence CC by-sa http://creativecommons.org/licenses/by-sa/3.0/deed.fr</rights>
+    <content type="html">&lt;div&gt;&lt;p&gt;Le Collectif Emmabuntüs est heureux d'annoncer la sortie de la quatrième version de maintenance d'Emmabuntüs 2.&lt;br&gt;
+La version 1.05 est basée sur une Xubuntu 12.04.2.&lt;/p&gt;
+
+&lt;p&gt;Cette distribution a été conçue pour faciliter le reconditionnement des ordinateurs donnés aux associations humanitaires, en particulier aux communautés Emmaüs (d'où son nom) et favoriser la découverte de Linux par les débutants, mais aussi prolonger la durée de vie du matériel pour limiter le gaspillage entraîné par la surconsommation de matières premières.&lt;/p&gt;
+
+&lt;p&gt;Cette mise à jour, publiée fin juillet, améliore l'utilisation d'Emmabuntüs 2, mais permet également au JerryClan de Côte d'Ivoire :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;de pouvoir reconditionner plus facilement des machines&lt;/li&gt;
+&lt;li&gt;de développer sur une base Jerry/Emmabuntüs un ensemble de services destinés à l'aide médicale. &lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Ce service est basé sur une application mobile libre de suivi par SMS des malades de la tuberculose, ainsi que le suivi des grossesses et des femmes enceintes sur M-Pregnancy.&lt;/p&gt;
+
+&lt;p&gt;Merci au passage aux éditions Diamond pour la parution d'un article complet au sujet d'Emmabuntüs et du jerryclan dans le Linux Essentiel numéro 33 d’août/septembre 2013.&lt;/p&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;lien n°1 : &lt;a href="http://linuxfr.org/redirect/87330" hreflang="en" title="http://emmabuntus.sourceforge.net/"&gt;Site d&amp;#x27;Emmabuntüs&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°2 : &lt;a href="http://linuxfr.org/redirect/87331" hreflang="fr" title="http://emmabuntus.sourceforge.net/mediawiki/index.php/July_21th,_2013,_Emmabuntus_2_celebrates_M-Pregnancy/fr"&gt;Annonce complète et détaillé de la sortie&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°3 : &lt;a href="http://linuxfr.org/redirect/87332" hreflang="fr" title="http://www.unixgarden.com/index.php/linux-essentiel/linux-essentiel-n33-aoutseptembre-2013-en-kiosque"&gt;Emmabuntüs dans Linux essentiel&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°4 : &lt;a href="http://linuxfr.org/redirect/87335" hreflang="fr" title="http://imaginationforpeople.org/fr/project/m-pregnancy/"&gt;M-Pregnancy&lt;/a&gt;&lt;/li&gt;&lt;li&gt;lien n°5 : &lt;a href="http://linuxfr.org/redirect/87336" hreflang="en" title="http://youandjerrycan.org/"&gt;JerryClan&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;a href="http://linuxfr.org/news/sortie-d-emmabuntus-2-version-1-05.epub"&gt;Télécharger ce contenu au format Epub&lt;/a&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href="http://linuxfr.org/news/sortie-d-emmabuntus-2-version-1-05#comments"&gt;Lire les commentaires&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>patrick_g</name>
+    </author>
+    <author>
+      <name>Boyquotes</name>
+    </author>
+    <author>
+      <name>Benoît Sibaud</name>
+    </author>
+    <author>
+      <name>NeoX</name>
+    </author>
+    <category term="Distribution"/>
+    <wfw:commentRss>http://linuxfr.org/nodes/99339/comments.atom</wfw:commentRss>
+  </entry>
+</feed>
