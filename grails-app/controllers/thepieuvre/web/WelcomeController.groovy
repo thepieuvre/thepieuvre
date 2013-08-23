@@ -258,7 +258,7 @@ $message
             forward action: 'index'
             return true
         }
-		render view:'/web/article', model: ['article': article, 'articleService': articleService] 
+		render view:'/article/article', model: ['article': article, 'articleService': articleService] 
 	}
 
 	@Secured(['ROLE_MEMBER'])
