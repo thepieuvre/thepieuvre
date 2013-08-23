@@ -48,7 +48,7 @@ $message
 			"""
 		}
 		flash.message = 'Thank you for your message.'
-		redirect action:'index2'
+		redirect action:'home'
 	}
 
 	def index = {
@@ -119,7 +119,7 @@ $message
 	def searchByKeyWords = {
 		def articles = articleService.getArticleFromNGram(params.keyWords)
 
-		render view: '/index2', model: ['articles': articles,
+		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -135,7 +135,7 @@ $message
 			ilike 'author', "%${params.author}%" 
 		}
 
-		render view: '/index2', model: ['articles': articles,
+		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -153,7 +153,7 @@ $message
 			}
 		}
 
-		render view: '/index2', model: ['articles': articles,
+		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -168,7 +168,7 @@ $message
             return false
         }
 		def articles = articleService.similars(art).keySet()
-		render view: '/index2', model: ['articles': articles,
+		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
@@ -183,7 +183,7 @@ $message
             return false
         }
 		def articles = articleService.related(art).keySet()
-		render view: '/index2', model: ['articles': articles,
+		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
 			'articleService': articleService,
