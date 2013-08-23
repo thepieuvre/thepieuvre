@@ -87,54 +87,6 @@ ${(!exit)?'':"Exit: ${exit}"}
   </div>
 </div>
 
-<!-- Modal newBoard -->
-<div id="newBoard" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newBoardLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newBoardLabel">New Board</h3>
-  </div>
-  <div class="modal-body">
-    <g:form action="newBoard" class="form-horizontal well">
-    <fieldset>
-       <div class="control-group">
-            <label class="control-label" for="name">Board Name</label>
-            <div class="controls">
-              <input type="text" class="input-xlarge" name="name">
-              <p class="help-block">A name for this board.</p>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button type="submit" class="btn btn-success">Add</button>
-          </div>
-    </fieldset>
-    </g:form>
-  </div>
-</div>
-
-<!-- Modal follow -->
-<div id="follow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="followLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="followLabel">Follow Feed</h3>
-  </div>
-  <div class="modal-body">
-    <g:form action="follow" class="form-horizontal well">
-    <input type="hidden" name="board" id="board" value="${(board)?board.id:-1}"
-    <fieldset>
-       <div class="control-group">
-            <label class="control-label" for="feed">Feed Address</label>
-            <div class="controls">
-              <input type="text" class="input-xlarge" name="feed">
-              <p class="help-block">The address of the RSS feed.</p>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button type="submit" class="btn btn-success">Follow</button>
-          </div>
-    </fieldset>
-    </g:form>
-  </div>
-</div>
  <!-- Infinite Scroll -->
     <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
     <script type="text/javascript">
