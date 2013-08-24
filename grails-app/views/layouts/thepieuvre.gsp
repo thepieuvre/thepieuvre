@@ -16,6 +16,8 @@
     <link href="${resource(dir:'css/bootstrap', file:'jumbotron-narrow.css')}" rel="stylesheet">
     <!-- The offcial 'the Pieuvre' font -->
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <!-- The Pieuvre customisation -->
+    <link href="${resource(dir:'css', file:'thepieuvre.css')}" rel='stylesheet' type='text/css'>
 
     <g:javascript library="jquery" plugin="jquery"/>
     <r:layoutResources />
