@@ -27,12 +27,11 @@ ${(!exit)?'':"Exit: ${exit}"}
   </div>
 </div>
 <!-- End Command output -->
-
 <!-- Article Stream -->
 <div class="row">
   <div class="col-lg-12">
     <ol class="breadcrumb">
-      <li class="active">${boardName}</li>
+      <li class="active">${(boardName)?:"Results for $params.command"}</li>
     </ol>
   </div>
 </div>

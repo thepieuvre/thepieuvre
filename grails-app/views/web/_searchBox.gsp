@@ -6,7 +6,7 @@
       <g:form class="navbar-form navbar-left" role="form" action="executor" controller="welcome">
         <div class="form-group">
           <label class="sr-only" for="command">Type some words or :help</label>
-          <input class="form-control input-sm" id="command" name="command" placeholder="Type some words...">
+          <input class="form-control input-sm" id="command" name="command" placeholder="Type some words..." value="${(params.command)?:''}">
         </div>
         <button type="submit" class="btn btn-primary btn-sm">Search</button>
       </g:form>
