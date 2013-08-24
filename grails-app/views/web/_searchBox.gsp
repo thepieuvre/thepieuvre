@@ -1,4 +1,5 @@
 <div class="row">
+  <div class="col-lg-12">
   <nav class="navbar navbar-default" role="navigation">
  
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -34,4 +35,5 @@
     </div>
 
  </nav>
+</div>
 </div>

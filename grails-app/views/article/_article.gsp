@@ -1,3 +1,4 @@
+<div id="article">
 <div class="panel panel-default">
     <div class="panel-heading">
         <a data-toggle="modal" href="#articleModal_${article.id}"><strong>${article.title}</strong></a><small class="text-muted"> @ ${article.feed.title}</small>                    
@@ -46,7 +47,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="articleModal_${article.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog">
+<div class="modal-dialog quick-reader">
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -85,3 +86,4 @@
   </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+</div>
