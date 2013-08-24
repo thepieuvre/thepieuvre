@@ -8,7 +8,7 @@ class FeedBootStrap {
 		println "Bootstraping feeds..."
 
 		def links = [
-			'http://www.appleinsider.com/appleinsider.rss'/*,
+			'http://www.appleinsider.com/appleinsider.rss',
 			'http://feeds.arstechnica.com/arstechnica/BAaf',
 			'http://feeds.boingboing.net/boingboing/iBag',
 			'http://feeds.feedburner.com/CoolTools',
@@ -34,7 +34,7 @@ class FeedBootStrap {
 			'http://feeds.feedburner.com/design-milk',
 			'http://feeds.feedburner.com/monday-note',
 			'http://feeds.slate.com/slate',
-			'http://www.forbes.com/real-time/feed2/'  */
+			'http://www.forbes.com/real-time/feed2/'
 		]
 
 		links.each { link ->
