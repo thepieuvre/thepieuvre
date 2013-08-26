@@ -15,7 +15,7 @@
                     <g:if test="${article.author && article.author != 'null'}">
                         <p><strong>By</strong> <g:link controller="welcome" action="searchByAuthor" params="[author: article.author]">${article.author}</g:link></p>
                     </g:if>
-                    <p><strong>Key Words</strong></p>
+                    <p><strong>Keywords</strong></p>
                     <ul class="list-inline">
                         <g:each in="${articleService.getKeyWordsShort(article)}" var="gram">
                             <li><g:link controller="welcome" action="searchByKeyWords" params="[keyWords: gram]">${gram}</g:link></li>
@@ -41,6 +41,7 @@
             <li><a href="${article.link}" target="_blank">Open the Source</a></li>    
             <li>Add to Reader</li>
             <li>Tweet it</li>
+            <li>Follow this Feed</li>
         </ul>
     </div>
 </div>
