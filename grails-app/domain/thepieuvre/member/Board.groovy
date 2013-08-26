@@ -2,7 +2,7 @@ package thepieuvre.member
 
 import thepieuvre.core.Feed
 
-class Board {
+class Board implements Comparable {
 
 	String name
 
@@ -17,4 +17,8 @@ class Board {
 	String toString() {
 		"$name"
 	}
+
+	int compareTo(obj) {
+        name.compareTo(obj.name)
+    }
 }

@@ -11,6 +11,8 @@ class Member extends User {
 		discriminator 'MEMBER'
 	}
 
+	SortedSet boards
+	
 	static hasMany = [feeds: Feed, boards: Board]
 
 	static constraints = {

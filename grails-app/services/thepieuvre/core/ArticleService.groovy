@@ -13,11 +13,20 @@ class ArticleService {
 	def redisService 
 
 	def updateNlp(def nlp) {
+		if (! nlp) {
+			log.warn "Trying to update NLP with null"
+			return false
+		}
+		log.info "Updating NLP for article ${nlp?.id}"
 		Article article = Article.get(nlp.id as long)
-		article.keyWordsShort = nlp.keyWordsShort
-		article.keyWords = nlp.keyWords
-		article.synopsis = nlp.synopsis
-		article.similars = nlp.similars
+		if (article) {
+			article.keyWordsShort = nlp.keyWordsShort
+			article.keyWords = nlp.keyWords
+			article.synopsis = nlp.synopsis
+			article.similars = nlp.similars
+		} else {
+			log.warn "Cannot updating NLP because article is null: $nlp"
+		}
 	}
 
 	def updateSynopsis() {
@@ -257,35 +266,37 @@ class ArticleService {
 
 	@Deprecated
 	def similars(Article article) {
-		log.info "Article Service - Finding similars"
-		def all = mergingAll(article)
-		def metrics = metrics(all)
-		long upper = metrics.max //getMaxScore(all)
-		long stdDev = metrics.stdDev//getStdDevScore(all)
-		long lower = upper - stdDev
-		def res = [:]
-		all.each { k, v ->
-			if (v <= upper && v >= lower)
-				res[k] = v
-		}
-		res = res.sort { a, b -> b.value <=> a.value}
-		log.info "Article Service - Found similars"
-		return res
+		return [:]
+		// log.info "Article Service - Finding similars"
+		// def all = mergingAll(article)
+		// def metrics = metrics(all)
+		// long upper = metrics.max //getMaxScore(all)
+		// long stdDev = metrics.stdDev//getStdDevScore(all)
+		// long lower = upper - stdDev
+		// def res = [:]
+		// all.each { k, v ->
+		// 	if (v <= upper && v >= lower)
+		// 		res[k] = v
+		// }
+		// res = res.sort { a, b -> b.value <=> a.value}
+		// log.info "Article Service - Found similars"
+		// return res
 	}
 
 	@Deprecated
 	def related(Article article) {
-		def all = mergingAll(article)
-		def metrics = metrics(all)
-		long dev = metrics.stdDev
-		long upper = metrics.max - dev 
-		long lower = metrics.average + dev
-		def res = [:]
-		all.each { k, v ->
-			if (v < upper && v >= lower)
-				res[k] = v
-		}
-		return res.sort { a, b -> b.value <=> a.value}
+		return [:]
+		// def all = mergingAll(article)
+		// def metrics = metrics(all)
+		// long dev = metrics.stdDev
+		// long upper = metrics.max - dev 
+		// long lower = metrics.average + dev
+		// def res = [:]
+		// all.each { k, v ->
+		// 	if (v < upper && v >= lower)
+		// 		res[k] = v
+		// }
+		// return res.sort { a, b -> b.value <=> a.value}
 	}
 
 	@Deprecated

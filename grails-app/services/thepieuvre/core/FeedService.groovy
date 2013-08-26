@@ -50,14 +50,19 @@ class FeedService {
 		}
 	}
 
-	def update(Content content, def json) {
-		log.info "Updating content $content"
-		content.refresh()
-		content.fullText = json.fullText
-		content.extractor = json.extractor
-		content.mainImage = json.mainImage
-        content.language = json.lang
-		queuesService.enqueue(content.article)
+	def update(def decoded) {
+		Content content = Content.get(decoded?.content?.id)
+		if (content) {
+			log.info "Updating content $content"
+			content.refresh()
+			content.fullText = decoded.fullText
+			content.extractor = decoded.extractor
+			content.mainImage = decoded.mainImage
+        	content.language = decoded.lang
+			queuesService.enqueue(content.article)
+		} else {
+			log.warn "Cannot find content for $decoded?.content?.id -> $decoded"
+		}
 	}
 
 	def update(Feed feed, def json) {
@@ -95,15 +100,21 @@ class FeedService {
 								article.contents = new Content(raw: content, article: article)
 							} 
 						}
+
+						if (!article.contents) {
+							article.contents = new Content(raw: 'null', article: article)
+						}
+
 						article.link = entry.link
 
 						article.published = entry.published
-						if(! article.save(flush: true)) {
-							log.warn "Cannot save article for feed $feed", article.errors
+						if(! article.save(flush: true, deepValidate: true)) {
+							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
+						} else {
+							queuesService.enqueue(article.contents)
+							log.info "Updated feed $feed with $article and content $article.contents.id"
 						}
-						queuesService.enqueue(article.contents)
-						log.info "Updated feed $feed with $article and content $article.contents.id"
 					}
 				}
 			} else {

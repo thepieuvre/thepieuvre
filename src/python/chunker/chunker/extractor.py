@@ -148,7 +148,7 @@ def redis_mode(redis):
 			if task != None:
 				raw = json.loads(task[1])
 				# print 'JSON: %s' % (raw)
-				if not raw['language'].startswith('en'):
+				if not raw['language'] or not raw['language'].startswith('en'):
 					continue
 				redis.sadd('articles', "article:%s" %(raw['id']))
 				extract_keywords(raw, redis)

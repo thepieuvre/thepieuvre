@@ -11,10 +11,12 @@ class Content {
 
     String language
 
+    Date dateCreated
+
 	static belongsTo = [ article: Article ]
 
 	static constraints = {
-		raw maxSize: 262144
+		raw maxSize: 1048576
 		fullText nullable: true, maxSize: 1048576
 		mainImage nullable: true, url: true
         language nullable: true
