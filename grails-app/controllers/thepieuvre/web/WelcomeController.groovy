@@ -251,6 +251,7 @@ $message
 	@Secured(['ROLE_MEMBER'])
 	def article = {
 		try {
+			def member = springSecurityService.currentUser
 			Article article = Article.get(params.id as long)
 	        if (! article) {
 	              forward controller: 'error', action: 'notFound'
@@ -263,7 +264,7 @@ $message
 	            forward action: 'home'
 	            return true
 	        }
-			render view:'/article/article', model: ['article': article, 'articleService': articleService] 
+			render view:'/article/article', model: ['article': article, 'articleService': articleService, 'boards': member?.boards] 
 		} catch (java.lang.NumberFormatException e) {
 			log.warn "Someone trying hacking: ", e
 			forward controller: 'error', action: 'notFound'
