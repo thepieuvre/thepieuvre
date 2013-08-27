@@ -260,7 +260,7 @@ $message
 				flash.message = 'Sorry, the Pieuvre just started learning english. Other languages are not yet supported.'
 			} else if (! article) {
 	            flash.message = 'Sorry, the Pieuvre cannot find your article.'
-	            forward action: 'index'
+	            forward action: 'home'
 	            return true
 	        }
 			render view:'/article/article', model: ['article': article, 'articleService': articleService] 
@@ -272,11 +272,16 @@ $message
 
 	@Secured(['ROLE_MEMBER'])
 	def newBoard (String name) {
+		if (! name) {
+			flash.message = "Sorry, the board's name cannot be blank."
+			forward action: 'home'
+			return true
+		}
 		def member = springSecurityService.currentUser
 		Board board = new Board('name': name, 'member': member)
 		board.save()
 		member.addToBoards(board)
-		forward action: "index", params: [board: board.id]
+		forward action: "home", params: [board: board.id]
 	}
 
 	@Secured(['ROLE_MEMBER'])
@@ -288,7 +293,7 @@ $message
 			memberService.addFeed(springSecurityService.currentUser, feed)
 		}
 
-		forward action: "index", params: [board: board]
+		forward action: "home", params: [board: board]
 	}
 
 }
