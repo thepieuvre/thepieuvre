@@ -10,8 +10,13 @@
   <div class="row">
     <div class="col-lg-10">
       <ol class="breadcrumb" >
-        <li><a href="#">TODO Your Article</a></li>
-        <li><a href="#">TODO Board Name</a></li>
+        <g:if test="${params.boardName}">
+          <li><g:link controller="welcome" action="index" params="[board:'-1']" >Your Articles</g:link></li>
+          <li><g:link controller="welcome" action="index" params="['board': params.board]" >${params.boardName}</g:link></li>
+        </g:if>
+        <g:else>
+          <li><g:link controller="welcome" action="index">All Pieuvre</g:link></li>
+        </g:else>
         <li><g:link controller="welcome" action="searchByFeed" params="[feed: article.feed.id]">${article.feed.title}</g:link></li>
         <g:if test="${article.author && article.author != 'null'}">
           <li><g:link controller="welcome" action="searchByAuthor" params="[author: article.author]">${article.author}</g:link></li>

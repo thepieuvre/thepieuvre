@@ -30,14 +30,14 @@
         <g:each status="i" in="${articleService.getSimilars(article)}" var="related">
             <g:if test="${i < 5 && related.key}">
                 <li class="list-group-item">
-                <g:link action="article" id="${related.key.id}" >${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
+                <g:link action="article" id="${related.key.id}">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
                 </li>
             </g:if>
         </g:each>
     </ul>
     <div class="panel-footer">
         <ul class="list-inline">
-            <li><g:link action="article" id="${article.id}" >Explore this Article</g:link></li>
+            <li><g:link action="article" id="${article.id}" params="${(board)?['boardName': board]:[:]}">Explore this Article</g:link></li>
             <li><a href="${article.link}" target="_blank">Open the Source</a></li>    
             <li>Add to Reader</li>
             <li>Tweet it</li>

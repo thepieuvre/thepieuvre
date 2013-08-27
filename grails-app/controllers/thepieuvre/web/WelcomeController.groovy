@@ -264,7 +264,11 @@ $message
 	            forward action: 'home'
 	            return true
 	        }
-			render view:'/article/article', model: ['article': article, 'articleService': articleService, 'boards': member?.boards] 
+			render view:'/article/article', model: ['article': article,
+				'articleService': articleService,
+				'boardName': params.boardName,
+				'board': member.boards.find { it.name == params.boardName }?.id,
+				'boards': member.boards] 
 		} catch (java.lang.NumberFormatException e) {
 			log.warn "Someone trying hacking: ", e
 			forward controller: 'error', action: 'notFound'

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-100" role="navigation">
    
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <g:if test="${params.board}">
