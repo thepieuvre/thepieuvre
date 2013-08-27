@@ -23,14 +23,22 @@ class ArticleTask implements Runnable {
 						if (task) {
 							log.info "Getting original content from queue:article"
 							def decoded = JSON.parse(task[1])
-							if (decoded.nlp) {
-								log.info "updating nl processing: : $decoded.nlp.id"
+							if (decoded.nlp?.id) {
+								log.info "updating nl processing"
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
-							} else if (decoded.content) {
-								log.info "updating content: $decoded.content.id"
-								grailsApplication.mainContext.feedService.update(decoded)
 							} else {
-								log.warn "Unknow type of message: $decoded"
+								log.info "updating content: $decoded.content.id"
+								Content.withNewSession { session ->
+								def query = Content.where {
+										id == decoded.content.id
+									}
+									Content content = query.find()
+									if (content) {
+										grailsApplication.mainContext.feedService.update(content, decoded.content)
+									} else {
+										log.warn "Cannot find content for $decoded.content.id -> $decoded"
+									}
+								}
 							}
 						} else {
 							continue

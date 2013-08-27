@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="web"/>
+		<meta name="layout" content="thepieuvre"/>
+		<g:set var="section" scope="request" value="about"/>
 	</head>
 	<body>
 		<h1>About the Pieuvre</h1>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
+		<meta name="layout" content="thepieuvre"/>
+    	<g:set var="section" scope="request" value="admin"/>
 	</head>
 	<body>
 
-<div class="row-fluid">
+<div class="row">
 	<div>
 		<ul class="nav nav-tabs">
 			<li ><g:link action="list">Articles</g:link></li>
@@ -177,10 +178,13 @@ ${article.contents.fullText}
 	</tbody>
 </table>
 
+<div class="row">
 <div class="form-horizontal">
-	<div class="form-actions">
+	<div class="form-control">
 		<g:link action="delete" id="${article.id}" class="btn btn-primary">Delete</g:link>
+		<p></p>
 	</div>
+</div>
 </div>
 
 	</body>
