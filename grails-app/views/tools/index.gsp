@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
+		<meta name="layout" content="thepieuvre"/>
+    	<g:set var="section" scope="request" value="admin"/>
 	</head>
 	<body>
 

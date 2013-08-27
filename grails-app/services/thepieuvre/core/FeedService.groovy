@@ -50,19 +50,14 @@ class FeedService {
 		}
 	}
 
-	def update(def decoded) {
-		Content content = Content.get(decoded?.content?.id)
-		if (content) {
-			log.info "Updating content $content"
-			content.refresh()
-			content.fullText = decoded.fullText
-			content.extractor = decoded.extractor
-			content.mainImage = decoded.mainImage
-        	content.language = decoded.lang
-			queuesService.enqueue(content.article)
-		} else {
-			log.warn "Cannot find content for $decoded?.content?.id -> $decoded"
-		}
+	def update(Content content, def json) {
+		log.info "Updating content $content"
+		content.refresh()
+		content.fullText = json.fullText
+		content.extractor = json.extractor
+		content.mainImage = json.mainImage
+        content.language = json.lang
+		queuesService.enqueue(content.article)
 	}
 
 	def update(Feed feed, def json) {

@@ -5,7 +5,7 @@ import thepieuvre.exception.ApiException
 import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 
-@Secured(['ROLE_FEED_API'])
+@Secured(['ROLE_API'])
 class FeedController {
 
 	def feedService
