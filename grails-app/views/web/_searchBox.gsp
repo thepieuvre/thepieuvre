@@ -3,6 +3,9 @@
     <nav class="navbar navbar-default" role="navigation">
    
       <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <g:if test="${params.board}">
+          <a href="#followFeedModal" data-toggle="modal"  class="btn btn-info btn-sm navbar-btn navbar-left">Follow Feed</a>
+        </g:if>
         <g:form class="navbar-form navbar-left" role="form" action="executor" controller="welcome">
           <div class="form-group">
             <label class="sr-only" for="command">Type some words or :help</label>
@@ -61,3 +64,30 @@
     </div> 
   </div>
 </div>
+
+<!-- Modal Follow Feed -->
+<g:if test="${params.board}">
+  <div class="modal fade" id="followFeedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <g:form action="follow" role="form">
+        <input type="hidden" name="board" id="board" value="${(board)?board.id:-1}">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Follow Feed...</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="feed">Feed or Web page address</label>
+              <input class="form-control" id="feed" name="feed" placeholder="The address">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Follow</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </g:form>
+      </div> 
+    </div>
+  </div>
+</g:if>
