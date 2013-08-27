@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-lg-10">
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" >
         <li><a href="#">TODO Your Article</a></li>
         <li><a href="#">TODO Board Name</a></li>
         <li><g:link controller="welcome" action="searchByFeed" params="[feed: article.feed.id]">${article.feed.title}</g:link></li>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="col-lg-2">
-      <ul class="nav nav-pills nav-stacked">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix">
         <li><strong>Actions</strong></li>
         <li><a href="#">Add to Reader (TODO)</a></li>
         <li><a href="#">Follow this Feed (TODO)</a></li>
