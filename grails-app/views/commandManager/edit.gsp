@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
+		<meta name="layout" content="thepieuvre"/>
+    	<g:set var="section" scope="request" value="admin"/>
 	</head>
 	<body>
 
-<div class="row-fluid">
+<div class="row">
 	<div>
 		<ul class="nav nav-tabs">
 			<li ><g:link action="list">Command</g:link></li>
@@ -17,7 +18,7 @@
 
 <h2>Edit Command: ${name}</h2>
 
-<div class="row-fluid">
+<div class="row">
 	<g:if test="${flash.message}">
 		<div class="alert alert-error">
 			${flash.message}
@@ -30,46 +31,63 @@
 			</div>
 		</g:hasErrors>
 	</g:else>
+</div>
 
+<div class="row">
 	<g:form class="form-horizontal" action="update" id="${id}" method="post">
-		<div class="control-group">
-			<label for="name" class="control-label">Name</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="name" class="col-lg-2 control-label">Name</label>
+			<div class="col-lg-10">
 				<input type="text" id="name" name="name" value="${name}" />
+				<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="help" class="control-label">Help</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="help" class="col-lg-2 control-label">Help</label>
+			<div class="col-lg-10">
 				<g:textArea name="help" value="${help}" rows="5" cols="40"/>
+				<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="command" class="control-label">Action</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="command" class="col-lg-2 control-label">Action</label>
+			<div class="col-lg-10">
 				<g:textArea name="command" value="${command}" rows="10" cols="40"/>
+				<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="comment" class="control-label">Comment</label>
-			<div class="controls">
+		<div class="form-group">
+			<label for="comment" class="col-lg-2 control-label">Comment</label>
+			<div class="col-lg-10">
 				<g:textArea name="comment" value="${comment}" rows="5" cols="40"/>
+				<p></p>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="active" class="control-label">Is Active</label>
-			<div class="controls">
-				<g:checkBox name="active" value="${true}" checked="${(active)?'true':'false'}" />
+		<div class="form-group">
+			 <div class="col-lg-offset-2 col-lg-10">
+			<div class="checkbox">
+				<label>
+				<input type="checkbox" name="active" value="${true}" checked="${(fieldValue(bean:cmd,field:'active'))?:'true'}">
+					Is Active
+				</label>
+			</div>
 			</div>
 		</div>
-		<div class="control-group">
-			<label for="sudo" class="control-label">Is Sudo</label>
-			<div class="controls">
-				<g:checkBox name="sudo" value="${true}" checked="${(sudo)?'true':'false'}" />
+		<div class="form-group">
+			 <div class="col-lg-offset-2 col-lg-10">
+			<div class="checkbox">
+				<label>
+				<input type="checkbox" name="sudo" value="${true}" checked="${(fieldValue(bean:cmd,field:'sudo'))?:'true'}">
+					Is Sudo
+				</label>
+			</div>
 			</div>
 		</div>
-		<div class="form-actions">
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
 			<input type="submit" name="update" class="btn btn-primary" value="Save" id="update" />
+				<p></p>
+		</div>
 		</div>
 	</g:form>
 
