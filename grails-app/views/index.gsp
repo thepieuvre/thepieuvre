@@ -68,7 +68,7 @@
             <label class="control-label" for="password">A Password</label>
             <div class="controls">
               <input type="password" class="input-xlarge" name="password">
-              <p class="help-block">Well at least 8 characters long adn must look complex.</p>
+              <p class="help-block">Well at least 8 characters long and must look complex.</p>
             </div>
           </div>
          
