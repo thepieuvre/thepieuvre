@@ -3,7 +3,7 @@ package thepieuvre.core
 class Article {
 
 	String uid
-	String title
+	String title = 'No title'
 	String link
 	String author
 
