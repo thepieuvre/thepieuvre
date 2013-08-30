@@ -10,3 +10,4 @@ thepieuvre.sublime-workspace
 Todo.txt
 *.war
 .gitignore
+target/
