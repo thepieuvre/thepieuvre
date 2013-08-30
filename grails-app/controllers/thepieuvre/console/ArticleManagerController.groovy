@@ -8,6 +8,7 @@ import grails.plugins.springsecurity.Secured
 class ArticleManagerController {
 
 	def articleService
+	def queuesService
 
 	private def withArticle(id='id', Closure c) {
 		Article article = Article.get(params[id])
@@ -67,6 +68,10 @@ class ArticleManagerController {
 		}
 	}
 
+	def tools = {
+		[countedArticles: Article.count()]
+	}
+
 	def delete(long id) {
 		withArticle { article ->
 			article.delete()
@@ -76,5 +81,32 @@ class ArticleManagerController {
 
 	def resetForm = {
 		redirect action: 'list'
+	}
+
+	def indexing (int max) {
+		log.info "Forcing re-indexing of $max articles"
+		def query = {
+			isNull('keyWordsShort')
+			maxResults(max)
+		}
+		def criteria = Article.createCriteria()
+		def scrollable = criteria.scroll(query)
+		int counter = 0
+		try {
+			while(scrollable.next()) {
+				def article = scrollable.get(0)
+				queuesService.enqueue(article.contents)
+				log.debug "Re-indexing -> $article.id"
+				counter++
+			}
+		} catch(Exception e) {
+			log.error "An error occurred while collecting the list of articles", e
+		} finally {
+			if (scrollable != null) {
+				scrollable.close()
+			}
+		}
+		flash.message = "$counter articles pushed for re-indexing"
+		redirect controller: 'hermes', action: 'index'
 	}
 }
