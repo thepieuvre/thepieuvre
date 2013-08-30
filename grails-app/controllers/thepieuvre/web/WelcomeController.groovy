@@ -250,11 +250,16 @@ $message
 
 	@Secured(['ROLE_MEMBER'])
 	def article = {
+		if (! params.id) {
+	        flash.message = 'Sorry, the Pieuvre cannot find your article.'
+	        forward action: 'home'
+	        return true		
+		}
 		try {
 			def member = springSecurityService.currentUser
 			Article article = Article.get(params.id as long)
 	        if (! article) {
-	              forward controller: 'error', action: 'notFound'
+	            forward controller: 'error', action: 'notFound'
 	            return false
 	        }
 			if (! article?.language?.startsWith('en')) {

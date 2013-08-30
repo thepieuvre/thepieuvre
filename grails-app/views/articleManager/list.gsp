@@ -10,6 +10,7 @@
 	<div>
 		<ul class="nav nav-tabs">
 			<li class="active"><g:link action="list">Articles</g:link></li>
+			<li><g:link action="tools">Tools</g:link></li>
 		</ul>
 	</div>
 </div>
