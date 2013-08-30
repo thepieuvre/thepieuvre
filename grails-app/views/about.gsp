@@ -14,7 +14,7 @@
 
 		<p>Our purpose is to provide a new way of organising and reading information on the Internet.</p>
 
-		<p>Today, there are so much sources of information, so much topics, so much different opinions, <em>etc.</em> on the Internet that it requires an important time to follow all those information. The Pieuvre is a multi-purposes tool for answering to those problematics.</p>
+		<p>Today, there are so many sources of information, so many topics, so many different opinions, <em>etc.</em> on the Internet that it requires an important time to follow all this information. The Pieuvre is a multi-purposes tool answering these problematics.</p>
 
 		<p>The Pieuvre organises and finds the information for you.</p>
 
@@ -26,7 +26,7 @@
 
 		<h2>History</h2>
 
-		<p>The idea emerged in September 2012. Too much unread articles in an RSS reader and the observation that the same news/information was covered by several feeds. Then, why not sorting and grouping articles based on news?</p>
+		<p>The idea emerged in September 2012. Too many unread articles in an RSS reader and the observation that the same news/information was covered by several feeds. Then, why not sorting and grouping articles based on news?</p>
 
 		<p>December 2012, let&rsquo;s start coding... January 2013 thepieuvre.com domain is acquired... February 2013 first demos... and keep writing its history...</p>
 	</body>
