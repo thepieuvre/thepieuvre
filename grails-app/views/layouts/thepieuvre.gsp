@@ -73,7 +73,7 @@
             <li><a data-toggle="modal" href="#loginModal">Login</a></li>
           </sec:ifNotLoggedIn>
         </ul>
-        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
+        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;"><img  src="${resource(dir:'images', file:'logo.png')}">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
 
     <g:layoutBody/>
