@@ -19,6 +19,9 @@
     <!-- The Pieuvre customisation -->
     <link href="${resource(dir:'css', file:'thepieuvre.css')}" rel='stylesheet' type='text/css'>
 
+    <!-- Icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="${resource(dir:'images', file:'favicon.ico')}">
+
     <g:javascript library="jquery" plugin="jquery"/>
     <r:layoutResources />
 
