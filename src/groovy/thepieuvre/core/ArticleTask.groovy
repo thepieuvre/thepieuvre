@@ -28,17 +28,7 @@ class ArticleTask implements Runnable {
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
 							} else {
 								log.info "updating content: $decoded.content.id"
-								Content.withNewSession { session ->
-								def query = Content.where {
-										id == decoded.content.id
-									}
-									Content content = query.find()
-									if (content) {
-										grailsApplication.mainContext.feedService.update(content, decoded.content)
-									} else {
-										log.warn "Cannot find content for $decoded.content.id -> $decoded"
-									}
-								}
+								grailsApplication.mainContext.feedService.updateContent(decoded)
 							}
 						} else {
 							continue
