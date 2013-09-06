@@ -89,11 +89,7 @@ class FeedService {
 						article.title = (entry.title != 'null')?entry.title:null
 						article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
 						entry.contents.each { content ->
-							if (article.contents && article.contents.raw.size() > content.size()) {
-								article.contents = new Content(raw: content, article: article)
-							} else {
-								article.contents = new Content(raw: content, article: article)
-							} 
+							article.contents = new Content(raw: content, article: article)
 						}
 
 						if (!article.contents) {
