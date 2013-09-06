@@ -50,14 +50,19 @@ class FeedService {
 		}
 	}
 
-	def update(Content content, def json) {
-		log.info "Updating content $content"
-		content.refresh()
-		content.fullText = json.fullText
-		content.extractor = json.extractor
-		content.mainImage = json.mainImage
-        content.language = json.lang
-		queuesService.enqueue(content.article)
+	def updateContent(def json) {
+		Content content = Content.lock(json.content.id as long)
+		if (content) {
+			log.info "Updating content $content"
+			content.fullText = json.content.fullText
+			content.extractor = json.content.extractor
+			content.mainImage = json.content.mainImage
+        	content.language = json.content.lang
+        	content.save()
+			queuesService.enqueue(content.article)
+		} else {
+			log.warn "Cannot find content for $json.content.id -> $json"
+		}
 	}
 
 	def update(Feed feed, def json) {
@@ -95,6 +100,8 @@ class FeedService {
 						if (!article.contents) {
 							article.contents = new Content(raw: 'null', article: article)
 						}
+
+						article.contents.save()
 
 						article.link = entry.link
 
