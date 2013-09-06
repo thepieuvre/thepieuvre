@@ -5,7 +5,7 @@ import org.apache.log4j.Logger
 import redis.clients.jedis.Jedis
 
 class ArticleTask implements Runnable {
-	private static final Logger log = Logger.getLogger(FeedParser.class)
+	private static final Logger log = Logger.getLogger(ArticleTask.class)
 
  	def grailsApplication
 
