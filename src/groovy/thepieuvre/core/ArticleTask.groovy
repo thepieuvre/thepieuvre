@@ -16,10 +16,12 @@ class ArticleTask implements Runnable {
  	@Override
  	void run() {
  		while(true) {
-			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
-						def task = redis.blpop(60000, 'queue:article')
+						def task
+						grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
+							task = redis.blpop(60000, 'queue:article')
+						}
 						if (task) {
 							log.info "Getting original content from queue:article"
 							def decoded = JSON.parse(task[1])
@@ -38,8 +40,6 @@ class ArticleTask implements Runnable {
 						continue
 					}
 				}
-			}
-
  		}
  	}
 }

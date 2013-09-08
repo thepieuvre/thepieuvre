@@ -2,6 +2,8 @@ package thepieuvre.core
 
 class Content {
 
+	def queuesService
+
 	String raw
 
 	String fullText
@@ -20,5 +22,9 @@ class Content {
 		fullText nullable: true, maxSize: 1048576
 		mainImage nullable: true, url: true
         language nullable: true
+	}
+
+	def afterInsert() {
+		queuesService.enqueue(this)
 	}
 }
