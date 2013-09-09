@@ -72,20 +72,20 @@ environments {
 
       grails.mail.default.from="noreply@thepieuvre.com"
 
-      grails {
-        mail {
-          overrideAddress="adicosta@me.com"
-
-          host = "smtp.gmail.com"
-          port = 465
-          username = "alex@thepieuvre.com"
-          password = "w=upc+6r"
-          props = ["mail.smtp.auth":"true",
-                  "mail.smtp.socketFactory.port":"465",
-                  "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                  "mail.smtp.socketFactory.fallback":"false"]
-        }
-      }
+        // Put in "file:${userHome}/thepieuvre/thepieuvre-config.groovy"
+        //grails {
+        // mail {
+        //         overrideAddress="youremail@email.com"
+        //         host = "smtp.mail.com"
+        //         port = 465
+        //         username = "XXXX"
+        //         password = "YYYY"
+        //         props = ["mail.smtp.auth":"true",
+        //                 "mail.smtp.socketFactory.port":"465",
+        //                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+        //                 "mail.smtp.socketFactory.fallback":"false"]
+        // }
+        //}
 
       grails {
         redis {
