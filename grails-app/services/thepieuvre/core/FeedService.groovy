@@ -51,6 +51,7 @@ class FeedService {
 	}
 
 	def updateContent(def json) {
+		log.info "Updating content with $json"
 		Content content = Content.load(json.content.id)
 		if (content) {
 			log.info "Updating content $content"
