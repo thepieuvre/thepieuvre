@@ -36,8 +36,9 @@ class FeedParser implements Runnable {
 							def decoded = JSON.parse(sanitized)
 							log.debug "Updating feed ${decoded?.id}"
 							if (decoded?.id) {
-								grailsApplication.mainContext.feedService.update(decoded)
+								def contents = grailsApplication.mainContext.feedService.update(decoded)
 								log.debug "Updated feed ${decoded.id}"
+								grailsApplication.mainContext.feedService.extractor(contents)
 							} else {
 								log.warn "Cannot update feed with $decoded"
 							}
