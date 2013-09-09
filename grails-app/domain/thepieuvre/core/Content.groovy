@@ -23,8 +23,5 @@ class Content {
 		mainImage nullable: true, url: true
         language nullable: true
 	}
-
-	def afterInsert() {
-		queuesService.enqueue(this)
-	}
+	
 }
