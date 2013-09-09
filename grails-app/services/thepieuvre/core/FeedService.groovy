@@ -51,7 +51,7 @@ class FeedService {
 	}
 
 	def updateContent(def json) {
-		Content content = Content.get(json.content.id)
+		Content content = Content.load(json.content.id)
 		if (content) {
 			log.info "Updating content $content"
 			content.fullText = json.content.fullText
@@ -61,11 +61,19 @@ class FeedService {
 			queuesService.enqueue(content.article)
 		} else {
 			log.warn "Cannot find content for $json.content.id -> $json"
+
+		}
+	}
+
+	def extractor(def contents) {
+		contents.each { content ->
+			queuesService.enqueue(content)
 		}
 	}
 
 	def update(def json) {
 		Feed feed= Feed.lock(json.id as Long)
+		def contents = []
 		log.info "Updating Feed $feed"
 		if (! feed) {
 			log.warn "Cannot find feed with $json"
@@ -111,6 +119,7 @@ class FeedService {
 							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
 						} else {
+							contents << article.contents
 							log.info "Updated feed $feed with $article and content $article.contents.id"
 						}
 					}
@@ -129,9 +138,14 @@ class FeedService {
 			}
 
 			feed.lastError = null
+
+			if (! feed.save(flush: true)) {
+				log.error "Cannot update feed $feed -- ${feed.errors as String}"
+			}
 		} catch (Exception e) {
 			log.error "Cannot update feed", e
 		}
+		return contents
 	}
 
 	def desactive(Feed feed) {

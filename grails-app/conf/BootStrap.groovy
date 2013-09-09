@@ -1,7 +1,6 @@
 import grails.util.Environment
 
 import thepieuvre.core.ArticleTask
-import thepieuvre.core.ContentPersistenceListener
 import thepieuvre.core.FeederTask
 import thepieuvre.core.FeedParser
 import thepieuvre.member.Member
@@ -18,9 +17,7 @@ class BootStrap {
     def grailsApplication
 
     def init = { servletContext ->
-        grailsApplication.mainContext.eventTriggeringInterceptor.datastores.each { k, datastore ->
-            grailsApplication.mainContext.addApplicationListener new ContentPersistenceListener(datastore, grailsApplication)
-        }
+
 
     	def roles = [
     		['ROLE_ROOT', 'The super administrator of the system'],
