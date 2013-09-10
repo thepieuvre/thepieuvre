@@ -45,4 +45,12 @@ class Article {
         }
 	}
 
+	String getPublished() {
+		if(published == 'null') {
+			dateCreated as String
+		} else {
+			published
+		}
+	}
+
 }
