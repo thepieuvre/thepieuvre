@@ -103,7 +103,7 @@ class FeedService {
 						Article article = new Article()
 						article.feed = feed
 						article.uid = (entry.id != 'null')?entry.id:'-1'
-						article.title = (entry.title != 'null')?entry.title:null
+						article.title = (entry.title != 'null')?entry.title:'No title'
 						article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
 						entry.contents.each { content ->
 							article.contents = new Content(raw: content, article: article)
