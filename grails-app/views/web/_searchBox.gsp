@@ -2,7 +2,16 @@
   <div class="col-lg-12">
     <nav class="navbar navbar-default navbar-fixed-100" role="navigation">
    
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-search-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-search-collapse">
         <g:if test="${params.board}">
           <a href="#followFeedModal" data-toggle="modal"  class="btn btn-info btn-sm navbar-btn navbar-left">Follow Feed</a>
         </g:if>
