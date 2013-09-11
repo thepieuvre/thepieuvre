@@ -86,7 +86,7 @@
         <li><a href="#">Add to Reader (TODO)</a></li>
         <li><a href="#">Follow this Feed (TODO)</a></li>
         <li><strong>Sharing</strong></li>
-        <li><a href="#">Tweeter (TODO)</a></li>
+        <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
       </ul>
     </div>
   </div>
