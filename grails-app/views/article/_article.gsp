@@ -47,8 +47,8 @@
             <li><g:link action="article" id="${article.id}" params="${(board)?['boardName': board]:[:]}">Explore this Article</g:link></li>
             <li><a href="${article.link}" target="_blank">Open the Source</a></li>    
             <li>Add to Reader</li>
-            <li>Tweet it</li>
             <li>Follow this Feed</li>
+            <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
         </ul>
     </div>
 </div>
