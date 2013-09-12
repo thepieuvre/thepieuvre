@@ -28,9 +28,11 @@ class ArticleTask implements Runnable {
 							if (decoded.nlp?.id) {
 								log.info "updating nl processing"
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
-							} else {
-								log.info "updating content: $decoded?.content?.id"
+							} else if (decoded.content?.id) {
+								log.info "updating content: ${decoded?.content?.id}"
 								grailsApplication.mainContext.feedService.updateContent(decoded)
+							} else {
+								log.debug "Unknow message $decoded"
 							}
 						} else {
 							continue
