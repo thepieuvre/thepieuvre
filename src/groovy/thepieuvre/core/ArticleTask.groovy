@@ -5,7 +5,7 @@ import org.apache.log4j.Logger
 import redis.clients.jedis.Jedis
 
 class ArticleTask implements Runnable {
-	private static final Logger log = Logger.getLogger(FeedParser.class)
+	private static final Logger log = Logger.getLogger(ArticleTask.class)
 
  	def grailsApplication
 
@@ -16,29 +16,23 @@ class ArticleTask implements Runnable {
  	@Override
  	void run() {
  		while(true) {
-			grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
 				while(true) {
 					try {
-						def task = redis.blpop(60000, 'queue:article')
+						def task
+						grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
+							task = redis.blpop(60000, 'queue:article')
+						}
 						if (task) {
 							log.info "Getting original content from queue:article"
 							def decoded = JSON.parse(task[1])
 							if (decoded.nlp?.id) {
 								log.info "updating nl processing"
 								grailsApplication.mainContext.articleService.updateNlp(decoded.nlp)
+							} else if (decoded.content?.id) {
+								log.info "updating content: ${decoded?.content?.id}"
+								grailsApplication.mainContext.feedService.updateContent(decoded)
 							} else {
-								log.info "updating content: $decoded.content.id"
-								Content.withNewSession { session ->
-								def query = Content.where {
-										id == decoded.content.id
-									}
-									Content content = query.find()
-									if (content) {
-										grailsApplication.mainContext.feedService.update(content, decoded.content)
-									} else {
-										log.warn "Cannot find content for $decoded.content.id -> $decoded"
-									}
-								}
+								log.debug "Unknow message $decoded"
 							}
 						} else {
 							continue
@@ -48,8 +42,6 @@ class ArticleTask implements Runnable {
 						continue
 					}
 				}
-			}
-
  		}
  	}
 }

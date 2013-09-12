@@ -50,20 +50,37 @@ class FeedService {
 		}
 	}
 
-	def update(Content content, def json) {
-		log.info "Updating content $content"
-		content.refresh()
-		content.fullText = json.fullText
-		content.extractor = json.extractor
-		content.mainImage = json.mainImage
-        content.language = json.lang
-		queuesService.enqueue(content.article)
+	def updateContent(def json) {
+		log.info "Updating content with $json"
+		Content content = Content.load(json.content?.id)
+		if (content) {
+			log.info "Updating content $content"
+			content.fullText = json.content.fullText
+			content.extractor = json.content.extractor
+			content.mainImage = json.content.mainImage
+        	content.language = json.content.lang
+			queuesService.enqueue(content.article)
+		} else {
+			log.warn "Cannot find content for $json.content.id -> $json"
+
+		}
 	}
 
-	def update(Feed feed, def json) {
-		log.info "Updating Feed $feed "
+	def extractor(def contents) {
+		contents.each { content ->
+			queuesService.enqueue(content)
+		}
+	}
+
+	def update(def json) {
+		Feed feed= Feed.lock(json.id as Long)
+		def contents = []
+		log.info "Updating Feed $feed"
+		if (! feed) {
+			log.warn "Cannot find feed with $json"
+			return false
+		}
 		try {
-			feed = Feed.lock(feed.id)
 			feed.lastChecked = new Date()
 			feed.lastStatus = json.status as int
 			Date now = new Date()
@@ -86,14 +103,10 @@ class FeedService {
 						Article article = new Article()
 						article.feed = feed
 						article.uid = (entry.id != 'null')?entry.id:'-1'
-						article.title = (entry.title != 'null')?entry.title:null
+						article.title = (entry.title != 'null')?entry.title:'No title'
 						article.author = (entry.author != 'null')?htmlCleaner.cleanHtml(entry.author, 'none'):null
 						entry.contents.each { content ->
-							if (article.contents && article.contents.raw.size() < content.size()) {
-								article.contents = new Content(raw: content, article: article)
-							} else {
-								article.contents = new Content(raw: content, article: article)
-							} 
+							article.contents = new Content(raw: content, article: article)
 						}
 
 						if (!article.contents) {
@@ -107,7 +120,7 @@ class FeedService {
 							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
 						} else {
-							queuesService.enqueue(article.contents)
+							contents << article.contents
 							log.info "Updated feed $feed with $article and content $article.contents.id"
 						}
 					}
@@ -126,9 +139,14 @@ class FeedService {
 			}
 
 			feed.lastError = null
+
+			if (! feed.save(flush: true)) {
+				log.error "Cannot update feed $feed -- ${feed.errors as String}"
+			}
 		} catch (Exception e) {
 			log.error "Cannot update feed", e
 		}
+		return contents
 	}
 
 	def desactive(Feed feed) {
