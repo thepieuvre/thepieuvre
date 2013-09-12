@@ -31,6 +31,7 @@ class Article {
 		keyWords nullable: true, maxSize: 2048
 		keyWordsShort nullable: true, maxSize: 2048
 		similars nullable: true, maxSize: 2048
+		published nullable: true
 	}
 
 	String toString() {
