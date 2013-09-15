@@ -26,6 +26,7 @@
       <h2>${article.title}</h2>
       <p class="lead">${article.published}</p>
       <p class="text-muted"><small><a href="${article.link}" target="_blank">Open the Source</a></small></p>
+      <g:if test="${articleService.getKeyWordsShort(article)}">
       <hr>
       <h3>Keywords <small>Guessed by the Pieuvre</small></h3>
       <ul class="list-inline">
@@ -33,6 +34,7 @@
           <li><g:link controller="welcome" action="searchByKeyWords" params="[keyWords: gram]">${gram}</g:link></li>
         </g:each>
       </ul>
+      </g:if>
       <hr>
       <div class="well">
         <g:if test="${article.contents.raw}">
@@ -63,18 +65,19 @@
           </div>
         </div>
       </g:if>
+      <g:set var="similarsList" value="${articleService.getSimilars(article)}" />
+      <g:if test="${similarsList}">
       <hr>
       <h3>Similars</h3>
-      <g:set var="similars" value="${false}"/>
       <div class="list-group">
-        <g:each in="${articleService.getSimilars(article)}" var="similars">
-          <g:set var="similars" value="${true}"/>
+        <g:each in="${similarsList}" var="similars">
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">${similars.key?.title}  <small>@ ${similars.key?.feed?.title}</small></h4>
                 <p class="list-group-item-text">TODO quick reader and explore / keywords</p>
               </a>
         </g:each>
       </div>
+      </g:if>
     </div>
 
     <div class="col-lg-2">
@@ -83,7 +86,7 @@
         <li><a href="#">Add to Reader (TODO)</a></li>
         <li><a href="#">Follow this Feed (TODO)</a></li>
         <li><strong>Sharing</strong></li>
-        <li><a href="#">Tweeter (TODO)</a></li>
+        <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
       </ul>
     </div>
   </div>

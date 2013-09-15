@@ -17,6 +17,8 @@ class BootStrap {
     def grailsApplication
 
     def init = { servletContext ->
+
+
     	def roles = [
     		['ROLE_ROOT', 'The super administrator of the system'],
             ['ROLE_FEED_MANAGER', 'Manager of Feeds'],

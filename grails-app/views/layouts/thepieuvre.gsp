@@ -19,6 +19,9 @@
     <!-- The Pieuvre customisation -->
     <link href="${resource(dir:'css', file:'thepieuvre.css')}" rel='stylesheet' type='text/css'>
 
+    <!-- Icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="${resource(dir:'images', file:'favicon.ico')}">
+
     <g:javascript library="jquery" plugin="jquery"/>
     <r:layoutResources />
 
@@ -70,7 +73,7 @@
             <li><a data-toggle="modal" href="#loginModal">Login</a></li>
           </sec:ifNotLoggedIn>
         </ul>
-        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;">The Pieuvre <small>Reading the Internet</small></h3>
+        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;"><img  src="${resource(dir:'images', file:'logo.png')}">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
 
     <g:layoutBody/>
@@ -172,5 +175,9 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
         })();
 
     </script>
+
+    <!-- Twitter button -->
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </body>
 </html>

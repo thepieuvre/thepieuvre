@@ -25,29 +25,27 @@ class FeedParser implements Runnable {
 			try {
 				while(true) {
 					log.info "Checking message from queue:feedparser"
-					Feed feed= null
-					grailsApplication.mainContext.redisService.withRedis { Jedis redis ->
-						try {
-							def msg = redis.blpop(60000, 'queue:feedparser')
-							if (msg) {
-								log.info "Getting message from queue:feedparser"
-								def sanitized = sanitize(msg[1])
-								def decoded = JSON.parse(sanitized)
-								Feed.withTransaction {
-									feed= Feed.get(decoded.id as Long)
-									log.debug "Updating feed $feed"
-									if (feed) {
-										grailsApplication.mainContext.feedService.update(feed, decoded)
-										log.debug "Updated feed $feed"
-									} else {
-										log.warn "Cannot update $feed with $decoded"
-									}
-								}
-							} 
-						} catch (Exception e) {
-							log.error "A problem occured with a feed to update", e
+					try {
+						def msg = null
+						grailsApplication.mainContext.redisService.withRedis { Jedis redis -> 
+							msg = redis.blpop(60000, 'queue:feedparser')
+						}
+						if (msg) {
+							log.info "Getting message from queue:feedparser"
+							def sanitized = sanitize(msg[1])
+							def decoded = JSON.parse(sanitized)
+							log.debug "Updating feed ${decoded?.id}"
+							if (decoded?.id) {
+								def contents = grailsApplication.mainContext.feedService.update(decoded)
+								log.debug "Updated feed ${decoded.id}"
+								grailsApplication.mainContext.feedService.extractor(contents)
+							} else {
+								log.warn "Cannot update feed with $decoded"
+							}
 						} 
-					}
+					} catch (Exception e) {
+						log.error "A problem occured with a feed to update", e
+					} 
 				}
 			} catch (Exception e) {
 				log.warn e

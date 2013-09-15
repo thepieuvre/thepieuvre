@@ -15,19 +15,25 @@
                     <g:if test="${article.author && article.author != 'null'}">
                         <p><strong>By</strong> <g:link controller="welcome" action="searchByAuthor" params="[author: article.author]">${article.author}</g:link></p>
                     </g:if>
+                    <g:if test="${articleService.getKeyWordsShort(article)}">
                     <p><strong>Keywords</strong></p>
                     <ul class="list-inline">
                         <g:each in="${articleService.getKeyWordsShort(article)}" var="gram">
                             <li><g:link controller="welcome" action="searchByKeyWords" params="[keyWords: gram]">${gram}</g:link></li>
                         </g:each>
                     </ul>
+                    </g:if>
                 </div>
             </div>
+            <g:set var="similars" value="${articleService.getSimilars(article)}" />
+            <g:if test="${similars}">
             <hr>
             <strong>Similars</strong>
+            </g:if>
     </div>
+    <g:if test="${similars}">
     <ul class="list-group">
-        <g:each status="i" in="${articleService.getSimilars(article)}" var="related">
+        <g:each status="i" in="${similars}" var="related">
             <g:if test="${i < 5 && related.key}">
                 <li class="list-group-item">
                 <g:link action="article" id="${related.key.id}">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
@@ -35,13 +41,14 @@
             </g:if>
         </g:each>
     </ul>
+    </g:if>
     <div class="panel-footer">
         <ul class="list-inline">
             <li><g:link action="article" id="${article.id}" params="${(board)?['boardName': board]:[:]}">Explore this Article</g:link></li>
             <li><a href="${article.link}" target="_blank">Open the Source</a></li>    
             <li>Add to Reader</li>
-            <li>Tweet it</li>
             <li>Follow this Feed</li>
+            <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
         </ul>
     </div>
 </div>
