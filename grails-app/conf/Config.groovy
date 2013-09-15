@@ -72,20 +72,20 @@ environments {
 
       grails.mail.default.from="noreply@thepieuvre.com"
 
-      grails {
-        mail {
-          overrideAddress="adicosta@me.com"
-
-          host = "smtp.gmail.com"
-          port = 465
-          username = "alex@thepieuvre.com"
-          password = "***REMOVED***"
-          props = ["mail.smtp.auth":"true",
-                  "mail.smtp.socketFactory.port":"465",
-                  "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                  "mail.smtp.socketFactory.fallback":"false"]
-        }
-      }
+        // Put in "file:${userHome}/thepieuvre/thepieuvre-config.groovy"
+        //grails {
+        // mail {
+        //         overrideAddress="youremail@email.com"
+        //         host = "smtp.mail.com"
+        //         port = 465
+        //         username = "XXXX"
+        //         password = "YYYY"
+        //         props = ["mail.smtp.auth":"true",
+        //                 "mail.smtp.socketFactory.port":"465",
+        //                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+        //                 "mail.smtp.socketFactory.fallback":"false"]
+        // }
+        //}
 
       grails {
         redis {
@@ -95,7 +95,7 @@ environments {
           }
           port = 6379
           host = "localhost"
-          timeout = 2000 //default in milliseconds
+          timeout = 30000 //default in milliseconds
           //password = "somepassword" //defaults to no password
       }
 }
@@ -152,7 +152,6 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/admin/**': ['IS_AUTHENTICATED_FULLY'],
     '/welcome/**': ['permitAll'],
     '/member/**': ['permitAll'],
-    '/favicon.ico': ['permitAll'], // TODO temporary fixe, remove it in next-ui
     '/': ['permitAll'],
     '/**': ['denyAll']
 ]
@@ -205,8 +204,7 @@ log4j = {
          'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
          'org.springframework',
          'org.hibernate',
-         'net.sf.ehcache.hibernate',
-         'org.quartz'
+         'net.sf.ehcache.hibernate'
 
   info  'grails.app.taglib'
 
