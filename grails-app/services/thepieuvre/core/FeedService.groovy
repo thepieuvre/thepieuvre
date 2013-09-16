@@ -135,7 +135,7 @@ class FeedService {
 			log.info "$feed will be checked on $feed.checkOn"
 
 			if (feed.lastStatus == 301) {
-				feed.link = json.moved
+				feed.moved = json.moved
 			}
 
 			feed.lastError = null
