@@ -153,7 +153,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/welcome/**': ['permitAll'],
     '/member/**': ['permitAll'],
     '/': ['permitAll'],
-    '/**': ['denyAll']
+    '/**': ['IS_AUTHENTICATED_FULLY']
 ]
 
 grails.plugins.springsecurity.filterChain.filterNames = [
