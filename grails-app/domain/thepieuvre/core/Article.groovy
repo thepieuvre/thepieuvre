@@ -7,7 +7,7 @@ class Article {
 	String link
 	String author
 
-	String published
+	String published = new Date() as String
 
 	Date dateCreated
 
