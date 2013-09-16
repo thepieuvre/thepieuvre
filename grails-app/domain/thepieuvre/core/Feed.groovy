@@ -4,6 +4,7 @@ class Feed {
 
 	String title
 	String link
+	String moved // sometime it might target another feed's link
 	String description
 	String language	
 	String updated
@@ -31,6 +32,7 @@ class Feed {
 
 	static constraints = {
 		link url: true, nullable: false, blank: false, unique: true, maxSize: 1024
+		moved url: true, nullable: true, blank: false, maxSize: 1024
 		comment nullable: true, blank: false, maxSize: 4096
 		title nullable: true
 		description nullable: true, maxSize: 4096
@@ -61,6 +63,14 @@ class Feed {
 			return '--'
 		} else {
 			return description
+		}
+	}
+
+	String getLink() {
+		if (moved) {
+			return moved
+		} else {
+			return link
 		}
 	}
 }
