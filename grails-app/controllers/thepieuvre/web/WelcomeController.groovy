@@ -228,7 +228,8 @@ $message
 				Member m = memberService.signUp(cmd.properties)
 				memberService.verificationNotification(m)
 				log.info "New member signed up: $m"
-				redirect action: 'index'
+				springSecurityService.reauthenticate m.username
+				redirect action: 'home'
 			} catch (grails.validation.ValidationException e) {
 				log.debug "Signing up failed", e
 				render view: '/signUp', model: ['form': e]
