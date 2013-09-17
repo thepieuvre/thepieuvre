@@ -102,8 +102,7 @@ $message
 					'articles': articles, 
 					'boardName': board,
 					'board': Board.get(params.board),
-					'boards': member?.boards,
-					'articleService': articleService, 
+					'articleService': articleService
 				]
 			} else {
 				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
@@ -272,8 +271,8 @@ $message
 			render view:'/article/article', model: ['article': article,
 				'articleService': articleService,
 				'boardName': params.boardName,
-				'board': member.boards.find { it.name == params.boardName }?.id,
-				'boards': member.boards] 
+				'board': member.boards.find { it.name == params.boardName }?.id
+			] 
 		} catch (java.lang.NumberFormatException e) {
 			log.warn "Someone trying hacking: ", e
 			forward controller: 'error', action: 'notFound'
