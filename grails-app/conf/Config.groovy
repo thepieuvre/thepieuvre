@@ -151,7 +151,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/hermes/**': ['ROLE_ROOT'],
     '/admin/**': ['IS_AUTHENTICATED_FULLY'],
     '/welcome/**': ['permitAll'],
-    '/member/**': ['permitAll'],
+    '/member/**': ['IS_AUTHENTICATED_FULLY','IS_AUTHENTICATED_ANONYMOUSLY'],
     '/': ['permitAll'],
     '/**': ['IS_AUTHENTICATED_FULLY']
 ]
