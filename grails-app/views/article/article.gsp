@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<g:set var="articleService" bean="articleService"/>
+
 <html>
 	<head>
 		<meta name="layout" content="thepieuvre"/>

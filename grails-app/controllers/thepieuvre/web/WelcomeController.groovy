@@ -101,12 +101,10 @@ $message
 				render view: '/home', model: [
 					'articles': articles, 
 					'boardName': board,
-					'board': Board.get(params.board),
-					'boards': member?.boards,
-					'articleService': articleService, 
+					'board': Board.get(params.board)
 				]
 			} else {
-				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
+				render template: '/article/article', collection:articles, var: 'article'
 			}
 			log.info "Welcome - Rendered Home"
 		} else {
@@ -126,7 +124,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "'${params.keyWords}'"]]
 	}
 
@@ -142,7 +139,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "by ${params.author}"]]
 	}
 
@@ -160,7 +156,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "from ${Feed.get(params.feed)?.title}"]]
 	}
 
@@ -175,7 +170,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "similar ${art.id}"]]
 	}
 
@@ -190,7 +184,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "related ${art.id}"]]
 	}
 
@@ -221,7 +214,6 @@ $message
 			render view: '/home', model: ['articles': articles,
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
-				'articleService': articleService,
 				'command': params.command]
 		}
 	}
@@ -236,7 +228,8 @@ $message
 				Member m = memberService.signUp(cmd.properties)
 				memberService.verificationNotification(m)
 				log.info "New member signed up: $m"
-				redirect action: 'index'
+				springSecurityService.reauthenticate m.username
+				redirect action: 'home'
 			} catch (grails.validation.ValidationException e) {
 				log.debug "Signing up failed", e
 				render view: '/signUp', model: ['form': e]
@@ -272,8 +265,8 @@ $message
 			render view:'/article/article', model: ['article': article,
 				'articleService': articleService,
 				'boardName': params.boardName,
-				'board': member.boards.find { it.name == params.boardName }?.id,
-				'boards': member.boards] 
+				'board': member.boards.find { it.name == params.boardName }?.id
+			] 
 		} catch (java.lang.NumberFormatException e) {
 			log.warn "Someone trying hacking: ", e
 			forward controller: 'error', action: 'notFound'

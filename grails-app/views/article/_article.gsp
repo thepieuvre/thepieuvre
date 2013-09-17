@@ -1,3 +1,5 @@
+<g:set var="articleService" bean="articleService"/>
+
 <div id="article">
 <div class="panel panel-default">
     <div class="panel-heading">
