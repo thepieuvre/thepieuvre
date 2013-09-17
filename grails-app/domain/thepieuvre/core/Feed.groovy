@@ -35,7 +35,7 @@ class Feed {
 		moved url: true, nullable: true, blank: false, maxSize: 1024
 		comment nullable: true, blank: false, maxSize: 4096
 		title nullable: true
-		description nullable: true, maxSize: 4096
+		description nullable: true, maxSize: 1048576
 		language nullable: true
 		updated nullable: true
 		eTag nullable: true
