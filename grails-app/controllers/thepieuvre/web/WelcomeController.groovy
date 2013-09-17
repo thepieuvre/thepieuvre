@@ -101,11 +101,10 @@ $message
 				render view: '/home', model: [
 					'articles': articles, 
 					'boardName': board,
-					'board': Board.get(params.board),
-					'articleService': articleService
+					'board': Board.get(params.board)
 				]
 			} else {
-				render template: '/article/article', collection:articles, var: 'article', model: ['articleService': articleService]
+				render template: '/article/article', collection:articles, var: 'article'
 			}
 			log.info "Welcome - Rendered Home"
 		} else {
@@ -125,7 +124,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "'${params.keyWords}'"]]
 	}
 
@@ -141,7 +139,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "by ${params.author}"]]
 	}
 
@@ -159,7 +156,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "from ${Feed.get(params.feed)?.title}"]]
 	}
 
@@ -174,7 +170,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "similar ${art.id}"]]
 	}
 
@@ -189,7 +184,6 @@ $message
 		render view: '/home', model: ['articles': articles,
 			'tFeeds': Feed.count(),
 			'tArticles': Article.count(),
-			'articleService': articleService,
 			params: ['command': "related ${art.id}"]]
 	}
 
@@ -220,7 +214,6 @@ $message
 			render view: '/home', model: ['articles': articles,
 				'tFeeds': Feed.count(),
 				'tArticles': Article.count(),
-				'articleService': articleService,
 				'command': params.command]
 		}
 	}
