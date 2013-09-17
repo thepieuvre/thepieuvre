@@ -7,6 +7,8 @@ class UrlMappings {
 			}
 		}
 
+		"/member/verification/$token" (controller: 'member', action: 'verification')
+
 		"/api/feed/$id?" (resource: "feed")
 
 		"/"(controller: 'welcome', action:"index")

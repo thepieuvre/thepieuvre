@@ -7,7 +7,7 @@ class Article {
 	String link
 	String author
 
-	String published
+	String published = new Date() as String
 
 	Date dateCreated
 
@@ -23,6 +23,7 @@ class Article {
 	static transients = [ 'language' ]
 
 	static constraints = {
+		title maxSize: 1024
 		link maxSize: 1024
 		uid maxSize: 1024 
 		author nullable: true
