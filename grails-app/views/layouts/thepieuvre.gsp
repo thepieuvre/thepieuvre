@@ -152,7 +152,7 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                                 <p></p>
                             </div>
                             <div class="form-actions">
-                                <button class="btn btn-success" type='submit' id="submit">${message(code: "springSecurity.login.button")}</button>
+                                <button class="btn btn-success" type='submit' id="submit"><g:message code="springSecurity.login.button" /></button>
                             </div>
                         </fieldset>
                     </form>

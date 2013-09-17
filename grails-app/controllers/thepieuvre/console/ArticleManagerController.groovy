@@ -88,6 +88,7 @@ class ArticleManagerController {
 		def query = {
 			isNull('keyWordsShort')
 			maxResults(max)
+			setReadOnly true
 		}
 		def criteria = Article.createCriteria()
 		def scrollable = criteria.scroll(query)
