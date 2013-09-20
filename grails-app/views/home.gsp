@@ -69,6 +69,11 @@ ${(!exit)?'':"Exit: ${exit}"}
           return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"
       }              
     });
+    $(document).ajaxComplete(function(){
+try{
+twttr.widgets.load();
+}catch(ex){}
+});
   });
     </script>
 
