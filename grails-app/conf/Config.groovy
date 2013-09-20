@@ -153,6 +153,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
     '/welcome/**': ['permitAll'],
     '/member/**': ['IS_AUTHENTICATED_FULLY','IS_AUTHENTICATED_ANONYMOUSLY'],
     '/': ['permitAll'],
+    '/robots.txt': ['permitAll'],
     '/**': ['IS_AUTHENTICATED_FULLY']
 ]
 
