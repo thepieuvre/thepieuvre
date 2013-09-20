@@ -49,7 +49,7 @@
             <li><g:link action="article" id="${article.id}" params="${(board)?['boardName': board]:[:]}"><span class="glyphicon glyphicon-eye-open"></span> Exploring</g:link></li>
             <li><a href="${article.link}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> Open</a></li>    
             <li>Add to Reader</li>
-            <li>Follow this Feed</li>
+            <li><pieuvre:follow feed="${article.feed}"/></li>
             <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
         </ul>
     </div>

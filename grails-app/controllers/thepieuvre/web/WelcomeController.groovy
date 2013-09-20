@@ -301,7 +301,7 @@ $message
 		} else {
 			memberService.addFeed(springSecurityService.currentUser, feed)
 		}
-
+		flash.message = "You are now following ${Feed.findByLink(feed)?.title}"
 		forward action: "home", params: [board: board]
 	}
 
