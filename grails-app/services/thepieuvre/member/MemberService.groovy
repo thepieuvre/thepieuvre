@@ -42,6 +42,13 @@ class MemberService {
     	])
     }
 
+    def removeFeed(Member member, Feed feed) {
+        member.feeds.remove(feed)
+        member.boards.each { board ->
+            board.feeds.remove(feed)
+        }
+    }
+
     def addFeed(Member member, String link) {
         Feed feed = Feed.findByLink(link)
         if (! feed) {
