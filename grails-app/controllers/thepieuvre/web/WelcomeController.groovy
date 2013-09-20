@@ -32,7 +32,13 @@ class WelcomeController {
 		render view: '/help'
 	}
 
-	def message(String name, String email, String message) {
+	def message(String name, String email, String message, String foo) {
+		if (foo) {
+			log.info "SPAM contact: $name $email \n $message"
+			flash.message = 'It seams that you are a bot.'
+			redirect action:'home'
+			return
+		}
 		mailService.sendMail {
 			to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }
 			from "noreply@thepieuvre.com"
