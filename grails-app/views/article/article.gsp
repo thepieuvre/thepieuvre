@@ -27,7 +27,7 @@
       </ol>
       <h2>${article.title}</h2>
       <p class="lead">${article.published}</p>
-      <p class="text-muted"><small><a href="${article.link}" target="_blank">Open the Source</a></small></p>
+      <p class="text-muted"><small><a href="${article.link}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> Open</a></small></p>
       <g:if test="${articleService.getKeyWordsShort(article)}">
       <hr>
       <h3>Keywords <small>Guessed by the Pieuvre</small></h3>
