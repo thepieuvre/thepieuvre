@@ -121,6 +121,16 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                                 <p class="help-block">Your message to the Pieuvre.</p>
                             </div>
                         </div>
+                        <div id="fooDiv">
+                            <label for="foo">Leave this field blank</label>
+                            <input type="text" name="foo" id="foo">
+                        </div>
+                        <script>
+                        (function () {
+                            var e = document.getElementById("fooDiv");
+                            e.parentNode.removeChild(e);
+                        })();
+                        </script>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success">Send</button>
                         </div>
