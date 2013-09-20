@@ -15,6 +15,8 @@ class UrlMappings {
 
 		"/admin"(view:"/admin")
 
+		"/robots.txt" (view: "/robots")
+
 		"500"(controller: 'error', action: 'internal')
 		"400"(controller: 'error', action: 'badRequest')
 		"403"(controller: 'error', action: 'accessDenied')
