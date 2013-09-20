@@ -305,4 +305,12 @@ $message
 		forward action: "home", params: [board: board]
 	}
 
+	@Secured(['ROLE_MEMBER'])
+	def unfollow(String feed, String board) {
+		Feed f = Feed.findByLink(feed)
+		memberService.removeFeed(springSecurityService.currentUser, f)
+		flash.message = "You stopped following $f.title"
+		forward action: "home", params: [board: board]
+	}
+
 }
