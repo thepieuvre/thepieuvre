@@ -50,7 +50,7 @@ ${(!exit)?'':"Exit: ${exit}"}
 <!-- End Article Stream -->
 
 
-
+<g:if test="${! params.command}">
  <!-- Infinite Scroll -->
     <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
     <script type="text/javascript">
@@ -76,6 +76,6 @@ twttr.widgets.load();
 });
   });
     </script>
-
+</g:if>
 	</body>
 </html>
