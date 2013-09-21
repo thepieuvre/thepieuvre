@@ -27,7 +27,7 @@
       </ol>
       <h2>${article.title}</h2>
       <p class="lead">${article.published}</p>
-      <p class="text-muted"><small><a href="${article.link}" target="_blank">Open the Source</a></small></p>
+      <p class="text-muted"><small><a href="${article.link}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> Open</a></small></p>
       <g:if test="${articleService.getKeyWordsShort(article)}">
       <hr>
       <h3>Keywords <small>Guessed by the Pieuvre</small></h3>
@@ -86,7 +86,7 @@
       <ul class="nav nav-pills nav-stacked" data-spy="affix">
         <li><strong>Actions</strong></li>
         <li><a href="#">Add to Reader (TODO)</a></li>
-        <li><a href="#">Follow this Feed (TODO)</a></li>
+        <li><pieuvre:follow feed="${article.feed}"/></li>
         <li><strong>Sharing</strong></li>
         <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
       </ul>
