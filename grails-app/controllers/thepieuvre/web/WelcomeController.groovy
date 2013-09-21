@@ -32,7 +32,13 @@ class WelcomeController {
 		render view: '/help'
 	}
 
-	def message(String name, String email, String message) {
+	def message(String name, String email, String message, String foo) {
+		if (foo) {
+			log.info "SPAM contact: $name $email \n $message"
+			flash.message = 'It seams that you are a bot.'
+			redirect action:'home'
+			return
+		}
 		mailService.sendMail {
 			to grailsApplication.config.thepieuvre.mailalert.split(',').collect { it }
 			from "noreply@thepieuvre.com"
@@ -295,7 +301,15 @@ $message
 		} else {
 			memberService.addFeed(springSecurityService.currentUser, feed)
 		}
+		flash.message = "You are now following ${Feed.findByLink(feed)?.title}"
+		forward action: "home", params: [board: board]
+	}
 
+	@Secured(['ROLE_MEMBER'])
+	def unfollow(String feed, String board) {
+		Feed f = Feed.findByLink(feed)
+		memberService.removeFeed(springSecurityService.currentUser, f)
+		flash.message = "You stopped following $f.title"
 		forward action: "home", params: [board: board]
 	}
 
