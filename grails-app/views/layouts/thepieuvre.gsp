@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta name="description" content="The Pieuvre - Reading the Internet: next generation of Internet reader.">
     <meta name="author" content="The P-Team">
 
@@ -73,7 +73,7 @@
             <li><a data-toggle="modal" href="#loginModal">Login</a></li>
           </sec:ifNotLoggedIn>
         </ul>
-        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif;"><img  src="${resource(dir:'images', file:'logo.png')}">The Pieuvre <small>Reading the Internet</small></h3>
+        <h3 class="text-muted" style="font-family: 'Ubuntu', sans-serif; color: #7e1929;"><img  src="${resource(dir:'images', file:'logo.png')}">The Pieuvre <small>Reading the Internet</small></h3>
       </div>
 
     <g:layoutBody/>
@@ -121,6 +121,16 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                                 <p class="help-block">Your message to the Pieuvre.</p>
                             </div>
                         </div>
+                        <div id="fooDiv">
+                            <label for="foo">Leave this field blank</label>
+                            <input type="text" name="foo" id="foo">
+                        </div>
+                        <script>
+                        (function () {
+                            var e = document.getElementById("fooDiv");
+                            e.parentNode.removeChild(e);
+                        })();
+                        </script>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success">Send</button>
                         </div>

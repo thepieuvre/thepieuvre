@@ -50,7 +50,7 @@ ${(!exit)?'':"Exit: ${exit}"}
 <!-- End Article Stream -->
 
 
-
+<g:if test="${! params.command}">
  <!-- Infinite Scroll -->
     <script src="${resource(dir:'js',file:'jquery.infinitescroll.min.js')}"></script>
     <script type="text/javascript">
@@ -69,8 +69,13 @@ ${(!exit)?'':"Exit: ${exit}"}
           return "${createLink(controller: 'welcome', action: 'index' )}"+'?offSet='+(25*page)+"&${params.collect {k,v-> "$k=$v"}.join('&')}"
       }              
     });
+    $(document).ajaxComplete(function(){
+try{
+twttr.widgets.load();
+}catch(ex){}
+});
   });
     </script>
-
+</g:if>
 	</body>
 </html>
