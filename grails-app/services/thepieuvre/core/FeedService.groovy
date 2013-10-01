@@ -140,9 +140,6 @@ class FeedService {
 
 			feed.lastError = null
 
-			if (! feed.save(flush: true)) {
-				log.error "Cannot update feed $feed -- ${feed.errors as String}"
-			}
 		} catch (Exception e) {
 			log.error "Cannot update feed", e
 		}
