@@ -115,7 +115,7 @@ class FeedService {
 
 						article.link = entry.link
 
-						article.published = (entry.published)?:(new Date() as String)
+						article.published = entry.published
 						if(! article.save(flush: true, deepValidate: true)) {
 							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
