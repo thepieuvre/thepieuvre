@@ -242,7 +242,6 @@ $message
 			}
 		} else {
 			log.debug "Signing up invalid: ${cmd.errors}"
-			flash.message = "${cmd.errors}"
 			render view: '/signUp', model: ['form': cmd]
 		}
 	}

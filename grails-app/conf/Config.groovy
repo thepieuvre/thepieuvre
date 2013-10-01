@@ -108,18 +108,6 @@ environments {
   }
 }
 
-// Fix grails taglib g:paginate to work with bootstrap css
-grails.plugins.twitterbootstrap.fixtaglib = true
-
-grails.resources.modules = {
-
-    'custom-bootstrap' {
-        dependsOn 'bootstrap'
-        resource url:[dir: 'less', file: 'custom-bootstrap.less'], attrs:[rel: "stylesheet/less", type:'css']
-    }
-
-}
-
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'thepieuvre.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'thepieuvre.security.UserRole'

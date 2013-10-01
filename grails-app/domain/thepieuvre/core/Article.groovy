@@ -48,7 +48,7 @@ class Article {
 	}
 
 	String getPublished() {
-		if(published == 'null') {
+		if(! published || published == 'null') {
 			dateCreated as String
 		} else {
 			published
