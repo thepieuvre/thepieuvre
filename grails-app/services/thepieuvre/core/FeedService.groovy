@@ -52,7 +52,7 @@ class FeedService {
 
 	def updateContent(def json) {
 		log.info "Updating content with $json"
-		Content content = Content.load(json.content?.id)
+		Content content = Content.get(json.content?.id)
 		if (content) {
 			log.info "Updating content $content"
 			content.fullText = json.content.fullText
