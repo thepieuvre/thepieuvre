@@ -52,7 +52,7 @@ class FeedService {
 
 	def updateContent(def json) {
 		log.info "Updating content with $json"
-		Content content = Content.load(json.content?.id)
+		Content content = Content.get(json.content?.id)
 		if (content) {
 			log.info "Updating content $content"
 			content.fullText = json.content.fullText
@@ -97,8 +97,10 @@ class FeedService {
 					feed.checkOn = now + 30.minutes
 				}
 				json.articles.each { entry ->
-					Article previous = Article.findByUid(entry.id)
-					previous = (previous)?:Article.findByLink(entry.link)
+					def queryPrevious = Article.where { 'uid' == entry.id }
+					Article previous = queryPrevious.find()
+					def queryLink = Article.where { link == entry.link}
+					previous = (previous)?:queryLink.find()
 					if (! previous) {
 						Article article = new Article()
 						article.feed = feed
@@ -115,7 +117,7 @@ class FeedService {
 
 						article.link = entry.link
 
-						article.published = (entry.published)?:(new Date() as String)
+						article.published = entry.published
 						if(! article.save(flush: true, deepValidate: true)) {
 							log.error "Cannot save article for feed $feed -- ${article.errors as String}"
 							feed.lastError = article.errors as String
@@ -140,9 +142,6 @@ class FeedService {
 
 			feed.lastError = null
 
-			if (! feed.save(flush: true)) {
-				log.error "Cannot update feed $feed -- ${feed.errors as String}"
-			}
 		} catch (Exception e) {
 			log.error "Cannot update feed", e
 		}
