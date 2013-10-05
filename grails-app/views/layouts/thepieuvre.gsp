@@ -173,6 +173,25 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
 
     <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
     <script type="text/javascript">
+$(function(){ // document ready
+ 
+  var stickyTop = $('.sticky').offset().top; // returns number 
+ 
+  $(window).scroll(function(){ // scroll event  
+    var windowTop = $(window).scrollTop(); // returns number
+ 
+    if (stickyTop < windowTop) {
+        $(".sticky").removeClass("navbar-fixed-100")
+        $(".sticky").addClass("navbar-fixed-top");
+    }
+    else {
+        $(".sticky").addClass("navbar-fixed-100")
+        $(".sticky").removeClass("navbar-fixed-top");    }
+  });
+ 
+});
+    </script>
+    <script type="text/javascript">
 
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-38233353-1']);
