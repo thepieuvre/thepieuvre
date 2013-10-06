@@ -267,8 +267,8 @@ $message
 	            forward action: 'home'
 	            return true
 	        }
-			render view:'/article/article', model: ['article': article,
-				'articleService': articleService,
+			render view:'/article/article', model: [
+				'article': article,
 				'boardName': params.boardName,
 				'board': member.boards.find { it.name == params.boardName }?.id
 			] 
