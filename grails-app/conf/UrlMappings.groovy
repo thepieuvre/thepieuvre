@@ -11,7 +11,9 @@ class UrlMappings {
 
 		"/api/feed/$id?" (resource: "feed")
 
-		"/"(controller: 'welcome', action:"index")
+		"/"(controller: 'welcome', action:"index") {
+			board = "-1"
+		}
 
 		"/admin"(view:"/admin")
 
