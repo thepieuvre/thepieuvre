@@ -81,7 +81,7 @@ $message
 					feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 				}
 			} else if (params.board == '-1' || ! Board.get(params.board as long)) {
-				board = 'Your Feeds'
+				board = 'Your Articles'
 				if (member.feeds?.size() > 0) {
 					articles = Article.createCriteria().list {
 						maxResults(10)
