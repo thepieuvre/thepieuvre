@@ -229,6 +229,13 @@ $message
 	}
 
 	def register(MemberCommand cmd) {
+		if (Member.count() > grailsApplication.config.thepieuvre.member.limit) {
+			log.info "Member limit reached: ${Member.count()}"
+			flash.message = "Sorry, the Pieuvre reached the member limit. Please come back for signing up in a few days."
+			render view: '/index'
+			return
+		}
+
 		if (cmd.validate()) {
 			try {
 				Member m = memberService.signUp(cmd.properties)

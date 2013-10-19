@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<g:set var="grailsApplication" bean="grailsApplication"/>
 <html>
 	<head>
 		<meta name="layout" content="thepieuvre"/>
@@ -40,7 +41,7 @@
 	</g:form>
 </div>
 </div>
-<small>Number of members: ${results.size()} of ${countedMembers}</small>
+<small>Number of members: ${results.size()} of ${thepieuvre.member.Member.count()} (Limit: ${grailsApplication.config.thepieuvre.member.limit})</small>
 
 
 		<g:if test="${flash.message}">

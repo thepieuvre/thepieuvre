@@ -70,6 +70,8 @@ environments {
       thepieuvre.util.secret = "changeme"
       thepieuvre.mailalert = 'alex@thepieuvre.com'
 
+      thepieuvre.member.limit = 5
+
       grails.mail.default.from="noreply@thepieuvre.com"
 
         // Put in "file:${userHome}/thepieuvre/thepieuvre-config.groovy"
