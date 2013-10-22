@@ -67,20 +67,22 @@ $message
 
 	@Secured(['ROLE_MEMBER'])
 	def home = {
-		log.info "Welcome - Loading"
+		log.info "Welcome - Loading $params"
 		int offSet = (params.offSet)? (params.offSet as int) : 0
 		if(SpringSecurityUtils.ifAnyGranted('ROLE_MEMBER')) {
 			def articles
 			def member = springSecurityService.currentUser
 			def board = 'The Pieuvre'
-			if (! params.board) {
+			if (params.board == '-2') {
+				log.debug "welcome - all Pieuvre board"
 				articles = Article.createCriteria().list {
 					maxResults(10)
 					firstResult(offSet)
 					order('dateCreated', 'desc')
 					feed { eq 'global', FeedGlobalEnum.GLOBAL } 
 				}
-			} else if (params.board == '-1' || ! Board.get(params.board as long)) {
+			} else if (!  params.board || params.board == '-1' || ! Board.get(params.board as long)) {
+				log.debug "welcome - your articles board"
 				board = 'Your Articles'
 				if (member.feeds?.size() > 0) {
 					articles = Article.createCriteria().list {
@@ -90,8 +92,10 @@ $message
 						feed { 'in' ('id',  member.feeds.collect {it.id}) } 
 					}
 				}
+				params.board = '-1'
 			} else {
 				board = Board.get(params.board).name
+				log.debug "welcome - $board board"
 				if (Board.get(params.board).feeds?.size() > 0) {
 					articles = Article.createCriteria().list {
 						maxResults(10)
