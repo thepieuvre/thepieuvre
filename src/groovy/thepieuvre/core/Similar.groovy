@@ -40,7 +40,7 @@ class Similar implements Comparable<Similar> {
 	}
 
 	int compareTo(Similar o) {
-		score.compareTo(o.score)
+		return (score.compareTo(o.score) * -1)
 	}
 
 }

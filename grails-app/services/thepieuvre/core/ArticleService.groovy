@@ -55,6 +55,8 @@ class ArticleService {
 		}
 	}
 
+	// TODO similars sorted
+
 	def getSimilars(def article) {
 		def res = [:]
 		if (article.similars) {
