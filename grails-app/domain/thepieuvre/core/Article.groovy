@@ -62,7 +62,7 @@ class Article {
 		List<Similar> result = []
 
 		parsed.each {articleId, score ->
-			result << new Similar(articleId, score, this)
+			result << new Similar(articleId as long, score, this)
 		}
 
 		return result

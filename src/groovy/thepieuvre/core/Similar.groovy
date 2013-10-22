@@ -8,9 +8,9 @@ class Similar implements Comparable<Similar> {
 	long id
 	long score
 
-	Similar(long id, String score, Article similarOf) {
+	Similar(long id, long score, Article similarOf) {
 		this.id = id
-		this.score = score as long
+		this.score = score
 		this.similarOf = similarOf
 		init(id)
 	}
