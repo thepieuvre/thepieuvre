@@ -27,9 +27,9 @@
         </g:form>
 
          <ul class="nav navbar-nav navbar-right">
-          <g:set var="activated" value="${(params.board == '-1') || (! params.board)}" />
+          <g:set var="activated" value="${(params.board == '-1') || (params.board == '-2') ||(! params.board)}" />
         <li class="${(params.board != '-1')?:'active'}"><g:link controller="welcome" action="index" params="[board:'-1']" >Your Articles</g:link></li>
-        <li class="${(params.board)?:'active'}"><g:link controller="welcome" action="index">All Pieuvre</g:link></li>
+        <li class="${(params.board != '-2')?:'active'}"><g:link controller="welcome" action="index" params="[board: '-2']">All Pieuvre</g:link></li>
         <li class="dropdown ${(! activated)?'active':''}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">${(! activated)?boardName:'Your Boards'} <b class="caret"></b></a>
           <ul class="dropdown-menu">

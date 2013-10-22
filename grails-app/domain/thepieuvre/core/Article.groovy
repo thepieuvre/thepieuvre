@@ -1,5 +1,7 @@
 package thepieuvre.core
 
+import grails.converters.JSON
+
 class Article {
 
 	String uid
@@ -53,6 +55,17 @@ class Article {
 		} else {
 			published
 		}
+	}
+
+	List<Similar> similarsAsObject() {
+		def parsed = JSON.parse(similars)
+		List<Similar> result = []
+
+		parsed.each {articleId, score ->
+			result << new Similar(articleId, score, this)
+		}
+
+		return result
 	}
 
 }
