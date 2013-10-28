@@ -58,14 +58,18 @@ class Article {
 	}
 
 	List<Similar> similarsAsObject() {
-		def parsed = JSON.parse(similars)
-		List<Similar> result = []
+		if (similars) {
+			def parsed = JSON.parse(similars)
+			List<Similar> result = []
 
-		parsed.each {articleId, score ->
-			result << new Similar(articleId as long, score, this)
+			parsed.each {articleId, score ->
+				result << new Similar(articleId as long, score, this)
+			}
+
+			return result
+		} else {
+			return null
 		}
-
-		return result
 	}
 
 }
