@@ -67,18 +67,19 @@
           </div>
         </div>
       </g:if>
-      <g:set var="similarsList" value="${articleService.getSimilars(article)}" />
-      <g:if test="${similarsList}">
-      <hr>
-      <h3>Similars</h3>
-      <div class="list-group">
-        <g:each in="${similarsList}" var="similars">
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">${similars.key?.title}  <small>@ ${similars.key?.feed?.title}</small></h4>
-                <p class="list-group-item-text">TODO quick reader and explore / keywords</p>
-              </a>
+
+      <g:set var="sorts" value="${articleService.getSimilarTimeSorted(article)}" />
+      <g:if test="${sorts}">
+        <hr>
+        <h3>Similars <small>found by the Pieuvre</small></h3>
+        <g:each in="${sorts}" var="sorted">
+          <h4>${sorted.key}</h4>
+          <g:each in="${sorted.value}" var="similar">
+            <g:link action="article" id="${similar.article.id}" class="list-group-item">
+                <h4 class="list-group-item-heading">${similar.title()}  <small>@ ${similar.feedName()}</small></h4>
+              </g:link>
+          </g:each>
         </g:each>
-      </div>
       </g:if>
     </div>
 

@@ -97,10 +97,12 @@ class FeedService {
 					feed.checkOn = now + 30.minutes
 				}
 				json.articles.each { entry ->
-					def queryPrevious = Article.where { 'uid' == entry.id }
-					Article previous = queryPrevious.find()
-					def queryLink = Article.where { link == entry.link}
-					previous = (previous)?:queryLink.find()
+					Article previous = Article.findByUid(entry.id)
+					previous = (previous)?:Article.findByLink(entry.link)
+					// FIME: Not working on Mac since Os upgrade...
+					/*Article previous = Article.find { 'uid' == entry.id }
+					def queryLink = Article.where { 'link' == entry.link}
+					previous = (previous)?:queryLink.find()*/
 					if (! previous) {
 						Article article = new Article()
 						article.feed = feed

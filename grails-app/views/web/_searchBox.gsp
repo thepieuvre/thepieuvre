@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <nav class="navbar navbar-default navbar-fixed-100" role="navigation">
+    <nav class="sticky navbar navbar-default navbar-fixed-100" role="navigation">
    
       <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-search-collapse">
@@ -27,10 +27,11 @@
         </g:form>
 
          <ul class="nav navbar-nav navbar-right">
+          <g:set var="activated" value="${(params.board == '-1') || (params.board == '-2') ||(! params.board)}" />
         <li class="${(params.board != '-1')?:'active'}"><g:link controller="welcome" action="index" params="[board:'-1']" >Your Articles</g:link></li>
-        <li class="${(params.board)?:'active'}"><g:link controller="welcome" action="index">All Pieuvre</g:link></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Boards <b class="caret"></b></a>
+        <li class="${(params.board != '-2')?:'active'}"><g:link controller="welcome" action="index" params="[board: '-2']">All Pieuvre</g:link></li>
+        <li class="dropdown ${(! activated)?'active':''}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">${(! activated)?boardName:'Your Boards'} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <g:each var="board" in="${boards}">
               <li><g:link controller="welcome" action="index" params="['board': board.id]" >${board.name}</g:link></li>

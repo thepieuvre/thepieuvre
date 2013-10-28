@@ -5,6 +5,9 @@
 		<g:set var="section" scope="request" value="index"/>
 	</head>
 	<body>
+      <g:if test='${flash.message}'>
+          <div  class='alert alert-success'>${flash.message}</div>
+        </g:if>
 		<div class="jumbotron" style="color: white;">
         <h1>The Pieuvre <small style="color: white;">&nbsp;[pj&oelig;v&#640;]</small></h1>
         <p class="lead">Pieuvre is the french word for octopus.</p>
