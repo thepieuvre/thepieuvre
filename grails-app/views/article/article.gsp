@@ -89,7 +89,7 @@
         <li><a href="#">Add to Reader (TODO)</a></li>
         <li><pieuvre:follow feed="${article.feed}"/></li>
         <li><strong>Sharing</strong></li>
-        <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title}" data-hashtags="thepieuvre">Tweet</a></li>
+        <li><a  href="https://twitter.com/share" class="twitter-share-button" data-url="${article.link}" data-text="${article.title} via http://thepieuvre.com" data-size="large">Tweet</a></li>
       </ul>
     </div>
   </div>
