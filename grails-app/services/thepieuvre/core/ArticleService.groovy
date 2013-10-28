@@ -1,8 +1,10 @@
 package thepieuvre.core
 
-import redis.clients.jedis.Jedis
+import thepieuvre.util.article.SimilarTimeSorter
 
 import grails.converters.JSON
+
+import redis.clients.jedis.Jedis
 
 class ArticleService {
 
@@ -53,6 +55,11 @@ class ArticleService {
 		} else {
 			null
 		}
+	}
+
+	Map getSimilarTimeSorted(Article article) {
+		List<Similar> similars = article.similarsAsObject()
+		return new SimilarTimeSorter(similars).sorted()
 	}
 
 	def getSimilars(def article) {
