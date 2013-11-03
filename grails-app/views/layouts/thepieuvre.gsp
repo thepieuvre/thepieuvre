@@ -132,7 +132,7 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                         })();
                         </script>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success">Send</button>
+                            <button type="submit" class="btn btn-success" id="contact" data-loading-text="Sending...">Send</button>
                         </div>
                     </fieldset>
                 </g:form>
@@ -173,6 +173,11 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
 
     <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
     <script type="text/javascript">
+
+    $('#contact').button('reset');
+    $('#contact').click(function() {
+        $('#contact').button('loading');
+    });
 $(function(){ // document ready
  
   var stickyTop = $('.sticky').offset().top; // returns number 
