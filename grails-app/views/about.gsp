@@ -5,6 +5,9 @@
 		<g:set var="section" scope="request" value="about"/>
 	</head>
 	<body>
+		<div class="alert alert-danger">
+			<strong>Beta:</strong> The service is currently in beta. Features will be added as soon as they are developed. 
+		</div>
 		<h1>About the Pieuvre</h1>
 
 		<p><strong>Pieuvre</strong> <em>&nbsp;[pj&oelig;v&#640;]</em></p>
