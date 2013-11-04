@@ -54,7 +54,7 @@ $message
 			"""
 		}
 		flash.message = 'Thank you for your message.'
-		redirect action:'home'
+		redirect action:'index'
 	}
 
 	def index = {
