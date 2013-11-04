@@ -24,6 +24,8 @@
 
     <g:javascript library="jquery" plugin="jquery"/>
     <r:layoutResources />
+    <script src="${resource(dir:'js',file:'jquery.validate.min.js')}"></script>
+    <script src="${resource(dir:'js',file:'additional-methods.min.js')}"></script>
 
   </head>
 
@@ -97,27 +99,27 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                 </div>
             <div class="modal-body">
                 <p>We would love to hear about what you think: comments, feedback, reviews, ...</p>
-                <g:form class="form-horizontal well" controller="welcome" action="message">
-                    <legend>Please fill out the following form:</legend>
+                <g:form id="contactForm" class="form-horizontal well" controller="welcome" action="message">
+                    <legend>Please fill out the following form: <br><small>All fields are required.</small></legend>
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="name">Your name</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="name" maxlength="255" />
+                                <input type="text" class="input-xlarge" name="name" maxlength="255" minlength="2" type="text" required />
                                 <p class="help-block">Please tell us your name.</p>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="email">Your email</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="email" maxlength="255" />
+                                <input type="text" class="input-xlarge" type="email" name="email" maxlength="255" required />
                                 <p class="help-block">We will use it for replying.</p>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="message">Your message</label>
                             <div class="controls">
-                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" ></textarea>
+                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" minlength="2" type="text" required ></textarea>
                                 <p class="help-block">Your message to the Pieuvre.</p>
                             </div>
                         </div>
@@ -136,6 +138,9 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                         </div>
                     </fieldset>
                 </g:form>
+                <script type="text/javascript">
+                    $("#contactForm").validate();
+                </script>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
