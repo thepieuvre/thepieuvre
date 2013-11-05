@@ -171,6 +171,7 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                             </div>
                         </fieldset>
                     </form>
+                    <small><g:link action="passwordForgot" controller="login">Forgot your password?</g:link></small>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
