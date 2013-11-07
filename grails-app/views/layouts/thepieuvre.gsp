@@ -26,6 +26,7 @@
     <r:layoutResources />
     <script src="${resource(dir:'js',file:'jquery.validate.min.js')}"></script>
     <script src="${resource(dir:'js',file:'additional-methods.min.js')}"></script>
+    <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
 
   </head>
 
@@ -177,7 +178,6 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
     <script type="text/javascript">
 
     $('#contact').button('reset');
