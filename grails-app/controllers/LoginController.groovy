@@ -2,6 +2,8 @@ import grails.converters.JSON
 
 import javax.servlet.http.HttpServletResponse
 
+import org.apache.commons.lang.RandomStringUtils
+
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 import org.springframework.security.authentication.AccountExpiredException
@@ -11,6 +13,8 @@ import org.springframework.security.authentication.LockedException
 import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.WebAttributes
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+
+import thepieuvre.member.Member
 
 class LoginController {
 
@@ -23,6 +27,8 @@ class LoginController {
 	 * Dependency injection for the springSecurityService.
 	 */
 	def springSecurityService
+
+	def mailService
 
 	/**
 	 * Default action; redirects to 'defaultTargetUrl' if logged in, /login/auth otherwise.
@@ -134,5 +140,31 @@ class LoginController {
 
 	def passwordForgot = {
 		// just a view
+	}
+
+	def resetPassword(String email) {
+		log.info "Reset password for $email"
+		Member member = Member.findByEmail(email)
+		if (member) {
+			String newPassword = RandomStringUtils.randomAscii(8)
+			member.password = newPassword
+			mailService.sendMail {
+    			to member.email
+    			subject "The Pieuvre - Password Reset"
+    			body(
+    				view: '/emails/passwordForgot',
+    				model: [
+    					username: member.username,
+    					'newPassword': newPassword
+    				]
+    			)
+    		}
+    		log.info "Password reseted for $email / $member"
+			flash.message = "Check your emails: an email has been send with your new password."
+		} else {
+				log.info "No member found with $email"
+			flash.message = "Sorry we cannot find a member with that email."
+		}
+		render view: '/index'
 	}
 }
