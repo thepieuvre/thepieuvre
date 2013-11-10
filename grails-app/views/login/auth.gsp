@@ -10,6 +10,9 @@
 		<div class='alert alert-danger'>${flash.message}</div>
 	</g:if>
 	
+	<small><g:link action="signUp" controller="welcome">Not a member?</g:link></small>
+
+
 	<form action='${postUrl}' method='POST' id='loginForm' class='cssform form-horizontal' autocomplete='off'>
 		<fieldset>
 			<div class="form-group">

@@ -156,6 +156,8 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                     <h4 class="modal-title">Login on the Pieuvre</h4>
                 </div>
                 <div class="modal-body">
+                    <small><g:link action="signUp" controller="welcome">Not a member?</g:link></small>
+
                     <form action='${request.contextPath}/j_spring_security_check' class="form-horizontal well" method='POST' id='loginForm' autocomplete='off' role="form">
                         <fieldset>
                             <div class="form-group">
