@@ -27,7 +27,7 @@
                     </g:if>
                 </div>
             </div>
-            <g:set var="similars" value="${articleService.getSimilars(article)}" />
+            <g:set var="similars" value="${articleService.getTopSimilars(article)}" />
             <g:if test="${similars}">
             <hr>
             <strong>Top Similars</strong>
@@ -35,12 +35,10 @@
     </div>
     <g:if test="${similars}">
     <ul class="list-group">
-        <g:each status="i" in="${similars}" var="related">
-            <g:if test="${i < 5 && related.key}">
-                <li class="list-group-item">
-                <g:link action="article" id="${related.key.id}">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
-                </li>
-            </g:if>
+        <g:each status="i" in="${similars.values()}" var="similar">
+            <li class="list-group-item">
+                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()}</small>
+            </li>
         </g:each>
     </ul>
     </g:if>
@@ -93,12 +91,10 @@
     <hr>
     <h4>Top Similars</h4>
     <ul class="list-group">
-        <g:each status="i" in="${similars}" var="related">
-            <g:if test="${i < 5 && related.key}">
-                <li class="list-group-item">
-                <g:link action="article" id="${related.key.id}">${related.key.title}</g:link> <small class="muted">@ ${related.key.feed.title}</small>
-                </li>
-            </g:if>
+        <g:each status="i" in="${similars.values()}" var="similar">
+            <li class="list-group-item">
+                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()}</small>
+            </li>
         </g:each>
     </ul>
     </g:if>

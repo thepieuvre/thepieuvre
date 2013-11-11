@@ -1,6 +1,7 @@
 package thepieuvre.core
 
 import thepieuvre.util.article.SimilarTimeSorter
+import thepieuvre.util.article.SimilarTopSorter
 
 import grails.converters.JSON
 
@@ -60,6 +61,11 @@ class ArticleService {
 	Map getSimilarTimeSorted(Article article) {
 		List<Similar> similars = article.similarsAsObject()
 		return new SimilarTimeSorter(similars).sorted()
+	}
+
+	Map getTopSimilars(Article article) {
+		List<Similar> similars = article.similarsAsObject()
+		return new SimilarTopSorter(similars).sorted()
 	}
 
 	def getSimilars(def article) {
