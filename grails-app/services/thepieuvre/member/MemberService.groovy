@@ -87,4 +87,23 @@ class MemberService {
     def listFeeds(Member member) {
         member.feeds
     }
+
+    def getFeeds(Member member, String board) {
+        def feeds = null
+        switch(board) {
+            case null:
+            case '-2':
+                // All Pieure
+                feeds = null
+                break
+            case '-1':
+                // Your Articles
+                feeds = member.feeds
+                break
+            default:
+                feeds = Board.findByIdAndMember(board as long, member)?.feeds
+            break
+        }
+        return feeds
+    }
 }
