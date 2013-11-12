@@ -1,4 +1,6 @@
 <g:set var="springSecurityService" bean="springSecurityService"/>
+<g:set var="memberService" bean="memberService"/>
+
 <g:set var="boards" value="${springSecurityService.currentUser?.boards}" />
 
 <div class="row">
@@ -15,9 +17,6 @@
       </div>
 
       <div class="collapse navbar-collapse navbar-search-collapse">
-        <g:if test="${params.board}">
-          <a href="#followFeedModal" data-toggle="modal"  class="btn btn-info btn-sm navbar-btn navbar-left">Follow Feed</a>
-        </g:if>
         <g:form class="navbar-form navbar-left" role="form" action="executor" controller="welcome">
           <div class="form-group">
             <label class="sr-only" for="command">Type some words or :help</label>
@@ -25,6 +24,24 @@
           </div>
           <button type="submit" class="btn btn-primary btn-sm">Search</button>
         </g:form>
+
+        <g:if test="${params.board != '-2'}">
+          <div class="navbar-form navbar-right">
+             <div class="btn-group">
+              <a type="button" href="#followFeedModal" data-toggle="modal"  class="btn btn-sm btn-primary">Follow Feed</a>
+              <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">Stream's Feeds</li>
+                <g:each var="feed" in="${memberService.getFeeds(springSecurityService.currentUser, params.board)}">
+                  <li><g:link controller="welcome" action="searchByFeed" params="[feed: feed.id]">${feed.title}</g:link></li>
+                </g:each>
+              </ul>
+            </div>
+          </div>
+        </g:if>
 
          <ul class="nav navbar-nav navbar-right">
           <g:set var="activated" value="${(params.board == '-1') || (params.board == '-2') ||(! params.board)}" />
@@ -41,6 +58,7 @@
             <li><a href="#">Manage Boards</a></li>
           </ul>
         </li>
+        <li><a href="#"></a></li>
        <!--  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Reader <b class="caret"></b></a>
           <ul class="dropdown-menu">
