@@ -55,7 +55,7 @@
             </g:each>
             <li class="divider"></li>
             <li><a  href="#newBoardModal" data-toggle="modal">New Board...</a></li>
-            <li><a href="#">Manage Boards</a></li>
+            <li><g:link controller="board" action="list">Manage Boards</g:link></li>
           </ul>
         </li>
         <li><a href="#"></a></li>
