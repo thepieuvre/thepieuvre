@@ -92,6 +92,7 @@
 										<td>${feed.lastStatus}</td>
 										<td>
 
+<g:if test="${board}">
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Move to <span class="caret"></span>
@@ -104,6 +105,7 @@
     <li><a href="#">Separated link</a></li>
   </ul>
 </div>
+</g:if>
 
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -118,7 +120,12 @@
   </ul>
 </div>
 <div class="btn-group">
-	<button type="button" class="btn btn-default">Remove</button>
+	<g:if test="${board}">
+		<button type="button" class="btn btn-default">Remove</button>
+	</g:if>
+	<g:else>
+		<button type="button" class="btn btn-default">Unfollow</button>
+	</g:else>
 </div>
 										</td>
 									</tr>
@@ -126,7 +133,7 @@
 							</tbody>
 						</table>
 
-						<p>TODO Board feeds remove  / copyt to/ move to</p>
+						<p>TODO Board feeds remove  / copyt to/ move to / unfollow</p>
 						<p>TODO feed's sorting? filters?</p>
 					</div>
 				</div>
