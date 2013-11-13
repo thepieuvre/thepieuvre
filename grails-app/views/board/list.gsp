@@ -52,7 +52,7 @@
 						</div>
 						<g:if test="${board}">
 							<div class="btn-group">
-								<g:link action="delete" params="[board: board.id]" type="button" class="btn btn-warning">Delete Board</g:link>
+								<g:link action="delete" params="[id: board.id]" type="button" class="btn btn-warning">Delete Board</g:link>
 							</div>
 						</g:if>
 						<hr>
@@ -128,7 +128,6 @@
 
 						<p>TODO Board feeds remove  / copyt to/ move to</p>
 						<p>TODO feed's sorting? filters?</p>
-						<p>TODO Delete board</p>
 					</div>
 				</div>
 			</div>

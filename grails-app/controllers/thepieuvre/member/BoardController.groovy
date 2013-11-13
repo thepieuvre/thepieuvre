@@ -7,6 +7,7 @@ class BoardController {
 
 	def springSecurityService
 
+	def boardService
 
 	def index () {
 		redirect action: 'list'
@@ -59,15 +60,16 @@ class BoardController {
 	}
 
 
-	def delete(Board board, Member member) {
-		Board.findByIdAndMember(board.id, member)
-
-		// TODO to be continued
-
-		String name = board.name
-		board.member.removeFromBoards(board)
-		board.delete()
-		flash.message = "$name deleted"
+	def delete(String id) {
+		Member member = springSecurityService.currentUser
+		Board board = Board.findByIdAndMember(id, member)
+		if (board) {
+			String name = board.name
+			boardService.delete(board, member)
+			flash.message = "$name deleted"
+		} else {
+			flash.message = "Sorry we cannot delete the board."
+		}
 		render view: 'list'
 	}
 
