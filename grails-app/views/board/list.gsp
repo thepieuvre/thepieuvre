@@ -46,7 +46,7 @@
 					    </g:form>
 					</div>
 					<div class="col-lg-9">
-						<h2>Board: ${board?board.name:'All Feeds'}</h2>
+						<h2>Board: ${board?board.name:'All Feeds'} <g:if test="${board}"><small><a href="#editModal" data-toggle="modal" data-target="#editModal"><span class="glyphicon glyphicon-pencil"></span></a></small></g:if></h2>
 						<div class="btn-group">
 							<a type="button" href="#followFeedModal" data-toggle="modal" class="btn btn-primary">Add Feed</a>
 						</div>
@@ -126,7 +126,6 @@
 						</table>
 
 						<p>TODO feed's sorting? filters?</p>
-						<p>Edit board name</p>
 					</div>
 				</div>
 			</div>
@@ -156,6 +155,31 @@
       </div> 
     </div>
   </div>
+
+  <!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <g:form action="edit" controller="board" role="form">
+        <input type="hidden" name="board" id="board" value="${(board)?board.id:-1}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="editModalLabel">Edit Board: ${board.name}</h4>
+      </div>
+      <div class="modal-body">
+  		<div class="form-group">
+            <label for="name">Change name</label>
+            <input class="form-control" id="name" name="name" placeholder="New board's name">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+  </g:form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 	</body>
 </html>
