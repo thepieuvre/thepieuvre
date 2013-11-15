@@ -108,12 +108,12 @@
     Copy to <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <g:render template="boards" model="['feed': feed, 'action': 'copyTo', 'current': board]"/>
+    <g:render template="boards" model="['feed': feed, 'action': 'copyTo', 'current': board?.id]"/>
   </ul>
 </div>
 <div class="btn-group">
 	<g:if test="${board}">
-		<button type="button" class="btn btn-default">Remove</button>
+		<g:link action="remove" controller="board" class="btn btn-default" params="['feed': feed.id, 'current': board.id]">Remove</g:link>
 	</g:if>
 	<g:else>
 		<button type="button" class="btn btn-default">Unfollow</button>
@@ -125,7 +125,7 @@
 							</tbody>
 						</table>
 
-						<p>TODO Board feeds remove  / move to / unfollow</p>
+						<p>TODO Board feeds  / move to / unfollow</p>
 						<p>TODO feed's sorting? filters?</p>
 						<p>Edit board name</p>
 					</div>

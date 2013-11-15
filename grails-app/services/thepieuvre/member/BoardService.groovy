@@ -1,5 +1,7 @@
 package thepieuvre.member
 
+import thepieuvre.core.Feed
+
 class BoardService {
 
 	static transactional = true
@@ -11,4 +13,7 @@ class BoardService {
 		log.debug "Board deleted for $member"
 	}
 	
+	def removeFeed(Board board, Feed feed) {
+		board.removeFromFeeds(feed)
+	}
 }
