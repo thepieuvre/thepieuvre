@@ -43,10 +43,10 @@ class MemberService {
     }
 
     def removeFeed(Member member, Feed feed) {
-        member.feeds.remove(feed)
         member.boards.each { board ->
-            board.feeds.remove(feed)
+            board.removeFromFeeds(feed)
         }
+        member.removeFromFeeds(feed)
     }
 
     def addFeed(Member member, String link) {

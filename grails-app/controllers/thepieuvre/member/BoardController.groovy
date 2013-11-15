@@ -112,4 +112,12 @@ class BoardController {
 			current: params.current]
 	}
 
+	def unfollow = {
+		Feed feed = Feed.get(params.feed)
+		Member member = springSecurityService.currentUser
+		memberService.removeFeed(member, feed)
+		flash.message = "You do not follow $feed anymore"
+		redirect action: 'list'
+	}
+
 }

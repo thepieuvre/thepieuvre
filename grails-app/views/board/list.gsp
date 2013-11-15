@@ -116,7 +116,7 @@
 		<g:link action="remove" controller="board" class="btn btn-default" params="['feed': feed.id, 'current': board.id]">Remove</g:link>
 	</g:if>
 	<g:else>
-		<button type="button" class="btn btn-default">Unfollow</button>
+		<g:link action="unfollow" controller="board" class="btn btn-default" params="['feed': feed.id]">Unfollow</g:link>
 	</g:else>
 </div>
 										</td>
@@ -125,7 +125,6 @@
 							</tbody>
 						</table>
 
-						<p>TODO Board feeds  / / unfollow</p>
 						<p>TODO feed's sorting? filters?</p>
 						<p>Edit board name</p>
 					</div>
