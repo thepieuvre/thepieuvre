@@ -24,6 +24,9 @@
 
     <g:javascript library="jquery" plugin="jquery"/>
     <r:layoutResources />
+    <script src="${resource(dir:'js',file:'jquery.validate.min.js')}"></script>
+    <script src="${resource(dir:'js',file:'additional-methods.min.js')}"></script>
+    <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
 
   </head>
 
@@ -37,11 +40,11 @@
           <li><a data-toggle="modal" href="#contactModal">Contact</a></li>
         <sec:ifLoggedIn>
             <li class="${section == 'help' ? 'active' : ''}"><a href="${createLink(controller: 'welcome', action: 'help')}">Help</a></li>
-            <li class="dropdown">
+            <li class="dropdown ${section == 'profile' ? 'active' : ''}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:loggedInUserInfo field="username"/><b class="caret"></b></a>
                     <ul class="dropdown-menu pull-right">
-                      <li><a href="#">Profile</a></li>
-                      <li><a href="#">Settings</a></li>
+                      <li><g:link controller="member" action="profile">Profile</g:link></li>
+                     <!--  <li><a href="#">Settings</a></li> -->
                       <li class="divider"></li>
                       <li><g:link controller="logout">Logout</g:link></li>
                     </ul>
@@ -97,27 +100,27 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                 </div>
             <div class="modal-body">
                 <p>We would love to hear about what you think: comments, feedback, reviews, ...</p>
-                <g:form class="form-horizontal well" controller="welcome" action="message">
-                    <legend>Please fill out the following form:</legend>
+                <g:form id="contactForm" class="form-horizontal well" controller="welcome" action="message">
+                    <legend>Please fill out the following form: <br><small>All fields are required.</small></legend>
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="name">Your name</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="name" maxlength="255" />
+                                <input type="text" class="input-xlarge" name="name" maxlength="255" minlength="2" type="text" required />
                                 <p class="help-block">Please tell us your name.</p>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="email">Your email</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="email" maxlength="255" />
+                                <input type="text" class="input-xlarge" type="email" name="email" maxlength="255" required />
                                 <p class="help-block">We will use it for replying.</p>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="message">Your message</label>
                             <div class="controls">
-                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" ></textarea>
+                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" minlength="2" type="text" required ></textarea>
                                 <p class="help-block">Your message to the Pieuvre.</p>
                             </div>
                         </div>
@@ -132,10 +135,13 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                         })();
                         </script>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success">Send</button>
+                            <button type="submit" class="btn btn-success" id="contact" data-loading-text="Sending...">Send</button>
                         </div>
                     </fieldset>
                 </g:form>
+                <script type="text/javascript">
+                    $("#contactForm").validate();
+                </script>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -150,29 +156,37 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                     <h4 class="modal-title">Login on the Pieuvre</h4>
                 </div>
                 <div class="modal-body">
-                    <form action='${request.contextPath}/j_spring_security_check' class="form-horizontal well" method='POST' id='loginForm' autocomplete='off'>
+                    <small><g:link action="signUp" controller="welcome">Not a member?</g:link></small>
+
+                    <form action='${request.contextPath}/j_spring_security_check' class="form-horizontal well" method='POST' id='loginForm' autocomplete='off' role="form">
                         <fieldset>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label for='username' class="control-label"><g:message code="springSecurity.login.username.label" />:</label>
-                                <input type='text' class='text_' name='j_username' id='username'/>
+                                <input type='text' class='text_' name='j_username' id='username' required/>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label for='password' class="control-label"><g:message code="springSecurity.login.password.label"/>:</label>
-                                <input type='password' class='text_' name='j_password' id='password'/>
+                                <input type='password' class='text_' name='j_password' id='password'required/>
                                 <p></p>
                             </div>
-                            <div class="form-actions">
-                                <button class="btn btn-success" type='submit' id="submit"><g:message code="springSecurity.login.button" /></button>
-                            </div>
+                            <button class="btn btn-success" type='submit' id="submit"><g:message code="springSecurity.login.button" /></button>
                         </fieldset>
                     </form>
+                    <small><g:link action="passwordForgot" controller="login">Forgot your password?</g:link></small>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-    <script src="${resource(dir:'js/bootstrap', file:'bootstrap.min.js')}"></script>
     <script type="text/javascript">
+        $("#loginForm").validate();
+    </script>
+
+    <script type="text/javascript">
+
+    $('#contact').button('reset');
+    $('#contact').click(function() {
+        $('#contact').button('loading');
+    });
 $(function(){ // document ready
  
   var stickyTop = $('.sticky').offset().top; // returns number 

@@ -5,11 +5,14 @@
 </head>
 
 <body>
-<div class="row-fluid">
+<div class="row">
 	<g:if test='${flash.message}'>
 		<div class='alert alert-danger'>${flash.message}</div>
 	</g:if>
 	
+	<small><g:link action="signUp" controller="welcome">Not a member?</g:link></small>
+
+
 	<form action='${postUrl}' method='POST' id='loginForm' class='cssform form-horizontal' autocomplete='off'>
 		<fieldset>
 			<div class="form-group">
@@ -24,10 +27,15 @@
 			<div class="form-group">
 				<div class="col-lg-offset-5 col-lg-7">
 				<input class="btn btn-primary" type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/><p></p>
-			</div
+			</div>
+
 			</div>
 		</fieldset>
+
+
 		</form>
+
+		<small><g:link action="passwordForgot" controller="login">Forgot your password?</g:link></small>
 </div>
 <script type='text/javascript'>
 	<!--

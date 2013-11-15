@@ -8,7 +8,9 @@
 
 		<p class="lead">By signing up you are granted the right to subscribe to any feeds of your choice, to publish (privately or publicly) your own articles, to create your own feeds, and more...
 		</p>
-    <div class='alert alert-danger'><g:renderErrors bean="${form}" /></div>
+    <g:if test="${form?.hasErrors()}">
+      <div class='alert alert-danger'><g:renderErrors bean="${form}" /></div>
+    </g:if>
 		<g:if test='${flash.message}'>
 			<div class='alert alert-danger'>${flash.message}</div>
 		</g:if>

@@ -11,7 +11,7 @@
 		<div class="jumbotron" style="color: white;">
         <h1>The Pieuvre <small style="color: white;">&nbsp;[pj&oelig;v&#640;]</small></h1>
         <p class="lead">Pieuvre is the french word for octopus.</p>
-        <p class="lead">Join the Pieuvre now and the Pieuvre will start reading the Internet for you!</p>
+        <p class="lead">Join us now and the Pieuvre will start reading the Internet for you!</p>
         <p><a class="btn btn-large btn-primary" data-toggle="modal" href="#signupModal">Sign Up Now</a></p>
       </div>
 
