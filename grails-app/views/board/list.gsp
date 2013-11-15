@@ -98,11 +98,7 @@
     Move to <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+    <g:render template="boards" model="[]"/>
   </ul>
 </div>
 </g:if>
@@ -112,11 +108,7 @@
     Copy to <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+    <g:render template="boards" model="['feed': feed, 'action': 'copyTo', 'current': board]"/>
   </ul>
 </div>
 <div class="btn-group">
@@ -133,8 +125,9 @@
 							</tbody>
 						</table>
 
-						<p>TODO Board feeds remove  / copyt to/ move to / unfollow</p>
+						<p>TODO Board feeds remove  / move to / unfollow</p>
 						<p>TODO feed's sorting? filters?</p>
+						<p>Edit board name</p>
 					</div>
 				</div>
 			</div>
