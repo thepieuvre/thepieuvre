@@ -56,20 +56,6 @@
 							</div>
 						</g:if>
 						<hr>
-						<h4>Filtering feeds</h4>
-						<g:form name="feedFilter" class="form-inline" role="form" action="list" method="get">
-							<div class="form-group">
-								<label class="sr-only" for="title">Title</label>
-								<g:textField placeholder="Feed's title" name="title" value="${filterParams?.title}" class="form-control" />
-							</div>
-							<div class="form-group">
-								<label class="sr-only" for="link">Link</label>
-								<g:textField placeholder="Feed's link" name="link" value="${filterParams?.link}" class="form-control" />
-							</div>
-							<g:submitButton name="filter" value="Filter" type="submit" class="btn btn-primary" />
-							<g:actionSubmit action="resetForm" name="resetForm" value="Reset" class="btn btn-default" />
-						</g:form>
-						<hr>
 						<h3>Feeds</h3>
 						<table class="table table-striped table-hover">
 							<thead>
@@ -124,8 +110,6 @@
 								</g:each>
 							</tbody>
 						</table>
-
-						<p>TODO feed's filters?</p>
 					</div>
 				</div>
 			</div>
