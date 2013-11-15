@@ -24,21 +24,6 @@
 <h3>Member</h3>
 
 <p>is a registered user on the Pieuvre. Members can follow all RSS feeds they like.</p>
-<h3>Command</h3>
-
-<p>is an action executable by the search form. All command start with a ":". You can try <pre>:help</pre> or <pre>:echo Hello world</pre>.</p>
-<h2>For members</h2>
-
-<p>This section describes all actions that are only allowed to members.</p>
-<h3>How can I follow a feed?</h3>
-
-<p>By a command : <pre>:follow http://thefeed/rss</pre></p>
-<h3>How can I list the feeds I follow?</h3>
-
-<p>By a command : <pre>:feeds</pre></p>
-<h3>How can I unfollow a feed?</h3>
-
-<p>By a command <pre>:unfollow feed_id</pre></p>
 
 	</body>
 </html>
