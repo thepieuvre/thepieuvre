@@ -34,20 +34,6 @@ class BoardController {
 			filterParams: params]
 	}
 
-	private def buildBoardRequest(params) {
-		return {
-			if (params.title) {
-				and { ilike "title", "%${params.title}%"}
-			}
-			if (params.link) {
-				and { ilike "link", "%${params.link}%" }
-			}
-			if (params.sort) {
-				and { order "$params.sort", "$params.order" }
-			}
-		}
-	}
-
 	private def buildFeedRequest(params) {
 		return {
 			if (params.title) {
@@ -61,7 +47,6 @@ class BoardController {
 			}
 		}
 	}
-
 
 	def delete(String id) {
 		Member member = springSecurityService.currentUser

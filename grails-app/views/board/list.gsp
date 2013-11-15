@@ -125,7 +125,7 @@
 							</tbody>
 						</table>
 
-						<p>TODO feed's sorting? filters?</p>
+						<p>TODO feed's filters?</p>
 					</div>
 				</div>
 			</div>
@@ -164,7 +164,7 @@
         <input type="hidden" name="board" id="board" value="${(board)?board.id:-1}">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="editModalLabel">Edit Board: ${board.name}</h4>
+        <h4 class="modal-title" id="editModalLabel">Edit Board: ${board?.name}</h4>
       </div>
       <div class="modal-body">
   		<div class="form-group">
