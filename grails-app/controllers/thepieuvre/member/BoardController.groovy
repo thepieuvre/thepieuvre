@@ -2,6 +2,8 @@ package thepieuvre.member
 
 import grails.plugins.springsecurity.Secured
 
+import thepieuvre.core.Feed
+
 @Secured(['ROLE_MEMBER'])
 class BoardController {
 
@@ -69,16 +71,31 @@ class BoardController {
 			boardService.delete(board, member)
 			flash.message = "$name deleted"
 		} else {
-			flash.message = "Sorry we cannot delete the board."
+			flash.message = "Sorry we cannot do that."
 		}
 		render view: 'list'
 	}
 
+	// Current is the board id | Board is the current Domain
+
+	def remove = {
+		Board board = Board.findByIdAndMember(params.current, springSecurityService.currentUser)
+		if (board) {
+			boardService.removeFeed(board, Feed.get(params.feed as long))
+			flash.message = "Feed $params.feed removed from $params.current"
+		} else {
+			flash.message = "Sorry we cannot do that."
+		}
+		redirect action: 'list', params: [ board: board, current: board.id ]
+	}
+
 	def copyTo = {
-		memberService.addFeed(springSecurityService.currentUser, params.feed, Board.get(params.dest))
+		Board board = Board.get(params.dest)
+		memberService.addFeed(springSecurityService.currentUser, params.feed, board)
 		flash.message = "Feed $params.feed copied to $params.dest"
-		redirect view: 'list', model: [ 
-		board: params.current?Board.get(params.current as long):null ]
+		redirect action: 'list', params: [ 
+			board: params.current?Board.get(params.current as long):null,
+			current: params.current]
 	}
 
 }
