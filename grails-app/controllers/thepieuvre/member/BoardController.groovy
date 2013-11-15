@@ -8,6 +8,7 @@ class BoardController {
 	def springSecurityService
 
 	def boardService
+	def memberService
 
 	def index () {
 		redirect action: 'list'
@@ -71,6 +72,13 @@ class BoardController {
 			flash.message = "Sorry we cannot delete the board."
 		}
 		render view: 'list'
+	}
+
+	def copyTo = {
+		memberService.addFeed(springSecurityService.currentUser, params.feed, Board.get(params.dest))
+		flash.message = "Feed $params.feed copied to $params.dest"
+		redirect view: 'list', model: [ 
+		board: params.current?Board.get(params.current as long):null ]
 	}
 
 }
