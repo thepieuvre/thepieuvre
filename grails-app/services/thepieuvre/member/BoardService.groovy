@@ -16,4 +16,9 @@ class BoardService {
 	def removeFeed(Board board, Feed feed) {
 		board.removeFromFeeds(feed)
 	}
+
+	def moveTo(Board source, Board destination, Feed feed) {
+		removeFeed(source, feed)
+		destination.addToFeeds(feed)
+	} 
 }

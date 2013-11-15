@@ -98,7 +98,7 @@
     Move to <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <g:render template="boards" model="[]"/>
+    <g:render template="boards" model="['feed': feed, 'action': 'moveTo', 'current': board?.id]"/>
   </ul>
 </div>
 </g:if>
@@ -125,7 +125,7 @@
 							</tbody>
 						</table>
 
-						<p>TODO Board feeds  / move to / unfollow</p>
+						<p>TODO Board feeds  / / unfollow</p>
 						<p>TODO feed's sorting? filters?</p>
 						<p>Edit board name</p>
 					</div>

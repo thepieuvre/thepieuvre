@@ -98,4 +98,18 @@ class BoardController {
 			current: params.current]
 	}
 
+	def moveTo = {
+		Board source = Board.findById(params.current)
+		Board destination = Board.findById(params.dest)
+		Feed feed = Feed.findByLink(params.feed)
+		if (source && destination && feed){
+			boardService.moveTo(source, destination, feed)
+		} else {
+			flash.message = "Sorry we cannot do that."
+		}
+		redirect action: 'list', params: [ 
+			board: source,
+			current: params.current]
+	}
+
 }
