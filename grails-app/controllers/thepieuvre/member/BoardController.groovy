@@ -120,4 +120,18 @@ class BoardController {
 		redirect action: 'list'
 	}
 
+	def edit = {
+		Board board = Board.findByIdAndMember(params.board, springSecurityService.currentUser)
+		if (board) {
+			board.name = params.name
+		} else {
+			flash.message = "Sorry we cannot do that."
+		}
+
+		if (! board.validate()) {
+			flash.message = "Sorry we cannot edit the board: $board.errors"
+		}
+		redirect action: 'list', params: [board: board, current: board.id]
+	}
+
 }
