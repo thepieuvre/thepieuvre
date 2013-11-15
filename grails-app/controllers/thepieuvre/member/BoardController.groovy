@@ -19,7 +19,6 @@ class BoardController {
 	def list = {
 		Member member = springSecurityService.currentUser
 
-		// TODO Board.createCriteria().list(buildRequest(params)
 		def feeds
 		if (params.current) {
 			feeds = Board.findByIdAndMember(params.current as long, member)?.feeds
@@ -32,20 +31,6 @@ class BoardController {
 			board: Board.get(params.current), 
 			feeds: feeds,
 			filterParams: params]
-	}
-
-	private def buildFeedRequest(params) {
-		return {
-			if (params.title) {
-				and { ilike "title", "%${params.title}%"}
-			}
-			if (params.link) {
-				and { ilike "link", "%${params.link}%" }
-			}
-			if (params.sort) {
-				and { order "$params.sort", "$params.order" }
-			}
-		}
 	}
 
 	def delete(String id) {
