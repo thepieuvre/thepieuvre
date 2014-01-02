@@ -20,7 +20,9 @@
 	
 <p>Active: ${feed.active}</p>
 
-<p>Global: ${feed.global}</p>		
+<p>Global: ${feed.global}</p>	
+
+<p>Subscribers: ${thepieuvre.member.Member.where{feeds{id == feed.id}}.count()}</p>		
 
 <h3>Information</h3>
 <table class="table table-striped">
