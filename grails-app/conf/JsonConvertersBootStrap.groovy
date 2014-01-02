@@ -1,5 +1,7 @@
 import thepieuvre.core.Article
 import thepieuvre.core.Content
+import thepieuvre.core.Feed
+import thepieuvre.member.Member
 
 import grails.converters.JSON
 
@@ -34,7 +36,22 @@ class JsonConvertersBootStrap {
 			return json
 		}
 
+		JSON.registerObjectMarshaller(Feed) { f ->
+			def json = [:]
+			json.link = f.link
+			json.eTag = f.eTag
+			json.modified = f.modified
+			json.id = f.id
+			json.subscribers = Member.where {
+				feeds {
+					id == f.id
+				}
+			}.count()
+			return json
+		}
 	}
+
+
 
 	def destroy = {}
 }
