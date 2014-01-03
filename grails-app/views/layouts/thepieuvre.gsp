@@ -8,6 +8,8 @@
     <meta name="description" content="The Pieuvre - Reading the Internet: next generation of Internet reader.">
     <meta name="author" content="The P-Team">
 
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.thepieuvre.com/rss">
+
     <title>The Pieuvre</title>
 
     <!-- Bootstrap core CSS -->
