@@ -192,17 +192,22 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
 $(function(){ // document ready
  
   var stickyTop = $('.sticky').offset().top; // returns number 
+
+    $("#mini-logo").hide();
  
   $(window).scroll(function(){ // scroll event  
     var windowTop = $(window).scrollTop(); // returns number
  
     if (stickyTop < windowTop) {
-        $(".sticky").removeClass("navbar-fixed-100")
+        $(".sticky").removeClass("navbar-fixed-100");
         $(".sticky").addClass("navbar-fixed-top");
+        $("#mini-logo").show();
     }
     else {
-        $(".sticky").addClass("navbar-fixed-100")
-        $(".sticky").removeClass("navbar-fixed-top");    }
+        $(".sticky").addClass("navbar-fixed-100");
+        $(".sticky").removeClass("navbar-fixed-top");
+        $("#mini-logo").hide();
+    }
   });
  
 });

@@ -14,6 +14,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
+             <a id="mini-logo" style="font-family: 'Ubuntu', sans-serif; color: #7e1929;" class="navbar-brand" href="#"><img src="${resource(dir:'images', file:'logo-mini.png')}">The Pieuvre</a>
       </div>
 
       <div class="collapse navbar-collapse navbar-search-collapse">
