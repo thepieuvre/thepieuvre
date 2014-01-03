@@ -122,8 +122,8 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                         <div class="control-group">
                             <label class="control-label" for="message">Your message</label>
                             <div class="controls">
-                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" minlength="2" type="text" required ></textarea>
-                                <p class="help-block">Your message to the Pieuvre.</p>
+                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="1024" minlength="2" type="text" required ></textarea>
+                                <p class="help-block">Your message to the Pieuvre (only 1024 characters are allowed).</p>
                             </div>
                         </div>
                         <div id="fooDiv">
