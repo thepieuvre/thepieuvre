@@ -95,6 +95,20 @@
   					</div>
 				</div>
 				<div class="panel panel-info">
+					<div class="panel-heading"><strong>Igor Rosenberg</strong> (contributor)</div>
+					<div class="panel-body">
+						<div class="media">
+ 							<a class="pull-left" href="#">
+  							</a>
+  							<div class="media-body">
+  								<p>Igor is a software developper (mainly JVM based languages and JavaScript), having some previous research experience in distributed computing. He currently lives in Rennes, France, but remembers very fondly his 5 year stay in Barcelona. He also practices aikido in his free time, when he's not playing with his 4 year old son.</p>
+    							<p><strong>Pieuvre Contributions:</strong> proof-reading, python feeder, and friendship.</p>
+    							<p>More at <a href="http://igor.rosenberg.free.fr/public/">igor.rosenberg.free.fr/public</a></p>
+  							</div>
+						</div>
+  					</div>
+				</div>
+				<div class="panel panel-info">
 					<div class="panel-heading"><strong>Dominique Bruzzisi</strong> (marketing)</div>
 					<div class="panel-body">
 						<div class="media">
