@@ -8,6 +8,8 @@
     <meta name="description" content="The Pieuvre - Reading the Internet: next generation of Internet reader.">
     <meta name="author" content="The P-Team">
 
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.thepieuvre.com/rss">
+
     <title>The Pieuvre</title>
 
     <!-- Bootstrap core CSS -->
@@ -120,8 +122,8 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
                         <div class="control-group">
                             <label class="control-label" for="message">Your message</label>
                             <div class="controls">
-                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="255" minlength="2" type="text" required ></textarea>
-                                <p class="help-block">Your message to the Pieuvre.</p>
+                                <textarea cols="50" rows="10" type="textarea" class="input-xlarge" name="message" maxlength="1024" minlength="2" type="text" required ></textarea>
+                                <p class="help-block">Your message to the Pieuvre (only 1024 characters are allowed).</p>
                             </div>
                         </div>
                         <div id="fooDiv">
@@ -190,17 +192,22 @@ Developed in Sophia Antipolis, France - ${new java.text.SimpleDateFormat('MMMM y
 $(function(){ // document ready
  
   var stickyTop = $('.sticky').offset().top; // returns number 
+
+    $("#mini-logo").hide();
  
   $(window).scroll(function(){ // scroll event  
     var windowTop = $(window).scrollTop(); // returns number
  
     if (stickyTop < windowTop) {
-        $(".sticky").removeClass("navbar-fixed-100")
+        $(".sticky").removeClass("navbar-fixed-100");
         $(".sticky").addClass("navbar-fixed-top");
+        $("#mini-logo").show();
     }
     else {
-        $(".sticky").addClass("navbar-fixed-100")
-        $(".sticky").removeClass("navbar-fixed-top");    }
+        $(".sticky").addClass("navbar-fixed-100");
+        $(".sticky").removeClass("navbar-fixed-top");
+        $("#mini-logo").hide();
+    }
   });
  
 });
