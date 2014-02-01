@@ -17,3 +17,7 @@ eventWebXmlStart = { filename ->
 		[monitoring: FilterManager.GRAILS_WEB_REQUEST_POSITION + 110]
 	}
 }
+
+eventCompileStart = { msg ->
+    new File("grails-app/views/_svn.gsp").text = ("git rev-parse HEAD".execute().text)
+}
