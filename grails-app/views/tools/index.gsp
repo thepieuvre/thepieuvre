@@ -6,6 +6,11 @@
 	</head>
 	<body>
 
+    <h2>Information</h2>
+
+    <p>Version: ${grailsApplication.metadata['app.version']}</p>
+    <p>Build on Commit: <g:render template="/svn"/></p>
+
 <h2>Administration Tools</h2>
 
 <ul>
