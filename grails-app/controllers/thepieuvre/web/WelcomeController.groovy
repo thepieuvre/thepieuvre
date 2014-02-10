@@ -241,8 +241,9 @@ $message
 		}
 
 		if (cmd.validate()) {
+            Member m
 			try {
-				Member m = memberService.signUp(cmd.properties)
+				m = memberService.signUp(cmd.properties)
 				memberService.verificationNotification(m)
 				log.info "New member signed up: $m"
 				springSecurityService.reauthenticate m.username
