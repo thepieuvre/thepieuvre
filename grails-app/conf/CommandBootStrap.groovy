@@ -97,6 +97,23 @@ class CommandBootStrap {
 			unfollow.save(failOnError: true)
 		}
 
+        if (! Command.findByName('doctor')) {
+            Command doctor = new Command(
+                    name: 'doctor',
+                    action: '''
+{ def args ->
+    def r = "\\tQueue Name\\t-\\tQueue Length\\n"
+    hermes.queues.each {
+        r += "\\t$it.value\\t-\\t${hermes.length(it.value)}\\n"
+    }
+    return r
+}
+                    ''',
+                    help: 'displays information on the system',
+                    sudo: true
+            )
+            doctor.save(failOnError: true)
+        }
 		println "Commands boostraped."
 	}
 
