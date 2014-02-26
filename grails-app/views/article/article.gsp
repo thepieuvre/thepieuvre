@@ -76,7 +76,7 @@
           <h4>${sorted.key}</h4>
           <g:each in="${sorted.value}" var="similar">
             <g:link action="article" id="${similar.article.id}" class="list-group-item">
-                <h4 class="list-group-item-heading">${similar.title()}  <small>@ ${similar.feedName()}</small></h4>
+                <h4 class="list-group-item-heading">${similar.title()}  <small>@ ${similar.feedName()} on ${similar.article.published}</small></h4>
               </g:link>
           </g:each>
         </g:each>

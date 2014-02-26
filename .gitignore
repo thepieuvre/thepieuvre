@@ -11,3 +11,5 @@ Todo.txt
 *.war
 .gitignore
 target/
+
+grails-app/views/_svn.gsp
