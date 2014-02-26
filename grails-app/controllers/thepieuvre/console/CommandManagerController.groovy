@@ -81,11 +81,12 @@ class CommandManagerController {
 		log.debug "Updating command: $params"
 		withCommand { cmd ->
 			cmd.name = name
-			cmd.action = command
+			cmd.action = (command && command != '')?command:null
 			cmd.help = help
-			cmd.comment = comment
-			cmd.active = (active == 'on')?true:false
-			cmd.sudo = (sudo == 'on')?true:false
+			cmd.comment = (comment && comment != '')?comment:null
+			cmd.active = (active && active == 'on')?true:false
+			cmd.sudo = (sudo && sudo == 'on')?true:false
+            cmd.validate()
 			if (cmd.hasErrors()) {
 				log.info "The  command contains some errors: ${cmd.errors}"
 				render view: 'edit', model: ['cmd': cmd], params: params

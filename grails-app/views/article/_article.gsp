@@ -37,7 +37,7 @@
     <ul class="list-group">
         <g:each status="i" in="${similars.values()}" var="similar">
             <li class="list-group-item">
-                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()}</small>
+                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()} on ${similar.article.published}</small>
             </li>
         </g:each>
     </ul>
@@ -93,7 +93,7 @@
     <ul class="list-group">
         <g:each status="i" in="${similars.values()}" var="similar">
             <li class="list-group-item">
-                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()}</small>
+                <g:link action="article" id="${similar.article.id}">${similar.title()}</g:link> <small class="muted">@ ${similar.feedName()} on ${similar.article.published}</small>
             </li>
         </g:each>
     </ul>

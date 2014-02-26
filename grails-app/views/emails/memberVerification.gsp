@@ -6,9 +6,7 @@
 
 		<p>The Pieuvre welcomes you on board!</p>
 
-		<p>Before going further, you need to validate your email address by clicking on this <a href="${validationUrl}">link</a>.</p>
-
-		<small>Your membership will be canceled in seven days, if you don't validate your email address.</small>
+        <p>Log on at <a href="http://www.thepieuvre.com">thepieuvre.com</a>.</p>
 
 		<br />
 		<p>The Pieuvre team</p>

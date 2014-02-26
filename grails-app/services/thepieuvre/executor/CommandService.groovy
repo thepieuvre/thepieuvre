@@ -6,6 +6,8 @@ class CommandService {
 
 	def memberService
 
+    def grailsApplication
+    def queuesService
 	def springSecurityService
 
 	def delete (Command cmd) {
@@ -40,6 +42,8 @@ class CommandService {
 		if (cmd.sudo) {
 			binding.setVariable('user', springSecurityService.currentUser)
 			binding.setVariable('memberService', memberService)
+            binding.setVariable('config', grailsApplication.config.clone())
+            binding.setVariable('hermes', queuesService)
 		}
 		GroovyShell sh = new GroovyShell(binding)
 		def closure = sh.evaluate(cmd.action)
