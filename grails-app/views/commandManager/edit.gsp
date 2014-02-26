@@ -67,17 +67,18 @@
 			 <div class="col-lg-offset-2 col-lg-10">
 			<div class="checkbox">
 				<label>
-				<input type="checkbox" name="active" value="${true}" checked="${(fieldValue(bean:cmd,field:'active'))?:'true'}">
+				<input type="checkbox" name="active" value="on" ${(active)?'checked':''}>
 					Is Active
 				</label>
 			</div>
 			</div>
 		</div>
+
 		<div class="form-group">
 			 <div class="col-lg-offset-2 col-lg-10">
 			<div class="checkbox">
 				<label>
-				<input type="checkbox" name="sudo" value="${true}" checked="${(fieldValue(bean:cmd,field:'sudo'))?:'true'}">
+				<input type="checkbox" name="sudo" value="on" ${(sudo)?'checked':''}>
 					Is Sudo
 				</label>
 			</div>
