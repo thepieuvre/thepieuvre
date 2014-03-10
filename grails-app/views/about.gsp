@@ -16,6 +16,7 @@
 	        	    	<li><a href="#news">News & Blog</a></li>
 	        	    	<li><a href="#contactUs" >Contact Us</a></li>
 	        	    	<li><a href="#magic"> Underlying Magic</a></li>
+                        <li><a href="#community"> Get Involved - Develop</a></li>
 	        	    	<li><a href="#pteam" >P-Team</a></li>
 	        	    	<li><a href="#history" >History</a></li>
 					</ul>    
@@ -66,9 +67,13 @@
 				<p>Answering to your contact requests is one of our priority, you can be sure you will hear from us qfter you mqde the first contact.</p>
 				<p class="text-muted">For any enquiries about business, partnership proposals, press, advertising, you can email: alex [at] thepieuvre.com</p>
 				<hr>
-				<h1 id="magice">Underlying Magic</h1>
+				<h1 id="magic">Underlying Magic</h1>
 				Coming soon...
 				<hr>
+                <h1 id="community">Get Involved - Develop</h1>
+                <p>The Pieuvre's source code is open. You are free to contribute :)</p>
+                <p>Everything at <a href="https://github.com/thepieuvre/">https://github.com/thepieuvre/</a>.</p>
+                <hr>
 				<h1 id="pteam">P-Team</h1>
 				<p>This is the great Pieuvre's team (P-Team).</p>
 				<div class="panel panel-info">
@@ -144,6 +149,8 @@
   					<dd>Many performance improvements of the core system and the similar sorting algorithm.</dd>
   					<dt>November 2013</dt>
   					<dd>One Million articles indexed ! The blog is online too.</dd>
+                    <dt>March 2014</dt>
+                    <dd>Open sourcing all the code under Eclipse Public Licence.</dd>
 				</dl>
 			</div>
 		</div>
