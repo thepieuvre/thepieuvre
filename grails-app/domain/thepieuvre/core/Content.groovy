@@ -20,7 +20,7 @@ class Content {
 	static constraints = {
 		raw maxSize: 1048576
 		fullText nullable: true, maxSize: 1048576
-		mainImage nullable: true, url: true
+		mainImage nullable: true, url: true, maxSize: 1024
         language nullable: true
 	}
 	
