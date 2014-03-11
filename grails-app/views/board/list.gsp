@@ -57,7 +57,8 @@
 						</g:if>
 						<hr>
 						<h3>Feeds</h3>
-						<table class="table table-striped table-hover">
+                        <div class="table-responsive">
+						<table class="table table-striped table-hover table-bordered table-condensed">
 							<thead>
 								<tr>
 									<g:sortableColumn property="title" params="${filterParams}" title="Title" />
@@ -110,6 +111,7 @@
 								</g:each>
 							</tbody>
 						</table>
+                            </div>
 					</div>
 				</div>
 			</div>
