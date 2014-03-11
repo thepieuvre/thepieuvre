@@ -68,7 +68,7 @@
 				<p class="text-muted">For any enquiries about business, partnership proposals, press, advertising, you can email: alex [at] thepieuvre.com</p>
 				<hr>
 				<h1 id="magic">Underlying Magic</h1>
-				Coming soon...
+                <iframe src="https://docs.google.com/presentation/d/1fWWytQQnetZyIxKdjdXUPfAkkfMbnPo_429OHa9P-VA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="683" height="541" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 				<hr>
                 <h1 id="community">Get Involved - Develop</h1>
                 <p>The Pieuvre's source code is open. You are free to contribute :)</p>
