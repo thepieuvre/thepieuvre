@@ -117,12 +117,10 @@ grails.plugins.springsecurity.authority.className = 'thepieuvre.security.Role'
 
 // Security Configuration
 grails.plugins.springsecurity.rejectIfNoRule     = true
-grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.useX509            = false
 grails.plugins.springsecurity.useBasicAuth       = true
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
 grails.plugins.springsecurity.password.algorithm = 'SHA-512'
-grails.plugins.springsecurity.securityConfigType = "Annotation"
 grails.plugins.springsecurity.cacheUsers = false
 grails.plugins.springsecurity.basic.realmName = 'THE-PIEUVRE'
 
