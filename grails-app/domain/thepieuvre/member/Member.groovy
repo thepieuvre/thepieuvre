@@ -12,6 +12,7 @@ class Member extends User {
 	}
 
 	SortedSet boards
+	SortedSet feeds
 	
 	static hasMany = [feeds: Feed, boards: Board]
 
